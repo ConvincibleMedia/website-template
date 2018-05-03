@@ -27,9 +27,6 @@ module.exports = function(grunt) {
       },
 
       concurrent: {
-         compile: [
-            'sass' // SASS is compiled from source directory
-         ],
          optimise: [
             'postcss', 'htmlmin', 'uglify' // Output files are optimised
          ],
@@ -65,18 +62,30 @@ module.exports = function(grunt) {
       postcss: {
          options: {
             map: true,
-            processors: [
-               require('autoprefixer')(),
-               require('cssnano')()
-            ]
          },
-         public: {
+         dev: {
+            options {
+               processors: [
+                  require('autoprefixer')()
+               ]
+            },
+            src: 'public/assets/css/**/*.css'
+         },
+         prod: {
+            options {
+               processors: [
+                  require('autoprefixer')({
+                     browsers: 'last 3 version, > 0.2%'
+                  }),
+                  require('cssnano')()
+               ]
+            },
             src: 'public/assets/css/**/*.css'
          }
       },
 
       htmlmin: {
-         public: { // Target
+         prod: { // Target
             options: {
                removeComments: true,
                collapseWhitespace: true
@@ -91,7 +100,7 @@ module.exports = function(grunt) {
       },
 
       uglify: {
-         public: {
+         prod: {
             options: {
                compress: true,
                mangle: false,
@@ -110,7 +119,7 @@ module.exports = function(grunt) {
 
    grunt.registerTask('build', [
       'shell:jekyllBuild', // Jekyll builds markdown/liquid
-      'concurrent:compile',
+      'sass', '',
       'concurrent:optimise'
    ]);
    grunt.registerTask('serve', [
