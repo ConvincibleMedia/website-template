@@ -30,21 +30,20 @@ exclude:
 #keep_files:
 #- public/assets
 
-# Defaults
-defaults:
-  - scope:
-      path:                   "" # an empty string here means all files in the project
-    values:
-      layout:                 "base"
-
-permalink:                    ":slug.html"
-
 # Collections
 collections:
   root:
-    output:                   true
-    permalink:                "/:path"
+    output:                  true
+    permalink:               "/:path"
   pages:
-    title:                    "Pages"
-    output:                   true
-    permalink:                "/:path"
+    output:                  true
+    permalink:               "/:path"
+
+# Defaults
+defaults:
+  - scope:
+      path:                  "_pages"
+    values:
+      layout:                "base"
+
+permalink:                   ":slug.html"
