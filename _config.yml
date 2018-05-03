@@ -1,0 +1,45 @@
+# Basic settings
+title: "Website by Convincible"
+
+# Build settings
+source: "source"
+destination: "public"
+
+markdown: "kramdown"
+kramdown:
+  auto_id_prefix: "h-"
+  auto_ids: true
+  auto_id_stripping: true
+  entity_output: symbolic
+  hard_wrap: false
+  header_offset: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..2
+  transliterated_header_ids: true
+  show_warnings: false
+# show_drafts: null
+# future: false
+# unpublished: false
+excerpt_separator: "\n\n"
+strict_front_matter: true
+
+include:
+- "_redirects"
+# exclude:
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "base"
+
+permalink: ":slug.html"
+
+# Collections
+#collections:
+#  pages:
+#    title: "Pages"
+#    output: true
+#    permalink: "/:path"
