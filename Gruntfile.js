@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       concurrent: {
          optimise: [
             'postcss:minify', 'htmlmin', 'uglify' // Output files are optimised
-         ],
+         ]
       },
 
       // =============
@@ -61,20 +61,21 @@ module.exports = function(grunt) {
 
       postcss: {
          options: {
-            map: true,
+            map: true
          },
          autoprefix: {
-            options {
+            options: {
                processors: [
                   require('autoprefixer')({
+                     remove: false,
                      browsers: 'last 3 version, > 0.2%'
-                  }),
+                  })
                ]
             },
             src: 'public/assets/css/**/*.css'
          },
          minify: {
-            options {
+            options: {
                processors: [
                   require('cssnano')()
                ]

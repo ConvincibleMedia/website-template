@@ -1,2 +1,3 @@
-alert("hi"),alert("bye");
-//# sourceMappingURL=main.js.map
+alert('hi');
+
+alert('bye');
