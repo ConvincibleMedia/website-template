@@ -17,6 +17,12 @@ module.exports = function(grunt) {
          },
          jekyllServe: {
             command: 'jekyll serve --no-watch --skip-initial-build'
+         },
+         datoDump: {
+            command: 'bundle exec dato dump'
+         },
+         datoBackup: {
+            command: 'node dato.backup.js'
          }
       },
 
@@ -102,13 +108,16 @@ module.exports = function(grunt) {
 
    });
 
-   grunt.registerTask('serve', [
-      'shell:jekyllServe'
-   ]);
    grunt.registerTask('build', [
       'shell:jekyllBuild', // Jekyll builds markdown/liquid
       'concurrent:compile',
       'concurrent:optimise'
+   ]);
+   grunt.registerTask('serve', [
+      'shell:jekyllServe'
+   ]);
+   grunt.registerTask('backup', [
+      'shell:datoBackup'
    ]);
 
    grunt.registerTask('default', 'build');
