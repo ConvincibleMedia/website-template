@@ -68,7 +68,8 @@ module.exports = function(grunt) {
                processors: [
                   require('autoprefixer')({
                      remove: false,
-                     browsers: 'last 3 version, > 0.2%'
+                     grid: true,
+                     browsers: 'last 3 versions, > 0.2% in GB'
                   })
                ]
             },
