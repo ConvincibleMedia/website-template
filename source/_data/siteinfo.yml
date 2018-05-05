@@ -1,0 +1,11 @@
+title:         Website Template
+url:           example.com
+seo:
+  title:       Website Template
+  description:
+  image:
+  separator:   "/"
+  suffix:
+  hidden:      true
+langs:
+  - "en"

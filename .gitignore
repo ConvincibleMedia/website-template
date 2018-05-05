@@ -4,6 +4,7 @@
 *.db
 *.ini
 *.log
+.jekyll-metadata
 node_modules
 node_modules/
 .sass-cache/

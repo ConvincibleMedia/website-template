@@ -1,0 +1,32 @@
+{%- assign sep = site.data.siteinfo.seo.separator -%}
+{%- if page.name == 'index.md' -%}{%- assign home = true -%}{%- else -%}{%- assign home = false -%}{%- endif -%}
+{%- capture this_page -%}
+   {%- if page.seo.title or site.data.siteinfo.seo.title or page.title -%}
+      {%- if page.seo.title -%}
+         {{ page.seo.title }}
+      {%- elsif page.title -%}
+         {{ page.title }}
+      {%- elsif site.data.siteinfo.seo.title -%}
+         {{ site.data.siteinfo.seo.title }}
+      {%- endif -%}
+   {%- endif -%}
+{%- endcapture -%}
+{%- capture page_title -%}
+   {{ this_page }}
+   {%- if page.parents -%}
+      {%- for parent in page.parents -%}
+         {%- unless site.data.breadcrumbs.hidden contains parent.id %} {{ sep }} {{ parent.title }}{%- endunless -%}
+      {%- endfor -%}
+   {%- endif -%}
+   {%- if this_page != site.data.siteinfo.title %} {{ sep }} {{ site.data.siteinfo.title | default: site.title }}{%- endif -%}
+   {%- if site.data.siteinfo.seo.suffix.size > 0 %} {{ sep }} {{ site.data.siteinfo.seo.suffix }}{%- endif -%}
+{%- endcapture -%}
+{%- capture page_description -%}
+   {%- if page.seo.description -%}
+      {{ page.seo.description }}
+   {%- elsif page.blurb -%}
+      {{ page.blurb | markdownify | strip_html | newline_to_br | split: '<br />' | join: ' ' | strip_newlines }}
+   {%- elsif page.excerpt -%}
+      {{ page.excerpt | markdownify | strip_html | newline_to_br | split: '<br />' | join: ' ' | strip_newlines | truncatewords: 50 }}
+   {%- endif %} {{ site.data.siteinfo.seo.description }}
+{%- endcapture -%}

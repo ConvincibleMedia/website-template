@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-GB">
+<html class="no-js" lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title>{{ site.title }}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% if page.hidden %}<meta name="robots" content="NOINDEX, NOFOLLOW" />{% endif %}
+		{% include snippets/gtm.html pos="head" %}<!-- must be high as possible in <head> -->
+
+		<!-- SEO -->
+		{% include logic/pageinfo.liquid %}
+		<title>{{ page_title | escape }}</title>
+		<meta name="description" content="{{ page_description | escape }}" />
+
+		<!-- STYLES -->
+		<link rel="stylesheet" href="{{ site.folders.css }}/lib/normalize/normalize.css" />
+		<link rel="stylesheet" href="{{ site.folders.css }}/lib/boilerplate/boilerplate.css" />
+		<link rel="stylesheet" href="{{ site.folders.css }}/lib/bootstrap/bootstrap-grid.css" />
+		<link rel="stylesheet" href="{{ site.folders.css }}/main.css" />
+
+		<!-- SCRIPTS -->
+		{% include snippets/scripts.html %}
+
+		<!-- OTHER -->
+		{% include snippets/compatibility.html %}
+		{% include snippets/verify.html %}
+		{% include snippets/favicon.html %}
 	</head>
-	<body>
-		{{ content }}
+	<body id="top">
+		{% include snippets/gtm.html pos="body" %}<!-- must be immediately after <body> -->
+		{% include snippets/browser.html %}
+
+		<!-- BODY -->
+
+
+
+		<!-- /BODY -->
+
+		<!--
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="/assets/scripts/libraries/jquery/jquery-plugins.js"></script>
+		<script src="/assets/scripts/libraries/matchheight/matchHeight.jquery.js"></script>
+		<script src="/assets/scripts/main.js"></script>
+		//-->
+		<!--
+		<script>
+			head.ready('webfont', function() {
+				WebFont.load({
+					google: {
+						families: ['Didact Gothic']
+					}
+				});
+			});
+		</script>
+		//-->
 	</body>
 </html>

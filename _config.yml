@@ -1,10 +1,67 @@
 # Basic settings
-title:                        "Website by Convincible"
+title:                        "Website by Convincible" # Don't need to change this
+
+# Site settings
+uid:
+  gtm:                        ""
+  pin:                        ""
+  wot:                        ""
+
+
+# Theme
+theme:
+  color-1:                    "#ff6633"
+  color-2:                    ""
+  color-3:                    ""
+  color-4:                    ""
+  color-5:                    ""
+  color-6:                    ""
+  bg:                         "#ffffff"
+  text:                       "#000000"
+  text-reverse:               "#ffffff"
+
+
+
+# Asset folders
+folders:
+  assets:                     '/assets'
+  css:                        '/assets/css'
+  js:                         '/assets/js'
+  img:                        '/assets/img'
+
 
 # Build settings
 source:                       "source"
 destination:                  "public"
+include:
+- "_redirects"
+exclude:
+- assets/css
+#keep_files:                  # Don't clear from public
+#- public/assets
 
+
+# Collections
+collections:
+  root:
+    output:                   true
+    permalink:                "/:name"
+  pages:
+    output:                   true
+    permalink:                "/:path"
+
+
+# Defaults
+defaults:
+  - scope:
+      path:                   "_pages"
+    values:
+      layout:                 "base"
+
+permalink:                    ":slug.html"
+
+
+# Markdown
 markdown:                     "kramdown"
 kramdown:
   auto_id_prefix:             "h-"
@@ -22,28 +79,3 @@ kramdown:
 # unpublished:                false
 excerpt_separator:            "\n\n"
 strict_front_matter:          true
-
-include:
-- "_redirects"
-exclude:
-- assets/css
-#keep_files:
-#- public/assets
-
-# Collections
-collections:
-  root:
-    output:                  true
-    permalink:               "/:path"
-  pages:
-    output:                  true
-    permalink:               "/:path"
-
-# Defaults
-defaults:
-  - scope:
-      path:                  "_pages"
-    values:
-      layout:                "base"
-
-permalink:                   ":slug.html"
