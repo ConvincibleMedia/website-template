@@ -1,22 +1,28 @@
+require 'jekyll'
+
 module Jekyll
-  class PageInfo < Generator
-    def generate(site)
+	class PageInfo < Generator
+		safe true
+		priority :highest
 
-      sep = site.data.siteinfo.seo.separator || ''
+		def generate(site)
+			@site = site
 
-      @site = site
-      site.pages.each do |page|
+			sep = site.data['siteinfo']['seo']['separator'] || ''
 
-         # Meta tags
-         page.data['meta'] = {
-            title: 'test',
-            description: 'testdesc'
-         }
+			site.pages.each { |page|
 
-         # Home page?
-         page.data['home'] = page.url == 'index.html'
+				# Meta tags
+				page.data['meta'] = {
+					'title' => 'testtitle',
+					'description' => 'testdesc'
+				}
 
-      end
+				# Home page?
+				page.data['home'] = page.url == '/index'
 
-  end
+			}
+
+		end
+	end
 end

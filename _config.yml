@@ -9,7 +9,7 @@ uid:
 
 
 # Theme
-theme:
+brand:
   color-1:                    "#ff6633"
   color-2:                    ""
   color-3:                    ""
@@ -24,10 +24,10 @@ theme:
 
 # Asset folders
 folders:
-  assets:                     '/assets'
-  css:                        '/assets/css'
-  js:                         '/assets/js'
-  img:                        '/assets/img'
+  assets:                     "/assets"
+  css:                        "/assets/css"
+  js:                         "/assets/js"
+  img:                        "/assets/img"
 
 
 # Build settings
@@ -36,8 +36,8 @@ destination:                  "public"
 include:
 - "_redirects"
 exclude:
-- assets/css
-#keep_files:                  # Don't clear from public
+- "/assets/css" # managed by Grunt
+#keep_files: # Don't clear from public
 #- public/assets
 
 
@@ -67,11 +67,11 @@ kramdown:
   auto_id_prefix:             "h-"
   auto_ids:                   true
   auto_id_stripping:          true
-  entity_output:              symbolic
+  entity_output:              "symbolic"
   hard_wrap:                  false
   header_offset:              1
-  smart_quotes:               lsquo,rsquo,ldquo,rdquo
-  toc_levels:                 1..2
+  smart_quotes:               "lsquo,rsquo,ldquo,rdquo"
+  toc_levels:                 "1..2"
   transliterated_header_ids:  true
   show_warnings:              false
 # show_drafts:                null

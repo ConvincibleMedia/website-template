@@ -7,8 +7,8 @@
 
 		<!-- SEO -->
 		{% include logic/pageinfo.liquid %}
-		<title>{{ page_title | escape }}</title>
-		<meta name="description" content="{{ page_description | escape }}" />
+		<title>{{ page.meta.title | escape }}</title>
+		<meta name="description" content="{{ page.meta.description | escape }}" />
 
 		<!-- STYLES -->
 		<link rel="stylesheet" href="{{ site.folders.css }}/lib/normalize/normalize.css" />
@@ -30,7 +30,7 @@
 
 		<!-- BODY -->
 
-
+		{{ content }}
 
 		<!-- /BODY -->
 
