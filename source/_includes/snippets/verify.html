@@ -1,4 +1,4 @@
-{% if home == true %}
+{% if page.home %}
    {% if site.uid.pin != "" %}<meta name="p:domain_verify" content="{{ site.uid.pin }}" />{% endif %}
    {% if site.uid.wot != "" %}<meta name="wot-verification" content="{{ site.uid.wot }}" />{% endif %}
 {% endif %}
