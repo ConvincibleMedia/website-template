@@ -26,7 +26,7 @@ def expect(var, var_class = NilClass, var_def = nil)
 	return ret
 end
 
-def ifnotempty(str, str_strip = false)
+def present?(str, str_strip = true)
 	if str.is_a? String
 		if str_strip then str = str.strip end
 		if str.length > 0
@@ -36,7 +36,7 @@ def ifnotempty(str, str_strip = false)
 	return false
 end
 
-def ifkey(hash, hash_keys, hash_def = nil)
+def key?(hash, hash_keys, hash_def = nil)
 	if (hash.is_a? Hash) && !hash.empty?
 		if hash_keys.is_a? Array
 			key_exists = true
