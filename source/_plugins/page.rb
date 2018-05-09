@@ -10,7 +10,8 @@ module Jekyll
 
 			sep = site.data['siteinfo']['seo']['separator'] || ''
 
-			site.pages.each { |page|
+			# Iterate over the _pages collection only
+			site.collections['pages'].docs.each { |page|
 
 				# Meta tags
 				page.data['meta'] = {
