@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    {% for page in site.data.sitemap.pages %}
-      {% unless page[1].hidden or site.data.settings.seo.hidden %}
+      {% unless page[1].hidden or site.data.siteinfo.seo.hidden %}
          <!-- PageID: {{ page[0] }} -->
          <url>
             <loc>{% if jekyll.environment == 'production' %}{{ site.data.settings.url }}{% endif %}{{ page[1].loc }}</loc>

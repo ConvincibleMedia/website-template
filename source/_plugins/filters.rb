@@ -4,7 +4,7 @@ module Jekyll
 
    module Helpers
 
-		include Liquid::StandardFilters
+		include Liquid::StandardFilters # override and extend
 
 		extend self # Make all methods (including those included above) statically available
 
