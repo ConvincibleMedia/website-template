@@ -1,11 +1,13 @@
-title:         Website Template
-url:           example.com
+title:         "Website Template"
+url:           "example.com"
 seo:
-  title:       Website Template
-  description:
+  title:       "Webpage"
+  description: "Website by Convincible"
   image:
-  separator:   "/"
-  suffix:
+  separator:   ""
+  suffix:      "(Example Website)"
+  ignore:
+    - ""
   hidden:      true
 langs:
   - "en"

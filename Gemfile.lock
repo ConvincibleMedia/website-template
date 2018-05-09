@@ -49,7 +49,7 @@ GEM
       concurrent-ruby (~> 1.0)
     imgix (1.1.0)
       addressable
-    jekyll (3.8.0)
+    jekyll (3.8.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)

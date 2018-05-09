@@ -1,5 +1,13 @@
+require_relative "../../helpers"
+
 module Jekyll
-   module HelperFilters
+
+   module Helpers
+
+		include Liquid::StandardFilters
+
+		extend self # Make all methods (including those included above) statically available
+
 
       def imgify(content)
          formats = @context.registers[:site].data['images']
@@ -72,4 +80,4 @@ module Jekyll
    end
 end
 
-Liquid::Template.register_filter(Jekyll::HelperFilters)
+Liquid::Template.register_filter(Jekyll::Helpers)
