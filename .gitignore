@@ -4,6 +4,7 @@
 *.db
 *.ini
 *.log
+*.map
 .jekyll-metadata
 node_modules
 node_modules/

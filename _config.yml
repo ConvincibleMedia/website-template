@@ -5,11 +5,13 @@
 # Basic settings
 title:                        "Website by Convincible" # Don't need to change this - will be overridden
 
+
 # Site settings
 uid:
   gtm:                        ""
   pin:                        ""
   wot:                        ""
+  gmaps:                      ""
 
 
 # Theme
@@ -23,6 +25,11 @@ brand:
   bg:                         "#ffffff"
   text:                       "#000000"
   text-reverse:               "#ffffff"
+
+
+# Define core layouts
+layouts:
+  primary:                    'page'
 
 
 # Asset folders
@@ -40,7 +47,7 @@ include:
 - "_redirects"
 exclude:
 - "/assets" # managed by Grunt
-#keep_files: # Don't clear from public
+#keep_files:                  # Don't clear from public
 #- public/assets
 
 

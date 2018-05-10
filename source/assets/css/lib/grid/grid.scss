@@ -1,11 +1,12 @@
-//----- Extends
+//
 
 %clearfix:after {
    display: block;
    clear: both;
    content: '';
 }
-//----- Grid System
+
+// SYSTEM
 $grid-spacing: 3%;
 
 .row {
