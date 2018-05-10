@@ -39,7 +39,7 @@ destination:                  "/public"
 include:
 - "_redirects"
 exclude:
-- "/assets/css" # managed by Grunt
+- "/assets" # managed by Grunt
 #keep_files: # Don't clear from public
 #- public/assets
 

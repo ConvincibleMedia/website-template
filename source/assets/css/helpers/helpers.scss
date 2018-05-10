@@ -1,0 +1,21 @@
+@function enumerate($pre:'', $from:1, $to:1, $post:'') {
+	@if $from == $to {
+		@return $pre + $from + $post;
+	} @else {
+		@return $pre + $from + $post + ', ' + enumerate($pre, $from + 1, $to, $post);
+	}
+}
+
+@function h($from:1, $to:6, $class:'') {
+	@return #{enumerate('h', 1, 6, $class)}, #{enumerate('.h', 1, 6, $class)};
+}
+
+@function a($type:'') {
+	@if $type == 'base' {
+		@return 'a, a:link, a:visited, a:not([href]):hover';
+	} @else if $type == 'hover' {
+		@return 'a:hover, a:active, a:focus, a.hover';
+	} @else {
+		@return 'a, a:link, a:visited, a:not([href]):hover, a:hover, a:active, a:focus, a.hover';
+	}
+}
