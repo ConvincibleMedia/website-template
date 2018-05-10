@@ -58,9 +58,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'source/assets/',
 					src: [
-						'js/vendor/head',
-						'js/vendor/html5shiv',
-						'js/vendor/jquery'
+						'js/vendor/{head, html5shiv, jquery}/**/*.*'
 					],
 					dest: 'public/assets/'
 				}],
