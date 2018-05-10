@@ -28,7 +28,7 @@ brand:
 
 
 # Define core layouts
-layouts:
+templates:
   primary:                    'page'
 
 

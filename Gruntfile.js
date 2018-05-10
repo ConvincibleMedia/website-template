@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 		// =============
 
 		concat: {
-			prod: { // Target
+			js: {
 				options: {
 				//	//banner: "'use strict';\n",
 				//	process: function(src, filepath) {
@@ -50,12 +50,30 @@ module.exports = function(grunt) {
 				//	},
 				//	separator: "\n"
 				},
-				files: { // destination: [sources]
-					'<%= dirs.dest %>/assets/js/main.js': [
+				files: [{
+					src: [
 						'<%= dirs.src %>/assets/js/helpers/*.js',
 						'<%= dirs.src %>/assets/js/layouts/page.js',
 					],
+					dest: '<%= dirs.dest %>/assets/js/main.js'
+				}],
+			},
+			css: {
+				options: {
+				//	//banner: "'use strict';\n",
+				//	process: function(src, filepath) {
+				//		return src;
+				//	},
+				//	separator: "\n"
 				},
+				files: [{
+					src: [
+						'<%= dirs.src %>/assets/css/helpers/*.scss',
+						'<%= dirs.src %>/assets/css/lib/**/*.scss',
+						'<%= dirs.src %>/assets/css/layouts/page.css',
+					],
+					dest: '<%= dirs.dest %>/assets/css/main.css'
+				}],
 			},
 		},
 
