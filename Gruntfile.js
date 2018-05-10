@@ -2,11 +2,15 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	//grunt.loadNpmTasks('grunt-contrib-concat'); //
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-includes');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -15,6 +19,10 @@ module.exports = function(grunt) {
 			src: '/source',
 			dest: '/public',
 		},
+
+		// =============
+		// COMMANDS
+		// =============
 
 		shell: {
 			jekyllBuild: {
@@ -37,18 +45,63 @@ module.exports = function(grunt) {
 			]
 		},
 
+
+		// =============
+		// FILES
+		// =============
+
+		clean: ['/public', '/temp'],
+
+		copy: {
+			vendors: {
+				files: [{
+					expand: true,
+					cwd: 'source/assets/',
+					src: [
+						'js/vendor/head',
+						'js/vendor/html5shiv',
+						'js/vendor/jquery'
+					],
+					dest: 'public/assets/'
+				}],
+			},
+		},
+
+
 		// =============
 		// CONCATENATION
 		// =============
 
+		includes: {
+			js: {
+				options: {
+					includeRegexp: /^(\s*)\/\/\s*@import\s+['"]?([^'"]+)['"]?\s*$/,
+					duplicates: false,
+					debug: true,
+					filenameSuffix: '.js'
+				},
+				files: [{
+					expand: true,
+					cwd: 'source/assets/js/',
+					src: [
+						'{features, layouts}/*.js',
+						'*.js'
+					],
+					dest: 'public/assets/js/',
+					ext: '.js'
+				}]
+			},
+		},
+
 		concat: {
 			js: {
 				options: {
-				//	//banner: "'use strict';\n",
-				//	process: function(src, filepath) {
-				//		return src;
-				//	},
-				//	separator: "\n"
+					//	//banner: "'use strict';\n",
+					//	process: function(src, filepath) {
+					//		return src;
+					//	},
+					//	separator: "\n",
+					sourceMap: true
 				},
 				files: [{
 					src: [
@@ -60,11 +113,11 @@ module.exports = function(grunt) {
 			},
 			css: {
 				options: {
-				//	//banner: "'use strict';\n",
-				//	process: function(src, filepath) {
-				//		return src;
-				//	},
-				//	separator: "\n"
+					//	//banner: "'use strict';\n",
+					//	process: function(src, filepath) {
+					//		return src;
+					//	},
+					//	separator: "\n"
 				},
 				files: [{
 					src: [
@@ -77,6 +130,7 @@ module.exports = function(grunt) {
 			},
 		},
 
+
 		// =============
 		// COMPILATION
 		// =============
@@ -86,6 +140,10 @@ module.exports = function(grunt) {
 				sourceMap: true,
 				relativeAssets: false,
 				outputStyle: 'expanded',
+				// nested = show selector depth structure
+				// expanded = prettified like a human would write it
+				// compact = one line per selector/properties
+				// compressed = minified
 				sassDir: 'source/assets/css',
 				cssDir: 'public/assets/css'
 			},
@@ -93,7 +151,11 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: 'source/assets/css/',
-					src: ['**/*.scss'],
+					src: [
+						'{features, layouts}/*.scss',
+						'!layouts/page.scss',
+						'*.scss'
+					],
 					dest: 'public/assets/css/',
 					ext: '.css'
 				}]
@@ -163,12 +225,19 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('build', [
-		'shell:jekyllBuild', // Jekyll builds markdown/liquid
-		// Concatenate files
-		'sass', // Compile higher-order languages
-		'postcss:autoprefix'
+		'clean',
+		// Jekyll builds markdown/liquid
+		'shell:jekyllBuild',
+		// Concatenate files and
+		// Compile higher-order languages
+		'sass', 'includes:js',
+		// Post processing
+		'postcss:autoprefix',
+		// Other static files to move over
+		'copy:vendors'
 	]);
 	grunt.registerTask('optimise', [
+		// Operates on the public directory
 		'concurrent:optimise'
 	]);
 	grunt.registerTask('serve', [

@@ -1,3 +1,0 @@
-alert('hi');
-
-alert('bye');

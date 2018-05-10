@@ -1,9 +1,5 @@
----
----
 $form_controls: "input, select, textarea, button";
 $form_text: "label, legend, fieldset, output";
-
-{% include styles/brand.scss %}
 
 #{$form_controls}, #{$form_text} {
    display: block;

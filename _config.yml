@@ -47,7 +47,7 @@ include:
 - "_redirects"
 exclude:
 - "/assets" # managed by Grunt
-#keep_files:                  # Don't clear from public
+#keep_files:                  # Don't clear from public - this is evil
 #- public/assets
 
 
