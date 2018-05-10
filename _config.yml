@@ -1,5 +1,9 @@
+# THIS FILE IS FOR HARD-CODED SETTINGS THAT
+# CAN'T BE CHANGED BY THE USER
+# Set during development and then fixed
+
 # Basic settings
-title:                        "Website by Convincible" # Don't need to change this
+title:                        "Website by Convincible" # Don't need to change this - will be overridden
 
 # Site settings
 uid:
@@ -21,7 +25,6 @@ brand:
   text-reverse:               "#ffffff"
 
 
-
 # Asset folders
 folders:
   assets:                     "/assets"
@@ -31,8 +34,8 @@ folders:
 
 
 # Build settings
-source:                       "source"
-destination:                  "public"
+source:                       "/source"
+destination:                  "/public"
 include:
 - "_redirects"
 exclude:
@@ -56,7 +59,7 @@ defaults:
   - scope:
       path:                   "_pages"
     values:
-      layout:                 "base"
+      layout:                 "page"
 
 permalink:                    ":slug.html"
 

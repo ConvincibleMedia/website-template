@@ -4,9 +4,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    {% for page in site.data.sitemap.pages %}
       {% unless page[1].hidden or site.data.siteinfo.seo.hidden %}
-         <!-- PageID: {{ page[0] }} -->
+         {% if jekyll.environment != 'production' %}<!-- PageID: {{ page[0] }} -->{% endif %}
          <url>
-            <loc>{% if jekyll.environment == 'production' %}{{ site.data.settings.url }}{% endif %}{{ page[1].loc }}</loc>
+            <loc>{% if jekyll.environment == 'production' %}{{ site.data.siteinfo.url }}{% endif %}{{ page[1].loc }}</loc>
             <lastmod>{{ page[1].lastmod }}</lastmod>
             {% comment %}
                <changefreq></changefreq>

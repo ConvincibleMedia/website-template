@@ -1,9 +1,5 @@
 # UNIVERSAL FUNCTIONS
 
-def tester()
-	puts "boom"
-end
-
 def expect(var, var_class = NilClass, var_def = nil)
 	if var_class == NilClass
 		if var.nil? || var.empty?

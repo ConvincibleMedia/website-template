@@ -1,6 +1,4 @@
-require_relative "./helpers"
+require './helpers.rb'
 
-tester()
-
-content = { hello: "world" }
-create_data_file("_data/foobar.yml", :yaml, content)
+CONFIG = YAML.load_file('./_config.yml')
+SOURCE = CONFIG['source']

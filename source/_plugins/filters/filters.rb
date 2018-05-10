@@ -1,5 +1,3 @@
-require_relative "../../helpers"
-
 module Jekyll
 
    module Helpers

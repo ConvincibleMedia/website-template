@@ -1,6 +1,18 @@
 ---
 ---
 
-Line 1: Hello *world! Hello world! Hello* world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!
+1st paragraph. For £12, you get *Italic*, **bold**, & "can" go <-> `monospace`. Unicode is supported. ☺ Itemized lists look like:
 
-Line 2: Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all in chapters 12--14"). Three dots ... will be converted to an ellipsis.
