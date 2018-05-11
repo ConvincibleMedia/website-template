@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			}
 		},
 
-		concurrent: {
+		concurrent: { // Processing order within a concurrent set is not preserved (obviously)
 			compile: [
 				'sass', 'includes:js',
 				'copy:vendors', 'copy:img'

@@ -16,20 +16,23 @@ uid:
 
 # Theme
 brand:
-  color-1:                    "#ff6633"
-  color-2:                    ""
-  color-3:                    ""
-  color-4:                    ""
-  color-5:                    ""
-  color-6:                    ""
-  bg:                         "#ffffff"
-  text:                       "#000000"
-  text-reverse:               "#ffffff"
-
+  colors:
+    - color:                  "ff6633"
+      text:                   "#fff"
+      darker:
+        - color:            "ff6633"
+          text:             "#fff"
+      lighter:
+        - color:            "ff6633"
+          text:             "#fff"
+    - color:                  "green"
+  font:
+    body:                     ""
+    head:                     ""
 
 # Define core layouts
 templates:
-  primary:                    'page'
+  primary:                    "page"
 
 
 # Asset folders
