@@ -2,14 +2,10 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-concurrent');
-	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-includes');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -39,106 +35,11 @@ module.exports = function(grunt) {
 		},
 
 		concurrent: { // Processing order within a concurrent set is not preserved (obviously)
-			compile: [
-				'sass', 'includes:js',
-				'copy:vendors', 'copy:img'
-			],
 			optimise: [
 				'postcss:minify', 'htmlmin', 'uglify' // Output files are optimised
 			]
 		},
 
-
-		// =============
-		// FILES
-		// =============
-
-		clean: ['public'], // NO LEADING SLASH
-
-		copy: {
-			vendors: {
-				files: [{
-					expand: true,
-					cwd: 'source/assets/',
-					src: [
-						'js/vendor/head/**/*.*',
-						'js/vendor/html5shiv/**/*.*',
-						'js/vendor/jquery/**/*.*',
-					],
-					dest: 'public/assets/'
-				}],
-			},
-			img: {
-				files: [{
-					expand: true,
-					cwd: 'source/assets/',
-					src: [
-						'img/**/*.*',
-					],
-					dest: 'public/assets/'
-				}],
-			},
-
-		},
-
-
-		// =============
-		// CONCATENATION
-		// =============
-
-		includes: {
-			js: {
-				options: {
-					includeRegexp: /^(\s*)\/\/\s*@import\s+['"]?([^'"]+)['"]?\s*$/, // = commented but equiv to SASS syntax
-					duplicates: false,
-					debug: true,
-					filenameSuffix: '.js' // Don't have to specify in include
-				},
-				files: [{
-					expand: true,
-					cwd: 'source/assets/js/',
-					src: [
-						'features/*.js',
-						'layouts/*.js',
-						'*.js',
-					],
-					dest: 'public/assets/js/',
-					ext: '.js'
-				}]
-			},
-		},
-
-
-		// =============
-		// COMPILATION
-		// =============
-
-		sass: {
-			options: {
-				sourceMap: true,
-				relativeAssets: false,
-				outputStyle: 'expanded',
-					// nested = show selector depth structure
-					// expanded = prettified like a human would write it
-					// compact = one line per selector/properties
-					// compressed = minified
-				sassDir: 'source/assets/css',
-				cssDir: 'public/assets/css'
-			},
-			build: {
-				files: [{
-					expand: true,
-					cwd: 'source/assets/css/',
-					src: [
-						'features/*.scss',
-						'layouts/*.scss',
-						'*.scss'
-					],
-					dest: 'public/assets/css/',
-					ext: '.css'
-				}]
-			}
-		},
 
 		// ===============
 		// POST-PROCESSING
@@ -170,11 +71,11 @@ module.exports = function(grunt) {
 		},
 
 		htmlmin: {
-			prod: { // Target
-				options: {
-					removeComments: true,
-					collapseWhitespace: true
-				},
+			options: {
+				removeComments: true,
+				collapseWhitespace: true
+			},
+			public: { // Target
 				files: [{
 					expand: true,
 					cwd: 'public/',
@@ -185,12 +86,12 @@ module.exports = function(grunt) {
 		},
 
 		uglify: {
-			prod: {
-				options: {
-					compress: true,
-					mangle: false,
-					sourceMap: true
-				},
+			options: {
+				compress: true,
+				mangle: false,
+				sourceMap: true
+			},
+			public: {
 				files: [{
 					expand: true,
 					cwd: 'public/assets/js/',
@@ -203,11 +104,8 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('build', [
-		//'clean',
 		// Jekyll builds markdown/liquid
 		'shell:jekyllBuild',
-		// Compile and copy to /public/assets
-		//'concurrent:compile',
 		// Post processing of compiled files now in /public/assets
 		'postcss:autoprefix'
 	]);
@@ -222,6 +120,6 @@ module.exports = function(grunt) {
 		'shell:datoBackup'
 	]);
 
-	grunt.registerTask('default', 'build');
+	grunt.registerTask('default', ['build', 'serve']);
 
 };
