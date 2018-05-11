@@ -4,7 +4,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	//grunt.loadNpmTasks('grunt-contrib-concat'); //
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-postcss');
@@ -16,8 +15,8 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		dirs: {
-			src: '/source',
-			dest: '/public',
+			src: 'source',
+			dest: 'public',
 		},
 
 		// =============
@@ -50,7 +49,7 @@ module.exports = function(grunt) {
 		// FILES
 		// =============
 
-		clean: ['/public', '/temp'],
+		clean: ['public'], // NO LEADING SLASH
 
 		copy: {
 			vendors: {
@@ -58,7 +57,9 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'source/assets/',
 					src: [
-						'js/vendor/{head, html5shiv, jquery}/**/*.*'
+						'js/vendor/head/**/*.*',
+						'js/vendor/html5shiv/**/*.*',
+						'js/vendor/jquery/**/*.*',
 					],
 					dest: 'public/assets/'
 				}],
@@ -73,58 +74,22 @@ module.exports = function(grunt) {
 		includes: {
 			js: {
 				options: {
-					includeRegexp: /^(\s*)\/\/\s*@import\s+['"]?([^'"]+)['"]?\s*$/,
+					includeRegexp: /^(\s*)\/\/\s*@import\s+['"]?([^'"]+)['"]?\s*$/, // = commented but equiv to SASS syntax
 					duplicates: false,
 					debug: true,
-					filenameSuffix: '.js'
+					filenameSuffix: '.js' // Don't have to specify in include
 				},
 				files: [{
 					expand: true,
 					cwd: 'source/assets/js/',
 					src: [
-						'{features, layouts}/*.js',
-						'*.js'
+						'features/*.js',
+						'layouts/*.js',
+						'*.js',
 					],
 					dest: 'public/assets/js/',
 					ext: '.js'
 				}]
-			},
-		},
-
-		concat: {
-			js: {
-				options: {
-					//	//banner: "'use strict';\n",
-					//	process: function(src, filepath) {
-					//		return src;
-					//	},
-					//	separator: "\n",
-					sourceMap: true
-				},
-				files: [{
-					src: [
-						'<%= dirs.src %>/assets/js/helpers/*.js',
-						'<%= dirs.src %>/assets/js/layouts/page.js',
-					],
-					dest: '<%= dirs.dest %>/assets/js/main.js'
-				}],
-			},
-			css: {
-				options: {
-					//	//banner: "'use strict';\n",
-					//	process: function(src, filepath) {
-					//		return src;
-					//	},
-					//	separator: "\n"
-				},
-				files: [{
-					src: [
-						'<%= dirs.src %>/assets/css/helpers/*.scss',
-						'<%= dirs.src %>/assets/css/lib/**/*.scss',
-						'<%= dirs.src %>/assets/css/layouts/page.css',
-					],
-					dest: '<%= dirs.dest %>/assets/css/main.css'
-				}],
 			},
 		},
 
@@ -138,10 +103,10 @@ module.exports = function(grunt) {
 				sourceMap: true,
 				relativeAssets: false,
 				outputStyle: 'expanded',
-				// nested = show selector depth structure
-				// expanded = prettified like a human would write it
-				// compact = one line per selector/properties
-				// compressed = minified
+					// nested = show selector depth structure
+					// expanded = prettified like a human would write it
+					// compact = one line per selector/properties
+					// compressed = minified
 				sassDir: 'source/assets/css',
 				cssDir: 'public/assets/css'
 			},
@@ -150,8 +115,8 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'source/assets/css/',
 					src: [
-						'{features, layouts}/*.scss',
-						'!layouts/page.scss',
+						'features/*.scss',
+						'layouts/*.scss',
 						'*.scss'
 					],
 					dest: 'public/assets/css/',
@@ -229,7 +194,7 @@ module.exports = function(grunt) {
 		// Concatenate files and
 		// Compile higher-order languages
 		'sass', 'includes:js',
-		// Post processing
+		// Post processing of /public
 		'postcss:autoprefix',
 		// Other static files to move over
 		'copy:vendors'
