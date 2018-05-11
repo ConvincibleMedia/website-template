@@ -39,6 +39,10 @@ module.exports = function(grunt) {
 		},
 
 		concurrent: {
+			compile: [
+				'sass', 'includes:js',
+				'copy:vendors', 'copy:img'
+			],
 			optimise: [
 				'postcss:minify', 'htmlmin', 'uglify' // Output files are optimised
 			]
@@ -64,6 +68,17 @@ module.exports = function(grunt) {
 					dest: 'public/assets/'
 				}],
 			},
+			img: {
+				files: [{
+					expand: true,
+					cwd: 'source/assets/',
+					src: [
+						'img/**/*.*',
+					],
+					dest: 'public/assets/'
+				}],
+			},
+
 		},
 
 
@@ -191,16 +206,13 @@ module.exports = function(grunt) {
 		'clean',
 		// Jekyll builds markdown/liquid
 		'shell:jekyllBuild',
-		// Concatenate files and
-		// Compile higher-order languages
-		'sass', 'includes:js',
-		// Post processing of /public
-		'postcss:autoprefix',
-		// Other static files to move over
-		'copy:vendors'
+		// Compile and copy to /public/assets
+		'concurrent:compile',
+		// Post processing of compiled files now in /public/assets
+		'postcss:autoprefix'
 	]);
 	grunt.registerTask('optimise', [
-		// Operates on the public directory
+		// Minifies compiled files in /public/assets
 		'concurrent:optimise'
 	]);
 	grunt.registerTask('serve', [
