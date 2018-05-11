@@ -1,2 +1,2 @@
-require_relative '../../helpers.rb'
+require_relative '../../utils/helpers.rb'
 require 'nokogiri'
