@@ -1,3 +1,12 @@
+// _includes/css/brand.scss
+
+$color-1: #ff6633;
+$color-1-text: #fff;
+$color-bg: #fff;
+$color-bg-text: #fff;
+
+{% raw %}
+
 // Primary brand colours
 /*
 {% for color in site.brand.colors %} // Array of objects
@@ -7,7 +16,7 @@
 		{% if color.text %}
 			$color-{{ color.index }}-text: {{ color.text }};
 		{% else %}
-			$color-{{ color.index }}-text: {% color-text c=color.color %};
+			$color-{{ color.index }}-text: {% color_text color.color %};
 		{% endif %}
 		{% if color.darker %}
 			{% for variant in color.darker %}
@@ -17,7 +26,7 @@
 					{% if variant.text %}
 						$color-{{ color.index }}-dark-{{ variant.index }}-text: {{ variant.text }};
 					{% else %}
-						$color-{{ color.index }}-dark-{{ variant.index }}-text: {% color-text c=variant.color %};
+						$color-{{ color.index }}-dark-{{ variant.index }}-text: {% color_text variant.color %};
 					{% endif %}
 
 				{% endif %}
@@ -28,7 +37,7 @@
 
 
 	{% endif %}
-{% endor %}
+{% endfor %}
 */
 
 /*
@@ -53,3 +62,5 @@ $font-body: {{ site.brand.font.head }}
 
 
 */
+
+{% endraw %}

@@ -1,9 +1,8 @@
 alert('hi');
-
 alert('bye');
 
-/* Begin: source/assets/js/vendor/jquery/jquery-plugins.js */
-// Avoid `console` errors in browsers that lack a console.
+// jquery-plugins.js
+
 (function() {
     var method;
     var noop = function () {};
@@ -26,5 +25,3 @@ alert('bye');
     }
 }());
 
-// Place any jQuery/helper plugins in here.
-/* End: source/assets/js/vendor/jquery/jquery-plugins.js */

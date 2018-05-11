@@ -203,11 +203,11 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('build', [
-		'clean',
+		//'clean',
 		// Jekyll builds markdown/liquid
 		'shell:jekyllBuild',
 		// Compile and copy to /public/assets
-		'concurrent:compile',
+		//'concurrent:compile',
 		// Post processing of compiled files now in /public/assets
 		'postcss:autoprefix'
 	]);

@@ -1,5 +1,7 @@
-alert('hi');
+---
+---
 
+alert('hi');
 alert('bye');
 
-// @import "../vendor/jquery/jquery-plugins"
+{% include js/vendor/jquery/jquery-plugins.js %}

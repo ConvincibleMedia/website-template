@@ -46,12 +46,11 @@ folders:
 # Build settings
 source:                       "source" # NO LEADING SLASH!!!
 destination:                  "public"
-include:
-- "_redirects"
-exclude:
-- "/assets" # managed by Grunt
-#keep_files:                  # Don't clear from public - this is evil
-#- public/assets
+#include:
+#- ""
+#exclude:
+#- ""
+#- ""
 
 
 # Collections

@@ -1,0 +1,136 @@
+/*
+{% for color in site.brand.colors %} // Array of objects
+	{% if color.color %}
+		$color-{{ color.index }}: {{ color.color }};
+
+		{% if color.text %}
+			$color-{{ color.index }}-text: {{ color.text }};
+		{% else %}
+			$color-{{ color.index }}-text: {% color_text color.color %};
+		{% endif %}
+		{% if color.darker %}
+			{% for variant in color.darker %}
+				{% if variant.color %}
+					$color-{{ color.index }}-dark-{{ variant.index }}: {{ variant.color }};
+
+					{% if variant.text %}
+						$color-{{ color.index }}-dark-{{ variant.index }}-text: {{ variant.text }};
+					{% else %}
+						$color-{{ color.index }}-dark-{{ variant.index }}-text: {% color_text variant.color %};
+					{% endif %}
+
+				{% endif %}
+			{% endfor%}
+		{% else %}
+
+		{% endif %}
+
+
+	{% endif %}
+{% endfor %}
+*/
+/*
+$color-1: {{ site.brand.color-1 }};
+$color-2: {{ site.brand.color-2 }};
+$color-3: {{ site.brand.color-3 }};
+$color-4: {{ site.brand.color-4 }};
+$color-5: {{ site.brand.color-5 }};
+$color-6: {{ site.brand.color-6 }};
+$color-bg: {{ site.brand.color-bg }};
+
+$color-1-text: {{ site.brand.color-1 }};
+$color-2-text: {{ site.brand.color-2 }};
+$color-3-text: {{ site.brand.color-3 }};
+$color-4-text: {{ site.brand.color-4 }};
+$color-5-text: {{ site.brand.color-5 }};
+$color-6-text: {{ site.brand.color-6 }};
+$color-bg-text: {{ site.brand.color-bg }};
+
+$font-head: {{ site.brand.font.head }}
+$font-body: {{ site.brand.font.head }}
+
+
+*/
+input, select, textarea, button, label, legend, fieldset, output {
+  display: block;
+  font-size: 100%;
+  color: #fff;
+  line-height: normal;
+  background-image: none;
+  border: 0;
+  outline: 0; }
+
+label, input[type="checkbox"], input[type="radio"] {
+  display: inline; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* Styles */
+button, input[type="submit"], [role="button"] {
+  cursor: pointer; }
+
+label, legend, fieldset, output {
+  margin: 0 0 0.25em 0;
+  font-weight: bold; }
+
+input:focus, select:focus, textarea:focus, button:focus, input[type="submit"]:hover, button:hover {
+  border-color: #ff6633;
+  box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
+  outline: 0; }
+
+input, select, textarea, button {
+  font-size: 110%;
+  padding: 0.5em 1em;
+  margin: 0 0 1em 0;
+  height: 3em;
+  width: 100%;
+  max-width: 100%;
+  color: #fff;
+  background-color: #fff;
+  box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25); }
+  input::-moz-placeholder, input:-ms-input-placeholder, input::-webkit-input-placeholder, select::-moz-placeholder, select:-ms-input-placeholder, select::-webkit-input-placeholder, textarea::-moz-placeholder, textarea:-ms-input-placeholder, textarea::-webkit-input-placeholder, button::-moz-placeholder, button:-ms-input-placeholder, button::-webkit-input-placeholder {
+    color: white;
+    opacity: 1; }
+  input::-ms-expand, select::-ms-expand, textarea::-ms-expand, button::-ms-expand {
+    border: 0;
+    background-color: transparent; }
+  input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly], button[disabled], button[readonly] {
+    background-color: #e6e6e6;
+    opacity: 1;
+    cursor: not-allowed; }
+
+input, select, textarea, button, fieldset {
+  margin-bottom: 1em;
+  border: 0.05em solid #bfbfbf;
+  border-radius: 0.5em; }
+
+fieldset {
+  padding: 0.5em 1em; }
+
+input[type="submit"], button {
+  box-shadow: none;
+  background-color: #ff6633;
+  color: #fff;
+  border: 0;
+  font-weight: bold; }
+
+textarea, select[multiple], select[size] {
+  height: auto;
+  min-height: 3em; }
+
+input[type="checkbox"], input[type="radio"] {
+  vertical-align: baseline;
+  position: relative;
+  top: 0.45em;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0; }

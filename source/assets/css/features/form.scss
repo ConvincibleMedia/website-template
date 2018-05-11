@@ -1,4 +1,7 @@
-@import "../helpers/brand"
+---
+---
+
+{% include css/brand.scss %}
 
 $form_controls: "input, select, textarea, button";
 $form_text: "label, legend, fieldset, output";
@@ -6,7 +9,7 @@ $form_text: "label, legend, fieldset, output";
 #{$form_controls}, #{$form_text} {
    display: block;
    font-size: 100%;
-   color: $color-text;
+   color: $color-bg-text;
    line-height: normal;
    background-image: none;
    border: 0;
@@ -49,7 +52,7 @@ button, input[type="submit"], [role="button"] {
    margin: 0 0 1em 0;
    height: 3em;
    width: 100%; max-width: 100%;
-   color: $color-text;
+   color: $color-bg-text;
    background-color: $color-bg;
    box-shadow: inset 0 0.25em 0.25em rgba(darken($color-bg, 25%), 0.25);
 
@@ -58,7 +61,7 @@ button, input[type="submit"], [role="button"] {
    }
 
    &::-moz-placeholder, &:-ms-input-placeholder, &::-webkit-input-placeholder {
-      color: lighten($color-text, 60%);
+      color: lighten($color-bg-text, 60%);
       opacity: 1;
    }
 
@@ -85,7 +88,7 @@ fieldset { padding: 0.5em 1em; }
 input[type="submit"], button {
    box-shadow: none;
    background-color: $color-1;
-   color: $color-1-neg;
+   color: $color-1-text;
    border: 0;
    font-weight: bold;
 

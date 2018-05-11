@@ -1,2 +1,53 @@
+/*
+{% for color in site.brand.colors %} // Array of objects
+	{% if color.color %}
+		$color-{{ color.index }}: {{ color.color }};
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ2aWRlby5jc3MifQ== */
+		{% if color.text %}
+			$color-{{ color.index }}-text: {{ color.text }};
+		{% else %}
+			$color-{{ color.index }}-text: {% color_text color.color %};
+		{% endif %}
+		{% if color.darker %}
+			{% for variant in color.darker %}
+				{% if variant.color %}
+					$color-{{ color.index }}-dark-{{ variant.index }}: {{ variant.color }};
+
+					{% if variant.text %}
+						$color-{{ color.index }}-dark-{{ variant.index }}-text: {{ variant.text }};
+					{% else %}
+						$color-{{ color.index }}-dark-{{ variant.index }}-text: {% color_text variant.color %};
+					{% endif %}
+
+				{% endif %}
+			{% endfor%}
+		{% else %}
+
+		{% endif %}
+
+
+	{% endif %}
+{% endfor %}
+*/
+/*
+$color-1: {{ site.brand.color-1 }};
+$color-2: {{ site.brand.color-2 }};
+$color-3: {{ site.brand.color-3 }};
+$color-4: {{ site.brand.color-4 }};
+$color-5: {{ site.brand.color-5 }};
+$color-6: {{ site.brand.color-6 }};
+$color-bg: {{ site.brand.color-bg }};
+
+$color-1-text: {{ site.brand.color-1 }};
+$color-2-text: {{ site.brand.color-2 }};
+$color-3-text: {{ site.brand.color-3 }};
+$color-4-text: {{ site.brand.color-4 }};
+$color-5-text: {{ site.brand.color-5 }};
+$color-6-text: {{ site.brand.color-6 }};
+$color-bg-text: {{ site.brand.color-bg }};
+
+$font-head: {{ site.brand.font.head }}
+$font-body: {{ site.brand.font.head }}
+
+
+*/
