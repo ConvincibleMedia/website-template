@@ -41,8 +41,8 @@ folders:
 
 
 # Build settings
-source:                       "/source"
-destination:                  "/public"
+source:                       "source" # NO LEADING SLASH!!!
+destination:                  "public"
 include:
 - "_redirects"
 exclude:
