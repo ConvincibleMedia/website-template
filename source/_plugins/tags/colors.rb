@@ -58,15 +58,9 @@ module Jekyll
 				def shade(color, adj)
 					if color = hex_color(color)
 						color.each{ |k,hex| color[k] = hex.to_i(16).to_f / 255 }
-						gamma = 2.224 # Convert sRGB back to linear light intensity
-						# Adjust linearly by amount proportional to perceived brightness of that colour channel, to reduce luminance overall by adj
-						color['r'] = between(( color['r'] ** gamma ) + (adj * 0.2126), 0, 1)
-					   color['g'] = between(( color['g'] ** gamma ) + (adj * 0.7152), 0, 1)
-						color['b'] = between(( color['b'] ** gamma ) + (adj * 0.0722), 0, 1)
 
-						color['r'] = between(color['r'] ** (1 / gamma), 0, 1)
-						color['g'] = between(color['g'] ** (1 / gamma), 0, 1)
-						color['b'] = between(color['b'] ** (1 / gamma), 0, 1)
+						color.each{ |k,dec| color[k] = ((1 - adj.abs) * dec) + (adj > 0 ? adj : 0) }
+
 						color.each{ |k,dec| color[k] = (dec * 255).to_i.to_s(16) }
 						color.each{ |k,hex| color[k] = color[k] = hex.length < 2 ? "0" + hex : hex }
 						color = '#' + color['r'] + color['g'] + color['b']
@@ -110,7 +104,6 @@ module Jekyll
 										drop_colors(e, suffix + '-' + var + '-', false)
 									}
 									else
-										puts 'Creating ' + var + ' variant.'
 										drop_colors([{'color' => shade(color['color'], adj)}], suffix + '-' + var + '-', false, ' // Generated')
 									end
 								}
@@ -127,7 +120,6 @@ module Jekyll
 				raise 'No { brand: { colors: [ { ... }, { ... } ] } } object found in _config.yml'
 			end
 
-			puts @scss.join("\n")
 			return @scss.join("\n")
 
 		end

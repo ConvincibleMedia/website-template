@@ -13,3 +13,10 @@
 /* Setup grid system */
 {% include css/breakpoints.scss %}
 {% include css/grid.scss %}
+
+.primary         { background-color: $color-1; color: $color-1-text }
+.secondary       { background-color: $color-2; color: $color-2-text }
+.primary-dark    { background-color: $color-1-dark-1; color: $color-1-dark-1-text }
+.secondary-dark  { background-color: $color-2-dark-1; color: $color-2-dark-1-text }
+.primary-light   { background-color: $color-1-light-1; color: $color-1-light-1-text }
+.secondary-light { background-color: $color-2-light-1; color: $color-2-light-1-text }

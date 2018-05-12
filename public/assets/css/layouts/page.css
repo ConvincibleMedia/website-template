@@ -6,13 +6,19 @@
 /*
 $color-1: #ff6633;
 $color-1-text: #ffffff; // Generated
-$color-1-dark-1: #f8001f; // Generated
+$color-1-dark-1: #bf4c26; // Generated
 $color-1-dark-1-text: #ffffff; // Generated // Generated
-$color-1-light-1: #ff963f; // Generated
+$color-1-light-1: #ff8c66; // Generated
 $color-1-light-1-text: #ffffff; // Generated // Generated
+$color-2: #b1c2d3;
+$color-2-text: #000000; // Generated
+$color-2-dark-1: #84919e; // Generated
+$color-2-dark-1-text: #ffffff; // Generated // Generated
+$color-2-light-1: #c4d1de; // Generated
+$color-2-light-1-text: #000000; // Generated // Generated
 $color-bg: #ffffff;
 $color-bg-text: #000000;
-$color-bg-dark-1: #f8e9fc; // Generated
+$color-bg-dark-1: #bfbfbf; // Generated
 $color-bg-dark-1-text: #000000; // Generated // Generated
 $color-bg-light-1: #ffffff; // Generated
 $color-bg-light-1-text: #000000; // Generated // Generated
@@ -83,3 +89,27 @@ $font-body: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
 
 .col-12 {
   width: 100%; }
+
+.primary {
+  background-color: #ff6633;
+  color: #ffffff; }
+
+.secondary {
+  background-color: #b1c2d3;
+  color: #000000; }
+
+.primary-dark {
+  background-color: #bf4c26;
+  color: #ffffff; }
+
+.secondary-dark {
+  background-color: #84919e;
+  color: #ffffff; }
+
+.primary-light {
+  background-color: #ff8c66;
+  color: #ffffff; }
+
+.secondary-light {
+  background-color: #c4d1de;
+  color: #000000; }

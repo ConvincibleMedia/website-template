@@ -23,6 +23,7 @@ brand:
       #  light:                # which in turn must be a color array
       #  -  color:
       #     text:              # ...which in turn may define a text color
+      -  color:                "b1c2d3" # Last in array assumed to be the bg color
       -  color:                "ffffff" # Last in array assumed to be the bg color
          text:                 "000000"
    font:                       # CSS stacks
