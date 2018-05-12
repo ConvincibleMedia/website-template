@@ -7,12 +7,14 @@
 {% include css/helpers.scss %}
 {% include css/brand.scss %}
 
-/* Normalise/reset */
+/* Normalise/reset then overwrite */
 {% include css/vendor/normalize.css %}
+{% include css/baseline/base.scss %} // My reset
+{% include css/baseline/typography.scss %}
 
 /* Setup grid system */
-{% include css/breakpoints.scss %}
-{% include css/grid.scss %}
+{% include css/grid/breakpoints.scss %}
+{% include css/grid/grid.scss %}
 
 
 

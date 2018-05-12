@@ -1,0 +1,26 @@
+/* INCLUDE: _includes/css/typography.scss */
+
+$exp: 1.5;
+$base-head: 1.2;
+
+body {
+	font-family: $font-body;
+	font-size: 1em;
+	line-height: #{$exp}em
+}
+
+#{h()} {
+	font-family: $font-head;
+	font-size: #{$base-head}em;
+	line-height: #{$base-head}em
+}
+
+h3, .h3 {
+	font-size: #{$exp}em;
+}
+h2, .h2 {
+	font-size: #{$exp * $exp}em;
+}
+h1, .h1 {
+	font-size: #{$exp * $exp * $exp}em;
+}

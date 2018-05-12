@@ -21,10 +21,10 @@ $color-bg-dark-1: #bfbfbf; // Generated
 $color-bg-dark-1-text: #000000; // Generated // Generated
 $color-bg-light-1: #ffffff; // Generated
 $color-bg-light-1-text: #000000; // Generated // Generated
-$font-head: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
-$font-body: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
+$font-head: 'Georgia', 'Palatino', 'Times', 'Times New Roman', 'serif', ;
+$font-body: 'Arial', 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
 */
-/* Normalise/reset */
+/* Normalise/reset then overwrite */
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -61,8 +61,7 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -96,8 +95,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -229,8 +227,7 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -261,8 +258,7 @@ textarea {
  */
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -328,6 +324,130 @@ template {
 [hidden] {
   display: none; }
 
+/* INCLUDE: _includes/css/base.scss */
+/* UTILITY */
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+.no-css {
+  display: none; }
+
+/* MARGINS */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block; }
+
+p,
+table {
+  margin: 0 0 1rem;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+hr {
+  margin: 1rem 0;
+  padding: 0; }
+
+dl,
+ol,
+ul {
+  margin: 0 0 1rem 2rem;
+  padding: 0; }
+  dl ul, dl ol, dl dl,
+  ol ul,
+  ol ol,
+  ol dl,
+  ul ul,
+  ul ol,
+  ul dl {
+    margin-bottom: 0; }
+
+ul, dl {
+  list-style: square outside none; }
+
+blockquote {
+  margin: 0 2rem 1rem;
+  padding: 0; }
+
+address,
+fieldset,
+form {
+  display: block;
+  margin: 0;
+  padding: 0; }
+
+li, dt, dd {
+  margin: 0;
+  padding: 0; }
+
+dt {
+  display: list-item;
+  font-weight: bold; }
+
+dt + dt {
+  list-style: none; }
+
+/* TABLES */
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-bottom: 0.05rem solid #bfbfbf; }
+
+table.small {
+  width: auto; }
+
+td,
+th {
+  border-top: 0.05rem solid #bfbfbf;
+  vertical-align: middle;
+  text-align: left;
+  margin: 0;
+  padding: 0.25rem 0.5rem; }
+  td:first-child,
+  th:first-child {
+    padding-left: 0; }
+  td:last-child,
+  th:last-child {
+    padding-right: 0; }
+
+/* LINKS */
+a, a:link, a:visited, a:not([href]):hover, a:hover, a:active, a:focus, a.hover {
+  text-decoration: none;
+  color: #ff6633;
+  transition: color 0.75s; }
+
+a:hover, a:active, a:focus, a.hover {
+  color: #bf4c26;
+  border-bottom: 0.05rem solid #bf4c26;
+  transition: color 0.125s; }
+
+/* INCLUDE: _includes/css/typography.scss */
+body {
+  font-family: "Arial", "Tahoma", "Verdana", "Segoe", "sans-serif";
+  font-size: 1em;
+  line-height: 1.5em; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Georgia", "Palatino", "Times", "Times New Roman", "serif";
+  font-size: 1.2em;
+  line-height: 1.2em; }
+
+h3, .h3 {
+  font-size: 1.5em; }
+
+h2, .h2 {
+  font-size: 2.25em; }
+
+h1, .h1 {
+  font-size: 3.375em; }
+
 /* Setup grid system */
 /* INCLUDE: _includes/css/breakpoints.scss */
 /* 130em */
@@ -339,59 +459,34 @@ template {
 /* Medium MD */
 /* Large LG */
 /* INCLUDE: _includes/css/grid.scss */
-.row:after {
-  display: block;
-  clear: both;
-  content: ''; }
+.container {
+  margin: 0 auto;
+  padding: 0 2rem; }
 
-/* SYSTEM */
-.row + .row {
-  margin-top: 3%; }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  margin: 1rem -1rem; }
 
-[class^="col-"] {
-  float: left;
-  margin-right: 3%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-  [class^="col-"]:last-child {
-    margin-right: 0; }
+.cell {
+  flex: 1 1;
+  min-width: 15em;
+  padding: 1rem;
+  margin: 0; }
+  .cell p:last-child {
+    margin-bottom: 0; }
 
-.col-1 {
-  width: 5.5833333333%; }
+.lg-1in3 {
+  flex-grow: 0;
+  flex-basis: 33.3333333333%; }
 
-.col-2 {
-  width: 14.1666666667%; }
-
-.col-3 {
-  width: 22.75%; }
-
-.col-4 {
-  width: 31.3333333333%; }
-
-.col-5 {
-  width: 39.9166666667%; }
-
-.col-6 {
-  width: 48.5%; }
-
-.col-7 {
-  width: 57.0833333333%; }
-
-.col-8 {
-  width: 65.6666666667%; }
-
-.col-9 {
-  width: 74.25%; }
-
-.col-10 {
-  width: 82.8333333333%; }
-
-.col-11 {
-  width: 91.4166666667%; }
-
-.col-12 {
-  width: 100%; }
+.lg-2in3 {
+  flex-grow: 0;
+  flex-basis: 66.6666666667%; }
 
 .primary {
   background-color: #ff6633;

@@ -1,0 +1,39 @@
+/* INCLUDE: _includes/css/grid.scss */
+
+$grid-spacing: 2rem;
+
+.container {
+	margin: 0 auto;
+	padding: 0 $grid-spacing
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2))
+}
+
+.cell {
+	flex: 1 1;
+	min-width: 15em;
+	padding: $grid-spacing / 2;
+	margin: 0;
+
+	& p:last-child {
+		margin-bottom: 0
+	}
+}
+
+.lg-1in3 {
+	flex-grow: 0;
+	flex-basis: (100% / 3)
+}
+
+.lg-2in3 {
+	flex-grow: 0;
+	flex-basis: (100% / 3) * 2
+}

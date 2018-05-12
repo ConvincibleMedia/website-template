@@ -1,0 +1,123 @@
+/* INCLUDE: _includes/css/base.scss */
+
+$text-spacing: 1; //em or rem
+$text-pixel: 0.05rem;
+
+/* UTILITY */
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.no-css {
+	display: none;
+}
+
+/* MARGINS */
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+p,
+table {
+	margin: 0 0 #{$text-spacing}rem;
+	padding: 0;
+}
+
+#{h()},
+hr {
+	margin: #{$text-spacing}rem 0;
+	padding: 0;
+}
+
+$list-style: square outside none;
+
+dl,
+ol,
+ul {
+	margin: 0 0 #{$text-spacing}rem #{$text-spacing * 2}rem;
+	padding: 0;
+
+	& ul, ol, dl {
+		margin-bottom: 0
+	}
+}
+ul, dl { list-style: $list-style; }
+
+blockquote {
+	margin: 0 #{$text-spacing * 2}rem #{$text-spacing}rem;
+	padding: 0;
+}
+
+address,
+fieldset,
+form {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+li, dt, dd { margin: 0; padding: 0 }
+dt {
+	display: list-item;
+	font-weight: bold;
+}
+dt + dt { list-style: none; }
+
+
+/* TABLES */
+
+$table-border: $text-pixel solid $color-bg-dark-1;
+
+table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-bottom: $table-border;
+}
+
+table.small {
+	width: auto;
+}
+
+td,
+th {
+	border-top: $table-border;
+	vertical-align: middle;
+	text-align: left;
+	margin: 0;
+	padding: #{$text-spacing / 4}rem #{$text-spacing / 2}rem;
+
+	&:first-child {
+		padding-left: 0
+	}
+
+	&:last-child {
+		padding-right: 0
+	}
+}
+
+
+/* LINKS */
+
+#{a()} {
+	text-decoration: none;
+	color: $color-1;
+	transition: color 0.75s;
+}
+
+#{a('hover')} {
+	color: $color-1-dark-1;
+	border-bottom: $text-pixel solid $color-1-dark-1;
+	transition: color 0.125s;
+}

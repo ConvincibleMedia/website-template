@@ -27,16 +27,18 @@ brand:
       -  color:                "ffffff" # Last in array assumed to be the bg color
          text:                 "000000"
    font:                       # CSS stacks
-      head:
-         -  "Tahoma"
-         -  "Verdana"
-         -  "Segoe"
-         -  "sans-serif"
       body:
+         -  "Arial"
          -  "Tahoma"
          -  "Verdana"
          -  "Segoe"
          -  "sans-serif"
+      head:
+         -  "Georgia"
+         -  "Palatino"
+         -  "Times"
+         -  "Times New Roman"
+         -  "serif"
 
 
 # Formats

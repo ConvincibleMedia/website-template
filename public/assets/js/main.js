@@ -1,8 +1,5 @@
 /* ASSET: assets/js/layouts/main.js */
 
-alert('hi');
-alert('bye');
-
 /* VENDOR: _includes/js/vendor/jquery-plugins.js */
 
 (function() {

@@ -1,18 +1,132 @@
 ---
+features:
+   -  "form"
 ---
 
-1st paragraph. For £12, you get *Italic*, **bold**, & "can" go <-> `monospace`. Unicode is supported. ☺ Itemized lists look like:
+Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt culpa velit quis. ***Consequat commodo*** reprehenderit duis [irure](#!) esse esse exercitation minim enim Lorem[^1] dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.
 
-  * this one
-  * that one
-  * the other one
+*Cupidatat consequat* ommodo non ea cupidatat ![cat](http://placekitten.com/80/80) magna deserunt dolore ipsum velit nulla elit.
 
-Note that --- not considering the asterisk --- the actual text content starts at 4-columns in.
+[^1]: Footnote example!
 
-> Block quotes are
-> written like so.
+# Heading 2
+
+Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna `<strong>in culpa qui officia</strong>` dolor eiusmod esse amet aute.
+
+```go
+import (
+    "net/http"
+)
+```
+
+## Heading 3 is a long heading. Aute officia nulla deserunt do deserunt cillum velit magna. Aliquip et adipisicing sit sit fugiat commodo id sunt.
+
+1. Longan
+   2. Lychee
+   3. Excepteur ad cupidatat do elit laborum amet cillum reprehenderit consequat quis.
+    Deserunt officia esse aliquip consectetur duis ut labore laborum commodo aliquip aliquip velit pariatur dolore.
+4. Marionberry
+5. Melon
+    - Cantaloupe
+    - Honeydew
+    - Watermelon
+7. Mulberry
+
+### Heading 4
+
+- Olive
+- Orange
+  - Blood orange
+  - Clementine
+- Papaya
+- Ut aute ipsum occaecat nisi culpa Lorem id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud proident sint consectetur eiusmod irure adipisicing.
+- Passionfruit
+
+#### Heading 5
+
+Ad nisi laborum aute cupidatat magna deserunt eu id laboris id. Aliquip nulla cupidatat sint ex Lorem mollit laborum dolor amet est ut esse aute.
+
+> Ipsum et cupidatat mollit exercitation enim duis sunt irure aliqua reprehenderit mollit. Pariatur Lorem pariatur laboris do.
 >
-> They can span multiple paragraphs,
-> if you like.
+> Culpa do elit irure. Eiusmod amet nulla voluptate velit culpa et aliqua ad reprehenderit sit ut.
+>
+> --- <cite>Myself</cite>
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Labore ea magna Lorem consequat aliquip consectetur cillum duis dolore. Et veniam dolor qui incididunt minim amet laboris sit. Dolore ad esse commodo et dolore amet est velit ut nisi ea.
+
+##### Heading 6
+
+Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.
+
+| Table Heading 1 | Table Heading 2 | Center align    | Right align     |
+| :-------------- | :-------------- | :-------------: | --------------: |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+
+Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et duis pariatur reprehenderit eu ex consectetur.
+
+# Images
+
+![Super wide](http://placekitten.com/1280/800)
+
+<dl>
+	<dt>Image below</dt>
+	<dt>Below, image</dt>
+	<dd>Is small</dd>
+	<dd>Is a link</dd>
+</dl>
+
+[![Not so big](http://placekitten.com/480/400)](google.com)
+
+
+<form id="myForm" action="#" method="post">
+
+  <div>
+    <label for="name">Text Input:</label>
+    <input type="text" name="name" id="name" value="" tabindex="1" placeholder="Email">
+  </div>
+
+  <div>
+    <h4>Radio Button Choice</h4>
+
+    <fieldset>
+
+	 <input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1">
+	 <label for="radio-choice-1">Choice 1</label>
+
+    <input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2" disabled>
+	 <label for="radio-choice-2">Choice 2</label>
+
+	 </fieldset>
+  </div>
+
+  <div>
+    <label for="select-choice">Select Dropdown Choice:</label>
+    <select name="select-choice" id="select-choice">
+      <option value="Choice 1">Choice 1</option>
+      <option value="Choice 2">Choice 2</option>
+      <option value="Choice 3">Choice 3</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="textarea">Textarea:</label>
+    <textarea cols="40" rows="8" name="textarea" id="textarea" disabled></textarea>
+  </div>
+
+  <div>
+  <fieldset>
+  <legend>Consent</legend>
+    <input type="checkbox" name="checkbox" id="checkbox">
+	 <label for="checkbox">Checkbox</label>
+	 </fieldset>
+  </div>
+
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+
+</form>

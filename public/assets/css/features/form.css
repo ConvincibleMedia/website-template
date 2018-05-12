@@ -19,12 +19,13 @@ $color-bg-dark-1: #bfbfbf; // Generated
 $color-bg-dark-1-text: #000000; // Generated // Generated
 $color-bg-light-1: #ffffff; // Generated
 $color-bg-light-1-text: #000000; // Generated // Generated
-$font-head: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
-$font-body: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
+$font-head: 'Georgia', 'Palatino', 'Times', 'Times New Roman', 'serif', ;
+$font-body: 'Arial', 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
 */
-input, select, textarea, button, label, legend, fieldset, output {
+input, select, textarea, button, fieldset, label, legend, output {
   display: block;
-  font-size: 100%;
+  vertical-align: middle;
+  font-size: 1rem;
   color: #000000;
   line-height: normal;
   background-image: none;
@@ -32,8 +33,62 @@ input, select, textarea, button, label, legend, fieldset, output {
   outline: 0; }
 
 label, input[type="checkbox"], input[type="radio"] {
-  display: inline; }
+  display: inline-block; }
 
+/* Styles */
+input:focus, select:focus, textarea:focus, button:focus, fieldset:focus, input[type="submit"]:hover, button:hover {
+  border-color: #ff6633;
+  box-shadow: 0 0 1rem rgba(255, 102, 51, 0.6);
+  outline: 0; }
+
+input, select, textarea, button, fieldset {
+  box-shadow: inset 0 0.25rem 0.25rem rgba(191, 191, 191, 0.25); }
+
+label, legend, output {
+  margin: 0 0 0 -0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold; }
+
+legend {
+  background-color: #ffffff;
+  border-bottom: 0.05rem solid rgba(191, 191, 191, 0.5);
+  border-radius: 0.5em; }
+
+input, select, textarea, button, fieldset {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0 1rem 0;
+  min-height: 3rem;
+  width: 100%;
+  max-width: 100%;
+  color: #000000;
+  background-color: #ffffff;
+  border: 0.05rem solid #bfbfbf;
+  border-radius: 0.5rem; }
+  input::placeholder, select::placeholder, textarea::placeholder, button::placeholder, fieldset::placeholder {
+    color: #999999;
+    opacity: 1; }
+  input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly], button[disabled], button[readonly], fieldset[disabled], fieldset[readonly] {
+    background-color: #e6e6e6;
+    opacity: 1;
+    cursor: not-allowed; }
+
+input[type="submit"], button {
+  box-shadow: none;
+  background-color: #ff6633;
+  color: #ffffff;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer; }
+
+input[type="checkbox"], input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+  box-shadow: none; }
+
+/* Compatibility */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
@@ -45,66 +100,6 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
-/* Styles */
-button, input[type="submit"], [role="button"] {
-  cursor: pointer; }
-
-label, legend, fieldset, output {
-  margin: 0 0 0.25em 0;
-  font-weight: bold; }
-
-input:focus, select:focus, textarea:focus, button:focus, input[type="submit"]:hover, button:hover {
-  border-color: #ff6633;
-  -webkit-box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
-          box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
-  outline: 0; }
-
-input, select, textarea, button {
-  font-size: 110%;
-  padding: 0.5em 1em;
-  margin: 0 0 1em 0;
-  height: 3em;
-  width: 100%;
-  max-width: 100%;
-  color: #000000;
-  background-color: #ffffff;
-  -webkit-box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25);
-          box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25); }
-  input::-moz-placeholder, input:-ms-input-placeholder, input::-webkit-input-placeholder, select::-moz-placeholder, select:-ms-input-placeholder, select::-webkit-input-placeholder, textarea::-moz-placeholder, textarea:-ms-input-placeholder, textarea::-webkit-input-placeholder, button::-moz-placeholder, button:-ms-input-placeholder, button::-webkit-input-placeholder {
-    color: #999999;
-    opacity: 1; }
-  input::-ms-expand, select::-ms-expand, textarea::-ms-expand, button::-ms-expand {
-    border: 0;
-    background-color: transparent; }
-  input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly], button[disabled], button[readonly] {
-    background-color: #e6e6e6;
-    opacity: 1;
-    cursor: not-allowed; }
-
-input, select, textarea, button, fieldset {
-  margin-bottom: 1em;
-  border: 0.05em solid #bfbfbf;
-  border-radius: 0.5em; }
-
-fieldset {
-  padding: 0.5em 1em; }
-
-input[type="submit"], button {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background-color: #ff6633;
-  color: #ffffff;
+select::-ms-expand {
   border: 0;
-  font-weight: bold; }
-
-textarea, select[multiple], select[size] {
-  height: auto;
-  min-height: 3em; }
-
-input[type="checkbox"], input[type="radio"] {
-  vertical-align: baseline;
-  position: relative;
-  top: 0.45em;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 0; }
+  background-color: transparent; }
