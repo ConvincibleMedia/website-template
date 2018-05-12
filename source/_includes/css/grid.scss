@@ -1,4 +1,4 @@
-// _includes/css/grid.scss
+/* INCLUDE: _includes/css/grid.scss */
 
 %clearfix:after {
    display: block;
@@ -6,7 +6,7 @@
    content: '';
 }
 
-// SYSTEM
+/* SYSTEM */
 $grid-spacing: 3%;
 
 .row {

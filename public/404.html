@@ -4,18 +4,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		
 		
-<!-- must be high as possible in <head> -->
+
+		<!-- must be high as possible in <head> -->
 
 		<!-- SEO -->
 		<title>Page Not Found / Website Template / (Example Website)</title>
 		<meta name="description" content="Sorry, we can’t find the page you asked for. Website by Convincible" />
 
 		<!-- STYLES -->
-		---
----
-<link rel="stylesheet" href="/assets/css/main.css" />
-
-
+		
 	
 		<link rel="stylesheet" href="/assets/css/layouts/page.css" />
 	
@@ -25,14 +22,12 @@
 
 
 		<!-- SCRIPTS -->
-		<script src="/assets/js/lib/head/head.load.min.js"></script>
+		<script src="/assets/js/special/head.min.js"></script>
 <script>
    <!--
-	
+
    head.load(
 		{ jquery: '//code.jquery.com/jquery-3.2.1.slim.min.js' },
-
-		{ main: '/assets/js/main.js' },
 
    	
 			
@@ -48,10 +43,11 @@
 	//head.ready('jquery', function() {
 		// Load plugins
 		//if(typeof jQuery === 'undefined'){
-		//	head.load('/assets/js/lib/jquery/jquery-3.2.1.slim.min.js');
+		//	head.load('/lib/jquery/jquery-3.2.1.slim.min.js');
 		//};
 	//});
 
+	// Got this far, so remove no-js compatibility class
 	(function(d){d.className=d.className.replace(/(^|\s)no-js(\s|$)/, ' ') + ' js'}(document.documentElement));
 
 	//-->
@@ -61,7 +57,7 @@
 		<!-- OTHER -->
 		<!-- HTML5Shiv - must be in <head> after stylesheets -->
 <!--[if lt IE 9]>
-   <script src="/assets/js/lib/html5shiv/html5shiv.min.js"></script>
+   <script src="/lib/html5shiv/html5shiv.min.js"></script>
 <![endif]-->
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,7 +69,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="" />
 <meta name="apple-mobile-web-app-title" content="Website Template" />
 <meta name="application-name" content="Website Template" />
-<meta name="theme-color" content="" />
+<meta name="theme-color" content="ff6633" />
 
 		
 

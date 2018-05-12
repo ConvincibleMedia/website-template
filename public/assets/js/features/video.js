@@ -1,3 +1,5 @@
+/* ASSET: assets/js/features/video.js */
+
 $('.video .player').click(function(ev){
 	ev.preventDefault();
 

@@ -1,6 +1,8 @@
 ---
 ---
 
+/* ASSET: assets/js/layouts/page.js */
+
 alert('hi');
 alert('bye');
 

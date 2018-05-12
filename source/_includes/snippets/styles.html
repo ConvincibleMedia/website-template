@@ -1,15 +1,11 @@
----
----
-<link rel="stylesheet" href="{{ site.folders.css }}/main.css" />
-
-{% unless page.layout == site.layouts.primary %}
-	{% if site.data.assets.layouts[page.layout].css %}
-		<link rel="stylesheet" href="{{ site.folders.css }}/layouts/{{ page.layout }}.css" />
+{% unless false %}
+	{% if site.assets.layouts[page.layout].css %}
+		<link rel="stylesheet" href="{{ site.assets.folders.css }}/layouts/{{ page.layout }}.css" />
 	{% endif %}
 {% endunless %}
 
 {% for feature in page.features %}
-	{% if site.data.assets.features[feature].css %}
-		<link rel="stylesheet" href="{{ site.folders.css }}/features/{{ feature }}.css" />
+	{% if site.assets.features[feature].css %}
+		<link rel="stylesheet" href="{{ site.assets.folders.css }}/features/{{ feature }}.css" />
 	{% endif %}
 {% endfor %}

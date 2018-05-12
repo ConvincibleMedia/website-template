@@ -1,13 +1,13 @@
-title:         "Website Template"
-url:           "example.com" # Added as base URL
+title:          "Website Template"
+url:            "example.com" # Added as base URL
 seo:
-  title:       "Webpage" # Default title for page
-  description: "Website by Convincible" # Default description for page
-  image:       # Graph image used if none appropriate found on specific page
-  separator:   "/"
-  suffix:      "(Example Website)"
-  ignore:      # Do not show these pages in SEO breadcrumbs
-    - ""
-  hidden:      true # Entire site is hidden from search engines
-langs:         # List of languages supported by site. The first is the primary and assumed default.
-  - "en"
+   title:       "Webpage" # Default title for page
+   description: "Website by Convincible" # Default description for page
+   image:       # Graph image used if none appropriate found on specific page
+   separator:   "/"
+   suffix:      "(Example Website)"
+   ignore:      # Do not show these pages in SEO breadcrumbs
+      -  ""
+   hidden:      true # Entire site is hidden from search engines
+langs:          # List of languages supported by site. The first is the primary and assumed default.
+   -  "en"

@@ -3,56 +3,103 @@
 # Set during development and then fixed
 
 # Basic settings
-title:                        "Website by Convincible" # Don't need to change this - will be overridden
+title:                         "Website by Convincible" # Don't need to change this - will be overridden
 
 
 # Site settings
 uid:
-  gtm:                        ""
-  pin:                        ""
-  wot:                        ""
-  gmaps:                      ""
+   gtm:                        ""
+   pin:                        ""
+   wot:                        ""
+   gmaps:                      ""
 
 
 # Theme
 brand:
-  colors:                     # Array of colors
-    - color:                  "ff6633"
-    # text:                   # Each color may define a complementary text color
-    # dark:                   # Plus a subcolor called light or dark
-    # light:                  # which in turn must be a color array
-    # - color:
-    #   text:                 # ...which in turn may define a text color
-    - color:                  "ffffff" # Last in array assumed to be the bg color
-      text:                   "000000"
-  font:
-    head:
-      - "Tahoma"
-      - "Verdana"
-      - "Segoe"
-      - "sans-serif"
-    body:
-      - "Tahoma"
-      - "Verdana"
-      - "Segoe"
-      - "sans-serif"
+   colors:                     # Array of colors
+      -  color:                "ff6633" # Primary color
+      #  text:                 # Each color may define a complementary text color
+      #  dark:                 # Plus a subcolor called light or dark
+      #  light:                # which in turn must be a color array
+      #  -  color:
+      #     text:              # ...which in turn may define a text color
+      -  color:                "ffffff" # Last in array assumed to be the bg color
+         text:                 "000000"
+   font:                       # CSS stacks
+      head:
+         -  "Tahoma"
+         -  "Verdana"
+         -  "Segoe"
+         -  "sans-serif"
+      body:
+         -  "Tahoma"
+         -  "Verdana"
+         -  "Segoe"
+         -  "sans-serif"
 
-# Define core layouts
-templates:
-  primary:                    "page"
+
+# Formats
+images:
+   thumb:
+      w:                       320
+      h:                       180
+      fit:                     "crop"
+      crop:                    "edges"
+      auto:                    "compress"
+      fm:                      "pjpg"
+      q:                       50
+   hero:
+      w:                       1280
+      h:                       720
+      fit:                     "max"
+      auto:                    "compress"
+      fm:                      "pjpg"
+      q:                       60
+   body:
+      max-w:                   800
+      max-h:                   800
+      fit:                     "clip"
+      auto:                    "compress"
+      fm:                      "pjpg"
+      q:                       70
+   logo:
+      w:                       320
+      h:                       180
+      fit:                     "clip"
+      auto:                    "compress"
+      fm:                      "png"
+youtube:
+   plain:
+      modestbranding:          1
+      showinfo:                0
+      rel:                     0
+      cc_load_policy:          0
+      iv_load_policy:          3
 
 
 # Asset folders
-folders:
-  assets:                     "/assets"
-  css:                        "/assets/css"
-  js:                         "/assets/js"
-  img:                        "/assets/img"
+assets:
+   folders:
+      assets:                  "/assets"
+      css:                     "/assets/css"
+      js:                      "/assets/js"
+      img:                     "/assets/img"
+   features:                   # Array of features by name, and whether they have accompanying assets
+      form:
+         css:                  true
+         js:                   false
+      video:
+         css:                  true
+         js:                   true
+   layouts:                    # Array of layouts by name, and whether they have accompanying assets
+      page:
+         css:                  true
+         js:                   true
 
 
 # Build settings
-source:                       "source" # NO LEADING SLASH!!!
-destination:                  "public"
+source:                        "source" # NO LEADING SLASH!!!
+destination:                   "public"
 #include:
 #- ""
 #exclude:
@@ -62,39 +109,39 @@ destination:                  "public"
 
 # Collections
 collections:
-  root:
-    output:                   true
-    permalink:                "/:name"
-  pages:
-    output:                   true
-    permalink:                "/:path"
+   root:
+      output:                  true
+      permalink:               "/:name"
+   pages:
+      output:                  true
+      permalink:               "/:path"
 
 
 # Defaults
 defaults:
-  - scope:
-      path:                   "_pages"
-    values:
-      layout:                 "page"
+   -  scope:
+         path:                 "_pages"
+      values:
+         layout:               "page"
 
-permalink:                    ":slug.html"
+permalink:                     ":slug.html"
 
 
 # Markdown
-markdown:                     "kramdown"
+markdown:                      "kramdown"
 kramdown:
-  auto_id_prefix:             "h-"
-  auto_ids:                   true
-  auto_id_stripping:          true
-  entity_output:              "symbolic"
-  hard_wrap:                  false
-  header_offset:              1
-  smart_quotes:               "lsquo,rsquo,ldquo,rdquo"
-  toc_levels:                 "1..2"
-  transliterated_header_ids:  true
-  show_warnings:              false
-# show_drafts:                null
-# future:                     false
-# unpublished:                false
-excerpt_separator:            "\n\n"
-strict_front_matter:          true
+   auto_id_prefix:             "h-"
+   auto_ids:                   true
+   auto_id_stripping:          true
+   entity_output:              "symbolic"
+   hard_wrap:                  false
+   header_offset:              1
+   smart_quotes:               "lsquo,rsquo,ldquo,rdquo"
+   toc_levels:                 "1..2"
+   transliterated_header_ids:  true
+   show_warnings:              false
+#  show_drafts:                null
+#  future:                     false
+#  unpublished:                false
+   excerpt_separator:          "\n\n"
+   strict_front_matter:        true

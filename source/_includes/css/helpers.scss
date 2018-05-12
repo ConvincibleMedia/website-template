@@ -1,4 +1,4 @@
-// _includes/css/helpers.scss
+/* INCLUDE: _includes/css/helpers.scss */
 
 @function enumerate($pre:'', $from:1, $to:1, $post:'') {
 	@if $from == $to {

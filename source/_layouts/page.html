@@ -3,7 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		{% if page.hidden %}<meta name="robots" content="NOINDEX, NOFOLLOW" />{% endif %}
-		{% include snippets/gtm.html pos="head" %}<!-- must be high as possible in <head> -->
+		{% include snippets/gtm.html pos="head" %}
+		<!-- must be high as possible in <head> -->
 
 		<!-- SEO -->
 		<title>{{ page.meta.title | escape }}</title>

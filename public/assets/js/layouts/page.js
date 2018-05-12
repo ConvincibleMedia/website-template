@@ -1,7 +1,9 @@
+/* ASSET: assets/js/layouts/page.js */
+
 alert('hi');
 alert('bye');
 
-// jquery-plugins.js
+/* VENDOR: _includes/js/vendor/jquery-plugins.js */
 
 (function() {
     var method;

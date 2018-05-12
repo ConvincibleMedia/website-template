@@ -1,13 +1,15 @@
 ---
 ---
 
-// Universal helpers
+/* ASSET: assets/css/layouts/page.scss */
+
+/* Universal helpers */
 {% include css/helpers.scss %}
 
-// Normalise/reset
+/* Normalise/reset */
 {% include css/brand.scss %}
 {% comment %}{% include css/normalise.scss %}{% endcomment %}
 
-// Setup grid system
+/* Setup grid system */
 {% include css/breakpoints.scss %}
 {% include css/grid.scss %}

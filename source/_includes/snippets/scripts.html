@@ -1,21 +1,19 @@
-<script src="{{ site.folders.js }}/lib/head/head.load.min.js"></script>
+<script src="{{ site.assets.folders.js }}/special/head.min.js"></script>
 <script>
    <!--
-	
+
    head.load(
 		{ jquery: '//code.jquery.com/jquery-3.2.1.slim.min.js' },
 
-		{ main: '{{ site.folders.js }}/main.js' },
-
-   	{% unless page.layout == site.layouts.primary %}
-			{% if site.data.assets.layouts[page.layout].js %}
-				{ layout: '{{ site.folders.js }}/layouts/{{ page.layout }}.js' },
+   	{% unless false %}
+			{% if site.assets.layouts[page.layout].js %}
+				{ layout: '{{ site.assets.folders.js }}/layouts/{{ page.layout }}.js' },
 			{% endif %}
 		{% endunless %}
 
 		{% for feature in page.features %}
-			{% if site.data.assets.features[feature].js %}
-				{ feature_{{ feature }}: '{{ site.folders.js }}/features/{{ feature }}.js' },
+			{% if site.assets.features[feature].js %}
+				{ f_{{ feature }}: '{{ site.assets.folders.js }}/features/{{ feature }}.js' },
 			{% endif %}
 		{% endfor %}
 
@@ -29,6 +27,7 @@
 		//};
 	//});
 
+	// Got this far, so remove no-js compatibility class
 	(function(d){d.className=d.className.replace(/(^|\s)no-js(\s|$)/, ' ') + ' js'}(document.documentElement));
 
 	//-->

@@ -1,9 +1,9 @@
-// _includes/css/breakpoints.scss
+/* INCLUDE: _includes/css/breakpoints.scss */
 
 $sm-break: 30em;
 $md-break: 50em;
 $lg-break: 80em;
-//130em
+/* 130em */
 
 /* Small SM */
 @mixin sm() {

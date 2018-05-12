@@ -1,4 +1,4 @@
-// jquery-plugins.js
+/* VENDOR: _includes/js/vendor/jquery-plugins.js */
 
 (function() {
     var method;
