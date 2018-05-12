@@ -62,6 +62,12 @@ def key?(hash, hash_keys, hash_def = nil)
 	end
 end
 
+def between(num, bottom, top)
+	if num > top then return top end
+	if num < bottom then return bottom end
+	return num
+end
+
 =begin
 # SPECIALISED HELPERS
 

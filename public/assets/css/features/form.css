@@ -1,7 +1,24 @@
+/*
+$color-1: #ff6633;
+$color-1-text: #ffffff; // Generated
+$color-1-dark-1: #f8001f; // Generated
+$color-1-dark-1-text: #ffffff; // Generated // Generated
+$color-1-light-1: #ff963f; // Generated
+$color-1-light-1-text: #ffffff; // Generated // Generated
+$color-bg: #ffffff;
+$color-bg-text: #000000;
+$color-bg-dark-1: #f8e9fc; // Generated
+$color-bg-dark-1-text: #000000; // Generated // Generated
+$color-bg-light-1: #ffffff; // Generated
+$color-bg-light-1-text: #000000; // Generated // Generated
+
+$font-head: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
+$font-body: 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
+*/
 input, select, textarea, button, label, legend, fieldset, output {
   display: block;
   font-size: 100%;
-  color: #fff;
+  color: #000000;
   line-height: normal;
   background-image: none;
   border: 0;
@@ -41,11 +58,11 @@ input, select, textarea, button {
   height: 3em;
   width: 100%;
   max-width: 100%;
-  color: #fff;
-  background-color: #fff;
+  color: #000000;
+  background-color: #ffffff;
   box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25); }
   input::-moz-placeholder, input:-ms-input-placeholder, input::-webkit-input-placeholder, select::-moz-placeholder, select:-ms-input-placeholder, select::-webkit-input-placeholder, textarea::-moz-placeholder, textarea:-ms-input-placeholder, textarea::-webkit-input-placeholder, button::-moz-placeholder, button:-ms-input-placeholder, button::-webkit-input-placeholder {
-    color: white;
+    color: #999999;
     opacity: 1; }
   input::-ms-expand, select::-ms-expand, textarea::-ms-expand, button::-ms-expand {
     border: 0;
@@ -66,7 +83,7 @@ fieldset {
 input[type="submit"], button {
   box-shadow: none;
   background-color: #ff6633;
-  color: #fff;
+  color: #ffffff;
   border: 0;
   font-weight: bold; }
 

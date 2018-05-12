@@ -16,19 +16,26 @@ uid:
 
 # Theme
 brand:
-  colors:
+  colors:                     # Array of colors
     - color:                  "ff6633"
-      text:                   "#fff"
-      darker:
-        - color:            "ff6633"
-          text:             "#fff"
-      lighter:
-        - color:            "ff6633"
-          text:             "#fff"
-    - color:                  "green"
+    # text:                   # Each color may define a complementary text color
+    # dark:                   # Plus a subcolor called light or dark
+    # light:                  # which in turn must be a color array
+    # - color:
+    #   text:                 # ...which in turn may define a text color
+    - color:                  "ffffff" # Last in array assumed to be the bg color
+      text:                   "000000"
   font:
-    body:                     ""
-    head:                     ""
+    head:
+      - "Tahoma"
+      - "Verdana"
+      - "Segoe"
+      - "sans-serif"
+    body:
+      - "Tahoma"
+      - "Verdana"
+      - "Segoe"
+      - "sans-serif"
 
 # Define core layouts
 templates:
