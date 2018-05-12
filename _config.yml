@@ -93,9 +93,9 @@ assets:
          css:                  true
          js:                   true
    layouts:                    # Array of layouts by name, and whether they have accompanying assets
-      page:
-         css:                  true
-         js:                   true
+      #page:
+         #css:                  true
+         #js:                   true
 
 
 # Build settings

@@ -5,6 +5,8 @@
    head.load(
 		{ jquery: '//code.jquery.com/jquery-3.2.1.slim.min.js' },
 
+		{ main: '{{ site.assets.folders.js }}/main.js' },
+
    	{% unless false %}
 			{% if site.assets.layouts[page.layout].js %}
 				{ layout: '{{ site.assets.folders.js }}/layouts/{{ page.layout }}.js' },

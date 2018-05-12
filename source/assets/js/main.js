@@ -1,7 +1,7 @@
 ---
 ---
 
-/* ASSET: assets/js/layouts/page.js */
+/* ASSET: assets/js/layouts/main.js */
 
 alert('hi');
 alert('bye');

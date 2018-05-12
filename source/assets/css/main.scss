@@ -1,18 +1,20 @@
 ---
 ---
 
-/* ASSET: assets/css/layouts/page.scss */
+/* ASSET: assets/css/layouts/main.scss */
 
 /* Universal helpers */
 {% include css/helpers.scss %}
+{% include css/brand.scss %}
 
 /* Normalise/reset */
-{% include css/brand.scss %}
-{% comment %}{% include css/normalise.scss %}{% endcomment %}
+{% include css/vendor/normalize.css %}
 
 /* Setup grid system */
 {% include css/breakpoints.scss %}
 {% include css/grid.scss %}
+
+
 
 .primary         { background-color: $color-1; color: $color-1-text }
 .secondary       { background-color: $color-2; color: $color-2-text }
