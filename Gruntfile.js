@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 
 		postcss: {
 			options: {
-				map: true
+				map: false
 			},
 			autoprefix: {
 				options: {
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 			options: {
 				compress: true,
 				mangle: false,
-				sourceMap: true
+				sourceMap: false
 			},
 			public: {
 				files: [{

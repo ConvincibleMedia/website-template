@@ -55,7 +55,8 @@ label, legend, fieldset, output {
 
 input:focus, select:focus, textarea:focus, button:focus, input[type="submit"]:hover, button:hover {
   border-color: #ff6633;
-  box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
+  -webkit-box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
+          box-shadow: 0 0 1em rgba(255, 102, 51, 0.6);
   outline: 0; }
 
 input, select, textarea, button {
@@ -67,7 +68,8 @@ input, select, textarea, button {
   max-width: 100%;
   color: #000000;
   background-color: #ffffff;
-  box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25); }
+  -webkit-box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25);
+          box-shadow: inset 0 0.25em 0.25em rgba(191, 191, 191, 0.25); }
   input::-moz-placeholder, input:-ms-input-placeholder, input::-webkit-input-placeholder, select::-moz-placeholder, select:-ms-input-placeholder, select::-webkit-input-placeholder, textarea::-moz-placeholder, textarea:-ms-input-placeholder, textarea::-webkit-input-placeholder, button::-moz-placeholder, button:-ms-input-placeholder, button::-webkit-input-placeholder {
     color: #999999;
     opacity: 1; }
@@ -88,7 +90,8 @@ fieldset {
   padding: 0.5em 1em; }
 
 input[type="submit"], button {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: #ff6633;
   color: #ffffff;
   border: 0;
