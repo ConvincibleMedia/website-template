@@ -83,7 +83,7 @@ table {
 	max-width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
-	border-bottom: $table-border;
+	border-bottom: $table-border
 }
 
 table.small {
@@ -104,6 +104,15 @@ th {
 
 	&:last-child {
 		padding-right: 0
+	}
+}
+
+div.table {
+	overflow-x: auto;
+	margin-bottom: #{$text-spacing}rem;
+
+	& table {
+		margin-bottom: 0
 	}
 }
 

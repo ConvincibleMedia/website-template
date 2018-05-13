@@ -23,10 +23,12 @@ $grid-spacing: 2rem;
 	padding: $grid-spacing / 2;
 	margin: 0;
 
-	& p:last-child {
+	& :last-child {
 		margin-bottom: 0
 	}
 }
+
+
 
 .lg-1in3 {
 	flex-grow: 0;

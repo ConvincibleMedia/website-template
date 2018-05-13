@@ -5,7 +5,7 @@ features:
 
 Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt culpa velit quis. ***Consequat commodo*** reprehenderit duis [irure](#!) esse esse exercitation minim enim Lorem[^1] dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.
 
-*Cupidatat consequat* ommodo non ea cupidatat ![cat](http://placekitten.com/80/80) magna deserunt dolore ipsum velit nulla elit.
+*Cupidatat consequat* ommodo ![cat](http://placekitten.com/16/16) non ea cupidatat ![cat](http://placekitten.com/80/80) magna deserunt dolore ipsum velit nulla elit.
 
 [^1]: Footnote example!
 
@@ -58,6 +58,7 @@ Labore ea magna Lorem consequat aliquip consectetur cillum duis dolore. Et venia
 
 Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.
 
+{% table %}
 | Table Heading 1 | Table Heading 2 | Center align    | Right align     |
 | :-------------- | :-------------- | :-------------: | --------------: |
 | Item 1          | Item 2          | Item 3          | Item 4          |
@@ -65,6 +66,7 @@ Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla
 | Item 1          | Item 2          | Item 3          | Item 4          |
 | Item 1          | Item 2          | Item 3          | Item 4          |
 | Item 1          | Item 2          | Item 3          | Item 4          |
+{% endtable %}
 
 Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et duis pariatur reprehenderit eu ex consectetur.
 
