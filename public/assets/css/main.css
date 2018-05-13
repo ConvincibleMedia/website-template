@@ -467,32 +467,60 @@ h1, .h1 {
 /* INCLUDE: _includes/css/grid.scss */
 .container {
   margin: 0 auto;
-  padding: 0 2rem; }
+  padding: 0 1rem; }
+  @media (min-width: 50em) {
+    .container {
+      padding: 0 2rem; } }
 
-.grid {
+.grid, .across, .down {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
   align-items: stretch;
   align-content: stretch;
   margin: 1rem -1rem; }
 
+.grid, .across {
+  flex-direction: row; }
+
+.down {
+  flex-direction: column; }
+
 .cell {
   flex: 1 1;
   min-width: 15em;
+  max-width: 100%;
   padding: 1rem;
   margin: 0; }
   .cell :last-child {
     margin-bottom: 0; }
+  .cell > .card {
+    height: 100%; }
+
+.cards {
+  margin: -0.5rem 0; }
+  .cards .cell {
+    padding: 0.5rem; }
+  .cards .card {
+    padding: 0.5rem; }
+  @media (min-width: 50em) {
+    .cards {
+      margin: 0; }
+      .cards .cell {
+        padding: 1rem; }
+      .cards .card {
+        padding: 1rem; } }
+
+.card {
+  padding: 1rem; }
 
 .lg-1in3 {
-  flex-grow: 0;
-  flex-basis: 33.3333333333%; }
+  flex-basis: 33.3333333333%;
+  max-width: 33.3333333333%; }
 
 .lg-2in3 {
-  flex-grow: 0;
-  flex-basis: 66.6666666667%; }
+  flex-basis: 66.6666666667%;
+  max-width: 66.6666666667%; }
 
 .primary {
   background-color: #ff6633;

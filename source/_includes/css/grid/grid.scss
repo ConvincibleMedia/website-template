@@ -4,38 +4,84 @@ $grid-spacing: 2rem;
 
 .container {
 	margin: 0 auto;
-	padding: 0 $grid-spacing
+	padding: 0 ($grid-spacing / 2);
+
+	@include md() {
+		padding: 0 $grid-spacing;
+	}
+
+	//outline: 1px solid green;
 }
 
-.grid {
+// grid is alias for across
+.grid, .across, .down {
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: row;
 	justify-content: center;
 	align-items: stretch;
 	align-content: stretch;
-	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2))
+	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2));
+
+	//outline: 1px solid red;
 }
+
+.grid, .across { flex-direction: row; }
+.down { flex-direction: column; }
 
 .cell {
 	flex: 1 1;
 	min-width: 15em;
+	max-width: 100%;
 	padding: $grid-spacing / 2;
 	margin: 0;
 
 	& :last-child {
 		margin-bottom: 0
 	}
+
+	& > .card {
+		height: 100%;
+	}
+
+	//outline: 1px solid green;
 }
 
+.cards {
+	margin: (0 - ($grid-spacing / 4)) 0;
+
+	& .cell {
+		padding: ($grid-spacing / 4);
+	}
+
+	& .card {
+		padding: $grid-spacing / 4;
+	}
+
+	@include md() {
+		margin: 0;
+
+		& .cell {
+			padding: ($grid-spacing / 2);
+		}
+
+		& .card {
+			padding: $grid-spacing / 2;
+		}
+	}
+
+}
+
+.card {
+	padding: $grid-spacing / 2;
+}
 
 
 .lg-1in3 {
-	flex-grow: 0;
-	flex-basis: (100% / 3)
+	flex-basis: (100% / 3);
+	max-width: (100% / 3);
 }
 
 .lg-2in3 {
-	flex-grow: 0;
-	flex-basis: (100% / 3) * 2
+	flex-basis: (100% / 3) * 2;
+	max-width: (100% / 3) * 2;
 }
