@@ -58,7 +58,7 @@ Labore ea magna Lorem consequat aliquip consectetur cillum duis dolore. Et venia
 
 Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.
 
-{% table %}
+{% table large %}
 | Table Heading 1 | Table Heading 2 | Center align    | Right align     |
 | :-------------- | :-------------- | :-------------: | --------------: |
 | Item 1          | Item 2          | Item 3          | Item 4          |

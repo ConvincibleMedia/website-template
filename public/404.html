@@ -88,11 +88,18 @@
 		<!-- BODY -->
 		<div class="container">
 
-		<h1>Page Not Found</h1>
+		<h1>Page Not Found @
+			<span class="sm-hidden">xs</span>
+			<span class="sm-visible md-hidden">sm</span>
+			<span class="md-visible lg-hidden">md</span>
+			<span class="lg-visible md-hidden">lg</span>:
+			<span id="em">0</span>em
+		</h1>
 
-			<p> grid cell with one 2in3 mixed in</p>
+<div class="grid">
+	<div class="cell stack">
 
-			<div class="grid">
+			<div class="grid autosize">
 				<div class="cell primary">
 						<p>Hello world! I am primary.</p>
 				</div>
@@ -102,78 +109,84 @@
 				<div class="cell primary-light">
 						<p>Hello world! I am primary light.</p>
 				</div>
-				<div class="cell lg-2in3 secondary">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
+				<div class="cell last secondary">
+						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
 				</div>
-				<div class="cell secondary-dark">
-						<p>Hello world! I am secondary dark.</p>
+				<div class="cell first secondary-dark">
+						<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
 				</div>
 				<div class="cell secondary-light">
 						<p>Hello world! I am secondary light.</p>
 				</div>
 			</div>
 
-			<p> grid cell card with one 2in3 and two 1in3s mixed in</p>
-			<div class="cards">
-			<div class="grid">
-				<div class="cell lg-1in3">
-					<div class="card primary">
-						<p>Hello world! I am primary. 1in3</p>
+
+
+					<div class="grid secondary-light">
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary 1in3.</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary dark 1in3.</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary light 1in3.</p>
+							</div>
+							<div class="cell lg-2in3">
+								<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am secondary dark. 1in3</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am secondary light. 1in3</p>
+							</div>
 					</div>
+
 				</div>
-				<div class="cell">
-					<div class="card primary-dark">
-						<p>Hello world! I am primary dark.</p>
-					</div>
-				</div>
-				<div class="cell lg-1in3">
-					<div class="card primary-light">
-						<p>Hello world! I am primary light. 1in3</p>
-					</div>
-				</div>
-				<div class="cell lg-2in3">
-					<div class="card secondary">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
-					</div>
-				</div>
-				<div class="cell">
-					<div class="card secondary-dark">
-						<p>Hello world! I am secondary dark.</p>
-					</div>
-				</div>
-				<div class="cell">
-					<div class="card secondary-light">
-						<p>Hello world! I am secondary light.</p>
-					</div>
-				</div>
-			</div>
+				<div class="cell stack">
+
+
+								<div class="cards">
+								<div class="grid">
+									<div class="cell lg-1in4">
+										<div class="card primary">
+											<p>Hello world! I am primary. 1in4</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card primary-dark">
+											<p>Hello world! I am primary dark.</p>
+										</div>
+									</div>
+									<div class="cell lg-1in4">
+										<div class="card primary-light">
+											<p>Hello world! I am primary light. 1in4</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card secondary">
+											<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  </p>
+										</div>
+									</div>
+									<div class="cell lg-2in3">
+										<div class="card secondary-dark">
+											<p>Hello world! I am secondary dark 2in3.</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card secondary-light">
+											<p>Hello world! I am secondary light.</p>
+										</div>
+									</div>
+								</div>
+							</div>
 		</div>
-
-			<p> grid cell.lg-1in3 with one 2in3 mixed in</p>
-			<div class="grid secondary-light">
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary 1in3.</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary dark 1in3.</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary light 1in3.</p>
-					</div>
-					<div class="cell lg-2in3">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am secondary dark. 1in3</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am secondary light. 1in3</p>
-					</div>
-			</div>
-
+	</div>
+<div class="column">
 		<p>Sorry, we can&rsquo;t find the page you asked for.</p>
 
-
+</div>
 	</div>
 
 		<!-- /BODY -->

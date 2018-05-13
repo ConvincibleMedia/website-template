@@ -86,8 +86,13 @@ table {
 	border-bottom: $table-border
 }
 
-table.small {
+.table-small table {
 	width: auto;
+}
+.table-large {
+	& td, th {
+		min-width: 10em;
+	}
 }
 
 td,

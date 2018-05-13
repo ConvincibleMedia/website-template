@@ -1,54 +1,30 @@
 /* INCLUDE: _includes/css/breakpoints.scss */
 
-$sm-break: 30em;
-$md-break: 50em;
-$lg-break: 80em;
+$breaks: (
+	sm: 30em,
+	md: 50em,
+	lg: 80em
+);
+
 /* 130em */
 
 /* Small SM */
 @mixin sm() {
-	@media (min-width: $sm-break) {
+	@media (min-width: map-get($breaks, 'sm')) {
 		@content;
 	}
 }
 
 /* Medium MD */
 @mixin md() {
-	@media (min-width: $md-break) {
+	@media (min-width:  map-get($breaks, 'md')) {
 		@content;
 	}
 }
 
 /* Large LG */
 @mixin lg() {
-	@media (min-width: $lg-break) {
-		@content;
-	}
-}
-
-/* X-Small XS */
-@mixin xs-only() {
-	@media (max-width: $sm-break) {
-		@content;
-	}
-}
-/* Small SM */
-@mixin sm-only() {
-	@media (min-width: $sm-break) and (max-width: $md-break) {
-		@content;
-	}
-}
-
-/* Medium MD */
-@mixin md-only() {
-	@media (min-width: $md-break) and (max-width: $lg-break){
-		@content;
-	}
-}
-
-/* Large LG */
-@mixin lg-only() {
-	@media (min-width: $lg-break) {
+	@media (min-width:  map-get($breaks, 'lg')) {
 		@content;
 	}
 }

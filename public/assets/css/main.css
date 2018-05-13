@@ -400,8 +400,11 @@ table {
   border-spacing: 0;
   border-bottom: 0.05rem solid #bfbfbf; }
 
-table.small {
+.table-small table {
   width: auto; }
+
+.table-large td, .table-large th {
+  min-width: 10em; }
 
 td,
 th {
@@ -460,25 +463,29 @@ h1, .h1 {
 /* Small SM */
 /* Medium MD */
 /* Large LG */
-/* X-Small XS */
-/* Small SM */
-/* Medium MD */
-/* Large LG */
 /* INCLUDE: _includes/css/grid.scss */
 .container {
   margin: 0 auto;
-  padding: 0 1rem; }
+  padding: 0 1rem;
+  max-width: 100%; }
   @media (min-width: 50em) {
     .container {
-      padding: 0 2rem; } }
+      padding: 0 2rem;
+      width: 90%; } }
+  @media (min-width: 80em) {
+    .container {
+      width: 80%; } }
 
 .grid, .across, .down {
-  display: flex;
   flex-wrap: wrap;
+  overflow: auto;
   justify-content: center;
   align-items: stretch;
   align-content: stretch;
   margin: 1rem -1rem; }
+  @media (min-width: 30em) {
+    .grid, .across, .down {
+      display: flex; } }
 
 .grid, .across {
   flex-direction: row; }
@@ -487,15 +494,40 @@ h1, .h1 {
   flex-direction: column; }
 
 .cell {
-  flex: 1 1;
-  min-width: 15em;
+  flex-grow: 1;
+  flex-shrink: 1;
   max-width: 100%;
   padding: 1rem;
-  margin: 0; }
+  margin: 0;
+  min-width: 50%;
+  flex-basis: 50%;
+  outline: 1px dashed rgba(0, 128, 0, 0.5); }
   .cell :last-child {
     margin-bottom: 0; }
   .cell > .card {
     height: 100%; }
+  @media (min-width: 50em) {
+    .cell {
+      min-width: 33.3333333333%;
+      flex-basis: 33.3333333333%; } }
+  @media (min-width: 80em) {
+    .cell {
+      min-width: 25%;
+      flex-basis: 25%; } }
+
+@media (min-width: 30em) {
+  .autosize .cell {
+    max-width: 50%; } }
+@media (min-width: 50em) {
+  .autosize .cell {
+    min-width: 33.3333333333%;
+    max-width: 33.3333333333%;
+    flex-basis: 33.3333333333%; } }
+@media (min-width: 80em) {
+  .autosize .cell {
+    min-width: 25%;
+    max-width: 25%;
+    flex-basis: 25%; } }
 
 .cards {
   margin: -0.5rem 0; }
@@ -507,21 +539,240 @@ h1, .h1 {
     .cards {
       margin: 0; }
       .cards .cell {
-        padding: 1rem; }
+        padding: 1rem;
+        flex-grow: 0; }
       .cards .card {
         padding: 1rem; } }
 
 .card {
   padding: 1rem; }
 
-.lg-1in3 {
-  flex-basis: 33.3333333333%;
-  max-width: 33.3333333333%; }
+.stack {
+  flex-basis: 100%;
+  max-width: 100%;
+  min-width: 100%; }
+  @media (min-width: 80em) {
+    .stack {
+      flex-basis: 50%;
+      max-width: 50%;
+      min-width: 50%; } }
 
-.lg-2in3 {
-  flex-basis: 66.6666666667%;
-  max-width: 66.6666666667%; }
+.column {
+  outline: 1px dashed rgba(0, 128, 0, 0.5); }
+  @media (min-width: 80em) {
+    .column {
+      margin: 0 16.6666666667%; } }
 
+.first-1, .first {
+  order: -100000; }
+
+.first-2 {
+  order: -020000; }
+
+.first-3 {
+  order: -003000; }
+
+.last-1, .last {
+  order: 100000; }
+
+.last-2 {
+  order: 020000; }
+
+.last-3 {
+  order: 003000; }
+
+@media (min-width: 30em) {
+  .sm-1in2 {
+    flex-basis: 50%;
+    max-width: 50%;
+    min-width: initial; }
+
+  .sm-1in3 {
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+    min-width: initial; }
+
+  .sm-2in3 {
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+    min-width: initial; }
+
+  .sm-1in4 {
+    flex-basis: 25%;
+    max-width: 25%;
+    min-width: initial; }
+
+  .sm-3in4 {
+    flex-basis: 75%;
+    max-width: 75%;
+    min-width: initial; }
+
+  .sm-1in5 {
+    flex-basis: 20%;
+    max-width: 20%;
+    min-width: initial; }
+
+  .sm-2in5 {
+    flex-basis: 40%;
+    max-width: 40%;
+    min-width: initial; }
+
+  .sm-3in5 {
+    flex-basis: 60%;
+    max-width: 60%;
+    min-width: initial; }
+
+  .sm-4in5 {
+    flex-basis: 80%;
+    max-width: 80%;
+    min-width: initial; }
+
+  .sm-1in6 {
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+    min-width: initial; }
+
+  .sm-5in6 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+    min-width: initial; } }
+@media (min-width: 50em) {
+  .md-1in2 {
+    flex-basis: 50%;
+    max-width: 50%;
+    min-width: initial; }
+
+  .md-1in3 {
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+    min-width: initial; }
+
+  .md-2in3 {
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+    min-width: initial; }
+
+  .md-1in4 {
+    flex-basis: 25%;
+    max-width: 25%;
+    min-width: initial; }
+
+  .md-3in4 {
+    flex-basis: 75%;
+    max-width: 75%;
+    min-width: initial; }
+
+  .md-1in5 {
+    flex-basis: 20%;
+    max-width: 20%;
+    min-width: initial; }
+
+  .md-2in5 {
+    flex-basis: 40%;
+    max-width: 40%;
+    min-width: initial; }
+
+  .md-3in5 {
+    flex-basis: 60%;
+    max-width: 60%;
+    min-width: initial; }
+
+  .md-4in5 {
+    flex-basis: 80%;
+    max-width: 80%;
+    min-width: initial; }
+
+  .md-1in6 {
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+    min-width: initial; }
+
+  .md-5in6 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+    min-width: initial; } }
+@media (min-width: 80em) {
+  .lg-1in2 {
+    flex-basis: 50%;
+    max-width: 50%;
+    min-width: initial; }
+
+  .lg-1in3 {
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+    min-width: initial; }
+
+  .lg-2in3 {
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+    min-width: initial; }
+
+  .lg-1in4 {
+    flex-basis: 25%;
+    max-width: 25%;
+    min-width: initial; }
+
+  .lg-3in4 {
+    flex-basis: 75%;
+    max-width: 75%;
+    min-width: initial; }
+
+  .lg-1in5 {
+    flex-basis: 20%;
+    max-width: 20%;
+    min-width: initial; }
+
+  .lg-2in5 {
+    flex-basis: 40%;
+    max-width: 40%;
+    min-width: initial; }
+
+  .lg-3in5 {
+    flex-basis: 60%;
+    max-width: 60%;
+    min-width: initial; }
+
+  .lg-4in5 {
+    flex-basis: 80%;
+    max-width: 80%;
+    min-width: initial; }
+
+  .lg-1in6 {
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+    min-width: initial; }
+
+  .lg-5in6 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+    min-width: initial; } }
+.sm-visible {
+  display: none; }
+
+@media (min-width: 30em) {
+  .sm-hidden {
+    display: none; }
+
+  .sm-visible {
+    display: initial; } }
+.md-visible {
+  display: none; }
+
+@media (min-width: 50em) {
+  .md-hidden {
+    display: none; }
+
+  .md-visible {
+    display: initial; } }
+.lg-visible {
+  display: none; }
+
+@media (min-width: 80em) {
+  .lg-hidden {
+    display: none; }
+
+  .lg-visible {
+    display: initial; } }
 .primary {
   background-color: #ff6633;
   color: #ffffff; }
@@ -545,3 +796,14 @@ h1, .h1 {
 .secondary-light {
   background-color: #c4d1de;
   color: #000000; }
+
+body {
+  margin-top: 6em; }
+
+h1 {
+  background: #fff;
+  position: fixed;
+  top: 0; }
+
+a:hover, a:active, a:focus, a.hover {
+  transform: translateZ(1em); }

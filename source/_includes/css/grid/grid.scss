@@ -5,9 +5,15 @@ $grid-spacing: 2rem;
 .container {
 	margin: 0 auto;
 	padding: 0 ($grid-spacing / 2);
+	max-width: 100%;
 
 	@include md() {
 		padding: 0 $grid-spacing;
+		width: 90%;
+	}
+
+	@include lg() {
+		width: 80%;
 	}
 
 	//outline: 1px solid green;
@@ -15,22 +21,25 @@ $grid-spacing: 2rem;
 
 // grid is alias for across
 .grid, .across, .down {
-	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: stretch;
+	overflow: auto;
+	justify-content: center; // Hanging cells will be centred
+	align-items: stretch; // cells fill vertical space relative to other cells
+	align-content: stretch; // rows fill vertical space between rows
 	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2));
+
+	@include sm() {
+		display: flex; // Flexbox only starts for larger screens
+	} // THIS KILLS ORDERING -- REMOVE
 
 	//outline: 1px solid red;
 }
-
 .grid, .across { flex-direction: row; }
 .down { flex-direction: column; }
 
 .cell {
-	flex: 1 1;
-	min-width: 15em;
+	flex-grow: 1; // Hanging cells will expand to fill full space
+	flex-shrink: 1;
 	max-width: 100%;
 	padding: $grid-spacing / 2;
 	margin: 0;
@@ -43,11 +52,44 @@ $grid-spacing: 2rem;
 		height: 100%;
 	}
 
-	//outline: 1px solid green;
+	// Min width set so that as soon as you break into flex mode (at small size) you start with 2 cells on a line and *no more*. Percent rather than absolute, due to stupidity whereby browser scrollbar width is considered part of the media query
+	min-width: 50%;
+	// Define an initial flex basis so unstyled cells operate on assumption of equal width
+	flex-basis: 50%;
+
+	@include md() {
+		min-width: (100% / 3);
+		flex-basis: (100% / 3);
+	}
+
+	@include lg() {
+		min-width: 25%;
+		flex-basis: 25%;
+	}
+
+	outline: 1px dashed rgba(green, 0.5);
+}
+
+.autosize .cell {
+	@include sm() {
+		max-width: 50%;
+	}
+
+	@include md() {
+		min-width: (100% / 3);
+		max-width: (100% / 3);
+		flex-basis: (100% / 3);
+	}
+
+	@include lg() {
+		min-width: 25%;
+		max-width: 25%;
+		flex-basis: 25%;
+	}
 }
 
 .cards {
-	margin: (0 - ($grid-spacing / 4)) 0;
+	margin: (0 - ($grid-spacing / 4)) 0; // CHANGE THIS - ADD CARD TO GRID NOT WRAP
 
 	& .cell {
 		padding: ($grid-spacing / 4);
@@ -62,6 +104,7 @@ $grid-spacing: 2rem;
 
 		& .cell {
 			padding: ($grid-spacing / 2);
+			flex-grow: 0; // Hanging cells will NOT expand to fill full space
 		}
 
 		& .card {
@@ -75,13 +118,64 @@ $grid-spacing: 2rem;
 	padding: $grid-spacing / 2;
 }
 
+.stack {
+	flex-basis: 100%;
+	max-width: 100%;
+	min-width: 100%;
 
-.lg-1in3 {
-	flex-basis: (100% / 3);
-	max-width: (100% / 3);
+	@include lg() {
+		flex-basis: 50%;
+		max-width: 50%;
+		min-width: 50%;
+	}
 }
 
-.lg-2in3 {
-	flex-basis: (100% / 3) * 2;
-	max-width: (100% / 3) * 2;
+.column {
+	@include lg() {
+		margin: 0 ((100% / 12) * 2);
+	}
+	outline: 1px dashed rgba(green, 0.5);
+}
+
+
+.first-1, .first { order: -100000; }
+.first-2 { order: -020000; }
+.first-3 { order: -003000; }
+.last-1, .last { order: 100000; }
+.last-2 { order: 020000; }
+.last-3 { order: 003000; }
+
+$skip: (7, 8, 9, 10, 11, 12);
+$widths: ();
+@each $break, $size in $breaks {
+	@media (min-width: $size) {
+		@for $cols from 2 through 12 {
+			//@debug($i);
+			@if index($skip, $cols) == null {
+				@for $col from 1 through ($cols - 1) {
+					$percent: percentage($col / $cols);
+					@if index($widths, $percent) == null {
+
+						.#{$break}-#{$col}in#{$cols} {
+							flex-basis: $percent;
+							max-width: $percent;
+							min-width: initial; // Turn off defaults
+						}
+
+						$widths: append($widths, $percent);
+					}
+				}
+			}
+		}
+	}
+	$widths: ();
+}
+
+@each $break, $size in $breaks {
+	.#{$break}-visible { display: none; }
+
+	@media (min-width: $size) {
+		.#{$break}-hidden { display: none; }
+		.#{$break}-visible { display: initial; }
+	}
 }

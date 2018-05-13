@@ -97,11 +97,18 @@
 		<!-- BODY -->
 		<div class="container">
 
-		<h1>Index</h1>
+		<h1>Index @
+			<span class="sm-hidden">xs</span>
+			<span class="sm-visible md-hidden">sm</span>
+			<span class="md-visible lg-hidden">md</span>
+			<span class="lg-visible md-hidden">lg</span>:
+			<span id="em">0</span>em
+		</h1>
 
-			<p> grid cell with one 2in3 mixed in</p>
+<div class="grid">
+	<div class="cell stack">
 
-			<div class="grid">
+			<div class="grid autosize">
 				<div class="cell primary">
 						<p>Hello world! I am primary.</p>
 				</div>
@@ -111,75 +118,81 @@
 				<div class="cell primary-light">
 						<p>Hello world! I am primary light.</p>
 				</div>
-				<div class="cell lg-2in3 secondary">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
+				<div class="cell last secondary">
+						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
 				</div>
-				<div class="cell secondary-dark">
-						<p>Hello world! I am secondary dark.</p>
+				<div class="cell first secondary-dark">
+						<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
 				</div>
 				<div class="cell secondary-light">
 						<p>Hello world! I am secondary light.</p>
 				</div>
 			</div>
 
-			<p> grid cell card with one 2in3 and two 1in3s mixed in</p>
-			<div class="cards">
-			<div class="grid">
-				<div class="cell lg-1in3">
-					<div class="card primary">
-						<p>Hello world! I am primary. 1in3</p>
+
+
+					<div class="grid secondary-light">
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary 1in3.</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary dark 1in3.</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am primary light 1in3.</p>
+							</div>
+							<div class="cell lg-2in3">
+								<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am secondary dark. 1in3</p>
+							</div>
+							<div class="cell lg-1in3">
+								<p>Hello world! I am secondary light. 1in3</p>
+							</div>
 					</div>
+
 				</div>
-				<div class="cell">
-					<div class="card primary-dark">
-						<p>Hello world! I am primary dark.</p>
-					</div>
-				</div>
-				<div class="cell lg-1in3">
-					<div class="card primary-light">
-						<p>Hello world! I am primary light. 1in3</p>
-					</div>
-				</div>
-				<div class="cell lg-2in3">
-					<div class="card secondary">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
-					</div>
-				</div>
-				<div class="cell">
-					<div class="card secondary-dark">
-						<p>Hello world! I am secondary dark.</p>
-					</div>
-				</div>
-				<div class="cell">
-					<div class="card secondary-light">
-						<p>Hello world! I am secondary light.</p>
-					</div>
-				</div>
-			</div>
+				<div class="cell stack">
+
+
+								<div class="cards">
+								<div class="grid">
+									<div class="cell lg-1in4">
+										<div class="card primary">
+											<p>Hello world! I am primary. 1in4</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card primary-dark">
+											<p>Hello world! I am primary dark.</p>
+										</div>
+									</div>
+									<div class="cell lg-1in4">
+										<div class="card primary-light">
+											<p>Hello world! I am primary light. 1in4</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card secondary">
+											<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  </p>
+										</div>
+									</div>
+									<div class="cell lg-2in3">
+										<div class="card secondary-dark">
+											<p>Hello world! I am secondary dark 2in3.</p>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="card secondary-light">
+											<p>Hello world! I am secondary light.</p>
+										</div>
+									</div>
+								</div>
+							</div>
 		</div>
-
-			<p> grid cell.lg-1in3 with one 2in3 mixed in</p>
-			<div class="grid secondary-light">
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary 1in3.</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary dark 1in3.</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am primary light 1in3.</p>
-					</div>
-					<div class="cell lg-2in3">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am secondary dark. 1in3</p>
-					</div>
-					<div class="cell lg-1in3">
-						<p>Hello world! I am secondary light. 1in3</p>
-					</div>
-			</div>
-
+	</div>
+<div class="column">
 		<p>Sint ea anim ipsum ad commodo cupidatat do <strong>exercitation</strong> incididunt culpa velit quis. <strong><em>Consequat commodo</em></strong> reprehenderit duis <a href="#!">irure</a> esse esse exercitation minim enim Lorem<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.</p>
 
 <p><em>Cupidatat consequat</em> ommodo <img src="http://placekitten.com/16/16" alt="cat" /> non ea cupidatat <img src="http://placekitten.com/80/80" alt="cat" /> magna deserunt dolore ipsum velit nulla elit.</p>
@@ -247,7 +260,7 @@
 
 <p>Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.</p>
 
-<div class="table">
+<div class="table table-large ">
 <table>
   <thead>
     <tr>
@@ -363,7 +376,7 @@
   </ol>
 </div>
 
-
+</div>
 	</div>
 
 		<!-- /BODY -->
