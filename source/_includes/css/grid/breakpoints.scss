@@ -1,10 +1,10 @@
 /* INCLUDE: _includes/css/breakpoints.scss */
 
-$breaks: (
-	sm: 30em,
-	md: 50em,
-	lg: 80em
-);
+$breaks: (   // Typical device widths in em:
+	sm: 30em, // iPhone 6/7/8 landscape @ 41em (portrait is xs @ 23em)
+	md: 50em, // iPad landscape @ 64em (portrait is sm @ 48em)
+	lg: 80em  // iPad Pro landscape @ 85em (portrait is md @ 64em)
+);           // Most common desktop resolution is 1366x1024 landscape @ 85em
 
 /* 130em */
 

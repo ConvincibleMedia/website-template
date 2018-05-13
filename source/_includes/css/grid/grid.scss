@@ -1,6 +1,7 @@
 /* INCLUDE: _includes/css/grid.scss */
 
 $grid-spacing: 2rem;
+$grid-align: center; // Hanging cells will be centred
 
 .container {
 	margin: 0 auto;
@@ -22,8 +23,8 @@ $grid-spacing: 2rem;
 // grid is alias for across
 .grid, .across, .down {
 	flex-wrap: wrap;
-	overflow: auto;
-	justify-content: center; // Hanging cells will be centred
+	overflow: auto; // In case required; or for nowrap grids
+	justify-content: $grid-align;
 	align-items: stretch; // cells fill vertical space relative to other cells
 	align-content: stretch; // rows fill vertical space between rows
 	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2));
@@ -39,13 +40,13 @@ $grid-spacing: 2rem;
 
 .cell {
 	flex-grow: 1; // Hanging cells will expand to fill full space
-	flex-shrink: 1;
+	flex-shrink: 1; // Cells can become smaller on smaller screens
 	max-width: 100%;
 	padding: $grid-spacing / 2;
 	margin: 0;
 
 	& :last-child {
-		margin-bottom: 0
+		margin-bottom: 0;
 	}
 
 	& > .card {
