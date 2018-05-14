@@ -1,60 +1,81 @@
 /* INCLUDE: _includes/css/base.scss */
 
-$text-spacing: 1; //em or rem
-$text-pixel: 0.05rem;
+{% include css/config.scss %}
+{% include css/helpers.scss %}
 
-/* UTILITY */
+
+/* ADDITIONAL RESET */
 
 html {
 	box-sizing: border-box;
 }
 
 *,
-*::before,
-*::after {
-  box-sizing: inherit;
+*::after,
+*::before {
+	box-sizing: border-box; // I say "pish" to anything requiring anything else
 }
 
+
+/* UTILITY */
 .no-css {
 	display: none;
 }
 
-/* MARGINS */
 
-img {
-	max-width: 100%;
-	vertical-align: middle;
-	display: inline-block;
+/* FONT STYLES */
+
+body {
+	font-family: $font-body;
+	font-size: $font-size;
+	line-height: $font-size * $font-size-inc;
 }
 
+#{h()} {
+	font-family: $font-head;
+	font-size: $font-size * (1 + (($font-size-inc - 1) / 2));
+	line-height: $font-size * (1 + (($font-size-inc - 1) / 2));
+}
+
+h3, .h3 {
+	font-size: $font-size * ($font-size-inc);
+}
+h2, .h2 {
+	font-size: $font-size * ($font-size-inc * $font-size-inc);
+}
+h1, .h1 {
+	font-size: $font-size * ($font-size-inc * $font-size-inc * $font-size-inc);
+}
+
+
+/* MARGINS */
 p,
 table {
-	margin: 0 0 #{$text-spacing}rem;
+	margin: 0 0 $margin-base;
 	padding: 0;
 }
+#{h()},// Headers and dividers guarantee space above as well
 
-#{h()},
 hr {
-	margin: #{$text-spacing}rem 0;
+	margin: $margin-base 0;
 	padding: 0;
 }
-
-$list-style: square outside none;
 
 dl,
 ol,
 ul {
-	margin: 0 0 #{$text-spacing}rem #{$text-spacing * 2}rem;
+	margin: 0 0 $margin-base ($margin-base * 2);
 	padding: 0;
 
-	& ul, ol, dl {
-		margin-bottom: 0
+	& dl,
+	ol,
+	ul {
+		margin-bottom: 0;
 	}
 }
-ul, dl { list-style: $list-style; }
 
 blockquote {
-	margin: 0 #{$text-spacing * 2}rem #{$text-spacing}rem;
+	margin: 0 ($margin-base * 2) $margin-base;
 	padding: 0;
 }
 
@@ -66,32 +87,62 @@ form {
 	padding: 0;
 }
 
-li, dt, dd { margin: 0; padding: 0 }
+dd,
+dt,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* LISTS */
+
+dl,
+ul {
+	list-style: square outside none;
+}
+
 dt {
 	display: list-item;
 	font-weight: bold;
 }
-dt + dt { list-style: none; }
+
+dt + dt {
+	list-style: none;
+}
 
 
 /* TABLES */
-
-$table-border: $text-pixel solid $color-bg-dark-1;
+$table-border: $font-pixel solid $color-bg-dark-1;
 
 table {
 	width: 100%;
 	max-width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
-	border-bottom: $table-border
+	border-bottom: $table-border;
 }
 
-.table-small table {
-	width: auto;
+div.table, div.table-small > table, div.table-large > table {
+	overflow-x: auto;
+	margin-bottom: $margin-base; // Div takes the margin instead
+
+	& > table { // Cancel margin on table witin div.table
+		margin-bottom: 0;
+	}
 }
-.table-large {
-	& td, th {
-		min-width: 10em;
+
+div.table-small > table, div.table-large > table {
+	width: auto; // Override default 100%
+}
+
+div.table-large {
+	max-width: none;
+	min-width: 100%; // It's large so 100% or more (and will overflow)
+
+	& td,
+	th {
+		min-width: $font-size * 10; // Stop large tables squishing columns
 	}
 }
 
@@ -101,23 +152,14 @@ th {
 	vertical-align: middle;
 	text-align: left;
 	margin: 0;
-	padding: #{$text-spacing / 4}rem #{$text-spacing / 2}rem;
+	padding: ($margin-base / 4) ($margin-base / 2);
 
 	&:first-child {
-		padding-left: 0
+		padding-left: 0; // margin = $margin-base within middle of table
 	}
 
 	&:last-child {
-		padding-right: 0
-	}
-}
-
-div.table {
-	overflow-x: auto;
-	margin-bottom: #{$text-spacing}rem;
-
-	& table {
-		margin-bottom: 0
+		padding-right: 0; // ...but 0 around the edges
 	}
 }
 
@@ -132,6 +174,15 @@ div.table {
 
 #{a('hover')} {
 	color: $color-1-dark-1;
-	border-bottom: $text-pixel solid $color-1-dark-1;
+	border-bottom: $font-pixel solid $color-1-dark-1;
 	transition: color 0.125s;
+}
+
+
+/* IMAGES */
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
 }

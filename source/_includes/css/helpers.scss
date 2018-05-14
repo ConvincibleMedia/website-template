@@ -21,3 +21,8 @@
 		@return 'a, a:link, a:visited, a:not([href]):hover, a:hover, a:active, a:focus, a.hover';
 	}
 }
+
+// Elsewhere must define map of breaks as $grid-breaks
+@function break($break:'') {
+	@return '(min-width: ' + map-get($grid-breaks, $break) + ')';
+}

@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		{% if page.hidden %}<meta name="robots" content="NOINDEX, NOFOLLOW" />{% endif %}
-		{% include snippets/gtm.html pos="head" %}
-		<!-- must be high as possible in <head> -->
 
-		<!-- SEO -->
-		<title>{{ page.meta.title | escape }}</title>
-		<meta name="description" content="{{ page.meta.description | escape }}" />
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{% if page.hidden %}
+	<meta name="robots" content="NOINDEX, NOFOLLOW" />
+	{% endif %}
 
-		<!-- STYLES -->
-		{% include snippets/styles.html %}
+	{% include snippets/gtm.html pos="head" %}
+	<!-- Must be high as possible in <head> -->
 
-		<!-- SCRIPTS -->
-		{% include snippets/scripts.html %}
+	<!-- SEO -->
+	<title>{{ page.meta.title | escape }}</title>
+	<meta name="description" content="{{ page.meta.description | escape }}" />
 
-		<!-- OTHER -->
-		{% include snippets/compatibility.html %}
-		{% include snippets/favicon.html %}
-		{% include snippets/verify.html %}
-	</head>
-	<body id="top">
-		{% include snippets/gtm.html pos="body" %}<!-- must be immediately after <body> -->
-		{% include snippets/browser.html %}
+	<!-- STYLES -->
+	{% include snippets/styles.html %}
 
-		<!-- BODY -->
-		<div class="container">
+	<!-- SCRIPTS -->
+	{% include snippets/scripts.html %}
+
+	<!-- OTHER -->
+	{% include snippets/compatibility.html %}
+	{% include snippets/favicon.html %}
+	{% include snippets/verify.html %}
+</head>
+
+<body id="top">
+	{% include snippets/gtm.html pos="body" %}
+	<!-- Must be immediately after <body> -->
+
+	<!-- Browser Warning -->
+	{% include snippets/browser.html %}
+
+	<!-- BODY -->
+	<div class="container">
 
 		<h1>{{ page.title }} @
 			<span class="sm-hidden">xs</span>
@@ -36,107 +44,106 @@
 			<span id="em">0</span>em
 		</h1>
 
-<div class="grid">
-	<div class="cell stack">
+		<div class="grid">
+			<div class="cell lg-1in2">
 
-			<div class="grid autosize">
-				<div class="cell primary">
+				<div class="grid">
+					<div class="cell-auto primary">
 						<p>Hello world! I am primary.</p>
-				</div>
-				<div class="cell primary-dark">
+					</div>
+					<div class="cell-auto primary-dark">
 						<p>Hello world! I am primary dark.</p>
-				</div>
-				<div class="cell primary-light">
+					</div>
+					<div class="cell-auto primary-light">
 						<p>Hello world! I am primary light.</p>
-				</div>
-				<div class="cell last secondary">
+					</div>
+					<div class="cell-auto flex-last secondary">
 						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
-				</div>
-				<div class="cell first secondary-dark">
+					</div>
+					<div class="cell-auto flex-first secondary-dark">
 						<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
-				</div>
-				<div class="cell secondary-light">
+					</div>
+					<div class="cell-auto secondary-light">
 						<p>Hello world! I am secondary light.</p>
+					</div>
 				</div>
+
+				<div class="grid secondary-light">
+					<div class="cell lg-1in3">
+						<p>Hello world! I am primary.</p>
+					</div>
+					<div class="cell lg-1in3">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in3">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell lg-2in3">
+						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+					</div>
+					<div class="cell lg-1in3">
+						<p>Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell lg-1in3">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="cell lg-1in2">
+
+				<div class="grid">
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card primary">
+							<p>Hello world! I am primary.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card primary-dark">
+							<p>Hello world! I am primary dark.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card primary-light">
+							<p>Hello world! I am primary light.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card secondary">
+							<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card secondary-dark">
+							<p>Hello world! I am secondary dark.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in2 md-1in3">
+						<div class="card secondary-light">
+							<p>Hello world! I am secondary light.</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
-
-
-					<div class="grid secondary-light">
-							<div class="cell lg-1in3">
-								<p>Hello world! I am primary 1in3.</p>
-							</div>
-							<div class="cell lg-1in3">
-								<p>Hello world! I am primary dark 1in3.</p>
-							</div>
-							<div class="cell lg-1in3">
-								<p>Hello world! I am primary light 1in3.</p>
-							</div>
-							<div class="cell lg-2in3">
-								<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  2in3</p>
-							</div>
-							<div class="cell lg-1in3">
-								<p>Hello world! I am secondary dark. 1in3</p>
-							</div>
-							<div class="cell lg-1in3">
-								<p>Hello world! I am secondary light. 1in3</p>
-							</div>
-					</div>
-
-				</div>
-				<div class="cell stack">
-
-
-								<div class="cards">
-								<div class="grid">
-									<div class="cell lg-1in4">
-										<div class="card primary">
-											<p>Hello world! I am primary. 1in4</p>
-										</div>
-									</div>
-									<div class="cell">
-										<div class="card primary-dark">
-											<p>Hello world! I am primary dark.</p>
-										</div>
-									</div>
-									<div class="cell lg-1in4">
-										<div class="card primary-light">
-											<p>Hello world! I am primary light. 1in4</p>
-										</div>
-									</div>
-									<div class="cell">
-										<div class="card secondary">
-											<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.  </p>
-										</div>
-									</div>
-									<div class="cell lg-2in3">
-										<div class="card secondary-dark">
-											<p>Hello world! I am secondary dark 2in3.</p>
-										</div>
-									</div>
-									<div class="cell">
-										<div class="card secondary-light">
-											<p>Hello world! I am secondary light.</p>
-										</div>
-									</div>
-								</div>
-							</div>
 		</div>
-	</div>
-<div class="column">
-		{{ content }}
-</div>
+
+		<div class="column">
+			{{ content }}
+		</div>
+
 	</div>
 
-		<!-- /BODY -->
+	<!-- /BODY -->
 
-		<!--
+	<!--
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 		<script src="/assets/scripts/libraries/jquery/jquery-plugins.js"></script>
 		<script src="/assets/scripts/libraries/matchheight/matchHeight.jquery.js"></script>
 		<script src="/assets/scripts/main.js"></script>
 		//-->
-		<!--
+	<!--
 		<script>
 			head.ready('webfont', function() {
 				WebFont.load({
@@ -147,5 +154,6 @@
 			});
 		</script>
 		//-->
-	</body>
+</body>
+
 </html>

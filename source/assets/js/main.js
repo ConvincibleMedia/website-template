@@ -16,3 +16,10 @@ function wind() {
 }
 $(window).resize(wind);
 wind();
+
+$('.cell, .cell-flex, .cell-auto').each(function(a, obj1) {
+	cell = $(obj1);
+	cell.find('p').each(function(b, obj2) {
+		$(obj2).text(cell.attr('class'));
+	});
+});

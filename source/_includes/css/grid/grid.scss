@@ -1,27 +1,33 @@
 /* INCLUDE: _includes/css/grid.scss */
 
-$grid-spacing: 2rem;
-$grid-align: center; // Hanging cells will be centred
+{% include css/config.scss %}
+{% include css/helpers.scss %}
+
+
+/* GRID FOUNDATIONS */
 
 .container {
 	margin: 0 auto;
 	padding: 0 ($grid-spacing / 2);
 	max-width: 100%;
 
-	@include md() {
+	@media #{break('md')} {
 		padding: 0 $grid-spacing;
 		width: 90%;
 	}
 
-	@include lg() {
+	@media #{break('lg')} {
 		width: 80%;
 	}
 
 	//outline: 1px solid green;
 }
 
-// grid is alias for across
+
+/* GRID ELEMENT */
+
 .grid, .across, .down {
+	display: flex;
 	flex-wrap: wrap;
 	overflow: auto; // In case required; or for nowrap grids
 	justify-content: $grid-align;
@@ -29,21 +35,27 @@ $grid-align: center; // Hanging cells will be centred
 	align-content: stretch; // rows fill vertical space between rows
 	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2));
 
-	@include sm() {
-		display: flex; // Flexbox only starts for larger screens
-	} // THIS KILLS ORDERING -- REMOVE
-
 	//outline: 1px solid red;
 }
 .grid, .across { flex-direction: row; }
 .down { flex-direction: column; }
 
-.cell {
+
+/* CELL ELEMENTS */
+
+@mixin grid-cell-size-properties($width) {
+	flex-basis: $width;
+	max-width: $width;
+}
+
+.cell, .cell-flex, .cell-auto {
 	flex-grow: 1; // Hanging cells will expand to fill full space
 	flex-shrink: 1; // Cells can become smaller on smaller screens
+	flex-basis: 100%;
 	max-width: 100%;
-	padding: $grid-spacing / 2;
+	overflow: auto;
 	margin: 0;
+	padding: $grid-spacing / 2;
 
 	& :last-child {
 		margin-bottom: 0;
@@ -53,126 +65,66 @@ $grid-align: center; // Hanging cells will be centred
 		height: 100%;
 	}
 
-	// Min width set so that as soon as you break into flex mode (at small size) you start with 2 cells on a line and *no more*. Percent rather than absolute, due to stupidity whereby browser scrollbar width is considered part of the media query
-	min-width: 50%;
-	// Define an initial flex basis so unstyled cells operate on assumption of equal width
-	flex-basis: 50%;
-
-	@include md() {
-		min-width: (100% / 3);
-		flex-basis: (100% / 3);
-	}
-
-	@include lg() {
-		min-width: 25%;
-		flex-basis: 25%;
-	}
-
 	outline: 1px dashed rgba(green, 0.5);
 }
 
-.autosize .cell {
-	@include sm() {
-		max-width: 50%;
+.cell-auto {
+	@media #{break('sm')} {
+		@include grid-cell-size-properties(100% / 2);
 	}
 
-	@include md() {
-		min-width: (100% / 3);
-		max-width: (100% / 3);
-		flex-basis: (100% / 3);
+	@media #{break('md')} {
+		@include grid-cell-size-properties(100% / 3);
 	}
 
-	@include lg() {
-		min-width: 25%;
-		max-width: 25%;
-		flex-basis: 25%;
+	@media #{break('lg')} {
+		@include grid-cell-size-properties(100% / 4);
 	}
 }
 
-.cards {
-	margin: (0 - ($grid-spacing / 4)) 0; // CHANGE THIS - ADD CARD TO GRID NOT WRAP
-
-	& .cell {
-		padding: ($grid-spacing / 4);
-	}
-
-	& .card {
-		padding: $grid-spacing / 4;
-	}
-
-	@include md() {
-		margin: 0;
-
-		& .cell {
-			padding: ($grid-spacing / 2);
-			flex-grow: 0; // Hanging cells will NOT expand to fill full space
-		}
-
-		& .card {
-			padding: $grid-spacing / 2;
-		}
-	}
-
+.cell-flex {
+	min-width: $font-size * 10; // Avoid stupidly squashed cells
+	flex-basis: auto;
 }
 
 .card {
 	padding: $grid-spacing / 2;
 }
 
-.stack {
-	flex-basis: 100%;
-	max-width: 100%;
-	min-width: 100%;
 
-	@include lg() {
-		flex-basis: 50%;
-		max-width: 50%;
-		min-width: 50%;
-	}
-}
+/* CELL ORDERING */
 
-.column {
-	@include lg() {
-		margin: 0 ((100% / 12) * 2);
-	}
-	outline: 1px dashed rgba(green, 0.5);
-}
+.flex-first,
+.flex-first-1 { order: -100000; } // First
+.flex-first-2 { order: -020000; } // After first-1
+.flex-first-3 { order: -003000; } // After first-1 or first-2
+.flex-last,
+.flex-last-1  { order:  100000; } // Last
+.flex-last-2  { order:  020000; } // Before last-1
+.flex-last-3  { order:  003000; } // Before last-2 or last-1
 
 
-.first-1, .first { order: -100000; }
-.first-2 { order: -020000; }
-.first-3 { order: -003000; }
-.last-1, .last { order: 100000; }
-.last-2 { order: 020000; }
-.last-3 { order: 003000; }
+/* RESPONSIVE EXPLICIT SIZES */
 
-$skip: (7, 8, 9, 10, 11, 12);
-$widths: ();
-@each $break, $size in $breaks {
+@each $break, $size in $grid-breaks {
 	@media (min-width: $size) {
-		@for $cols from 2 through 12 {
-			//@debug($i);
-			@if index($skip, $cols) == null {
-				@for $col from 1 through ($cols - 1) {
-					$percent: percentage($col / $cols);
-					@if index($widths, $percent) == null {
+		@each $cols in $grid-sizes {
+			@for $col from 1 through ($cols - 1) { // No '4in4' classes etc.
 
-						.#{$break}-#{$col}in#{$cols} {
-							flex-basis: $percent;
-							max-width: $percent;
-							min-width: initial; // Turn off defaults
-						}
-
-						$widths: append($widths, $percent);
-					}
+				$percent: percentage($col / $cols);
+				.#{$break}-#{$col}in#{$cols} {
+					@include grid-cell-size-properties($percent);
 				}
+
 			}
 		}
 	}
-	$widths: ();
 }
 
-@each $break, $size in $breaks {
+
+/* RESPONSIVE HIDE/SHOW */
+
+@each $break, $size in $grid-breaks {
 	.#{$break}-visible { display: none; }
 
 	@media (min-width: $size) {

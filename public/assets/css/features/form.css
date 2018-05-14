@@ -1,27 +1,9 @@
 /* ASSET: assets/css/features/form.scss */
-/* INCLUDE: _includes/css/brand.scss */
-/*
-$color-1: #ff6633;
-$color-1-text: #ffffff; // Generated
-$color-1-dark-1: #bf4c26; // Generated
-$color-1-dark-1-text: #ffffff; // Generated // Generated
-$color-1-light-1: #ff8c66; // Generated
-$color-1-light-1-text: #ffffff; // Generated // Generated
-$color-2: #b1c2d3;
-$color-2-text: #000000; // Generated
-$color-2-dark-1: #84919e; // Generated
-$color-2-dark-1-text: #ffffff; // Generated // Generated
-$color-2-light-1: #c4d1de; // Generated
-$color-2-light-1-text: #000000; // Generated // Generated
-$color-bg: #ffffff;
-$color-bg-text: #000000;
-$color-bg-dark-1: #bfbfbf; // Generated
-$color-bg-dark-1-text: #000000; // Generated // Generated
-$color-bg-light-1: #ffffff; // Generated
-$color-bg-light-1-text: #000000; // Generated // Generated
-$font-head: 'Georgia', 'Palatino', 'Times', 'Times New Roman', 'serif', ;
-$font-body: 'Arial', 'Tahoma', 'Verdana', 'Segoe', 'sans-serif', ;
-*/
+/* INCLUDE: _includes/css/config.scss */
+/* BRAND */
+/* TYPOGRAPHY */
+/* LAYOUT */
+/* GRID SETUP */
 input, select, textarea, button, fieldset, label, legend, output {
   display: block;
   vertical-align: middle;

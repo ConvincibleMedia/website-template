@@ -1,0 +1,29 @@
+/* INCLUDE: _includes/css/config.scss */
+
+
+/* BRAND */
+{% colors %}
+$font-head: {% for font in site.brand.font.head %}'{{ font }}'{% unless for.last %}, {% endunless %}{% endfor %};
+$font-body: {% for font in site.brand.font.body %}'{{ font }}'{% unless for.last %}, {% endunless %}{% endfor %};
+
+
+/* TYPOGRAPHY */
+$font-size: 1rem; // duh
+$font-size-inc: 1.5; // Amount headings multiply by from h3 up to h1
+$font-leading: $font-size-inc; // line-height
+$font-pixel: ($font-size / 20); // Probably = slightly smaller than 1px
+
+
+/* LAYOUT */
+$margin-base: $font-size;
+
+
+/* GRID SETUP */
+$grid-breaks: ( // Typical device widths in em:
+	sm: 30em,    // iPhone 6/7/8 landscape @ 41em (portrait is xs @ 23em)
+	md: 50em,    // iPad landscape @ 64em (portrait is sm @ 48em)
+	lg: 80em     // iPad Pro landscape @ 85em (portrait is md @ 64em)
+);              // Most common desktop resolution is 1366x1024 landscape @ 85em
+$grid-sizes: (2, 3, 4); // Number of cols across to create classes for
+$grid-spacing: $margin-base * 2; // More division between cells than between text within cells
+$grid-align: center; // Hanging cells will be centred
