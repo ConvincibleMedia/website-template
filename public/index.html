@@ -2,10 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 
 	<!-- Must be high as possible in <head> -->
 
@@ -69,8 +66,7 @@
 <![endif]-->
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="manifest" href="/manifest.json" />
@@ -78,8 +74,7 @@
 <meta name="apple-mobile-web-app-title" content="Website Template" />
 <meta name="application-name" content="Website Template" />
 <meta name="theme-color" content="ff6633" />
-
-	
+ 
    
    
 
@@ -107,14 +102,15 @@
 			<span class="sm-hidden">xs</span>
 			<span class="sm-visible md-hidden">sm</span>
 			<span class="md-visible lg-hidden">md</span>
-			<span class="lg-visible md-hidden">lg</span>:
+			<span class="lg-visible xl-hidden">lg</span>
+			<span class="xl-visible">xl</span>:
 			<span id="em">0</span>em
 		</h1>
 
 		<div class="grid">
-			<div class="cell lg-1in2">
+			<div class="cell grid xl-1in2">
 
-				<div class="grid">
+				<div class="cell grid">
 					<div class="cell-auto primary">
 						<p>Hello world! I am primary.</p>
 					</div>
@@ -135,60 +131,187 @@
 					</div>
 				</div>
 
-				<div class="grid secondary-light">
+				<div class="cell grid secondary-light">
 					<div class="cell lg-1in3">
 						<p>Hello world! I am primary.</p>
 					</div>
-					<div class="cell lg-1in3">
+					<div class="cell grid lg-2in3">
+						<div class="cell lg-1in2">
+							<p>Hello world! I am primary dark.</p>
+						</div>
+						<div class="cell lg-1in2">
+							<p>Hello world! I am primary light.</p>
+						</div>
+					</div>
+					<div class="cell lg-1in8">
 						<p>Hello world! I am primary dark.</p>
 					</div>
-					<div class="cell lg-1in3">
+					<div class="cell lg-1in8">
 						<p>Hello world! I am primary light.</p>
 					</div>
-					<div class="cell lg-2in3">
-						<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
-					</div>
-					<div class="cell lg-1in3">
+					<div class="cell md-1in8">
 						<p>Hello world! I am secondary dark.</p>
 					</div>
-					<div class="cell lg-1in3">
+					<div class="cell md-1in8">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell md-1in8">
+						<p>Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell md-1in8">
 						<p>Hello world! I am secondary light.</p>
 					</div>
 				</div>
 
-			</div>
-			<div class="cell lg-1in2">
+				<div class="cell grid">
+					<div class="cell md-1in2">
+						<div class="grid-img lg-grid-img-left">
+							<div class="cell-img-h">
+								<h4>Cat</h4>
+							</div>
+							<div class="cell-img-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell-img-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell md-1in2">
+						<div class="grid-img lg-grid-img-left">
+							<div class="cell-img-h">
+								<h4>Cat</h4>
+							</div>
+							<div class="cell-img-img">
+								<div class="card-img"> <img src="http://placekitten.com/50/50" /></div>
+							</div>
+							<div class="cell-img-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-				<div class="grid">
-					<div class="cell sm-1in2 md-1in3">
+				<div class="cell cards">
+					<div class="cell md-1in2">
 						<div class="card primary">
-							<p>Hello world! I am primary.</p>
+							<div class="grid-img lg-grid-img-left">
+								<div class="cell-img-h">
+										<h4>Cat</h4>
+								</div>
+								<div class="cell-img-img">
+									<img src="http://placekitten.com/50/50" />
+								</div>
+								<div class="cell-img-body">
+										<p>Hello world! I am primary.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="cell sm-1in2 md-1in3">
+					<div class="cell md-1in2">
+						<div class="card primary">
+							<div class="card-inner">
+								<div class="grid-img lg-grid-img-left">
+									<div class="cell-img-h">
+											<h4>Cat</h4>
+									</div>
+									<div class="cell-img-img">
+										<div class="card-img"> <img src="http://placekitten.com/50/50" /></div>
+									</div>
+									<div class="cell-img-body">
+											<p>Hello world! I am primary.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="cell grid xl-1in2">
+
+				<div class="cell cards">
+					<div class="cell card sm-1in3 md-1in4">
 						<div class="card primary-dark">
-							<p>Hello world! I am primary dark.</p>
+								<p>Hello world! I am primary dark.</p>
 						</div>
 					</div>
-					<div class="cell sm-1in2 md-1in3">
-						<div class="card primary-light">
-							<p>Hello world! I am primary light.</p>
-						</div>
-					</div>
-					<div class="cell sm-1in2 md-1in3">
+					<div class="cell sm-1in3 md-1in4">
 						<div class="card secondary">
-							<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+							<div class="card-inner">
+								<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+							</div>
 						</div>
 					</div>
-					<div class="cell sm-1in2 md-1in3">
-						<div class="card secondary-dark">
-							<p>Hello world! I am secondary dark.</p>
+					<div class="cell sm-1in3 md-1in4">
+						<div class="card primary">
+							<div class="grid-img">
+								<div class="cell-img-h">
+										<h4>Cat</h4>
+								</div>
+								<div class="cell-img-img">
+									<img src="http://placekitten.com/50/50" />
+								</div>
+								<div class="cell-img-body">
+										<p>Hello world! I am primary.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="cell sm-1in2 md-1in3">
-						<div class="card secondary-light">
-							<p>Hello world! I am secondary light.</p>
+					<div class="cell sm-1in3 md-1in4">
+						<div class="card secondary">
+							<div class="card-inner">
+								<div class="grid-img">
+									<div class="cell-img-h">
+											<h4>Cat</h4>
+									</div>
+									<div class="cell-img-img">
+										<img src="http://placekitten.com/50/50" />
+									</div>
+									<div class="cell-img-body">
+											<p>Hello world! I am primary.</p>
+									</div>
+								</div>
+							</div>
 						</div>
+					</div>
+				</div>
+
+				<div class="cell grid">
+					<div class="cell-auto flex-first-2 primary">
+						<p>Hello world! I am primary.</p>
+					</div>
+					<div class="cell-auto primary-dark">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell-auto flex-first-3 primary-light">
+						<div class="grid-img">
+							<div class="cell-img-h">
+									<h4>Cat</h4>
+							</div>
+							<div class="cell-img-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell-img-body">
+									<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell-auto flex-last secondary">
+						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+					</div>
+					<div class="cell-auto flex-first secondary-dark">
+						<img src="http://placekitten.com/640/360" />
+						<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell-auto secondary-light">
+						<p>Hello world! I am secondary light.</p>
 					</div>
 				</div>
 
@@ -196,8 +319,7 @@
 
 		</div>
 
-		<div class="column">
-			<p>Sint ea anim ipsum ad commodo cupidatat do <strong>exercitation</strong> incididunt culpa velit quis. <strong><em>Consequat commodo</em></strong> reprehenderit duis <a href="#!">irure</a> esse esse exercitation minim enim Lorem<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.</p>
+		<p>Sint ea anim ipsum ad commodo cupidatat do <strong>exercitation</strong> incididunt culpa velit quis. <strong><em>Consequat commodo</em></strong> reprehenderit duis <a href="#!">irure</a> esse esse exercitation minim enim Lorem<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.</p>
 
 <p><em>Cupidatat consequat</em> ommodo <img src="http://placekitten.com/16/16" alt="cat" /> non ea cupidatat <img src="http://placekitten.com/80/80" alt="cat" /> magna deserunt dolore ipsum velit nulla elit.</p>
 
@@ -380,7 +502,6 @@
   </ol>
 </div>
 
-		</div>
 
 	</div>
 

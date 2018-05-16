@@ -3,42 +3,62 @@
 {% include css/config.scss %}
 {% include css/helpers.scss %}
 
+$debug: true;
+
 
 /* GRID FOUNDATIONS */
 
 .container {
 	margin: 0 auto;
-	padding: 0 ($grid-spacing / 2);
+	padding: 0 $grid-spacing / 2;
 	max-width: 100%;
 
 	@media #{break('md')} {
 		padding: 0 $grid-spacing;
-		width: 90%;
 	}
 
 	@media #{break('lg')} {
+		width: 90%;
+	}
+
+	@media #{break('xl')} {
 		width: 80%;
 	}
 
-	//outline: 1px solid green;
+	@media (min-width: #{map-get($grid-breaks, 'xl') * 1.5}) { // Stop width expanding forever
+		width: map-get($grid-breaks, 'xl') * 1.5 * 0.8;
+	}
+
+	@if $debug { outline: 1px dashed rgba(blue, 0.5); }
 }
 
 
 /* GRID ELEMENT */
 
-.grid, .across, .down {
-	display: flex;
+.grid, .stack, .cards {
+	display: flex!important; // If not understood by browser, will stay as block
 	flex-wrap: wrap;
+	flex-direction: row;
 	overflow: auto; // In case required; or for nowrap grids
 	justify-content: $grid-align;
 	align-items: stretch; // cells fill vertical space relative to other cells
 	align-content: stretch; // rows fill vertical space between rows
-	margin: ($grid-spacing / 2) (0 - ($grid-spacing / 2));
+	padding: 0!important; // Grid containers don't pad top-bottom - overrides cell
+	margin: 0 (0 - ($grid-spacing / 2))!important; // Grids overflow containers so insides line up after padding
 
-	//outline: 1px solid red;
+	@if $debug { outline: 1px dashed rgba(red, 0.5)!important; }
 }
-.grid, .across { flex-direction: row; }
-.down { flex-direction: column; }
+.stack { flex-direction: column; }
+.grid .grid,
+.grid .stack,
+.grid .cards,
+.cards .grid,
+.cards .stack,
+.cards .cards,
+.stack .grid,
+.stack .stack,
+.stack .cards,
+ { margin: 0!important }
 
 
 /* CELL ELEMENTS */
@@ -49,6 +69,7 @@
 }
 
 .cell, .cell-flex, .cell-auto {
+	display: block;
 	flex-grow: 1; // Hanging cells will expand to fill full space
 	flex-shrink: 1; // Cells can become smaller on smaller screens
 	flex-basis: 100%;
@@ -61,11 +82,12 @@
 		margin-bottom: 0;
 	}
 
-	& > .card {
-		height: 100%;
+	@if $debug { outline: 1px dashed rgba(green, 0.5); }
+}
+.stack {
+	& > .cell, & .cell-flex, & > .cell-auto {
+		flex-basis: auto;
 	}
-
-	outline: 1px dashed rgba(green, 0.5);
 }
 
 .cell-auto {
@@ -87,10 +109,56 @@
 	flex-basis: auto;
 }
 
-.card {
-	padding: $grid-spacing / 2;
+
+/* CARDS */
+
+.cards {
+	margin-top: $grid-spacing / 4;
+	margin-bottom: $grid-spacing / 4;
+
+	& > .cell, & > .cell-flex, & > .cell-auto {
+		padding-top: $grid-spacing / 4;
+		padding-bottom: $grid-spacing / 4;
+	}
+
+	@media #{break('md')} {
+		margin-top: $grid-spacing / 2;
+		margin-bottom: $grid-spacing / 2;
+
+		& > .cell, & > .cell-flex, & > .cell-auto {
+			padding-top: $grid-spacing / 2;
+			padding-bottom: $grid-spacing / 2;
+		}
+	}
+
 }
 
+.card {
+	margin-left: (0 - $grid-spacing / 4);
+	margin-right: (0 - $grid-spacing / 4);
+	height: 100%;
+
+	@media #{break('md')} {
+		margin: 0;
+	}
+
+	@if $debug { outline: 1px dashed rgba(purple, 0.5); }
+}
+
+.card-inner {
+	padding: $grid-spacing / 4;
+
+	@media #{break('md')} {
+		padding: $grid-spacing / 2;
+	}
+}
+.card-inner-cont {
+	padding: $grid-spacing / 4; padding-top: 0;
+
+	@media #{break('md')} {
+		padding: $grid-spacing / 2; padding-top: 0;
+	}
+}
 
 /* CELL ORDERING */
 
@@ -131,4 +199,67 @@
 		.#{$break}-hidden { display: none; }
 		.#{$break}-visible { display: initial; }
 	}
+}
+
+
+/* SPECIAL STRUCTURES */
+
+.grid-img {
+	display: grid!important;
+	justify-content: stretch;
+	justify-items: stretch;
+	align-content: stretch;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content min-content 1fr;
+	grid-template-areas:
+		"img"
+		"h"
+		"body";
+	margin: 0 (0 - ($grid-spacing / 2));
+}
+
+.lg-grid-img-left {
+	@media #{break('lg')} {
+		grid-template-columns: 25% 75%;
+		grid-template-rows: min-content 1fr;
+		grid-template-areas:
+			"img h"
+			"img body";
+
+		.cell-img-img {
+			margin-left: ($grid-spacing / 2);
+			padding: 0;
+		}
+
+		.cell-img-h {
+			margin: 0 ($grid-spacing / 2);
+			padding: 0;
+		}
+
+		.cell-img-body {
+			margin: 0 ($grid-spacing / 2);
+			padding: 0;
+		}
+
+	}
+}
+
+.cell-img-img {
+	grid-area: img;
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+.cell-img-h {
+	grid-area: h;
+	padding-top: ($grid-spacing / 4);
+}
+.cell-img-body {
+	grid-area: body;
+}
+
+.cell-img-img, .cell-img-h, .cell-img-body {
+	margin: 0 ($grid-spacing / 2)
 }

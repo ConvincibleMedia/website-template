@@ -14,15 +14,22 @@
 
 @function a($type:'') {
 	@if $type == 'base' {
-		@return 'a, a:link, a:visited, a:not([href]):hover';
-	} @else if $type == 'hover' {
+		@return 'a, a:link, a:visited';
+	} @else
+	if $type == 'hover' {
 		@return 'a:hover, a:active, a:focus, a.hover';
 	} @else {
-		@return 'a, a:link, a:visited, a:not([href]):hover, a:hover, a:active, a:focus, a.hover';
+		@return 'a, a:link, a:visited, a:hover, a:active, a:focus, a.hover';
 	}
 }
 
 // Elsewhere must define map of breaks as $grid-breaks
 @function break($break:'') {
 	@return '(min-width: ' + map-get($grid-breaks, $break) + ')';
+}
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
 }

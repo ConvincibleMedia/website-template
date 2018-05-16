@@ -34,7 +34,7 @@ body {
 #{h()} {
 	font-family: $font-head;
 	font-size: $font-size * (1 + (($font-size-inc - 1) / 2));
-	line-height: $font-size * (1 + (($font-size-inc - 1) / 2));
+	line-height: #{strip-unit($font-size * (1 + (($font-size-inc - 1) / 2)))}em;
 }
 
 h3, .h3 {
@@ -49,12 +49,11 @@ h1, .h1 {
 
 
 /* MARGINS */
-p,
+p, #{h()},
 table {
-	margin: 0 0 $margin-base;
+	margin: 0 0 $margin-base 0;
 	padding: 0;
 }
-#{h()},// Headers and dividers guarantee space above as well
 
 hr {
 	margin: $margin-base 0;
