@@ -71,7 +71,7 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 
 # Images
 
-![Super wide](http://placekitten.com/1280/800)
+{% img src=http://placekitten.com/1280/800 format=page.layout %}
 
 <dl>
 	<dt>Image below</dt>
