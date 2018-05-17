@@ -14,9 +14,8 @@ Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt culpa vel
 Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna `<strong>in culpa qui officia</strong>` dolor eiusmod esse amet aute.
 
 ```go
-import (
-    "net/http"
-)
+import ("net/http siofioj dfosdoif s ief ijoseo ifsi fsie fmfjisifoif jisd fdjfiosefseif jsioefjse jisfj sdfsdsfiosdjfio sfj2");
+import ("net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsiosenfiosefnioseniindoicnsodijcisodjcisodcisodjfisdojfsiodfsdof2");
 ```
 
 ## Heading 3 is a long heading. Aute officia nulla deserunt do deserunt cillum velit magna. Aliquip et adipisicing sit sit fugiat commodo id sunt.

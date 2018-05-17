@@ -26,6 +26,6 @@ $grid-breaks: ( // Typical device widths in em on default settings:
 	lg: 80em,    // iPad Pro landscape @ 85em (portrait is md @ 64em); plus small-screened computers
 	xl: 100em    // Full HD 1920x1080 @ 118em; e.g. desktops and iMacs plus
 );              // Most common desktop resolution is 1366x1024 landscape @ 85em
-$grid-sizes: (2, 3, 4, 8); // Number of cols across to create classes for
+$grid-sizes: (2, 3, 4, 6, 8); // Number of cols across to create classes for
 $grid-spacing: $margin-base * 2; // More division between cells than between text within cells
 $grid-align: center; // Hanging cells will be centred

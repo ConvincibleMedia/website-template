@@ -71,8 +71,8 @@ module Jekyll
 				end
 
 				@variants = {
-					'dark' => -0.25,
-					'light' => 0.25
+					'dark' => -0.2,
+					'light' => 0.2
 				}
 
 				def drop_colors(colors, suff, look_for_variants, comment = '')

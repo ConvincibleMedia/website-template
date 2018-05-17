@@ -139,7 +139,9 @@ div.table-large {
 	max-width: none;
 	min-width: 100%; // It's large so 100% or more (and will overflow)
 
-	& td,
+	table { min-width: 100%; }
+
+	td,
 	th {
 		min-width: $font-size * 10; // Stop large tables squishing columns
 	}
@@ -184,4 +186,14 @@ img {
 	max-width: 100%;
 	vertical-align: middle;
 	display: inline-block;
+}
+
+
+/* OTHER */
+
+pre { overflow: auto; }
+pre.highlight {
+	padding: $margin-base ($margin-base * 2);
+	background-color: $color-bg-dark-1;
+	color: $color-bg-dark-1-text;
 }

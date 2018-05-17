@@ -24,7 +24,7 @@ input:focus, select:focus, textarea:focus, button:focus, fieldset:focus, input[t
   outline: 0; }
 
 input, select, textarea, button, fieldset {
-  box-shadow: inset 0 0.25rem 0.25rem rgba(191, 191, 191, 0.25); }
+  box-shadow: inset 0 0.25rem 0.25rem rgba(204, 204, 204, 0.25); }
 
 label, legend, output {
   margin: 0 0 0 -0.5rem;
