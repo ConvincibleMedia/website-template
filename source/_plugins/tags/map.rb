@@ -11,7 +11,8 @@ module Jekyll
 		def render(context)
 			@site = context.registers[:site]
 			@config = @site.config
-			
+
+			return @tag_name
 		end
 
 	end

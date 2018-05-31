@@ -73,13 +73,14 @@ images:
       fit:                     "clip"
       auto:                    "compress"
       fm:                      "png"
-youtube:
-   plain:
-      modestbranding:          1
-      showinfo:                0
-      rel:                     0
-      cc_load_policy:          0
-      iv_load_policy:          3
+video:
+   youtube:
+      plain:
+         modestbranding:          1
+         showinfo:                0
+         rel:                     0
+         cc_load_policy:          0
+         iv_load_policy:          3
 
 
 # Asset folders
@@ -131,11 +132,12 @@ defaults:
 
 permalink:                     ":slug.html"
 
+excerpt_separator:             "" # Do not generate excerpts - currently this is inefficient as Jekyll renders entire page twice
 
 # Markdown
 markdown:                      "kramdown"
 kramdown:
-   auto_id_prefix:             "h-"
+   auto_id_prefix:             "section-"
    auto_ids:                   true
    auto_id_stripping:          true
    entity_output:              "symbolic"
@@ -148,5 +150,4 @@ kramdown:
 #  show_drafts:                null
 #  future:                     false
 #  unpublished:                false
-   excerpt_separator:          "\n\n"
    strict_front_matter:        true

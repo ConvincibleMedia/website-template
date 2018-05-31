@@ -1,4 +1,4 @@
-class Table < Liquid::Block
+class TableTag < Liquid::Block
 
 	def initialize(tag_name, markup, tokens)
 		super
@@ -17,4 +17,4 @@ class Table < Liquid::Block
 
 end
 
-Liquid::Template.register_tag('table', Table)
+Liquid::Template.register_tag('table', TableTag)

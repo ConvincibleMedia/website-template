@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'jekyll'
-gem 'nokogiri'
+gem 'nokogiri' # Parse HTML documents
+gem 'addressable' # Parse URIs
 gem 'dato'
-gem 'liquid-tag-parser'
+#gem 'liquid-tag-parser'

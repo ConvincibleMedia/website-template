@@ -34,9 +34,7 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.2.6)
-    extras (0.3.0)
-      forwardable-extended (~> 2.5)
+    eventmachine (1.2.7)
     faraday (0.15.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
@@ -51,7 +49,7 @@ GEM
       concurrent-ruby (~> 1.0)
     imgix (1.1.0)
       addressable
-    jekyll (3.8.1)
+    jekyll (3.8.2)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -69,11 +67,8 @@ GEM
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     json (2.1.0)
-    kramdown (1.16.2)
+    kramdown (1.17.0)
     liquid (4.0.0)
-    liquid-tag-parser (1.9.0)
-      extras (~> 0.3)
-      liquid (>= 3.0, < 5.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -123,9 +118,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   dato
   jekyll
-  liquid-tag-parser
   nokogiri
 
 BUNDLED WITH

@@ -71,7 +71,13 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 
 # Images
 
-{% img src=http://placekitten.com/1280/800 format=page.layout %}
+{% img image=logo %}
+{% img image=0001 alt='Alt text' id='Bones & Clocks' %}
+{% img src=img.jpg format=thumb %}
+{% img src=img.jpg format=thumb x=y %}
+{% img url src=img.jpg alt=Image w=50% h=auto %}
+
+{% video %}
 
 <dl>
 	<dt>Image below</dt>

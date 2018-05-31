@@ -1,8 +1,11 @@
+require 'nokogiri'
+require 'addressable/uri'
+
 # UNIVERSAL FUNCTIONS
 
 def expect(var, var_class = NilClass, var_def = nil)
 	if var_class == NilClass
-		if var.nil? || var.empty?
+		if var.nil? || (var.is_a?(Enumerable) && var.empty?)
 			ret = var_def
 		else
 			yield(ret) if block_given?
@@ -66,6 +69,43 @@ def between(num, bottom, top)
 	if num > top then return top end
 	if num < bottom then return bottom end
 	return num
+end
+
+def matches(needle, haystack)
+	 start_at = 0
+	 matches  = []
+	 while(m = haystack.match(needle, start_at))
+		  matches.push(m)
+		  start_at = m.end(0)
+	 end
+	 return matches
+end
+
+module URI
+	extend self
+
+	def query_encode(q)
+		return Addressable::URI.normalize_component(q, 'a-zA-Z0-9')
+	end
+
+	def query_decode(q)
+		return Addressable::URI.unencode_component(q, String)
+	end
+
+	def attr_encode(a)
+		a = a.to_s
+		{
+			'&' => '&amp;',
+			'<' => '&lt;',
+			'>' => '&gt;',
+			'"' => '&quot;',
+			"'" => '&apos;'
+		}.each { |from, to|
+			a = a.gsub(from, to)
+		}
+		return a
+	end
+
 end
 
 =begin
