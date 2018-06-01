@@ -101,6 +101,7 @@ assets:
       #service:
          #css:                  true
          #js:                   true
+         #features:????
 
 
 # Build settings
@@ -108,19 +109,19 @@ source:                        "source" # NO LEADING SLASH!!!
 destination:                   "public"
 #include:
 #- ""
-#exclude:
-#- ""
-#- ""
+exclude:
+   -  "*.partial.*"
+#  -  ""
 
 
 # Collections
 collections:
    root:
       output:                  true
-      permalink:               "/:name"
+      permalink:               "/:name" # flatten any folders here
    pages:
       output:                  true
-      permalink:               "/:path"
+      permalink:               "/:path" # respect folder structure here
 
 
 # Defaults
