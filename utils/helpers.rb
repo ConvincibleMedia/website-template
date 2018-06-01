@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'addressable/uri'
+#require 'uri'
 
 # UNIVERSAL FUNCTIONS
 
@@ -104,6 +105,19 @@ module URI
 			a = a.gsub(from, to)
 		}
 		return a
+	end
+
+	def parse(uri)
+		return Addressable::URI.parse(uri)
+	end
+
+end
+
+module HTML
+	extend self
+
+	def element(e)
+		return Nokogiri::XML::Node.new(e, Nokogiri::HTML::DocumentFragment.parse(''))
 	end
 
 end

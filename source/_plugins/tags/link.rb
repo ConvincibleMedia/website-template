@@ -9,7 +9,48 @@ module Jekyll
 		# {% link mailto:virgil@gmail %}click here{% endlink %}
 		def output
 
-			return '<a href="' + @input + '">' + @block + '</a>'
+			root = Addressable::URI::parse(@config['url'])
+			type = ''
+
+			a = HTML::element('a')
+			a.inner_html = @block
+
+			if present?(@input)
+				if @input[0] == '@'
+					# ID LINK
+					type = 'internal id'
+				else
+					uri = Addressable::URI::parse(@input)
+					# HREF LINK
+
+					if uri.scheme
+						# ABSOLUTE LINK
+
+						if uri.host != root.host
+							# EXTERNAL LINK
+							a['target'] = '_blank'
+							type = 'external absolute'
+						else
+							# INTERNAL BUT ABSOLUTE!
+							@input = uri.route_from(root.authority).to_s
+							type = 'internal absolute'
+						end
+
+					else
+						# RELATIVE LINK
+
+						type = 'internal relative'
+					end
+				end
+
+				a['href'] = @input
+			end
+
+			# Debug
+			a.inner_html = type + ': ' + @input
+
+			return a.to_html
+			#return '<a href="' + link[:href] + '">' + @block + '</a>'
 
 		end
 

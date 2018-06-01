@@ -75,13 +75,20 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 2. {% img image=0001 alt='Alt text' id='Bones & Clocks' %}
 3. {% img src=img.jpg format=thumb %}
 4. {% img src=img.jpg format=thumb x=y %}
-5. {% img url src=img.jpg alt=Image w=50% h=auto %}
+5. {% img src=img.jpg alt=Image w=50% h=200 %}
+6. {% img url src=img.jpg alt=Image w=50% h=auto format=thumb %}
+
+# Links
 
 * {% link @238794 %}@238794{% endlink %}
+* {% link http://localhost:4000 %}http://localhost:4000{% endlink %}
+* {% link http://blog.localhost:4000 %}http://blog.localhost:4000{% endlink %}
+* {% link http://localhost.com:4000 %}http://localhost.com:4000{% endlink %}
+* {% link http://localhost %}http://localhost{% endlink %}
 * {% link http://www.google.com %}http://www.google.com{% endlink %}
-* {% link #section %}#section{% endlink %}
+* {% link #section %}this is a *link* to a > #section{% endlink %}
 * {% link @238974#section %}@238974#section{% endlink %}
-* {% link /blog/post.html#section %}/blog/post.html#section{% endlink %}
+* {% link /blog/post.html#section %}{% img src=img.jpg format=thumb %}{% endlink %}
 * {% link mailto:virgil@gmail %}mailto:virgil@gmail{% endlink %}
 
 {% video %}

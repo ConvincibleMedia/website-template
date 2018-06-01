@@ -49,9 +49,9 @@ module Jekyll
 				end
 			end
 
-			image[:alt] = @input['alt'] if @input['alt']
-			image[:w] = @input['w'] if @input['w']
-			image[:h] = @input['h'] if @input['h']
+			image[:alt] = @input['alt'].to_s if @input['alt']
+			image[:w] = @input['w'].to_s if expect(@input['w'], Integer)
+			image[:h] = @input['h'].to_s if expect(@input['h'], Integer)
 
 			additional = []
 			@input.each{ |k, v|
@@ -62,12 +62,12 @@ module Jekyll
 			additional = additional.join(' ')
 
 			if !@input['url']
-				return '<img src="' + URI.attr_encode(image[:src]) + '" ' \
-			             + 'width="' + URI.attr_encode(image[:w]) + '" ' \
-				          + 'height="' + URI.attr_encode(image[:h]) + '" ' \
-				          + 'alt="' + URI.attr_encode(image[:alt]) + '" ' \
-				          + additional + ' ' \
-				          + 'vspace="0" hspace="0" border="0" />' # Deprecated attributes for ancient compatibility
+				return          '<img src="' + URI.attr_encode(image[:src]) + '" ' \
+			   + (image[:w] != '' ? 'width="' + URI.attr_encode(image[:w]) + '" ' : '') \
+				+ (image[:h] != '' ? 'height="' + URI.attr_encode(image[:h]) + '" ' : '') \
+				                   + 'alt="' + URI.attr_encode(image[:alt]) + '" ' \
+				                   + additional + ' ' \
+				                   + 'vspace="0" hspace="0" border="0" />' # Deprecated attributes for ancient compatibility
 			else
 				return image[:src]
 			end

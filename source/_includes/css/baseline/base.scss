@@ -186,6 +186,9 @@ img {
 	max-width: 100%;
 	vertical-align: middle;
 	display: inline-block;
+	// What about PNGs, idiot
+	//background-color: transparentize($color-bg-dark-1, 0.975); // Placeholder colours
+	//box-shadow: 0 0 1rem $color-bg-dark-1 inset // Inset shadow totally hidden by image
 }
 
 

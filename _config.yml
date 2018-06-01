@@ -4,6 +4,7 @@
 
 # Basic settings
 title:                         "Website by Convincible" # Don't need to change this - will be overridden
+url:                           "http://localhost:4000"
 content:
    format:                     "markdown" # or HTML if WYSIWYG -- metadata is always YAML
 

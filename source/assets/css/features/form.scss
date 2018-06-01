@@ -44,10 +44,12 @@ legend {
 	border-radius: 0.5em
 }
 
+$form_size_large: 1.2rem;
+
 #{$form_controls} {
-   font-size: 1.1rem;
+   font-size: $form_size_large;
    padding: 0.5rem 1rem;
-   margin: 0 0 1rem 0;
+   margin: 0 auto 1rem auto;
 	min-height: 3rem;
    width: 100%; max-width: 100%;
    color: $color-bg-text;
@@ -74,6 +76,9 @@ legend {
 }
 
 input[type="submit"], button {
+	width: 20rem; max-width: 100%;
+	font-size: $form_size_large * 1.25;
+	padding: 1.25rem;
    box-shadow: none;
    background-color: $color-1;
    color: $color-1-text;

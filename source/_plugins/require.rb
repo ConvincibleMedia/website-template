@@ -8,7 +8,7 @@ module Jekyll
 		def initialize(tag, input, options)
 			super
 			@tag = tag
-			@input = input
+			@input = input.strip
 			@options = options
 			#puts 'Initialised ' + @tag + ' Tag'
 		end

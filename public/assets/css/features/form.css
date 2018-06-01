@@ -37,9 +37,9 @@ legend {
   border-radius: 0.5em; }
 
 input, select, textarea, button, fieldset {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  margin: 0 0 1rem 0;
+  margin: 0 auto 1rem auto;
   min-height: 3rem;
   width: 100%;
   max-width: 100%;
@@ -56,6 +56,10 @@ input, select, textarea, button, fieldset {
     cursor: not-allowed; }
 
 input[type="submit"], button {
+  width: 20rem;
+  max-width: 100%;
+  font-size: 1.5rem;
+  padding: 1.25rem;
   box-shadow: none;
   background-color: #ff6633;
   color: #ffffff;
