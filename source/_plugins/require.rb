@@ -1,10 +1,9 @@
 require_relative '../../utils/helpers.rb'
 
-#require 'liquid-tag-parser'
-
 # CUSTOM TAG BASE
 module Jekyll
-	class CustomTag < Liquid::Tag
+
+	module CustomPlugin
 
 		def initialize(tag, input, options)
 			super
@@ -14,14 +13,11 @@ module Jekyll
 			#puts 'Initialised ' + @tag + ' Tag'
 		end
 
-		def render(context)
-			#puts 'Rendering ' + @tag + ' Tag'
-			@context = context
-			@site = context.registers[:site]
+		def set_context()
+			@site = @context.registers[:site]
 			@config = @site.config
 			@data = @site.data
-			@markdown = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
-			return output
+			@markdown = @context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
 		end
 
 		def parse_input()
@@ -64,4 +60,26 @@ module Jekyll
 		end
 
 	end
+
+	class CustomTag < Liquid::Tag
+		include Jekyll::CustomPlugin
+		def render(context)
+			#puts 'Rendering ' + @tag + ' Tag'
+			@context = context
+			set_context
+			return output
+		end
+	end
+
+	class CustomBlock < Liquid::Block
+		include Jekyll::CustomPlugin
+		def render(context)
+			#puts 'Rendering ' + @tag + ' Tag'
+			@context = context
+			set_context
+			@block = super
+			return output
+		end
+	end
+
 end

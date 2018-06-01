@@ -71,11 +71,18 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 
 # Images
 
-{% img image=logo %}
-{% img image=0001 alt='Alt text' id='Bones & Clocks' %}
-{% img src=img.jpg format=thumb %}
-{% img src=img.jpg format=thumb x=y %}
-{% img url src=img.jpg alt=Image w=50% h=auto %}
+1. {% img image=logo %}
+2. {% img image=0001 alt='Alt text' id='Bones & Clocks' %}
+3. {% img src=img.jpg format=thumb %}
+4. {% img src=img.jpg format=thumb x=y %}
+5. {% img url src=img.jpg alt=Image w=50% h=auto %}
+
+* {% link @238794 %}@238794{% endlink %}
+* {% link http://www.google.com %}http://www.google.com{% endlink %}
+* {% link #section %}#section{% endlink %}
+* {% link @238974#section %}@238974#section{% endlink %}
+* {% link /blog/post.html#section %}/blog/post.html#section{% endlink %}
+* {% link mailto:virgil@gmail %}mailto:virgil@gmail{% endlink %}
 
 {% video %}
 

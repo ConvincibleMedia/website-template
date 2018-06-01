@@ -1,24 +1,22 @@
 module Jekyll
-	class LinkTag < Liquid::Tag
+	class LinkBlock < CustomBlock
 
-		def initialize(tag_name, input, options)
-			super
-			@tag_name = tag_name
-			@input = input
-			@options = options
-		end
+		# {% link @238794 %}click here{% endlink %}
+		# {% link http://www.google.com %}click here{% endlink %} - external - _blank
+		# {% link #section %}click here{% endlink %}
+		# {% link @238974#section %}click here{% endlink %}
+		# {% link /blog/post.html#section %}click here{% endlink %}
+		# {% link mailto:virgil@gmail %}click here{% endlink %}
+		def output
 
-		def render(context)
-			@site = context.registers[:site]
-			@config = @site.config
+			return '<a href="' + @input + '">' + @block + '</a>'
 
-			return @tag_name
 		end
 
 	end
 end
 
-Liquid::Template.register_tag('link', Jekyll::LinkTag)
+Liquid::Template.register_tag('link', Jekyll::LinkBlock)
 
 =begin
 {%- assign href = include.href -%}
