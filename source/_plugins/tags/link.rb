@@ -1,59 +1,75 @@
 module Jekyll
 	class LinkBlock < CustomBlock
-
-		# {% link @238794 %}click here{% endlink %}
-		# {% link http://www.google.com %}click here{% endlink %} - external - _blank
-		# {% link #section %}click here{% endlink %}
-		# {% link @238974#section %}click here{% endlink %}
-		# {% link /blog/post.html#section %}click here{% endlink %}
-		# {% link mailto:virgil@gmail %}click here{% endlink %}
 		def output
-
-			root = Addressable::URI::parse(@config['url'])
-			type = ''
 
 			a = HTML::element('a')
 			a.inner_html = @block
 
 			if present?(@input)
+				site_uri = Addressable::URI::parse(@config['url'])
+				input_uri = Addressable::URI::parse(@input)
+				type = ''
+
 				if @input[0] == '@'
 					# ID LINK
 					type = 'internal id'
-				else
-					uri = Addressable::URI::parse(@input)
-					# HREF LINK
+					input_id, input_frag = @input.split(/[@#]/).reject(&:empty?)
+					input_id = input_id.to_i
 
-					if uri.scheme
+					if key?(@data, ['sitemap', 'pages', input_id, 'link'])
+
+						if key?(@data, ['sitemap', 'pages', input_id, 'title'])
+							a['title'] = @data['sitemap']['pages'][input_id]['title']
+						end
+						@input = @data['sitemap']['pages'][input_id]['link'] + (input_frag ? '#' + input_frag.to_s : '')
+
+					else
+						#raise "Link specified as #{@input} but no such id found."
+					end
+
+				elsif @input[0] == '.'
+					# Relative path
+					page_uri = @context['page']['url'].chomp('index')
+					type = 'internal relative to page'
+					@input = (site_uri + page_uri + input_uri).route_from(site_uri.site).to_s
+				else
+
+					# HREF LINK
+					if input_uri.scheme
 						# ABSOLUTE LINK
 
-						if uri.host != root.host
+						if input_uri.site != site_uri.site
 							# EXTERNAL LINK
 							a['target'] = '_blank'
+							a['class'] = 'external'
+							a['rel'] = 'external'
 							type = 'external absolute'
 						else
 							# INTERNAL BUT ABSOLUTE!
-							@input = uri.route_from(root.authority).to_s
+							@input = input_uri.route_from(site_uri.site).to_s
 							type = 'internal absolute'
 						end
 
 					else
 						# RELATIVE LINK
-
-						type = 'internal relative'
+						@input = (site_uri + input_uri).route_from(site_uri.site).to_s
+						type = 'internal relative to root'
 					end
+
 				end
+
+				@input = '/' if @input == '#'
+				#puts input_uri.to_s + ' is ' + type + ' = ' + @input
 
 				a['href'] = @input
 			end
 
 			# Debug
-			a.inner_html = type + ': ' + @input
+			#a.inner_html = type + ': ' + @input
 
 			return a.to_html
-			#return '<a href="' + link[:href] + '">' + @block + '</a>'
 
 		end
-
 	end
 end
 

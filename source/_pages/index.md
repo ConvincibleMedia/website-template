@@ -81,14 +81,16 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 # Links
 
 * {% link @238794 %}@238794{% endlink %}
-* {% link http://localhost:4000 %}http://localhost:4000{% endlink %}
-* {% link http://blog.localhost:4000 %}http://blog.localhost:4000{% endlink %}
-* {% link http://localhost.com:4000 %}http://localhost.com:4000{% endlink %}
-* {% link http://localhost %}http://localhost{% endlink %}
+* {% link @1234 %}@1234{% endlink %}
+* {% link / %}/{% endlink %}
+* {% link ./ %}./{% endlink %}
+* {% link ./s %}./s{% endlink %}
+* {% link ../ %}../{% endlink %}
+* {% link ../s %}../s{% endlink %}
+* {% link /blog/../site %}/blog/../site{% endlink %}
 * {% link http://www.google.com %}http://www.google.com{% endlink %}
 * {% link #section %}this is a *link* to a > #section{% endlink %}
-* {% link @238974#section %}@238974#section{% endlink %}
-* {% link /blog/post.html#section %}{% img src=img.jpg format=thumb %}{% endlink %}
+* {% link @1234#section %}@1234#section{% endlink %}
 * {% link mailto:virgil@gmail %}mailto:virgil@gmail{% endlink %}
 
 {% video %}
