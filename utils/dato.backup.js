@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('request');
 
+// READ ENVIRONMENT VARIABLE
 const API_KEY = 'DATO_API_TOKEN=';
 var API_TOKEN = '';
 if (fs.existsSync('.env')) {
@@ -17,6 +18,7 @@ if (API_TOKEN.length == 0) {
 }
 console.log('API Token = "' + API_TOKEN + '"');
 
+// CONNECT
 var client = new SiteClient(API_TOKEN);
 
 console.log('Downloading data...');
