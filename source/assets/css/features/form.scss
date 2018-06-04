@@ -18,7 +18,15 @@ $form_text: "label, legend, output";
    border: 0;
    outline: 0;
 }
+
 label, input[type="checkbox"], input[type="radio"] { display: inline-block }
+div.field {
+	display: inline-table;
+
+	label, input {
+		display: table-cell;
+	}
+}
 
 
 /* Styles */
@@ -73,6 +81,10 @@ $form_size_large: 1.2rem;
       cursor: not-allowed;
    }
 
+}
+label[disabled] {
+	cursor: not-allowed;
+	color: lighten($color-bg-text, 50%);
 }
 
 input[type="submit"], button {

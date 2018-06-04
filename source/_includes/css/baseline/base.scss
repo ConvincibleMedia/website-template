@@ -29,6 +29,8 @@ body {
 	font-family: $font-body;
 	font-size: $font-size;
 	line-height: $font-size * $font-size-inc;
+	word-break: break-word;
+	hyphens: auto;
 }
 
 #{h()} {
@@ -122,7 +124,7 @@ table {
 	border-bottom: $table-border;
 }
 
-div.table, div.table-small > table, div.table-large > table {
+div.table, div.table-small, div.table-large {
 	overflow-x: auto;
 	margin-bottom: $margin-base; // Div takes the margin instead
 

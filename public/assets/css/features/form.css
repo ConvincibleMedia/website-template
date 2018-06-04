@@ -17,6 +17,11 @@ input, select, textarea, button, fieldset, label, legend, output {
 label, input[type="checkbox"], input[type="radio"] {
   display: inline-block; }
 
+div.field {
+  display: inline-table; }
+  div.field label, div.field input {
+    display: table-cell; }
+
 /* Styles */
 input:focus, select:focus, textarea:focus, button:focus, fieldset:focus, input[type="submit"]:hover, button:hover {
   border-color: #ff6633;
@@ -54,6 +59,10 @@ input, select, textarea, button, fieldset {
     background-color: #e6e6e6;
     opacity: 1;
     cursor: not-allowed; }
+
+label[disabled] {
+  cursor: not-allowed;
+  color: gray; }
 
 input[type="submit"], button {
   width: 20rem;
