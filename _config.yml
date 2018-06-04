@@ -49,8 +49,8 @@ images:
    thumb:
       w:                       320
       h:                       180
-      fit:                     "crop"
-      crop:                    "edges"
+      fit:                     "'@#~[}{}><>?-+=&^;  _crop"
+      crop:                    'ed"ges'
       auto:                    "compress"
       fm:                      "pjpg"
       q:                       50

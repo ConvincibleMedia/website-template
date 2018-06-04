@@ -93,6 +93,15 @@ module URI
 		return Addressable::URI.unencode_component(q, String)
 	end
 
+	def parse(uri)
+		return Addressable::URI.parse(uri)
+	end
+
+end
+
+module HTML
+	extend self
+
 	def attr_encode(a)
 		a = a.to_s
 		{
@@ -106,15 +115,6 @@ module URI
 		}
 		return a
 	end
-
-	def parse(uri)
-		return Addressable::URI.parse(uri)
-	end
-
-end
-
-module HTML
-	extend self
 
 	def element(e)
 		return Nokogiri::XML::Node.new(e, Nokogiri::HTML::DocumentFragment.parse(''))

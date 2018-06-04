@@ -4,28 +4,25 @@ module Jekyll
 		def output
 			parse_input
 
-			image = {
-				src: '',
-				w: '', h: '',
-				alt: ''
-			}
+			img = HTML::element('img')
+			img['alt'] = ''
 
 			if @input['image']
 				images = @data['images']
 				id = @input['image']
-				if expect(key?(images, [id, 'src']), String) { |e| image[:src] = e }
+				if expect(key?(images, [id, 'src']), String) { |e| img['src'] = e }
 					# While we're here...
-					image[:alt] = expect(key?(images, [id, 'alt']), String, '')
-					['w', 'h'].each { |d|
-						image[d.to_sym] = expect(key?(images, [id, d]), Integer, '').to_s
+					img['alt'] = expect(key?(images, [id, 'alt']), String, '')
+					['width', 'height'].each { |d|
+						expect(key?(images, [id, d[0]]), Integer) { |e| img[d] = e.to_s }
 					}
 				else
 					raise "Image with id '#{id}' was not found in site.data.images."
 				end
 			elsif @input['src']
-				image[:src] = @input['src']
+				img['src'] = @input['src']
 			end
-			if image[:src] == ''
+			if img['src'] == ''
 				raise 'Cannot create image tag without an image id or src.'
 			end
 
@@ -34,8 +31,8 @@ module Jekyll
 				if formats = key?(@config, ['images'])
 					if fmt = key?(formats, fmt)
 
-						['w', 'h'].each { |d|
-							if expect(key?(fmt, d), Integer) then image[d.to_sym] = fmt[d].to_s end
+						['width', 'height'].each { |d|
+							expect(key?(fmt, d[0]), Integer) { |e| img[d] = e.to_s }
 						}
 
 						fmt = fmt.map{ |k, v|
@@ -43,33 +40,31 @@ module Jekyll
 							URI.query_encode(v.to_s)
 						}.join('&')
 
-						image[:src] += '?' + fmt if fmt != ''
+						img['src'] += '?' + fmt if fmt != ''
 
 					end
 				end
 			end
 
-			image[:alt] = @input['alt'].to_s if @input['alt']
-			image[:w] = @input['w'].to_s if expect(@input['w'], Integer)
-			image[:h] = @input['h'].to_s if expect(@input['h'], Integer)
+			img['alt'] = @input['alt'].to_s if @input['alt']
+			img['width'] = @input['w'].to_s if expect(@input['w'], Integer)
+			img['height'] = @input['h'].to_s if expect(@input['h'], Integer)
 
-			additional = []
 			@input.each{ |k, v|
 				unless ['src', 'image', 'format', 'alt', 'w', 'h', 'url'].include?(k)
-					additional << k + '="' + URI.attr_encode(v) + '"'
+					img[k] = v
 				end
 			}
-			additional = additional.join(' ')
+
+			# Deprecated attributes for ancient compatibility
+			img['vspace'] = 0
+			img['hspace'] = 0
+			img['border'] = 0
 
 			if !@input['url']
-				return          '<img src="' + URI.attr_encode(image[:src]) + '" ' \
-			   + (image[:w] != '' ? 'width="' + URI.attr_encode(image[:w]) + '" ' : '') \
-				+ (image[:h] != '' ? 'height="' + URI.attr_encode(image[:h]) + '" ' : '') \
-				                   + 'alt="' + URI.attr_encode(image[:alt]) + '" ' \
-				                   + additional + ' ' \
-				                   + 'vspace="0" hspace="0" border="0" />' # Deprecated attributes for ancient compatibility
+				return img.to_html
 			else
-				return image[:src]
+				return img['src']
 			end
 		end
 

@@ -72,8 +72,8 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 # Images
 
 1. {% img image=logo %}
-2. {% img image=0001 alt='Alt text' id='Bones & Clocks' %}
-3. {% img src=img.jpg format=thumb %}
+2. {% img image=0001 id='Bones & Clocks' %}
+3. {% img src=img.jpg alt='Alt @#~[}{}><>?-+=&^; text' format=thumb %}
 4. {% img src=img.jpg format=thumb x=y %}
 5. {% img src=img.jpg alt=Image w=50% h=200 %}
 6. {% img url src=img.jpg alt=Image w=50% h=auto format=thumb %}
