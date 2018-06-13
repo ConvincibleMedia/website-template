@@ -51,6 +51,8 @@ Block tags can optionally be `<!--`commented`-->` (e.g. `<!--{% table %}-->`...`
 | Item 1          | Item 2          | Item 3          | Item 4          |
 <!--{% endtable %}-->
 
-<!--{% img %}-->![alt](http://placekitten.com/50/50)<!--{% endimg %}-->
+<!--{% img %}-->
+![alt](http://placekitten.com/50/50)
+<!--{% endimg %}-->
 
-<!--{% link %}-->[click here](google.com)<!--{% endlink %}-->
+This is a <!--{% link %}-->[special](google.com)<!--{% endlink %}--> link.
