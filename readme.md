@@ -49,6 +49,6 @@ Example:
 | Item 1          | Item 2          | Item 3          | Item 4          |
 {% endtable %}
 
-{% img %}![alt](src){% endimg %}
+{% img %}![alt](placekitten.com/50/50){% endimg %}
 
 {% link %}[click here](google.com){% endlink %}
