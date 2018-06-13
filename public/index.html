@@ -107,6 +107,16 @@
 			<span id="em">0</span>em
 		</h1>
 
+		<!--{% content hero %}-->
+
+<p>Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna <code class="highlighter-rouge">&lt;strong&gt;in culpa qui officia&lt;/strong&gt;</code> dolor eiusmod esse amet aute.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="s">"net/http siofioj dfosdoif s ief ijoseo ifsi fsie fmfjisifoif jisd fdjfiosefseif jsioefjse jisfj sdfsdsfiosdjfio sfj2"</span><span class="p">);</span><span class="x">
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="s">"net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsiosenfiosefnioseniindoicnsodijcisodjcisodcisodjfisdojfsiodfsdof2"</span><span class="p">);</span><span class="x">
+</span></code></pre></div></div>
+
+<!--{% endcontent %}-->
+
 		<div class="media sm-media-left">
 			<div class="cell media-h">
 				<h4>Cat</h4>
@@ -115,7 +125,68 @@
 				<img src="http://placekitten.com/50/50" />
 			</div>
 			<div class="cell media-body">
-				<p>Hello world! I am primary.</p>
+				<!--{% content form %}-->
+
+<form id="myForm" action="#" method="post">
+
+	<div>
+		<label for="name">Text Input:</label>
+		<input type="text" name="name" id="name" value="" tabindex="1" placeholder="Email" />
+	</div>
+
+	<div>
+		<h4>Radio Button Choice</h4>
+
+		<fieldset>
+
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1" />
+				<label for="radio-choice-1">Choice 1</label>
+			</div>
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-1a" tabindex="2" value="choice-1a" />
+				<label for="radio-choice-1a">Choice 1a</label>
+			</div>
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2" disabled="" />
+				<label for="radio-choice-2" disabled="disabled">Choice 2 is a complex and confusing option that frankly shouldn't really be included because it will only confuse the poor users.</label>
+			</div>
+		</fieldset>
+
+	</div>
+
+	<div>
+		<label for="select-choice">Select Dropdown Choice:</label>
+		<select name="select-choice" id="select-choice">
+      <option value="Choice 1">Choice 1</option>
+      <option value="Choice 2">Choice 2</option>
+      <option value="Choice 3">Choice 3</option>
+    </select>
+	</div>
+
+	<div>
+		<label for="textarea">Textarea:</label>
+		<textarea cols="40" rows="8" name="textarea" id="textarea" disabled=""></textarea>
+	</div>
+
+	<div>
+		<fieldset>
+			<legend>Consent</legend>
+			<div class="field">
+				<input type="checkbox" name="checkbox" id="checkbox" />
+				<label for="checkbox">Checkbox</label>
+			</div>
+		</fieldset>
+	</div>
+
+	<div>
+		<input type="submit" value="Submit" />
+	</div>
+
+</form>
+
+
+<!--{% endcontent %}-->
 			</div>
 		</div>
 
@@ -411,13 +482,11 @@
 
 <p><em>Cupidatat consequat</em> ommodo <img src="http://placekitten.com/16/16" alt="cat" /> non ea cupidatat <img src="http://placekitten.com/80/80" alt="cat" /> magna deserunt dolore ipsum velit nulla elit.</p>
 
-<h2 id="section-heading-2">Heading 2</h2>
+<h2 id="section-heading-2---code-block">Heading 2 - Code Block</h2>
 
-<p>Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna <code class="highlighter-rouge">&lt;strong&gt;in culpa qui officia&lt;/strong&gt;</code> dolor eiusmod esse amet aute.</p>
+<!--{% contentfor hero %}-->
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="s">"net/http siofioj dfosdoif s ief ijoseo ifsi fsie fmfjisifoif jisd fdjfiosefseif jsioefjse jisfj sdfsdsfiosdjfio sfj2"</span><span class="p">);</span><span class="x">
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="s">"net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsiosenfiosefnioseniindoicnsodijcisodjcisodcisodjfisdojfsiodfsdof2"</span><span class="p">);</span><span class="x">
-</span></code></pre></div></div>
+<!--{% endcontentfor %}-->
 
 <h3 id="section-heading-3-is-a-long-heading-aute-officia-nulla-deserunt-do-deserunt-cillum-velit-magna-aliquip-et-adipisicing-sit-sit-fugiat-commodo-id-sunt">Heading 3 is a long heading. Aute officia nulla deserunt do deserunt cillum velit magna. Aliquip et adipisicing sit sit fugiat commodo id sunt.</h3>
 
@@ -440,7 +509,7 @@
   <li>Mulberry</li>
 </ol>
 
-<h4 id="section-heading-4">Heading 4</h4>
+<h4 id="section-heading-4---list">Heading 4 - List</h4>
 
 <ul>
   <li>Olive</li>
@@ -455,7 +524,7 @@
   <li>Passionfruit</li>
 </ul>
 
-<h5 id="section-heading-5">Heading 5</h5>
+<h5 id="section-heading-5---blockquote">Heading 5 - Blockquote</h5>
 
 <p>Ad nisi laborum aute cupidatat magna deserunt eu id laboris id. Aliquip nulla cupidatat sint ex Lorem mollit laborum dolor amet est ut esse aute.</p>
 
@@ -469,10 +538,11 @@
 
 <p>Labore ea magna Lorem consequat aliquip consectetur cillum duis dolore. Et veniam dolor qui incididunt minim amet laboris sit. Dolore ad esse commodo et dolore amet est velit ut nisi ea.</p>
 
-<h6 id="section-heading-6">Heading 6</h6>
+<h6 id="section-heading-6---table">Heading 6 - Table</h6>
 
 <p>Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.</p>
 
+<!--{% table large %}-->
 <div class="table-large">
 <table>
   <thead>
@@ -517,6 +587,7 @@
   </tbody>
 </table>
 </div>
+<!--{% endtable %}-->
 
 <p>Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et duis pariatur reprehenderit eu ex consectetur.</p>
 
@@ -530,6 +601,8 @@
   <li><img alt="Image" src="img.jpg" height="200" vspace="0" hspace="0" border="0" /></li>
   <li>img.jpg?w=320&amp;h=180&amp;fit=%27%40%23%7E%5B%7D%7B%7D%3E%3C%3E%3F%2D%2B%3D%26%5E%3B%20%20%5Fcrop&amp;crop=ed%22ges&amp;auto=compress&amp;fm=pjpg&amp;q=50</li>
 </ol>
+
+<p><a href="google.com"><img src="http://placekitten.com/480/200" alt="Not so big" /></a></p>
 
 <h2 id="section-links">Links</h2>
 
@@ -548,74 +621,18 @@
   <li><a target="_blank" class="external" rel="external" href="mailto:virgil@gmail">mailto:virgil@gmail</a></li>
 </ul>
 
+<h2 id="section-video">Video</h2>
+
 <p>video</p>
 
+<h2 id="section-definition-list">Definition List</h2>
+
 <dl>
-	<dt>Image below</dt>
-	<dt>Below, image</dt>
-	<dd>Is small</dd>
-	<dd>Is a link</dd>
+  <dt>Image below</dt>
+  <dt>Below, image</dt>
+  <dd>Is small</dd>
+  <dd>Is a link</dd>
 </dl>
-
-<p><a href="google.com"><img src="http://placekitten.com/480/400" alt="Not so big" /></a></p>
-
-<form id="myForm" action="#" method="post">
-
-	<div>
-		<label for="name">Text Input:</label>
-		<input type="text" name="name" id="name" value="" tabindex="1" placeholder="Email" />
-	</div>
-
-	<div>
-		<h4>Radio Button Choice</h4>
-
-		<fieldset>
-
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1" />
-				<label for="radio-choice-1">Choice 1</label>
-			</div>
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-1a" tabindex="2" value="choice-1a" />
-				<label for="radio-choice-1a">Choice 1a</label>
-			</div>
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2" disabled="" />
-				<label for="radio-choice-2" disabled="disabled">Choice 2 is a complex and confusing option that frankly shouldn't really be included because it will only confuse the poor users.</label>
-			</div>
-		</fieldset>
-
-	</div>
-
-	<div>
-		<label for="select-choice">Select Dropdown Choice:</label>
-		<select name="select-choice" id="select-choice">
-      <option value="Choice 1">Choice 1</option>
-      <option value="Choice 2">Choice 2</option>
-      <option value="Choice 3">Choice 3</option>
-    </select>
-	</div>
-
-	<div>
-		<label for="textarea">Textarea:</label>
-		<textarea cols="40" rows="8" name="textarea" id="textarea" disabled=""></textarea>
-	</div>
-
-	<div>
-		<fieldset>
-			<legend>Consent</legend>
-			<div class="field">
-				<input type="checkbox" name="checkbox" id="checkbox" />
-				<label for="checkbox">Checkbox</label>
-			</div>
-		</fieldset>
-	</div>
-
-	<div>
-		<input type="submit" value="Submit" />
-	</div>
-
-</form>
 
 <div class="footnotes">
   <ol>

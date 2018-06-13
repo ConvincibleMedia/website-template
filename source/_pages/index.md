@@ -9,14 +9,16 @@ Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt culpa vel
 
 [^1]: Footnote example!
 
-# Heading 2
+# Heading 2 - Code Block
 
+<!--{% contentfor hero %}-->
 Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna `<strong>in culpa qui officia</strong>` dolor eiusmod esse amet aute.
 
 ```go
 import ("net/http siofioj dfosdoif s ief ijoseo ifsi fsie fmfjisifoif jisd fdjfiosefseif jsioefjse jisfj sdfsdsfiosdjfio sfj2");
 import ("net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsiosenfiosefnioseniindoicnsodijcisodjcisodcisodjfisdojfsiodfsdof2");
 ```
+<!--{% endcontentfor %}-->
 
 ## Heading 3 is a long heading. Aute officia nulla deserunt do deserunt cillum velit magna. Aliquip et adipisicing sit sit fugiat commodo id sunt.
 
@@ -31,7 +33,7 @@ import ("net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsi
     - Watermelon
 7. Mulberry
 
-### Heading 4
+### Heading 4 - List
 
 - Olive
 - Orange
@@ -41,7 +43,7 @@ import ("net/httpsiofiojdfosdoiiefijoseouhsdhuifhuidsfhiuoseniofsejioihseiseifsi
 - Ut aute ipsum occaecat nisi culpa Lorem id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud proident sint consectetur eiusmod irure adipisicing.
 - Passionfruit
 
-#### Heading 5
+#### Heading 5 - Blockquote
 
 Ad nisi laborum aute cupidatat magna deserunt eu id laboris id. Aliquip nulla cupidatat sint ex Lorem mollit laborum dolor amet est ut esse aute.
 
@@ -53,7 +55,7 @@ Ad nisi laborum aute cupidatat magna deserunt eu id laboris id. Aliquip nulla cu
 
 Labore ea magna Lorem consequat aliquip consectetur cillum duis dolore. Et veniam dolor qui incididunt minim amet laboris sit. Dolore ad esse commodo et dolore amet est velit ut nisi ea.
 
-##### Heading 6
+##### Heading 6 - Table
 
 Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat.
 
@@ -78,6 +80,8 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 5. {% img src=img.jpg alt=Image w=50% h=200 %}
 6. {% img url src=img.jpg alt=Image w=50% h=auto format=thumb %}
 
+[![Not so big](http://placekitten.com/480/200)](google.com)
+
 # Links
 
 * {% link @238794 %}@238794{% endlink %}
@@ -93,15 +97,17 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 * {% link @1234#section %}@1234#section{% endlink %}
 * {% link mailto:virgil@gmail %}mailto:virgil@gmail{% endlink %}
 
+# Video
+
 {% video %}
 
-<dl>
-	<dt>Image below</dt>
-	<dt>Below, image</dt>
-	<dd>Is small</dd>
-	<dd>Is a link</dd>
-</dl>
+# Definition List
 
-[![Not so big](http://placekitten.com/480/400)](google.com)
+Image below
+Below, image
+: Is small
+: Is a link
 
+{% contentfor form %}
 {% include_relative index_form.partial.html %}
+{% endcontentfor %}

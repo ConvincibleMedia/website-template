@@ -512,7 +512,7 @@ pre.highlight {
   display: block;
   max-width: 100%;
   overflow: auto; }
-  .cell :last-child {
+  .cell > :last-child {
     margin-bottom: 0; }
 
 .lines > .cell {

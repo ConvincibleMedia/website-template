@@ -2,7 +2,7 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 	# Jekyll has read all source files and their data and is ready to start filling out templates
 	# Interject here to loop over all these pages and, if they will fill out the 'pages' template, inject additional properties used by this template
 
-	# Separator
+	# SEO Separator
 	sep = ""
 	expect(key?(site.data, ['siteinfo','seo','separator']), String) { |e| sep = e.strip }
 	if sep.length == 0 then sep = " " else sep = " " + sep + " " end
@@ -13,7 +13,7 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 		# ITERATE
 		collection[1].docs.each { |page|
 
-			if (page['layout'] == 'page')
+			#if (page['layout'] == 'page')
 
 				# Is this the home page?
 				page_home = page.url == '/index'
@@ -55,7 +55,7 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 				}
 				page.data['home'] = page_home
 
-			end
+			#end
 
 		}
 

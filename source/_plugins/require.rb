@@ -8,7 +8,11 @@ module Jekyll
 		def initialize(tag, input, options)
 			super
 			@tag = tag
-			@input = input.strip
+			@input = input.strip || ''
+			@liquid = [
+				'{% ' + @tag + (@input.length > 0 ? ' ' + @input : '') + ' %}',
+				'{% end' + @tag + ' %}'
+			]
 			@options = options
 			#puts 'Initialised ' + @tag + ' Tag'
 		end
@@ -79,11 +83,11 @@ module Jekyll
 			set_context
 			@block = super
 
-			@commented = [@block[0, 3] == '-->', @block[-4, 4] == '<!--']
-			if @commented[0] then @block = @block[4, -1] end
-			if @commented[1] then @block = @block[0, -5] end
+			@commented = [@block[0..2] == '-->', @block[-4..-1] == '<!--']
+			if @commented[0] then @block = @block[3..-1] end
+			if @commented[1] then @block = @block[0..-5] end
 
-			return (@commented[0] ? '-->' : '') + output + (@commented[1] ? '<!--' : '')
+			return (@commented[0] ? "#{@liquid[0]}-->\n" : '') + output + (@commented[1] ? "\n<!--#{@liquid[1]}" : '')
 		end
 	end
 

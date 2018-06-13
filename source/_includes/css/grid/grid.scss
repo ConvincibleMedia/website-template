@@ -63,7 +63,7 @@ $debug: false;
 	overflow: auto;
 	@if $debug { outline: 1px dashed rgba(green, 0.5); }
 
-	& :last-child {
+	& > :last-child {
 		margin-bottom: 0;
 	}
 }

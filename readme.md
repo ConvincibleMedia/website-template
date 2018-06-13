@@ -37,7 +37,7 @@ A number of plugins are included for Jekyll/Liquid which define some new tags us
 * {% link %}click here{% endlink %} which overrides Jekyll's link plugin
 * {% table %} which wraps Kramdown tables to make them responsive
 
-Block tags can optionally be `<!--`commented`-->` (e.g. `<!--{% table %}-->`...`<!--{% endtable %}-->` with no spaces) so that a parser which doesn't recognise them displays the Markdown inside only. The Liquid parse will still see the tags even though they are inside HTML comments.
+Block tags can optionally be `<!--`commented`-->` (e.g. `<!--{% table %}-->`...`<!--{% endtable %}-->` with no spaces) so that a parser which doesn't recognise them displays the Markdown inside only. The Liquid parser will still see the tags even though they are inside HTML comments.
 
 ### Example
 
