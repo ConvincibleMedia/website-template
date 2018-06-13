@@ -28,3 +28,23 @@ The aim of this architecture is to create websites that:
 * Jekyll's \_config.yml contains per-project hard-coded constants that can't change - anything user-changeable is written into \_data instead
 * Head.JS is used to load all scripts. Non-vendor scripts are written in jQuery.
 * As much as possible, JavaScript is not required for the site to work in the browser.
+
+## Liquid
+
+A number of plugins are included for Jekyll/Liquid which define some new tags used throughout the system. These are:
+
+* {% img %} to use instead of Markdown image syntax
+* {% link %}click here{% endlink %} which overrides Jekyll's link plugin
+* {% table %} which wraps Kramdown tables to make them responsive
+
+Example:
+
+{% table large %}
+| Table Heading 1 | Table Heading 2 | Center align    | Right align     |
+| :-------------- | :-------------- | :-------------: | --------------: |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+| Item 1          | Item 2          | Item 3          | Item 4          |
+{% endtable %}
