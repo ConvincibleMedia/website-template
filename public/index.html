@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		
 
-	<!-- Must be high as possible in <head> -->
+		<!-- GTM must be high as possible in <head> -->
 
-	<!-- SEO -->
-	<title>Index / (Example Website)</title>
-	<meta name="description" content="Website by Convincible" />
+		<!-- SEO -->
+		<title>Index / (Example Website)</title>
+		<meta name="description" content="Website by Convincible" />
 
-	<!-- STYLES -->
-	<link rel="stylesheet" href="/assets/css/main.css" />
+		<!-- STYLES -->
+		<link rel="stylesheet" href="/assets/css/main.css" />
 
 
 	
@@ -24,8 +25,8 @@
 
 
 
-	<!-- SCRIPTS -->
-	<script src="/assets/js/special/head.min.js"></script>
+		<!-- SCRIPTS -->
+		<script src="/assets/js/special/head.min.js"></script>
 <script>
    <!--
 
@@ -59,8 +60,8 @@
 </script>
 
 
-	<!-- OTHER -->
-	<!-- HTML5Shiv - must be in <head> after stylesheets -->
+		<!-- OTHER -->
+		<!-- HTML5Shiv - must be in <head> after stylesheets -->
 <!--[if lt IE 9]>
    <script src="/lib/html5shiv/html5shiv.min.js"></script>
 <![endif]-->
@@ -79,15 +80,15 @@
    
 
 
-</head>
+	</head>
 
-<body id="top">
-	
+	<body id="top">
+		
 
-	<!-- Must be immediately after <body> -->
+		<!-- GTM must be immediately after <body> -->
 
-	<!-- Browser Warning -->
-	<!--[if lt IE 8]>
+		<!-- Browser Warning -->
+		<!--[if lt IE 8]>
    <div id="browserupgrade">
       <p><strong>You are using an outdated browser</strong>, so this site may not appear correctly. Please upgrade to improve your experience.</p>
       <p><a href="http://browsehappy.com/">Upgrade Your Browser</a></p>
@@ -95,19 +96,25 @@
 <![endif]-->
 
 
-	<!-- BODY -->
-	<div class="container">
+		<!-- BODY -->
 
-		<h1>Index @
-			<span class="sm-hidden">xs</span>
-			<span class="sm-visible md-hidden">sm</span>
-			<span class="md-visible lg-hidden">md</span>
-			<span class="lg-visible xl-hidden">lg</span>
-			<span class="xl-visible">xl</span>:
-			<span id="em">0</span>em
-		</h1>
+		<div class="container">
 
-		<!--{% content hero %}-->
+	<h2>Menu</h2>
+	<nav>
+		<ul>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+		</ul>
+	</nav>
+
+	<section>
+	<h1>Index</h1>
+	<h2>Hero Content</h2>
+	<!--{% content hero %}-->
 
 <p>Nostrud enim ad commodo incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et Lorem. Anim magna <code class="highlighter-rouge">&lt;strong&gt;in culpa qui officia&lt;/strong&gt;</code> dolor eiusmod esse amet aute.</p>
 
@@ -116,369 +123,12 @@
 </span></code></pre></div></div>
 
 <!--{% endcontent %}-->
+</section>
 
-		<div class="media sm-media-left">
-			<div class="cell media-h">
-				<h4>Cat</h4>
-			</div>
-			<div class="cell media-img">
-				<img src="http://placekitten.com/50/50" />
-			</div>
-			<div class="cell media-body">
-				<!--{% content form %}-->
+<section>
+	<h2>Main Article</h2>
 
-<form id="myForm" action="#" method="post">
-
-	<div>
-		<label for="name">Text Input:</label>
-		<input type="text" name="name" id="name" value="" tabindex="1" placeholder="Email" />
-	</div>
-
-	<div>
-		<h4>Radio Button Choice</h4>
-
-		<fieldset>
-
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1" />
-				<label for="radio-choice-1">Choice 1</label>
-			</div>
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-1a" tabindex="2" value="choice-1a" />
-				<label for="radio-choice-1a">Choice 1a</label>
-			</div>
-			<div class="field">
-				<input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2" disabled="" />
-				<label for="radio-choice-2" disabled="disabled">Choice 2 is a complex and confusing option that frankly shouldn't really be included because it will only confuse the poor users.</label>
-			</div>
-		</fieldset>
-
-	</div>
-
-	<div>
-		<label for="select-choice">Select Dropdown Choice:</label>
-		<select name="select-choice" id="select-choice">
-      <option value="Choice 1">Choice 1</option>
-      <option value="Choice 2">Choice 2</option>
-      <option value="Choice 3">Choice 3</option>
-    </select>
-	</div>
-
-	<div>
-		<label for="textarea">Textarea:</label>
-		<textarea cols="40" rows="8" name="textarea" id="textarea" disabled=""></textarea>
-	</div>
-
-	<div>
-		<fieldset>
-			<legend>Consent</legend>
-			<div class="field">
-				<input type="checkbox" name="checkbox" id="checkbox" />
-				<label for="checkbox">Checkbox</label>
-			</div>
-		</fieldset>
-	</div>
-
-	<div>
-		<input type="submit" value="Submit" />
-	</div>
-
-</form>
-
-
-<!--{% endcontent %}-->
-			</div>
-		</div>
-
-		<div class="lines">
-			<div class="cell cell-container xl-1in2">
-
-				<div class="lines">
-
-					<div class="cell cell-container">
-						<div class="lines">
-							<div class="cell cell-auto primary">
-								<p>Hello world! I am primary.</p>
-							</div>
-							<div class="cell cell-auto primary-dark">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell cell-auto primary-light">
-								<p>Hello world! I am primary light.</p>
-							</div>
-							<div class="cell cell-auto item-last secondary">
-								<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
-							</div>
-							<div class="cell cell-auto item-first secondary-dark">
-								<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
-							</div>
-							<div class="cell cell-auto secondary-light">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-						</div>
-					</div>
-					<div class="cell cell-container secondary-light">
-						<div class="lines">
-							<div class="cell lg-1in3">
-								<p>Hello world! I am primary.</p>
-							</div>
-							<div class="cell cell-container lg-2in3">
-								<div class="lines">
-									<div class="cell cell-container lg-1in2">
-										<div class="lines">
-											<div class="cell lg-1in2">
-												<p>Hello world! I am primary light.</p>
-											</div>
-											<div class="cell lg-1in2">
-												<p>Hello world! I am primary light.</p>
-											</div>
-										</div>
-									</div>
-									<div class="cell lg-1in2">
-										<p>Hello world! I am primary light.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am primary light.</p>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am secondary dark.</p>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell lg-1in6">
-								<p>Hello world! I am primary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am primary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary dark.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am primary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary dark.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-							<div class="cell lg-1in8">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-						</div>
-					</div>
-					<div class="cell cell-container">
-						<div class="lines">
-							<div class="cell md-1in2">
-								<div class="media lg-media-left">
-									<div class="cell media-h">
-										<h4>cell > media</h4>
-									</div>
-									<div class="cell media-img">
-										<img src="http://placekitten.com/50/50" />
-									</div>
-									<div class="cell media-body">
-										<p>Hello world! I am primary.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell md-1in2">
-								<div class="media lg-media-left">
-									<div class="cell media-h">
-										<h4>cell > media</h4>
-									</div>
-									<div class="cell media-img">
-										<img src="http://placekitten.com/50/50" />
-									</div>
-									<div class="cell media-body">
-										<p>Hello world! I am primary.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell md-1in2">
-								<div class="media lg-media-left">
-									<div class="cell media-h">
-										<h4>cell > media</h4>
-									</div>
-									<div class="cell media-img">
-										<img src="http://placekitten.com/50/50" />
-									</div>
-									<div class="cell media-body">
-										<p>Hello world! I am primary.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell md-1in2">
-								<div class="media lg-media-left">
-									<div class="cell media-h">
-										<h4>cell > media</h4>
-									</div>
-									<div class="cell media-img">
-										<img src="http://placekitten.com/50/50" />
-									</div>
-									<div class="cell media-body">
-										<p>Hello world! I am primary.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="cell cell-container">
-						<div class="lines">
-							<div class="cell md-1in2">
-								<div class="card primary">
-									<div class="media lg-media-left">
-										<div class="cell media-h">
-											<h4>cell > card primary > media</h4>
-										</div>
-										<div class="cell media-img">
-											<img src="http://placekitten.com/50/50" />
-										</div>
-										<div class="cell media-body">
-												<p>Hello world! I am primary.  as das asd sdas sd as a a a a a a a a a asd sd ds sd sdsd ds sd </p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="cell md-1in2">
-								<div class="card primary">
-									<div class="card-inner">
-										<div class="media lg-media-left">
-											<div class="cell media-h">
-												<h4>cell > card primary > card-inner > media</h4>
-											</div>
-											<div class="cell media-img">
-												<img src="http://placekitten.com/50/50" />
-											</div>
-											<div class="cell media-body">
-												<p>Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. </p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-			<div class="cell cell-container xl-1in2">
-
-				<div class="lines">
-
-					<div class="cell cell-container">
-						<div class="lines">
-							<div class="cell card sm-1in3 md-1in4">
-								<div class="card primary-dark">
-										<p>Hello world! I am primary dark.</p>
-								</div>
-							</div>
-							<div class="cell sm-1in3 md-1in4">
-								<div class="card secondary">
-									<div class="card-inner">
-										<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell sm-1in3 md-1in4">
-								<div class="card primary">
-									<div class="media">
-										<div class="cell media-h">
-												<h4>cell > card primary > media</h4>
-										</div>
-										<div class="cell media-img">
-											<img src="http://placekitten.com/50/50" />
-										</div>
-										<div class="cell media-body">
-												<p>Hello world! I am primary.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="cell sm-1in3 md-1in4">
-								<div class="card secondary">
-									<div class="card-inner">
-										<div class="media">
-											<div class="cell media-h">
-													<h4>cell > card secondary > card-inner > media</h4>
-											</div>
-											<div class="cell media-img">
-												<img src="http://placekitten.com/50/50" />
-											</div>
-											<div class="cell media-body">
-													<p>Hello world! I am primary.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="cell cell-container">
-						<div class="lines">
-							<div class="cell cell-auto item-first-2 primary">
-								<p>Hello world! I am primary.</p>
-							</div>
-							<div class="cell cell-auto primary-dark">
-								<p>Hello world! I am primary dark.</p>
-							</div>
-							<div class="cell cell-auto item-first-3 primary-light">
-								<div class="media">
-									<div class="cell media-h">
-											<h4>Cat</h4>
-									</div>
-									<div class="cell media-img">
-										<img src="http://placekitten.com/50/50" />
-									</div>
-									<div class="cell media-body">
-											<p>Hello world! I am primary.</p>
-									</div>
-								</div>
-							</div>
-							<div class="cell cell-auto item-last secondary">
-								<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
-							</div>
-							<div class="cell cell-auto item-first secondary-dark">
-								<p><img src="http://placekitten.com/640/360" /></p>
-								<p>I AM FIRST AHAHAH! Image in para followed by paragraph within regular cell.</p>
-							</div>
-							<div class="cell cell-auto secondary-light">
-								<p>Hello world! I am secondary light.</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<p>Sint ea anim ipsum ad commodo cupidatat do <strong>exercitation</strong> incididunt culpa velit quis. <strong><em>Consequat commodo</em></strong> reprehenderit duis <a href="#!">irure</a> esse esse exercitation minim enim Lorem<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.</p>
+<p>Sint ea anim ipsum ad commodo cupidatat do <strong>exercitation</strong> incididunt culpa velit quis. <strong><em>Consequat commodo</em></strong> reprehenderit duis <a href="#!">irure</a> esse esse exercitation minim enim Lorem<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.</p>
 
 <p><em>Cupidatat consequat</em> ommodo <img src="http://placekitten.com/16/16" alt="cat" /> non ea cupidatat <img src="http://placekitten.com/80/80" alt="cat" /> magna deserunt dolore ipsum velit nulla elit.</p>
 
@@ -634,6 +284,374 @@
   <dd>Is a link</dd>
 </dl>
 
+<h1><span class="sm-hidden">xs</span>
+<span class="sm-visible md-hidden">sm</span>
+<span class="md-visible lg-hidden">md</span>
+<span class="lg-visible xl-hidden">lg</span>
+<span class="xl-visible">xl</span>:
+<span id="em">0</span>em</h1>
+
+<div class="media sm-media-left">
+	<div class="cell media-h">
+		<h4>Cat</h4>
+	</div>
+	<div class="cell media-img">
+		<img src="http://placekitten.com/50/50" />
+	</div>
+	<div class="cell media-body">
+		<!--{% content form %}-->
+
+<form id="myForm" action="#" method="post">
+
+	<div>
+		<label for="name">Text Input:</label>
+		<input type="text" name="name" id="name" value="" tabindex="1" placeholder="Email" />
+	</div>
+
+	<div>
+		<h4>Radio Button Choice</h4>
+
+		<fieldset>
+
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1" />
+				<label for="radio-choice-1">Choice 1</label>
+			</div>
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-1a" tabindex="2" value="choice-1a" />
+				<label for="radio-choice-1a">Choice 1a</label>
+			</div>
+			<div class="field">
+				<input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2" disabled="" />
+				<label for="radio-choice-2" disabled="disabled">Choice 2 is a complex and confusing option that frankly shouldn't really be included because it will only confuse the poor users.</label>
+			</div>
+		</fieldset>
+
+	</div>
+
+	<div>
+		<label for="select-choice">Select Dropdown Choice:</label>
+		<select name="select-choice" id="select-choice">
+      <option value="Choice 1">Choice 1</option>
+      <option value="Choice 2">Choice 2</option>
+      <option value="Choice 3">Choice 3</option>
+    </select>
+	</div>
+
+	<div>
+		<label for="textarea">Textarea:</label>
+		<textarea cols="40" rows="8" name="textarea" id="textarea" disabled=""></textarea>
+	</div>
+
+	<div>
+		<fieldset>
+			<legend>Consent</legend>
+			<div class="field">
+				<input type="checkbox" name="checkbox" id="checkbox" />
+				<label for="checkbox">Checkbox</label>
+			</div>
+		</fieldset>
+	</div>
+
+	<div>
+		<input type="submit" value="Submit" />
+	</div>
+
+</form>
+
+
+<!--{% endcontent %}-->
+	</div>
+</div>
+
+<div class="lines">
+	<div class="cell cell-container xl-1in2">
+
+		<div class="lines">
+
+			<div class="cell cell-container">
+				<div class="lines">
+					<div class="cell cell-auto primary">
+						<p>Hello world! I am primary.</p>
+					</div>
+					<div class="cell cell-auto primary-dark">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell cell-auto primary-light">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell cell-auto item-last secondary">
+						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+					</div>
+					<div class="cell cell-auto item-first secondary-dark">
+						<p>I AM FIRST AHAHAH! Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell cell-auto secondary-light">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+				</div>
+			</div>
+			<div class="cell cell-container secondary-light">
+				<div class="lines">
+					<div class="cell lg-1in3">
+						<p>Hello world! I am primary.</p>
+					</div>
+					<div class="cell cell-container lg-2in3">
+						<div class="lines">
+							<div class="cell cell-container lg-1in2">
+								<div class="lines">
+									<div class="cell lg-1in2">
+										<p>Hello world! I am primary light.</p>
+									</div>
+									<div class="cell lg-1in2">
+										<p>Hello world! I am primary light.</p>
+									</div>
+								</div>
+							</div>
+							<div class="cell lg-1in2">
+								<p>Hello world! I am primary light.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in6">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am primary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary dark.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+					<div class="cell lg-1in8">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+				</div>
+			</div>
+			<div class="cell cell-container">
+				<div class="lines">
+					<div class="cell md-1in2">
+						<div class="media lg-media-left">
+							<div class="cell media-h">
+								<h4>cell &gt; media</h4>
+							</div>
+							<div class="cell media-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell media-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell md-1in2">
+						<div class="media lg-media-left">
+							<div class="cell media-h">
+								<h4>cell &gt; media</h4>
+							</div>
+							<div class="cell media-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell media-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell md-1in2">
+						<div class="media lg-media-left">
+							<div class="cell media-h">
+								<h4>cell &gt; media</h4>
+							</div>
+							<div class="cell media-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell media-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell md-1in2">
+						<div class="media lg-media-left">
+							<div class="cell media-h">
+								<h4>cell &gt; media</h4>
+							</div>
+							<div class="cell media-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell media-body">
+								<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cell cell-container">
+				<div class="lines">
+					<div class="cell md-1in2">
+						<div class="card primary">
+							<div class="media lg-media-left">
+								<div class="cell media-h">
+									<h4>cell &gt; card primary &gt; media</h4>
+								</div>
+								<div class="cell media-img">
+									<img src="http://placekitten.com/50/50" />
+								</div>
+								<div class="cell media-body">
+										<p>Hello world! I am primary.  as das asd sdas sd as a a a a a a a a a asd sd ds sd sdsd ds sd </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell md-1in2">
+						<div class="card primary">
+							<div class="card-inner">
+								<div class="media lg-media-left">
+									<div class="cell media-h">
+										<h4>cell &gt; card primary &gt; card-inner &gt; media</h4>
+									</div>
+									<div class="cell media-img">
+										<img src="http://placekitten.com/50/50" />
+									</div>
+									<div class="cell media-body">
+										<p>Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. Hello world! I am primary. </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="cell cell-container xl-1in2">
+
+		<div class="lines">
+
+			<div class="cell cell-container">
+				<div class="lines">
+					<div class="cell card sm-1in3 md-1in4">
+						<div class="card primary-dark">
+								<p>Hello world! I am primary dark.</p>
+						</div>
+					</div>
+					<div class="cell sm-1in3 md-1in4">
+						<div class="card secondary">
+							<div class="card-inner">
+								<p>Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell sm-1in3 md-1in4">
+						<div class="card primary">
+							<div class="media">
+								<div class="cell media-h">
+										<h4>cell &gt; card primary &gt; media</h4>
+								</div>
+								<div class="cell media-img">
+									<img src="http://placekitten.com/50/50" />
+								</div>
+								<div class="cell media-body">
+										<p>Hello world! I am primary.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell sm-1in3 md-1in4">
+						<div class="card secondary">
+							<div class="card-inner">
+								<div class="media">
+									<div class="cell media-h">
+											<h4>cell &gt; card secondary &gt; card-inner &gt; media</h4>
+									</div>
+									<div class="cell media-img">
+										<img src="http://placekitten.com/50/50" />
+									</div>
+									<div class="cell media-body">
+											<p>Hello world! I am primary.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cell cell-container">
+				<div class="lines">
+					<div class="cell cell-auto item-first-2 primary">
+						<p>Hello world! I am primary.</p>
+					</div>
+					<div class="cell cell-auto primary-dark">
+						<p>Hello world! I am primary dark.</p>
+					</div>
+					<div class="cell cell-auto item-first-3 primary-light">
+						<div class="media">
+							<div class="cell media-h">
+									<h4>Cat</h4>
+							</div>
+							<div class="cell media-img">
+								<img src="http://placekitten.com/50/50" />
+							</div>
+							<div class="cell media-body">
+									<p>Hello world! I am primary.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cell cell-auto item-last secondary">
+						<p>IAM LAST :( Hello world! I am secondary. And I'm way, way cooler than all the other colours! Come to my party. It will be great.</p>
+					</div>
+					<div class="cell cell-auto item-first secondary-dark">
+						<p><img src="http://placekitten.com/640/360" /></p>
+						<p>I AM FIRST AHAHAH! Image in para followed by paragraph within regular cell.</p>
+					</div>
+					<div class="cell cell-auto secondary-light">
+						<p>Hello world! I am secondary light.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
 <div class="footnotes">
   <ol>
     <li id="fn:1">
@@ -643,17 +661,24 @@
 </div>
 
 
-	</div>
+</section>
 
-	<!-- /BODY -->
 
-	<!--
+	<h2>Footer</h2>
+	<p>Footer</p>
+
+</div>
+
+
+		<!-- /BODY -->
+
+		<!--
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 		<script src="/assets/scripts/libraries/jquery/jquery-plugins.js"></script>
 		<script src="/assets/scripts/libraries/matchheight/matchHeight.jquery.js"></script>
 		<script src="/assets/scripts/main.js"></script>
 		//-->
-	<!--
+		<!--
 		<script>
 			head.ready('webfont', function() {
 				WebFont.load({
@@ -664,6 +689,6 @@
 			});
 		</script>
 		//-->
-</body>
+	</body>
 
 </html>

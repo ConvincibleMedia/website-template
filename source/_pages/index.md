@@ -1,6 +1,7 @@
 ---
 features:
    -  "form"
+layout: html/article
 ---
 
 Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt culpa velit quis. ***Consequat commodo*** reprehenderit duis [irure](#!) esse esse exercitation minim enim Lorem[^1] dolore duis irure. Deserunt officia esse aliquip consectetur duis ut labore id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud.
@@ -111,3 +112,5 @@ Below, image
 {% contentfor form %}
 {% include_relative index_form.partial.html %}
 {% endcontentfor %}
+
+{% include_relative grid_tests.html %}

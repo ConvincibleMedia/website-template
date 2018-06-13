@@ -5,8 +5,8 @@
 # Basic settings
 title:                         "Website by Convincible" # Don't need to change this - will be overridden
 url:                           "http://localhost:4000"
-content:
-   format:                     "markdown" # or HTML if WYSIWYG -- metadata is always YAML
+#content:
+#   format:                     "markdown" # or HTML if WYSIWYG -- metadata is always YAML
 
 
 # Site settings
@@ -113,6 +113,11 @@ destination:                   "public"
 exclude:
    -  "*.partial.*"
 #  -  ""
+show_warnings:                 false
+#  show_drafts:                null
+#  future:                     false
+#  unpublished:                false
+strict_front_matter:           true
 
 
 # Collections
@@ -130,7 +135,7 @@ defaults:
    -  scope:
          path:                 "_pages"
       values:
-         layout:               "page"
+         layout:               "html/page"
 
 permalink:                     ":slug.html"
 
@@ -148,8 +153,3 @@ kramdown:
    smart_quotes:               "lsquo,rsquo,ldquo,rdquo"
    toc_levels:                 "1..2"
    transliterated_header_ids:  true
-   show_warnings:              false
-#  show_drafts:                null
-#  future:                     false
-#  unpublished:                false
-   strict_front_matter:        true

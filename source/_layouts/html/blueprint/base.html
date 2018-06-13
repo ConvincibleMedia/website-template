@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {% if page.hidden %}
+		<meta name="robots" content="NOINDEX, NOFOLLOW" /> {% endif %}
+		{% include snippets/gtm.html pos="head" %}
+		<!-- GTM must be high as possible in <head> -->
+
+		<!-- SEO -->
+		<title>{{ page.meta.title | escape }}</title>
+		<meta name="description" content="{{ page.meta.description | escape }}" />
+
+		<!-- STYLES -->
+		{% include snippets/styles.html %}
+
+		<!-- SCRIPTS -->
+		{% include snippets/scripts.html %}
+
+		<!-- OTHER -->
+		{% include snippets/compatibility.html %} {% include snippets/favicon.html %} {% include snippets/verify.html %}
+	</head>
+
+	<body id="top">
+		{% include snippets/gtm.html pos="body" %}
+		<!-- GTM must be immediately after <body> -->
+
+		<!-- Browser Warning -->
+		{% include snippets/browser.html %}
+
+		<!-- BODY -->
+
+		{{ content }}
+
+		<!-- /BODY -->
+
+		<!--
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="/assets/scripts/libraries/jquery/jquery-plugins.js"></script>
+		<script src="/assets/scripts/libraries/matchheight/matchHeight.jquery.js"></script>
+		<script src="/assets/scripts/main.js"></script>
+		//-->
+		<!--
+		<script>
+			head.ready('webfont', function() {
+				WebFont.load({
+					google: {
+						families: ['Didact Gothic']
+					}
+				});
+			});
+		</script>
+		//-->
+	</body>
+
+</html>
