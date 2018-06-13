@@ -78,7 +78,12 @@ module Jekyll
 			@context = context
 			set_context
 			@block = super
-			return output
+
+			@commented = [@block[0, 3] == '-->', @block[-4, 4] == '<!--']
+			if @commented[0] then @block = @block[4, -1] end
+			if @commented[1] then @block = @block[0, -5] end
+
+			return (@commented[0] ? '-->' : '') + output + (@commented[1] ? '<!--' : '')
 		end
 	end
 
