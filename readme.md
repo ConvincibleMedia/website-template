@@ -48,3 +48,7 @@ Example:
 | Item 1          | Item 2          | Item 3          | Item 4          |
 | Item 1          | Item 2          | Item 3          | Item 4          |
 {% endtable %}
+
+{% img %}![alt](src){% endimg %}
+
+{% link %}[click here](google.com){% endlink %}
