@@ -39,7 +39,7 @@ A number of plugins are included for Jekyll/Liquid which define some new tags us
 
 Example:
 
-{% table large %}
+<!--{% table large %}-->
 | Table Heading 1 | Table Heading 2 | Center align    | Right align     |
 | :-------------- | :-------------- | :-------------: | --------------: |
 | Item 1          | Item 2          | Item 3          | Item 4          |
@@ -47,8 +47,8 @@ Example:
 | Item 1          | Item 2          | Item 3          | Item 4          |
 | Item 1          | Item 2          | Item 3          | Item 4          |
 | Item 1          | Item 2          | Item 3          | Item 4          |
-{% endtable %}
+<!--{% endtable %}-->
 
-{% img %}![alt](http://placekitten.com/50/50){% endimg %}
+<!--{% img %}-->![alt](http://placekitten.com/50/50)<!--{% endimg %}-->
 
-{% link %}[click here](google.com){% endlink %}
+<!--{% link %}-->[click here](google.com)<!--{% endlink %}-->
