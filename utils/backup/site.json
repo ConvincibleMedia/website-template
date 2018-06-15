@@ -1,0 +1,107 @@
+{
+  "id": "3015",
+  "name": "Exemplary Groceries",
+  "locales": [
+    "en",
+    "fr",
+    "zh",
+    "ar"
+  ],
+  "theme": {
+    "logo": null,
+    "darkColor": {
+      "red": 65,
+      "blue": 1,
+      "alpha": 255,
+      "green": 33
+    },
+    "lightColor": {
+      "red": 255,
+      "blue": 238,
+      "alpha": 255,
+      "green": 247
+    },
+    "accentColor": {
+      "red": 226,
+      "blue": 20,
+      "alpha": 255,
+      "green": 162
+    },
+    "primaryColor": {
+      "red": 235,
+      "blue": 26,
+      "alpha": 255,
+      "green": 175
+    }
+  },
+  "domain": null,
+  "internalDomain": "exemplary.admin.datocms.com",
+  "globalSeo": {
+    "en": {
+      "siteName": "Exemplary Groceries",
+      "titleSuffix": " (Example Website)",
+      "twitterAccount": "@Exemplary",
+      "facebookPageUrl": "https://www.facebook.com/ExemplaryGroceries",
+      "fallbackSeo": {
+        "title": "Ezra Griffiths",
+        "description": "This is an example website from convincible.media",
+        "image": null
+      }
+    },
+    "fr": null,
+    "zh": null,
+    "ar": null
+  },
+  "favicon": {
+    "path": "/3015/1525451716-exemplary-groceries.jpg",
+    "format": "jpg",
+    "size": 1385603,
+    "alt": null,
+    "title": null,
+    "width": 1024,
+    "height": 1024
+  },
+  "noIndex": true,
+  "frontendUrl": "http://exemplary.netlify.com",
+  "productionFrontendUrl": "http://exemplary.netlify.com",
+  "stagingFrontendUrl": null,
+  "ssg": "jekyll",
+  "imgixHost": "www.datocms-assets.com",
+  "lastDataChangeAt": "2018-06-14T15:53:04.706Z",
+  "productionLastDeployAt": "2017-12-21T01:43:06.643Z",
+  "stagingLastDeployAt": null,
+  "lastDumpAt": "2018-05-10T13:36:22.913Z",
+  "deployable": true,
+  "productionDeployStatus": "fail",
+  "stagingDeployStatus": "unstarted",
+  "productionScrapeStatus": "unstarted",
+  "stagingScrapeStatus": "unstarted",
+  "itemsCount": 17,
+  "productionDeployAdapter": "netlify",
+  "stagingDeployAdapter": null,
+  "account": "2327",
+  "users": [],
+  "menuItems": [
+    "13929",
+    "13931",
+    "13930",
+    "19235",
+    "13928"
+  ],
+  "itemTypes": [
+    "35642",
+    "13416",
+    "13415",
+    "13414",
+    "13417",
+    "14343",
+    "22475",
+    "19057",
+    "19058"
+  ],
+  "roles": [
+    "4714",
+    "4715"
+  ],
+  "activePlan": "1"
+}

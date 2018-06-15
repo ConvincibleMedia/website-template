@@ -27,9 +27,17 @@ client.items.all({}, {
       allPages: true
    })
    .then(response => {
-      fs.writeFileSync('./backup/records.json', JSON.stringify(response, null, 2));
+      fs.writeFileSync('./utils/backup/records.json', JSON.stringify(response, null, 2));
       console.log('Wrote records.json');
    })
+	.then(() => {
+      return client.site.find();
+   })
+   .then((site) => {
+		fs.writeFileSync('./utils/backup/site.json', JSON.stringify(site, null, 2));
+      console.log('Wrote site.json');
+	});
+/*
    .then(() => {
       return client.site.find();
    })
@@ -51,3 +59,4 @@ client.items.all({}, {
             }, Promise.resolve());
          });
    });
+*/

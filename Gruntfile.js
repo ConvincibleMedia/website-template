@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 				command: 'bundle exec dato dump'
 			},
 			datoBackup: {
-				command: 'node dato.backup.js'
+				command: 'node ./utils/backup/dato.backup.js'
 			}
 		},
 

@@ -110,7 +110,7 @@ Below, image
 : Is a link
 
 {% contentfor form %}
-{% include_relative index_form.partial.html %}
+{% include_relative index#form.partial.html %}
 {% endcontentfor %}
 
 {% include_relative grid_tests.html %}

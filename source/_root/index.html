@@ -1,0 +1,17 @@
+---
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="NOINDEX, NOFOLLOW" />
+		<meta http-equiv="refresh" content="0; url={{ site.url }}/{{ site.data.siteinfo.langs | first }}" />
+		<script>
+			window.location.href = '{{ site.url }}/{{ site.data.siteinfo.langs | first }}'
+		</script>
+		<title>Page Redirection</title>
+	</head>
+	<body>
+		You are being redirected to: <a href="{{ site.url }}/{{ site.data.siteinfo.langs | first }}">{{ site.url }}/{{ site.data.siteinfo.langs | first }}</a>.
+	</body>
+</html>

@@ -108,8 +108,8 @@ assets:
 # Build settings
 source:                        "source" # NO LEADING SLASH!!!
 destination:                   "public"
-#include:
-#- ""
+include:
+-  "_redirects"
 exclude:
    -  "*.partial.*"
 #  -  ""
