@@ -81,19 +81,22 @@ module Spark
 						meta: {
 							created: Time.parse(item['created_at']).strftime(TIME_FORMAT),
 							modified: Time.parse(item['published_at'] || item['updated_at'] || item['created_at']).strftime(TIME_FORMAT),
-							parent: item['parent']
+							parent: item['parent'],
+							model: model_name
 						},
 						data: {}
 					}
 					#ap @items[model_name]
 
 					@models[model_name][:fields].each { |field_name, field_info|
-						#if field[:localized]
-							this_field = item[field_name]
-						#else
-						#	this_field = {@locales[0] => item[field_name]}
-						#end
-						@items[model_name][item['id'].to_i][:data][field_name] = this_field
+						@locales.each { |lang|
+							if field[:localized]
+								this_field = item[field_name][lang]
+							else
+								this_field = item[field_name]
+							end
+							@items[model_name][item['id'].to_i][:data][lang][field_name] = this_field
+						}
 					}
 				}
 			end
@@ -137,6 +140,7 @@ module Spark
 		attr_reader :models
 		attr_reader :items
 		attr_reader :files
+		attr_reader :locales
 	end
 
 end
@@ -191,26 +195,41 @@ TRANSFORM_UNKNOWN = lambda do |id, meta, data, parents|
 	}
 end
 
+def get_data(item, field, lang)
+	if CMS.models[item[:meta][:model]][:fields][field][:localised]
+		return item[:data][:field][lang] # Localised
+	else
+		return item[:data][:field] # Not localised
+	end
+end
+
 # Defaults
-TRANSFORM_BASE = lambda do |model_name, id, meta, data|
-	{
-		meta: {
-			id: id,
-			parents: meta[:parents],
-			path: '/' + model_name + '/',
-			link: '/' + model_name + '/' + (data['address'] || id)
-		},
-		frontmatter: {
-			id: id,
-			title: data['title'] || id,
-			slug: data['address'] || data['title'] || id,
-			published: true,
-			date: meta[:modified] || meta[:created],
-			# Metadata about this piece of content
+TRANSFORM_BASE = lambda do |item|
+	meta = item[:meta]
+	data = item[:data]
+	model_name = meta[:model]
+	id = meta[:id]
+
+	CMS.locales.map { |lang|
+		lang => {
 			meta: {
+				id: id,
 				parents: meta[:parents],
-				hidden: meta[:hidden]
+				path: '/' + model_name + '/',
+				link: '/' + model_name + '/' + (data['address'].to_s || id.to_s)
 			},
+			frontmatter: {
+				id: id,
+				title: data['title'] || id.to_s,
+				slug: data['address'] || data['title'] || id.to_s,
+				published: true,
+				date: meta[:modified] || meta[:created],
+				# Metadata about this piece of content
+				meta: {
+					parents: meta[:parents],
+					hidden: meta[:hidden]
+				},
+			}
 		}
 	}
 end
@@ -222,6 +241,7 @@ TRANSFORM_UNDEFINED = lambda do |id, meta, data|
 	}
 	return frontmatter
 end
+
 
 TRANSFORM['home'] = lambda do |id, meta, data|
 	{
@@ -282,10 +302,15 @@ def transform(model, id)
 	item = CMS.items[model][id]
 	content = TRANSFORM_BASE.call(model, id, item[:meta], item[:data])
 	if TRANSFORM[model]
-		return content.deep_merge(TRANSFORM[model].call(id, item[:meta], item[:data]))
+		content = content.deep_merge(TRANSFORM[model].call(id, item[:meta], item[:data]))
 	else
-		return content.deep_merge(TRANSFORM_UNDEFINED.call(id, item[:meta], item[:data]))
+		content = content.deep_merge(TRANSFORM_UNDEFINED.call(id, item[:meta], item[:data]))
 	end
+	unless content[:frontmatter][:slug]
+		content[:frontmatter][:slug] = content[:frontmatter][:title].downcase.gsub(/[^A-Za-z0-9]+/, '')
+	end
+	content[:meta][:slug] = content[:frontmatter][:slug]
+	return content
 end
 
 
@@ -293,8 +318,10 @@ $content = {}
 $filepaths = {}
 $sitemap = {}
 
-CMS.get_models.each { |model_name, model_info|
+CMS.models.each { |model_name, model_info|
+	puts "For model #{model_name}..."
 	CMS.get_items(model_name).each { |id, item|
+		id = id.to_i
 		$content[id] = transform(model_name, id)
 		meta = $content[id][:meta]
 		front = $content[id][:frontmatter]
@@ -314,10 +341,11 @@ CMS.get_models.each { |model_name, model_info|
 	}
 }
 
-def create_file(path, file, &contents)
+def create_file(path, file)
+	puts "Will write #{path}#{file}..."
 	FileUtils.mkdir_p(path) unless File.directory?(path)
 	f = File.open(path + file)
-	f.write(&contents)
+	f.write(yield)
 	f.close
 end
 
@@ -328,16 +356,16 @@ def create_files_md(files, root)
 
 
 			id_list.each { |id|
-				item = $content[id]
+				puts item = $content[id.to_i]
 				# Create this item at this location
 				create_file(path, item[:meta][:slug] + '.md') {
 					item[:frontmatter].to_yaml
 					item[:content]
 				}
-				
+
 			}
 
 	}
 end
 
-create_files_md($files, 'source/_pages')
+create_files_md($filepaths, 'source/_pages')
