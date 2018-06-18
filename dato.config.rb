@@ -5,9 +5,7 @@ SOURCE = CONFIG['source']
 
 PARTIAL_SEPARATOR = '#'
 
-LANGS = dato.site.locales # ['en', 'fr', etc.]
-
-field_types = {
+SCHEMA = {
 	text: String, #also slug
 	file: {
 		url: String,
@@ -52,7 +50,9 @@ field_types = {
 	modular: [Object]
 }
 
-models = {
+LANGS = I18n.available_locales #dato.site.locales # ['en', 'fr', etc.]
+
+MODELS = {
 	'home' => {
 		#title: 'Home',
 		type: 'single', # single, multiple, tree
@@ -93,7 +93,6 @@ models = {
 		versioning: false
 	}
 }
-
 
 # DEFAULT -- OVERRIDABLE
 correlations = {
@@ -153,6 +152,60 @@ correlations = {
 }
 
 
+# MODEL ITERATORS
+
+MODELS.each { |model_name, model|
+	model_method = model_name.pluralize unless model[:type] == 'single'
+	items = {}
+	case model[:type]
+	when 'single'
+		model[:fields].each { |field_name, field|
+			if field[:localized]
+
+			else
+
+			end
+		}
+	when 'multiple'
+		LANGS.each { |locale|
+			I18n.with_locale(locale) {
+				items[locale] = dato.send(model_method)
+			}
+		}
+
+		generate_item(model_name, item, locale)
+	when 'tree'
+
+	else
+		raise "Model '#{model_name}' has type '#{info[:type]}' which is unknown."
+	end
+}
+
+# CONTENT ITEM GENERATORS
+
+# Function taking representation of a source content item and preparing data structures that will later be used to create output files
+def generate_item(model, item)
+
+	correlator[model].each { |item_structure|
+
+	}
+
+
+	item.
+
+
+	item = {
+		meta,
+		frontmatter,
+		content,
+		partials
+	}
+
+end
+
+
+# CREATE THE ACTUAL FILES
+
 def create_files_yaml(files, root)
 	files.sort.each { |pair|
 		path = root + pair[0]
@@ -194,10 +247,14 @@ end
 
 
 
+
+
+
+
+
 def liquid_block(block, contents)
 
 end
-
 
 def markdown_h(h, level = 1)
 	return ('#' * between(level, 1, 6)) + ' ' + h.to_s

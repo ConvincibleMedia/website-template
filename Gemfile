@@ -4,3 +4,4 @@ gem 'nokogiri' # Parse HTML documents
 gem 'addressable' # Parse URIs
 gem 'dato'
 #gem 'liquid-tag-parser'
+gem 'pp'

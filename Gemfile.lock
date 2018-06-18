@@ -11,7 +11,7 @@ GEM
     cacert (0.5.0)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
-    dato (0.5.1)
+    dato (0.6.3)
       activesupport (>= 4.2.7)
       addressable
       cacert
@@ -21,6 +21,7 @@ GEM
       faraday_middleware (>= 0.9.0)
       fastimage
       imgix (>= 0.3.1)
+      json_schema
       listen
       pusher-client
       thor
@@ -40,7 +41,7 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     fastimage (2.1.3)
-    ffi (1.9.23)
+    ffi (1.9.25)
     forwardable-extended (2.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -49,7 +50,7 @@ GEM
       concurrent-ruby (~> 1.0)
     imgix (1.1.0)
       addressable
-    jekyll (3.8.2)
+    jekyll (3.8.3)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -67,6 +68,7 @@ GEM
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     json (2.1.0)
+    json_schema (0.19.1)
     kramdown (1.17.0)
     liquid (4.0.0)
     listen (3.1.5)
@@ -79,11 +81,12 @@ GEM
     minitest (5.11.3)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     parslet (1.8.2)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
+    pp (0.1.1)
     public_suffix (3.0.2)
     pusher-client (0.6.2)
       json
@@ -122,6 +125,7 @@ DEPENDENCIES
   dato
   jekyll
   nokogiri
+  pp
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

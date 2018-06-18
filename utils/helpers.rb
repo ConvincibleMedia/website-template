@@ -1,6 +1,9 @@
 require 'nokogiri'
 require 'addressable/uri'
 #require 'uri'
+require 'active_support/core_ext/string/inflections'
+require 'active_support/core_ext/hash/except'
+require 'pp'
 
 # UNIVERSAL FUNCTIONS
 
