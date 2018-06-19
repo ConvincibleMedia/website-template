@@ -31,3 +31,10 @@ zh:
          slug:
             one: "sociaux"
             other: "sociauxes"
+   system:
+      image:
+         one: "image"
+         other: "images"
+      map:
+         one: "map"
+         other: "maps"

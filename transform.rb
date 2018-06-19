@@ -30,7 +30,7 @@ module Spark
 			@site = {
 				title: {},
 				url: site['production_frontend_url'] || site['frontend_url'],
-				assets_url: site['imgix_host'],
+				assets_url: Addressable::URI.heuristic_parse(site['imgix_host']).to_s.sub(/^\w+:\/\//, '//'),
 				seo: {
 					title: {},
 					description: {},
@@ -40,6 +40,7 @@ module Spark
 				},
 				langs: @locales
 			}
+			
 			@locales.each { |locale|
 				@site[:title][locale] = key?(site, ['global_seo', locale, 'site_name']) || key?(site, ['global_seo', @locales[0], 'site_name']) || ''
 				@site[:seo][:title][locale] = key?(site, ['global_seo', locale, 'fallback_seo', 'title']) || ''
@@ -117,7 +118,7 @@ module Spark
 				@files[id] = {
 					type: file['is_image'] ? 'image' : 'other',
 					format: file['format'],
-					url: @site[:assets_url] + file['path'],
+					url: URL.parse(@site[:assets_url], file['path']),
 					alt: file['alt'],
 					title: file['title'],
 					size: file['size']

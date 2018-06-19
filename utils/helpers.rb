@@ -88,7 +88,7 @@ def matches(needle, haystack)
 	 return matches
 end
 
-module URI
+module URL
 	extend self
 
 	def query_encode(q)
@@ -99,8 +99,14 @@ module URI
 		return Addressable::URI.unencode_component(q, String)
 	end
 
-	def parse(uri)
-		return Addressable::URI.parse(uri)
+	def parse(*uri)
+		if uri.is_a? Array
+			uri = uri.flatten.map{ |i| i.strip.chomp('/') }.reject(&:blank?).map{ |i| Addressable::URI.parse(i) }
+			return uri.length > 0 ? Addressable::URI.join(*uri) : Addressable::URI.new
+		else
+			uri = uri.to_s.strip
+			return uri.length > 0 ? Addressable::URI.parse(uri) : Addressable::URI.new
+		end
 	end
 
 end

@@ -1,12 +1,44 @@
 def md_html(html)
 	html = html.to_s.strip
 	if html.length > 0
-		Kramdown::Document.new(html, {
+		html = Kramdown::Document.new(html, {
 			html_to_native: true,
 			line_width: -1
-		}.merge(CONFIG['kramdown'])).to_kramdown.split(/(\r\n|\r|\n){2,}/).map{ |line| line.strip }.reject(&:blank?).join("\n\n")
+		}.merge(CONFIG['kramdown']))
+
+		html = md_hijack(html)
+
+		return html.to_kramdown.split(/(\r\n|\r|\n){2,}/).map{ |line| line.strip }.reject(&:blank?).join("\n\n")
 	else
 		return ''
+	end
+end
+
+MD_IMG = "![]()"
+def md_hijack(md)
+	puts "--"
+	md_traverse(md.root) { |element|
+		case element.type
+		when :img
+			element = Kramdown::Element.new(element.type, nil, {src: 'bongo'})
+		end
+	}
+	puts "--"
+
+	return md
+end
+
+def md_traverse(element, ancestors = [], &block)
+	type = element.type.to_s
+	unless ['text', 'entity'].include?(type)
+		pp (ancestors + [type]).join(' > ')
+		yield(element)
+		descendants = element.children
+		if descendants.present?
+			descendants.each { |child|
+				md_traverse(child, ancestors + [type], &block)
+			}
+		end
 	end
 end
 

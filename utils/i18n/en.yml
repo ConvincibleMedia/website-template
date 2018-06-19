@@ -31,3 +31,10 @@ en:
          slug:
             one: "social"
             other: "social"
+   system:
+      image:
+         one: "image"
+         other: "images"
+      map:
+         one: "map"
+         other: "maps"

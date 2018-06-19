@@ -5,17 +5,17 @@ slug: orange-article
 published: true
 date: '2018-06-19 17:12:14 +0000'
 meta:
-    parents: 
-    hidden: 
+   parents: 
+   hidden: 
 data:
-    sources:
-    - '313875'
-    - '313876'
-    image: '280668'
-    body: |-
-        <p>The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.</p>
-        <p>The orange is a hybrid between pomelo (Citrus maxima) and mandarin (Citrus reticulata). The chloroplast genome, and therefore the maternal line, is that of pomelo. The sweet orange has had its full genome sequenced.</p>
-        <p>Sweet oranges were mentioned in Chinese literature in 314 BC. As of 1987, orange trees were found to be the most cultivated fruit tree in the world. Orange trees are widely grown in tropical and subtropical climates for their sweet fruit. The fruit of the orange tree can be eaten fresh, or processed for its juice or fragrant peel. As of 2012, sweet oranges accounted for approximately 70% of citrus production.</p>
-        <p>In 2014, 70.9 million tonnes of oranges were grown worldwide, with Brazil producing 24% of the world total followed by China and India.</p>
+   sources:
+   - '313875'
+   - '313876'
+   image: '280668'
+   body: |-
+      <p>The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.</p>
+      <p>The orange is a hybrid between pomelo (Citrus maxima) and mandarin (Citrus reticulata). The chloroplast genome, and therefore the maternal line, is that of pomelo. The sweet orange has had its full genome sequenced.</p>
+      <p>Sweet oranges were mentioned in Chinese literature in 314 BC. As of 1987, orange trees were found to be the most cultivated fruit tree in the world. Orange trees are widely grown in tropical and subtropical climates for their sweet fruit. The fruit of the orange tree can be eaten fresh, or processed for its juice or fragrant peel. As of 2012, sweet oranges accounted for approximately 70% of citrus production.</p>
+      <p>In 2014, 70.9 million tonnes of oranges were grown worldwide, with Brazil producing 24% of the world total followed by China and India.</p>
 ---
 
