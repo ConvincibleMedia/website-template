@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'addressable/uri'
 #require 'uri'
-#require 'active_support/core_ext/string/inflections'
+require 'active_support/core_ext/string/inflections'
 #require 'active_support/core_ext/hash/except'
 require 'active_support/core_ext/hash/deep_merge'
 require 'pp'

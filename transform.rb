@@ -18,8 +18,8 @@ module Spark
 		def initialize
 			@API = Dato::Site::Client.new('38589353b1f7d1b630f77739b333224f581e432e87ca62aa2f')
 			@site = {}
-			@models = HashTree.new
-			@items = HashTree.new
+			@models = {}
+			@items = {}
 			@files = {}
 			@locales = []
 
@@ -234,13 +234,12 @@ TRANSFORM_BASE = lambda do |id, meta, data|
 		meta: {
 			id: id,
 			parents: meta[:parents],
-			path: path([t(:slug, [:models, meta[:model]])]),
-			link: path([t(:slug, [:models, meta[:model]]), (data['address'].to_s || id.to_s)])
+			path: path([t(:slug, [:models, meta[:model]])])
 		},
 		frontmatter: {
 			id: id,
-			title: data['title'] || id.to_s,
-			slug: data['address'] || data['title'] || id.to_s,
+			title: data['title'],
+			slug: data['address'],
 			published: true,
 			date: meta[:modified] || meta[:created],
 			# Metadata about this piece of content
@@ -263,9 +262,12 @@ end
 
 TRANSFORM['home'] = lambda do |id, meta, data|
 	{
+		meta: {
+			path: '/'
+		},
 		frontmatter: {
 			title: 'Home',
-			slug: '',
+			slug: 'index',
 			seo: {
 				title: key?(data, ['seo','title']),
 				description: key?(data, ['seo','description']),
@@ -323,22 +325,23 @@ def transform(model, id)
 		data = item[:data][lang]
 		I18n.locale = lang
 
-			# Base transform
-			content[lang] = TRANSFORM_BASE.call(id, item[:meta], item[:data])
+		# Base transform
+		content[lang] = TRANSFORM_BASE.call(id, meta, data)
 
-			# Specific transform
-			if TRANSFORM[model]
-				content[lang].deep_merge!(TRANSFORM[model].call(id, item[:meta], item[:data]))
-			else
-				content[lang].deep_merge!(TRANSFORM_UNDEFINED.call(id, item[:meta], item[:data]))
-			end
+		# Specific transform
+		if TRANSFORM[model]
+			content[lang].deep_merge!(TRANSFORM[model].call(id, meta, data))
+		else
+			content[lang].deep_merge!(TRANSFORM_UNDEFINED.call(id, meta, data))
+		end
 
-			# Universal tidying
-			unless content[lang][:frontmatter][:slug]
-				content[lang][:frontmatter][:slug] = content[lang][:frontmatter][:title].downcase.gsub(/[^A-Za-z0-9]+/, '')
-			end
-			content[lang][:meta][:slug] = content[lang][:frontmatter][:slug]
-
+		# Universal tidying
+		content[lang][:frontmatter][:title] = id.to_s if content[lang][:frontmatter][:title].blank?
+		puts "In '#{model}' under '#{lang}' I see item #{id} with title: '#{content[lang][:frontmatter][:title]}'"
+		content[lang][:frontmatter][:slug] = content[lang][:frontmatter][:title].parameterize if content[lang][:frontmatter][:slug].blank?
+		content[lang][:frontmatter][:slug] = id.to_s if content[lang][:frontmatter][:slug].blank?
+		content[lang][:meta][:slug] = content[lang][:frontmatter][:slug]
+		content[lang][:meta][:link] = content[lang][:meta][:path] + content[lang][:meta][:slug]
 	}
 
 	return content
@@ -354,14 +357,14 @@ CMS.locales.each { |lang|
 }
 
 CMS.models.each { |model_name, model_info|
-	puts "Constructing content and paths for model #{model_name}..."
+	#puts "Constructing content and paths for model #{model_name}..."
 	CMS.get_items(model_name).each { |id, item|
-		puts "Working on item id #{id}..."
+		#puts "Working on item id #{id}..."
 		id = id.to_i
 		$content[id] = transform(model_name, id)
 
 		CMS.locales.each { |lang|
-			puts "...in language: #{lang}"
+			#puts "...in language: #{lang}"
 			meta = $content[id][lang][:meta]
 			front = $content[id][lang][:frontmatter]
 			content = $content[id][lang][:content]
@@ -385,18 +388,18 @@ CMS.models.each { |model_name, model_info|
 
 def create_file(path, file) # { contents }
 	puts "Will write #{path}#{file}..."
-	FileUtils.mkdir_p(path) unless File.directory?(path)
+	#FileUtils.mkdir_p(path) unless File.directory?(path)
 	#f = File.open(path + file, 'w')
-	File.write(path + file, yield)
+	#File.write(path + file, yield)
 	#f.close
 end
 
 def create_files_md(files, root)
 	puts 'Will now try to create files.'
-	pp files
 	files.each { |lang, paths|
-		puts "For language #{lang} will create:\n" + paths.keys.join("\n")
-		paths.sort.each { |path, id_list|
+		paths = paths.sort.to_h
+		puts "For language '#{lang}', will create:\n" + paths.keys.join("\n")
+		paths.each { |path, id_list|
 			path = path([root, lang, path])
 			id_list.each { |id|
 				item = $content[id.to_i][lang]
