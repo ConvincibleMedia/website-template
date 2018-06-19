@@ -5,3 +5,4 @@ gem 'addressable' # Parse URIs
 gem 'dato'
 #gem 'liquid-tag-parser'
 gem 'pp'
+gem 'i18n'

@@ -1,8 +1,13 @@
 def md_html(html)
-	Kramdown::Document.new(html, {
-		html_to_native: true,
-		line_width: -1
-	}.merge(CONFIG['kramdown'])).to_kramdown.split(/(\r\n|\r|\n){2,}/).map{ |line| line.strip }.reject(&:blank?).join("\n\n")
+	html = html.to_s.strip
+	if html.length > 0
+		Kramdown::Document.new(html, {
+			html_to_native: true,
+			line_width: -1
+		}.merge(CONFIG['kramdown'])).to_kramdown.split(/(\r\n|\r|\n){2,}/).map{ |line| line.strip }.reject(&:blank?).join("\n\n")
+	else
+		return ''
+	end
 end
 
 def liquid_tag(tag, args = [], contents = nil)

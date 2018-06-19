@@ -128,6 +128,15 @@ module HTML
 
 end
 
+
+class HashTree < Hash
+	def initialize
+		super do |hash, key|
+			hash[key] = HashTree.new
+		end
+	end
+end
+
 =begin
 # SPECIALISED HELPERS
 

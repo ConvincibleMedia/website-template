@@ -1,0 +1,33 @@
+en:
+   models:
+      home:
+         title: "Home"
+         slug: "home"
+      product:
+         title:
+            one: "Product"
+            other: "Products"
+         slug:
+            one: "product"
+            other: "products"
+      page:
+         title:
+            one: "Page"
+            other: "Pages"
+         slug:
+            one: "page"
+            other: "pages"
+      article:
+         title:
+            one: "Article"
+            other: "Articles"
+         slug:
+            one: "article"
+            other: "articles"
+      social:
+         title:
+            one: "Social"
+            other: "Social"
+         slug:
+            one: "social"
+            other: "social"

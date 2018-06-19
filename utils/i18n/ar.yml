@@ -1,0 +1,33 @@
+ar:
+   models:
+      home:
+         title: "Page d'Accueil"
+         slug: "page-daccueil"
+      product:
+         title:
+            one: "Produit"
+            other: "Produits"
+         slug:
+            one: "produit"
+            other: "produits"
+      page:
+         title:
+            one: "Paige"
+            other: "Paiges"
+         slug:
+            one: "paige"
+            other: "paiges"
+      article:
+         title:
+            one: "Artoiclé"
+            other: "Artoiclés"
+         slug:
+            one: "artoicle"
+            other: "artoicles"
+      social:
+         title:
+            one: "Sociaux"
+            other: "Sociauxes"
+         slug:
+            one: "sociaux"
+            other: "sociauxes"
