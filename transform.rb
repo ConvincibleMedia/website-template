@@ -165,41 +165,6 @@ CMS.get_files
 require './utils/markdown_builder.rb'
 
 TRANSFORM = {}
-TRANSFORM_UNKNOWN = lambda do |id, meta, data, parents|
-	{
-		meta: {
-			id: id,
-			parents: parents
-		},
-		frontmatter: {
-			id: id,
-			title: id,
-			slug: id,
-			layout: nil,
-			published: true,
-			date: meta['modified'],
-			# Metadata about this piece of content
-			meta: {
-				parents: parents,
-				hidden: false
-			},
-			# How to display this piece of content
-			#view: {
-			#	features: []
-			#},
-			# HTML meta and OG/social card overrides
-			#seo: {
-			#	title: nil,
-			#	description: nil,
-			#	image: nil
-			#},
-			# Data that contributes to the content of this piece of content
-			#data: {}
-		},
-		content: ''#,
-		#partials: []
-	}
-end
 
 def get_data(item, field, lang)
 	if CMS.models[item[:meta][:model]][:fields][field][:localised]
@@ -228,35 +193,43 @@ def path_clean(path)
 	return path.to_s.split(PATH_SEP).map{ |i| i.gsub(PATH_UNSAFE, '').strip }.reject(&:blank?).join(PATH_SEP)
 end
 
+KEY_ID = 'id'
+KEY_TITLE = 'title'
+KEY_SLUG = 'slug'
+
 # Defaults
 TRANSFORM_BASE = lambda do |id, meta, data|
 	{
 		meta: {
 			id: id,
 			parents: meta[:parents],
-			path: path([t(:slug, [:models, meta[:model]])])
+			path: path([t(:slug, [:models, meta[:model]], 2)])
 		},
 		frontmatter: {
-			id: id,
-			title: data['title'],
-			slug: data['address'],
-			published: true,
-			date: meta[:modified] || meta[:created],
+			KEY_ID => id,
+			KEY_TITLE => data[KEY_TITLE],
+			KEY_SLUG => data[KEY_SLUG],
+			'published' => true,
+			'date' => meta[:modified] || meta[:created],
 			# Metadata about this piece of content
-			meta: {
-				parents: meta[:parents],
-				hidden: meta[:hidden]
+			'meta' => {
+				'parents' => meta[:parents],
+				'hidden' => meta[:hidden]
 			},
 		}
 	}
 end
 
 TRANSFORM_UNDEFINED = lambda do |id, meta, data|
-	frontmatter = { data: {} }
-	data.each { |field_name, field_data|
-		frontmatter[:data][field_name] = field_data
+	dump = {
+		frontmatter: {
+			'data' => {}
+		}
 	}
-	return frontmatter
+	data.each { |field_name, field_data|
+		dump[:frontmatter]['data'][field_name.to_s] = field_data unless [KEY_TITLE, KEY_SLUG].include?(field_name)
+	}
+	return dump
 end
 
 
@@ -266,12 +239,12 @@ TRANSFORM['home'] = lambda do |id, meta, data|
 			path: '/'
 		},
 		frontmatter: {
-			title: 'Home',
-			slug: 'index',
-			seo: {
-				title: key?(data, ['seo','title']),
-				description: key?(data, ['seo','description']),
-				image: key?(data, ['seo','image'])
+			KEY_TITLE => 'Home',
+			KEY_SLUG => 'index',
+			'seo' => {
+				'title' => key?(data, ['seo','title']),
+				'description' => key?(data, ['seo','description']),
+				'image' => key?(data, ['seo','image'])
 			}
 		},
 		content: [
@@ -288,11 +261,11 @@ end
 TRANSFORM['product'] = lambda do |id, meta, data|
 	{
 		frontmatter: {
-			data: {
-				image: data['image'],
-				colour: Spark::DatoCMS::rgba(data['colour_scheme']),
-				available: data['available'],
-				price: data['price']
+			'data' => {
+				'image' => data['image'],
+				'colour' => Spark::DatoCMS::rgba(data['colour_scheme']),
+				'available' => data['available'],
+				'price' => data['price']
 			}
 		},
 		content: md_p([
@@ -329,18 +302,18 @@ def transform(model, id)
 		content[lang] = TRANSFORM_BASE.call(id, meta, data)
 
 		# Specific transform
-		if TRANSFORM[model]
+		if TRANSFORM.key?(model)
 			content[lang].deep_merge!(TRANSFORM[model].call(id, meta, data))
 		else
 			content[lang].deep_merge!(TRANSFORM_UNDEFINED.call(id, meta, data))
 		end
 
 		# Universal tidying
-		content[lang][:frontmatter][:title] = id.to_s if content[lang][:frontmatter][:title].blank?
-		puts "In '#{model}' under '#{lang}' I see item #{id} with title: '#{content[lang][:frontmatter][:title]}'"
-		content[lang][:frontmatter][:slug] = content[lang][:frontmatter][:title].parameterize if content[lang][:frontmatter][:slug].blank?
-		content[lang][:frontmatter][:slug] = id.to_s if content[lang][:frontmatter][:slug].blank?
-		content[lang][:meta][:slug] = content[lang][:frontmatter][:slug]
+		content[lang][:frontmatter][KEY_TITLE] = id.to_s if content[lang][:frontmatter][KEY_TITLE].blank?
+		content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_TITLE] if content[lang][:frontmatter][KEY_SLUG].blank?
+		content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_SLUG].parameterize
+		content[lang][:frontmatter][KEY_SLUG] = id.to_s if content[lang][:frontmatter][KEY_SLUG].blank?
+		content[lang][:meta][:slug] = content[lang][:frontmatter][KEY_SLUG]
 		content[lang][:meta][:link] = content[lang][:meta][:path] + content[lang][:meta][:slug]
 	}
 
@@ -386,28 +359,35 @@ CMS.models.each { |model_name, model_info|
 	}
 }
 
-def create_file(path, file) # { contents }
+def create_file(path, file, contents)
 	puts "Will write #{path}#{file}..."
-	#FileUtils.mkdir_p(path) unless File.directory?(path)
+	FileUtils.mkdir_p(path) unless File.directory?(path)
 	#f = File.open(path + file, 'w')
-	#File.write(path + file, yield)
+	File.write(path + file, contents)
 	#f.close
 end
 
 def create_files_md(files, root)
-	puts 'Will now try to create files.'
+	#puts "Destroying previous files (if exist)."
+	CMS.locales.each { |lang|
+		FileUtils.remove_dir(path([root, lang]))
+	}
+	#puts 'Will now try to create files.'
 	files.each { |lang, paths|
 		paths = paths.sort.to_h
-		puts "For language '#{lang}', will create:\n" + paths.keys.join("\n")
+		#puts "For language '#{lang}', will create:\n" + paths.keys.join("\n")
 		paths.each { |path, id_list|
 			path = path([root, lang, path])
 			id_list.each { |id|
 				item = $content[id.to_i][lang]
 				# Create this item at this location
-				create_file(path, item[:meta][:slug] + '.md') {
-					item[:frontmatter].to_yaml
-					item[:content]
-				}
+				create_file(path, item[:meta][:slug] + '.md',
+					[
+						Psych.dump(item[:frontmatter], {line_width: -1, indentation: 3}).strip,
+						'---','',
+						item[:content]
+					].join("\n")
+				)
 			}
 		}
 	}
