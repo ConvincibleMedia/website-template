@@ -101,6 +101,8 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 # Video
 
 {% video %}
+I'm a video!
+{% endvideo %}
 
 # Definition List
 
@@ -110,7 +112,7 @@ Below, image
 : Is a link
 
 {% contentfor form %}
-{% include_relative index#form.partial.html %}
+{% include_relative test_form.partial.html %}
 {% endcontentfor %}
 
 {% include_relative grid_tests.html %}

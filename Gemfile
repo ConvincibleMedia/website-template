@@ -3,6 +3,8 @@ gem 'jekyll'
 gem 'nokogiri' # Parse HTML documents
 gem 'addressable' # Parse URIs
 gem 'dato'
-#gem 'liquid-tag-parser'
-gem 'pp'
+#gem 'liquid/tag/parser'
 gem 'i18n'
+
+# Debug
+gem 'pp'

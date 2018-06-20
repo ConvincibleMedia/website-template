@@ -1,12 +1,12 @@
 require 'nokogiri'
 require 'addressable/uri'
-#require 'uri'
 require 'active_support/core_ext/string/inflections'
-#require 'active_support/core_ext/hash/except'
 require 'active_support/core_ext/hash/deep_merge'
-require 'pp'
 require 'kramdown'
 require 'fileutils'
+
+# Debug
+#require 'pp'
 
 # UNIVERSAL FUNCTIONS
 
@@ -32,7 +32,7 @@ def expect(var, var_class = NilClass, var_def = nil)
 	return ret
 end
 
-def present?(str, str_strip = true)
+def expect_text(str, str_strip = true)
 	if str.is_a? String
 		if str_strip then str = str.strip end
 		if str.length > 0
@@ -42,7 +42,7 @@ def present?(str, str_strip = true)
 	return false
 end
 
-def key?(hash, hash_keys, hash_def = nil)
+def expect_key(hash, hash_keys, hash_def = nil)
 	if (hash.is_a? Hash) && !hash.empty?
 		if hash_keys.is_a? Array
 			key_exists = true
@@ -88,7 +88,7 @@ def matches(needle, haystack)
 	 return matches
 end
 
-module URL
+module URLs
 	extend self
 
 	def query_encode(q)
@@ -107,6 +107,10 @@ module URL
 			uri = uri.to_s.strip
 			return uri.length > 0 ? Addressable::URI.parse(uri) : Addressable::URI.new
 		end
+	end
+
+	def join(*uris)
+		return Addressable::URI.join(*uris)
 	end
 
 end
@@ -132,15 +136,6 @@ module HTML
 		return Nokogiri::XML::Node.new(e, Nokogiri::HTML::DocumentFragment.parse(''))
 	end
 
-end
-
-
-class HashTree < Hash
-	def initialize
-		super do |hash, key|
-			hash[key] = HashTree.new
-		end
-	end
 end
 
 =begin

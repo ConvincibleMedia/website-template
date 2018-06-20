@@ -135,7 +135,7 @@ defaults:
    -  scope:
          path:                 "_pages"
       values:
-         layout:               "html/page"
+         layout:               "html/article"
 
 permalink:                     ":slug.html"
 

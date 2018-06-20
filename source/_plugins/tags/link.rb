@@ -5,7 +5,7 @@ module Jekyll
 			a = HTML::element('a')
 			a.inner_html = @block
 
-			if present?(@input)
+			if expect_text(@input)
 				site_uri = Addressable::URI::parse(@config['url'])
 				input_uri = Addressable::URI::parse(@input)
 				type = ''
@@ -16,9 +16,9 @@ module Jekyll
 					input_id, input_frag = @input.split(/[@#]/).reject(&:empty?)
 					input_id = input_id.to_i
 
-					if key?(@data, ['sitemap', 'pages', input_id, 'link'])
+					if expect_key(@data, ['sitemap', 'pages', input_id, 'link'])
 
-						if key?(@data, ['sitemap', 'pages', input_id, 'title'])
+						if expect_key(@data, ['sitemap', 'pages', input_id, 'title'])
 							a['title'] = @data['sitemap']['pages'][input_id]['title']
 						end
 						@input = @data['sitemap']['pages'][input_id]['link'] + (input_frag ? '#' + input_frag.to_s : '')

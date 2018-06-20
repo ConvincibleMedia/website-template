@@ -12,7 +12,7 @@ module Jekyll
 
 			@scss = []
 			colors = []
-			if expect(key?(context.registers[:site].config, ['brand','colors']), Array) { |e| colors = e }
+			if expect(expect_key(context.registers[:site].config, ['brand','colors']), Array) { |e| colors = e }
 
 				def scss_var(name, value)
 					return '$' + name + ': ' + value + ';'
@@ -79,7 +79,7 @@ module Jekyll
 					colors.each_with_index { |color, index|
 						# color = a color object
 						color_val = ''
-						if expect(present?(key?(color, ['color'])), String) { |e| color_val = e}
+						if expect(expect_text(expect_key(color, ['color'])), String) { |e| color_val = e}
 							# Color properly defined
 
 							unless suff == 'bg'
@@ -91,7 +91,7 @@ module Jekyll
 							@scss << scss_var('color-' + suffix, color_val[0] == '#' ? color_val : '#' + color_val) + comment
 							# Now we'll check for other aspects of the definition
 							# Text color
-							if expect(present?(key?(color, ['text'])), String) { |e|
+							if expect(expect_text(expect_key(color, ['text'])), String) { |e|
 								@scss << scss_var('color-' + suffix + '-text', e[0] == '#' ? e : '#' + e) + comment
 							}
 							else
@@ -100,7 +100,7 @@ module Jekyll
 
 							if look_for_variants
 								@variants.each { |var, adj|
-									if expect(key?(color, [var]), Array) { |e|
+									if expect(expect_key(color, [var]), Array) { |e|
 										drop_colors(e, suffix + '-' + var + '-', false)
 									}
 									else

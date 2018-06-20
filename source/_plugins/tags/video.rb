@@ -1,24 +1,14 @@
 module Jekyll
-	class VideoTag < Liquid::Tag
+	class VideoBlock < CustomBlock
+		def output
 
-		def initialize(tag_name, input, options)
-			super
-			@tag_name = tag_name
-			@input = input
-			@options = options
+			return @block
+
 		end
-
-		def render(context)
-			@site = context.registers[:site]
-			@config = @site.config
-
-			return @tag_name
-		end
-
 	end
 end
 
-Liquid::Template.register_tag('video', Jekyll::VideoTag)
+Liquid::Template.register_tag('video', Jekyll::VideoBlock)
 
 =begin
 {%- assign format = site.data.videos[include.on][include.format] -%}

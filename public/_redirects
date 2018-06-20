@@ -1,0 +1,32 @@
+# From, To / default = 301 / 200 = rewrite
+# Example: /api/*  https://api.example.com/:splat  200
+
+
+# REDIRECTS (300s)
+
+# Primary language not explicitly in URL
+/en/*  /:splat      301
+
+# Redirect home page for other languages if detected
+/      /fr/         302  Language=fr
+/      /de/         302  Language=de
+
+# Other
+
+
+# REWRITES (200 = OK)
+
+# Primary language accessed implicitly, others explicitly
+/fr/*  /fr/:splat   200 # Catch legitimate requests to other languages
+/de/*  /de/:splat   200
+/*     /en/:splat   200 # So that this doesn't double up e.g. /en/de...
+
+# /en/services/websites redirects to /services/websites
+# /services/websites is in fact served from /en/services/websites
+# /de/dienstleistungen/webseite does not serve from /en/de/dienst...
+
+
+# 404
+
+/en/*  /en/404.html 404
+/de/*  /de/404.html 404

@@ -15,6 +15,12 @@ module Spark
 
 	class DatoCMS
 
+		attr_reader :site
+		attr_reader :models
+		attr_reader :items
+		attr_reader :files
+		attr_reader :locales
+
 		def initialize
 			@API = Dato::Site::Client.new('38589353b1f7d1b630f77739b333224f581e432e87ca62aa2f')
 			@site = {}
@@ -30,7 +36,7 @@ module Spark
 			@site = {
 				title: {},
 				url: site['production_frontend_url'] || site['frontend_url'],
-				assets_url: Addressable::URI.heuristic_parse(site['imgix_host']).to_s.sub(/^\w+:\/\//, '//'),
+				assets_url: Addressable::URI.heuristic_parse(site['imgix_host']).normalize.omit(:scheme).to_s,
 				seo: {
 					title: {},
 					description: {},
@@ -40,13 +46,13 @@ module Spark
 				},
 				langs: @locales
 			}
-			
+
 			@locales.each { |locale|
-				@site[:title][locale] = key?(site, ['global_seo', locale, 'site_name']) || key?(site, ['global_seo', @locales[0], 'site_name']) || ''
-				@site[:seo][:title][locale] = key?(site, ['global_seo', locale, 'fallback_seo', 'title']) || ''
-				@site[:seo][:description][locale] = key?(site, ['global_seo', locale, 'fallback_seo', 'description']) || ''
-				@site[:seo][:image][locale] = key?(site, ['global_seo', locale, 'fallback_seo', 'image']) || key?(site, ['global_seo', @locales[0], 'fallback_seo', 'image']) || ''
-				@site[:seo][:suffix][locale] = key?(site, ['global_seo', locale, 'title_suffix']) || ''
+				@site[:title][locale] = expect_key(site, ['global_seo', locale, 'site_name']) || expect_key(site, ['global_seo', @locales[0], 'site_name']) || ''
+				@site[:seo][:title][locale] = expect_key(site, ['global_seo', locale, 'fallback_seo', 'title']) || ''
+				@site[:seo][:description][locale] = expect_key(site, ['global_seo', locale, 'fallback_seo', 'description']) || ''
+				@site[:seo][:image][locale] = expect_key(site, ['global_seo', locale, 'fallback_seo', 'image']) || expect_key(site, ['global_seo', @locales[0], 'fallback_seo', 'image']) || ''
+				@site[:seo][:suffix][locale] = expect_key(site, ['global_seo', locale, 'title_suffix']) || ''
 			}
 
 			@API.item_types.all.each {|model|
@@ -118,7 +124,7 @@ module Spark
 				@files[id] = {
 					type: file['is_image'] ? 'image' : 'other',
 					format: file['format'],
-					url: URL.parse(@site[:assets_url], file['path']),
+					url: URLs.parse(@site[:assets_url], file['path']),
 					alt: file['alt'],
 					title: file['title'],
 					size: file['size']
@@ -146,10 +152,6 @@ module Spark
 			super
 		end
 
-		attr_reader :models
-		attr_reader :items
-		attr_reader :files
-		attr_reader :locales
 	end
 
 end
@@ -243,17 +245,17 @@ TRANSFORM['home'] = lambda do |id, meta, data|
 			KEY_TITLE => 'Home',
 			KEY_SLUG => 'index',
 			'seo' => {
-				'title' => key?(data, ['seo','title']),
-				'description' => key?(data, ['seo','description']),
-				'image' => key?(data, ['seo','image'])
+				'title' => expect_key(data, ['seo','title']),
+				'description' => expect_key(data, ['seo','description']),
+				'image' => expect_key(data, ['seo','image'])
 			}
 		},
 		content: [
 			data['intro'],
 			liquid_tag(
 				'video',
-				[key?(data,['video','provider']), key?(data,['video','provider_uid'])],
-				md_link(md_img(key?(data,['video','title']), key?(data,['video','thumbnail_url'])), key?(data,['video','url']))
+				[expect_key(data,['video','provider']), expect_key(data,['video','provider_uid'])],
+				md_link(md_img(expect_key(data,['video','title']), expect_key(data,['video','thumbnail_url'])), expect_key(data,['video','url']))
 			)
 		].flatten.join("\n\n")
 	}
@@ -371,7 +373,8 @@ end
 def create_files_md(files, root)
 	#puts "Destroying previous files (if exist)."
 	CMS.locales.each { |lang|
-		FileUtils.remove_dir(path([root, lang]))
+		path = path([root, lang])
+		FileUtils.rm_r(path, {secure: false, force: true}) if File.directory?(path)
 	}
 	#puts 'Will now try to create files.'
 	files.each { |lang, paths|

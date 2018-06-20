@@ -10,11 +10,11 @@ module Jekyll
 			if @input['image']
 				images = @data['images']
 				id = @input['image']
-				if expect(key?(images, [id, 'src']), String) { |e| img['src'] = e }
+				if expect(expect_key(images, [id, 'src']), String) { |e| img['src'] = e }
 					# While we're here...
-					img['alt'] = expect(key?(images, [id, 'alt']), String, '')
+					img['alt'] = expect(expect_key(images, [id, 'alt']), String, '')
 					['width', 'height'].each { |d|
-						expect(key?(images, [id, d[0]]), Integer) { |e| img[d] = e.to_s }
+						expect(expect_key(images, [id, d[0]]), Integer) { |e| img[d] = e.to_s }
 					}
 				else
 					raise "Image with id '#{id}' was not found in site.data.images."
@@ -28,16 +28,16 @@ module Jekyll
 
 			if @input['format']
 				fmt = @input['format']
-				if formats = key?(@config, ['images'])
-					if fmt = key?(formats, fmt)
+				if formats = expect_key(@config, ['images'])
+					if fmt = expect_key(formats, fmt)
 
 						['width', 'height'].each { |d|
-							expect(key?(fmt, d[0]), Integer) { |e| img[d] = e.to_s }
+							expect(expect_key(fmt, d[0]), Integer) { |e| img[d] = e.to_s }
 						}
 
 						fmt = fmt.map{ |k, v|
-							URI.query_encode(k.to_s) + '=' + \
-							URI.query_encode(v.to_s)
+							URLs.query_encode(k.to_s) + '=' + \
+							URLs.query_encode(v.to_s)
 						}.join('&')
 
 						img['src'] += '?' + fmt if fmt != ''

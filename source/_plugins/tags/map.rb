@@ -1,24 +1,14 @@
 module Jekyll
-	class MapTag < Liquid::Tag
+	class MapBlock < CustomBlock
+		def output
 
-		def initialize(tag_name, input, options)
-			super
-			@tag_name = tag_name
-			@input = input
-			@options = options
+			return @block
+
 		end
-
-		def render(context)
-			@site = context.registers[:site]
-			@config = @site.config
-
-			return @tag_name
-		end
-
 	end
 end
 
-Liquid::Template.register_tag('map', Jekyll::MapTag)
+Liquid::Template.register_tag('map', Jekyll::MapBlock)
 
 =begin
 {% assign key = '' %}

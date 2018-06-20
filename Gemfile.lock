@@ -123,6 +123,7 @@ PLATFORMS
 DEPENDENCIES
   addressable
   dato
+  i18n
   jekyll
   nokogiri
   pp
