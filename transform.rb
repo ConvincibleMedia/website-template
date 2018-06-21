@@ -5,6 +5,9 @@ CONFIG = YAML.load_file('./_config.yml')
 SOURCE = CONFIG['source']
 
 TIME_FORMAT = '%Y-%m-%d %H:%M:%S %z' #Internal representation
+KEY_ID = 'id'
+KEY_TITLE = 'title'
+KEY_SLUG = 'slug'
 
 require 'i18n'
 
@@ -153,10 +156,13 @@ module Spark
 					'version' => 'published',
 					#'orderBy' => 'position'
 				}).each { |item|
-					@items[model_name][item['id'].to_i] = {
+					id = item['id'].to_i
+					created = item['created_at'] || Time.now.to_s
+					@items[model_name][id] = {
 						meta: {
-							created: Time.parse(item['created_at']).strftime(TIME_FORMAT),
-							modified: Time.parse(item['published_at'] || item['updated_at'] || item['created_at']).strftime(TIME_FORMAT),
+							KEY_ID => id,
+							created: Time.parse(created).strftime(TIME_FORMAT),
+							modified: Time.parse(item['published_at'] || item['updated_at'] || created).strftime(TIME_FORMAT),
 							parent: item['parent_id'],
 							order: item['position'],
 							model: model_name
@@ -196,7 +202,7 @@ module Spark
 				@files[id] = {
 					type: file['is_image'] ? 'image' : 'other',
 					format: file['format'],
-					url: URLs.parse(@site[:assets_url], file['path']),
+					url: file['path'], # Does not include ASSETS URL on purpose
 					alt: file['alt'],
 					title: file['title'],
 					size: file['size']
@@ -259,21 +265,14 @@ end
 PATH_UNSAFE = Regexp.new('[' + Regexp.escape('<>:"/\|?*') + ']')
 PATH_SEP = '/'
 
-def path(paths)
-	if paths.is_a? Array
-		paths = paths.flatten.map{ |i| path_clean(i) }.reject(&:blank?).join(PATH_SEP)
-	else
-		paths = path_clean(paths)
-	end
+def path(*paths)
+	paths = paths.flatten.map{ |i| path_clean(i) }.reject(&:blank?).join(PATH_SEP)
 	return paths + PATH_SEP
 end
 def path_clean(path)
 	return path.to_s.split(PATH_SEP).map{ |i| i.gsub(PATH_UNSAFE, '').strip }.reject(&:blank?).join(PATH_SEP)
 end
 
-KEY_ID = 'id'
-KEY_TITLE = 'title'
-KEY_SLUG = 'slug'
 
 def get_parents(id)
 	parents = []
@@ -287,18 +286,15 @@ end
 # Defaults
 TRANSFORM_BASE = lambda do |id, meta, data|
 	{
-		meta: {
-			KEY_ID => id,
-			parent: meta[:parent],
-			path: path([t(:slug, [:models, meta[:model]], 2)]),
-			model: meta[:model]
-		},
+		meta: meta.deep_merge({
+			path: path([t(:slug, [:models, meta[:model]], 2)])
+		}),
 		frontmatter: {
 			KEY_ID => id,
 			KEY_TITLE => data[KEY_TITLE],
 			KEY_SLUG => data[KEY_SLUG],
 			'published' => true,
-			'date' => meta[:modified] || meta[:created],
+			'date' => meta[:modified],
 			# Metadata about this piece of content
 			'meta' => {
 				'parent' => meta[:parent],
@@ -439,6 +435,21 @@ TRANSFORM['page'] = lambda do |id, meta, data|
 	}
 end
 
+TRANSFORM['social'] = lambda do |id, meta, data|
+	{
+		meta: {
+			KEY_TITLE => data['profile'],
+		},
+		data: {
+			'profile' => data['profile'],
+			'url' => data['url']
+		},
+		partials: { # No path! - so goes to _includes?
+			'config.json' => data['config'] # partial filename : partial's content
+		}
+	}
+end
+
 =begin
 TRANSFORM_PARTIAL['source'] = lambda do |data|
 	{
@@ -492,54 +503,131 @@ def transform(model, id)
 end
 
 
+$datapaths = {}
+$data = {}
+def new_data(name, data, path = '/')
+	id = $data.length
+	$data[id] = {
+		meta: {
+			slug: name,
+			path: path
+		},
+		data:	data
+	}
+	$datapaths[path] ||= []
+	$datapaths[path] << id
+end
+
+
+
 $content = {}
 $filepaths = {}
 $sitemap = {}
 CMS.locales.each { |lang|
 	$filepaths[lang] = {}
-	$sitemap[lang] = {}
 }
+$partials = {}
+$partialpath = {}
 
 CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
-	CMS.get_items(model_name).each { |id, item|
+	CMS.get_items(model_name).each { |id, _|
 		#puts "Working on item id #{id}..."
 		id = id.to_i
-		$content[id] = transform(model_name, id)
+		transformed = transform(model_name, id)
+		#$content[id] = [lang] = data structure
 
 		CMS.locales.each { |lang|
 			#puts "...in language: #{lang}"
-			meta = $content[id][lang][:meta]
-			front = $content[id][lang][:frontmatter]
-			content = $content[id][lang][:content]
-			$filepaths[lang][meta[:path]] = ($filepaths[lang][meta[:path]] || [])
-			$filepaths[lang][meta[:path]] << id
-			$sitemap[id] = {} unless $sitemap.key?(id)
-			$sitemap[id][lang] = {
-				title: front[:title],
-		      slug: front[:slug],
-		      link: meta[:link],
-		      path: meta[:path],
-		      loc: CONFIG['url'] + meta[:link],
-		      lastmod: meta[:modified],
-		      type: model_name,
-		      #order: '3'
-		      hidden: meta[:hidden]
-			}
+
+			item = transformed[lang]
+			meta = item[:meta]
+			front = item[:frontmatter] # If defined?
+
+			if item.key?[:content] || item.key?[:frontmatter]
+				# Page to be created from this item
+
+				$content[id] ||= {}
+				$content[id][lang] = item
+
+				if item.key?[:partials] && item[:partials].length > 0
+					# Relative partial
+
+					item[:partials].each { |p_name, p_content|
+						$partials[id.to_s + p_name][lang] = {
+							filename: front['slug'] + '_' + p_name.sub('.', '.partial.')
+							content: p_content
+						}
+						$partialpaths[lang][meta[:path]] ||= []
+						$partialpaths[lang][meta[:path]] << id.to_s + p_name
+					}
+
+				end
+
+				# Setup other references to this content item
+
+				$filepaths[lang][meta[:path]] ||= []
+				$filepaths[lang][meta[:path]] << id
+				$sitemap[id] ||= {}
+				$sitemap[id][lang] = {
+					'title' => front['title'],
+					'path' => meta[:path],
+			      'slug' => front['slug'],
+			      'link' => meta[:link],
+			      'loc' => URLs.join(CONFIG['url'], meta[:link]).omit(:scheme).to_s,
+			      'lastmod' => meta[:modified],
+			      'type' => model_name,
+			      #'order': '3'
+			      'hidden' => meta[:hidden]
+				}
+
+			end
+			if item.key?[:data]
+				# Data file to be added to from this item
+
+				$data[meta[:model]] ||= {}
+				$data[meta[:model]].deep_merge(
+					{
+						meta: {
+							slug: meta[:model],
+							path: '/'
+						},
+						data:	[data]
+					}
+				)
+				$datapaths['/'] ||= []
+				$datapaths['/'] << meta[:model] unless $datapaths['/'].key?(meta[:model])
+
+				if item.key?[:partials] && !item.key?[:content] && !item.key?[:frontmatter]
+					# Partial defined without content = not relative
+
+					item[:partials].each { |p_name, p_content|
+						$partials[id.to_s + p_name][lang] = {
+							filename: front['slug'] + '_' + p_name.sub('.', '.partial.')
+							content: p_content
+						}
+						$partialpaths[lang][0] ||= []
+						$partialpaths[lang][0] << id.to_s + p_name
+					}
+
+				end
+			end
+
 		}
 	}
 }
 
 def create_file(path, file, contents)
-	puts "Will write #{path}#{file}..."
+	puts "Writing #{path}#{file}..."
 	FileUtils.mkdir_p(path) unless File.directory?(path)
 	#f = File.open(path + file, 'w')
 	File.write(path + file, contents)
 	#f.close
 end
 
+DIR_PAGES = './source/_pages/'
 def create_files_md(files, root)
-	#puts "Destroying previous files (if exist)."
+	puts "Clearing pages directory..."
 	CMS.locales.each { |lang|
 		path = path([root, lang])
 		FileUtils.rm_r(path, {secure: false, force: true}) if File.directory?(path)
@@ -565,6 +653,67 @@ def create_files_md(files, root)
 	}
 end
 
+DIR_DATA = './source/_data/test/'
+def create_files_yml(files, root)
+	if File.directory?(root)
+		#Destroy
+		puts "Clearing data directory..."
+		FileUtils.rm_r(Dir[path(root, "*")], {secure: false, force: true})
+		#Create
+		files.each { |path, id_list|
+			path = path([root, path])
+			id_list.each{ |id|
+				item = $data[id.to_i]
+				create_file(path, item[:meta][:slug] + '.yml',
+					Psych.dump(item[:data], {line_width: -1, indentation: 3}).gsub(/^([\r\n\s]*\-{3,}[\r\n\s]*)|([\r\n\s]*\-{3,}[\r\n\s]*)$/, '')
+				)
+			}
+		}
+	else
+		raise "Not a directory: #{root.to_s}"
+	end
+end
+
+DIR_PARTIALS = './source/_includes/partials/'
+def create_partials(files, root)
+	puts "Clearing partials directory..."
+	CMS.locales.each { |lang|
+		path = path([root, lang])
+		FileUtils.rm_r(path, {secure: false, force: true}) if File.directory?(path)
+	}
+	#puts 'Will now try to create files.'
+	files.each { |lang, paths|
+		paths = paths.sort.to_h
+		#puts "For language '#{lang}', will create:\n" + paths.keys.join("\n")
+		paths.each { |path, id_list|
+			if path == 0 #special
+				path = path([root, lang])
+			else
+				path = path([DIR_PAGES, lang, path])
+			end
+			id_list.each { |id|
+				item = $partials[id][lang]
+				# Create this item at this location
+				create_file(path, item[:filename], item[:content])
+			}
+		}
+	}
+end
+
 #pp $content
 
-create_files_md($filepaths, './source/_pages/')
+
+$images = CMS.files.reject{|k,v| v[:type] != 'image'}.map {|id, data|
+	[id.to_i, data.stringify_keys]
+}.to_h
+$other_files = CMS.files.reject{|k,v| v[:type] == 'image'}.map {|id, data|
+	[id.to_i, data.stringify_keys]
+}.to_h
+
+new_data('siteinfo', CMS.site.deep_stringify_keys)
+new_data('sitemap', $sitemap)
+new_data('images', $images)
+
+create_files_yml($datapaths, DIR_DATA)
+create_partials($partialpaths, DIR_PARTIALS)
+#create_files_md($filepaths, DIR_PAGES)

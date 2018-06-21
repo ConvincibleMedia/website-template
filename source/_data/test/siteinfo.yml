@@ -1,0 +1,34 @@
+title:
+   en: Exemplary Groceries
+   fr: Exemplary Groceries
+   zh: Exemplary Groceries
+   ar: Exemplary Groceries
+url: http://exemplary.netlify.com
+assets_url: "//www.datocms-assets.com/"
+seo:
+   title:
+      en: Ezra Griffiths
+      fr: ''
+      zh: ''
+      ar: ''
+   description:
+      en: This is an example website from convincible.media
+      fr: ''
+      zh: ''
+      ar: ''
+   image:
+      en: ''
+      fr: ''
+      zh: ''
+      ar: ''
+   suffix:
+      en: " (Example Website)"
+      fr: ''
+      zh: ''
+      ar: ''
+   hidden: true
+langs:
+- en
+- fr
+- zh
+- ar

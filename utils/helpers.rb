@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'addressable/uri'
 require 'active_support/core_ext/string/inflections'
 require 'active_support/core_ext/hash/deep_merge'
+require 'active_support/core_ext/hash/keys'
 require 'kramdown'
 require 'fileutils'
 
