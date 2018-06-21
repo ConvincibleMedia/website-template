@@ -6,6 +6,8 @@ published: true
 date: '2018-06-20 21:51:16 +0000'
 meta:
    parent: 
-   hidden:
+   hidden: 
+   lang: en
+   dir: ltr
 ---
 

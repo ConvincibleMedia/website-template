@@ -7,6 +7,8 @@ date: '2018-06-19 17:12:04 +0000'
 meta:
    parent: 
    hidden: 
+   lang: en
+   dir: ltr
 data:
    image: '280686'
    quoted:

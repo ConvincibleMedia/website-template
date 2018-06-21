@@ -7,6 +7,8 @@ date: '2018-06-20 14:44:07 +0000'
 meta:
    parent: 
    hidden: 
+   lang: fr
+   dir: ltr
 seo:
    title: Exemplary Groceries Home Page
    description: Exemplary Groceries delivers the finest local produce to individuals and businesses in the area.

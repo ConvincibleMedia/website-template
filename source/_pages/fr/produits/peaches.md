@@ -7,6 +7,8 @@ date: '2018-06-20 14:46:08 +0000'
 meta:
    parent: 
    hidden: 
+   lang: fr
+   dir: ltr
 data:
    image: '280675'
    colour: 
@@ -50,6 +52,6 @@ There was \"disregard for human life\" in prescribing drugs at the Gosport hospi
     29mThe scandals that haunt the NHS
 
 <!--{% gallery %}-->
-![](//www.datocms-assets.com/3015/1525263196-peach-1.jpg)
-![](//www.datocms-assets.com/3015/1525263198-peach-2.jpg)
+![](/3015/1525263196-peach-1.jpg)
+![](/3015/1525263198-peach-2.jpg)
 <!--{% endgallery %}-->

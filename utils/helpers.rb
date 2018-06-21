@@ -7,7 +7,7 @@ require 'kramdown'
 require 'fileutils'
 
 # Debug
-#require 'pp'
+require 'pp'
 
 # UNIVERSAL FUNCTIONS
 

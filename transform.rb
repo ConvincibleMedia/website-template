@@ -440,6 +440,7 @@ TRANSFORM['social'] = lambda do |id, meta, data|
 		meta: {
 			KEY_TITLE => data['profile'],
 		},
+		frontmatter: nil,
 		data: {
 			'profile' => data['profile'],
 			'url' => data['url']
@@ -486,17 +487,19 @@ def transform(model, id)
 			content[lang].deep_merge!(TRANSFORM_UNDEFINED.call(id, meta, data))
 		end
 
-		# Language
-		content[lang][:frontmatter]['meta']['lang'] = lang
-		content[lang][:frontmatter]['meta']['dir'] = 'ltr'
+		if content[lang][:frontmatter]
+			# Language
+			content[lang][:frontmatter]['meta']['lang'] = lang
+			content[lang][:frontmatter]['meta']['dir'] = 'ltr'
 
-		# Universal tidying
-		content[lang][:frontmatter][KEY_TITLE] = id.to_s if content[lang][:frontmatter][KEY_TITLE].blank?
-		content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_TITLE] if content[lang][:frontmatter][KEY_SLUG].blank?
-		content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_SLUG].parameterize
-		content[lang][:frontmatter][KEY_SLUG] = id.to_s if content[lang][:frontmatter][KEY_SLUG].blank?
-		content[lang][:meta][:slug] = content[lang][:frontmatter][KEY_SLUG]
-		content[lang][:meta][:link] = content[lang][:meta][:path] + content[lang][:meta][:slug]
+			# Universal tidying
+			content[lang][:frontmatter][KEY_TITLE] = id.to_s if content[lang][:frontmatter][KEY_TITLE].blank?
+			content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_TITLE] if content[lang][:frontmatter][KEY_SLUG].blank?
+			content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_SLUG].parameterize
+			content[lang][:frontmatter][KEY_SLUG] = id.to_s if content[lang][:frontmatter][KEY_SLUG].blank?
+			content[lang][:meta][:slug] = content[lang][:frontmatter][KEY_SLUG]
+			content[lang][:meta][:link] = content[lang][:meta][:path] + content[lang][:meta][:slug]
+		end
 	}
 
 	return content
@@ -527,7 +530,7 @@ CMS.locales.each { |lang|
 	$filepaths[lang] = {}
 }
 $partials = {}
-$partialpath = {}
+$partialpaths = {}
 
 CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
@@ -544,20 +547,22 @@ CMS.models[:pages].each { |model_name, model_info|
 			meta = item[:meta]
 			front = item[:frontmatter] # If defined?
 
-			if item.key?[:content] || item.key?[:frontmatter]
+			if item[:content] || item[:frontmatter]
 				# Page to be created from this item
 
 				$content[id] ||= {}
 				$content[id][lang] = item
 
-				if item.key?[:partials] && item[:partials].length > 0
+				if item[:partials] && item[:partials].length > 0
 					# Relative partial
 
 					item[:partials].each { |p_name, p_content|
+						$partials[id.to_s + p_name] ||= {}
 						$partials[id.to_s + p_name][lang] = {
-							filename: front['slug'] + '_' + p_name.sub('.', '.partial.')
+							filename: front['slug'] + '_' + p_name.sub('.', '.partial.'),
 							content: p_content
 						}
+						$partialpaths[lang] ||= {}
 						$partialpaths[lang][meta[:path]] ||= []
 						$partialpaths[lang][meta[:path]] << id.to_s + p_name
 					}
@@ -582,32 +587,37 @@ CMS.models[:pages].each { |model_name, model_info|
 				}
 
 			end
-			if item.key?[:data]
+			if item[:data]
 				# Data file to be added to from this item
 
-				$data[meta[:model]] ||= {}
-				$data[meta[:model]].deep_merge(
-					{
+				$data[meta[:model]] ||= {
 						meta: {
 							slug: meta[:model],
 							path: '/'
 						},
-						data:	[data]
+						data:	{}
 					}
-				)
+				$data[meta[:model]][:data][lang] ||= []
+				$data[meta[:model]][:data][lang] << item[:data]
 				$datapaths['/'] ||= []
-				$datapaths['/'] << meta[:model] unless $datapaths['/'].key?(meta[:model])
+				$datapaths['/'] << meta[:model] unless $datapaths['/'].include?(meta[:model])
 
-				if item.key?[:partials] && !item.key?[:content] && !item.key?[:frontmatter]
+				if item[:partials] && !item[:content] && !item[:frontmatter]
 					# Partial defined without content = not relative
 
 					item[:partials].each { |p_name, p_content|
-						$partials[id.to_s + p_name][lang] = {
-							filename: front['slug'] + '_' + p_name.sub('.', '.partial.')
+						$partials[p_name] ||= {}
+						$partials[p_name][lang] ||= {}
+						if $partials[p_name][lang][:content]
+							p_content = $partials[p_name][lang][:content] + "\n" + p_content.to_s
+						end
+						$partials[p_name][lang] = {
+							filename: meta[:model] + '_' + p_name.sub('.', '.partial.'),
 							content: p_content
 						}
+						$partialpaths[lang] ||= {}
 						$partialpaths[lang][0] ||= []
-						$partialpaths[lang][0] << id.to_s + p_name
+						$partialpaths[lang][0] << p_name unless $partialpaths[lang][0].include?(p_name)
 					}
 
 				end
@@ -655,23 +665,19 @@ end
 
 DIR_DATA = './source/_data/test/'
 def create_files_yml(files, root)
-	if File.directory?(root)
-		#Destroy
-		puts "Clearing data directory..."
-		FileUtils.rm_r(Dir[path(root, "*")], {secure: false, force: true})
-		#Create
-		files.each { |path, id_list|
-			path = path([root, path])
-			id_list.each{ |id|
-				item = $data[id.to_i]
-				create_file(path, item[:meta][:slug] + '.yml',
-					Psych.dump(item[:data], {line_width: -1, indentation: 3}).gsub(/^([\r\n\s]*\-{3,}[\r\n\s]*)|([\r\n\s]*\-{3,}[\r\n\s]*)$/, '')
-				)
-			}
+	#Destroy
+	puts "Clearing data directory..."
+	FileUtils.rm_r(Dir[path(root, "*")], {secure: false, force: true}) if File.directory?(root)
+	#Create
+	files.each { |path, id_list|
+		path = path([root, path])
+		id_list.each{ |id|
+			item = $data[id]
+			create_file(path, item[:meta][:slug] + '.yml',
+				Psych.dump(item[:data], {line_width: -1, indentation: 3}).gsub(/^([\r\n\s]*\-{3,}[\r\n\s]*)|([\r\n\s]*\-{3,}[\r\n\s]*)$/, '')
+			)
 		}
-	else
-		raise "Not a directory: #{root.to_s}"
-	end
+	}
 end
 
 DIR_PARTIALS = './source/_includes/partials/'
@@ -714,6 +720,10 @@ new_data('siteinfo', CMS.site.deep_stringify_keys)
 new_data('sitemap', $sitemap)
 new_data('images', $images)
 
+#pp $data['social']
+#pp $partials
+#pp $partialpaths
+
 create_files_yml($datapaths, DIR_DATA)
+create_files_md($filepaths, DIR_PAGES)
 create_partials($partialpaths, DIR_PARTIALS)
-#create_files_md($filepaths, DIR_PAGES)

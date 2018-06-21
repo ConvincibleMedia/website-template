@@ -6,7 +6,9 @@ published: true
 date: '2018-06-01T16:05:00+01:00'
 meta:
    parent: 
-   hidden:
+   hidden: 
+   lang: en
+   dir: ltr
 ---
 
 {"paragraph"=>{"text"=>"Discover the wonders of this place."}}

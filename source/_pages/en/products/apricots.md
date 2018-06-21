@@ -7,6 +7,8 @@ date: '2018-06-18 16:50:49 +0000'
 meta:
    parent: 
    hidden: 
+   lang: en
+   dir: ltr
 data:
    image: '280671'
    colour: 
@@ -38,6 +40,6 @@ Apricot derives from praecocia (praecoquus) as \"cooked or ripened beforehand\" 
 The English name first appeared in the 16th century as abrecock from the Middle French aubercot or later abricot, from Catalan a(l)bercoc.
 
 <!--{% gallery %}-->
-![](//www.datocms-assets.com/3015/1525263146-apricot-1.jpg)
-![](//www.datocms-assets.com/3015/1525263148-apricot-2.jpg)
+![](/3015/1525263146-apricot-1.jpg)
+![](/3015/1525263148-apricot-2.jpg)
 <!--{% endgallery %}-->
