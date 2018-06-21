@@ -5,7 +5,7 @@ slug: oranges
 published: true
 date: '2018-06-14 14:47:22 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 data:
    image: '280667'

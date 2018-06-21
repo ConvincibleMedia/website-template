@@ -5,7 +5,7 @@ slug: raspberries
 published: true
 date: '2018-06-20 12:00:30 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 data:
    image: '280680'

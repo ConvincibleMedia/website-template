@@ -5,7 +5,7 @@ slug: peaches
 published: true
 date: '2018-06-20 14:46:08 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 data:
    image: '280675'

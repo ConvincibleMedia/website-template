@@ -5,7 +5,7 @@ slug: apricots
 published: true
 date: '2018-06-18 16:50:49 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 data:
    image: '280671'

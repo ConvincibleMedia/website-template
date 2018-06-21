@@ -15,15 +15,15 @@ def expect(var, var_class = NilClass, var_def = nil)
 		if var.nil? || (var.is_a?(Enumerable) && var.empty?)
 			ret = var_def
 		else
-			yield(ret) if block_given?
 			ret = var
+			ret = yield(var) if block_given?
 		end
 	else
 		if var.is_a? var_class
 			ret = var
 			if block_given?
 				#puts "Returning block with a " + ret.class.to_s + " = '" + ret.to_s + "'"
-				yield(ret)
+				ret = yield(var)
 			end
 		else
 			ret = var_def

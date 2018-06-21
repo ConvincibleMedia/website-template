@@ -8,9 +8,11 @@ module Kramdown_Sanitized
 end
 =end
 
+#To build - Whamdown - extension of Kram!
+
 module Kramdown
 	module Converter
-		class Wipedown < Kramdown #Base
+		class Slamdown < Kramdown #Base
 			# Overrides https://github.com/gettalong/kramdown/blob/master/lib/kramdown/converter/kramdown.rb
 			def convert_a(el, opts)
 				if el.attr['href'].empty?
@@ -111,7 +113,7 @@ def md_html(html)
 		#html = md_hijack(html)
 
 		#html = html.to_kramdown
-		html = html.to_wipedown
+		html = html.to_slamdown
 
 		return html.split(/(\r\n|\r|\n){2,}/).map{ |line| line.strip }.reject(&:blank?).join("\n\n")
 	else
@@ -149,12 +151,13 @@ def md_traverse(element, ancestors = [], &block)
 end
 =end
 
-def liquid_tag(tag, args = [], contents = nil)
+def liquid_tag(tag, args = [], *contents)
 	args = args.join(' ') unless args.is_a? String
 	if args.length > 0 then args = ' ' + args end
-	if contents.nil?
+	if contents.blank?
 		return "{% #{tag}#{args} %}"
 	else
+		contents = contents.join("\n\n")
 		return "<!--{% #{tag}#{args} %}-->\n#{contents}\n<!--{% end#{tag} %}-->"
 	end
 end
@@ -164,11 +167,11 @@ def md_link(text = '', href = '') # ADD TITLE
 end
 
 def md_img(alt = '', src = '')
-	return '!' + md_link(Kramdown::Converter::Wipedown.escape_alt(alt), src)
+	return '!' + md_link(Kramdown::Converter::Slamdown.escape_alt(alt), src)
 end
 
 def md_h(h, level = 1)
-	return ('#' * between(level, 1, 6)) + ' ' + h.to_s
+	return ('#' * between(level + CONFIG['kramdown']['header_offset'].to_i, 1, 6)) + ' ' + h.to_s
 end
 
 def md_p(p)
@@ -184,18 +187,21 @@ def md_p(p)
 end
 
 def md_list(list, type = 'ul', start = 1, level = 1)
-	bump = max((start - 1), 0)
-	space = " " * ((level - 1) * 3)
-	if list.is_a? Array #sanity check
+	if list.is_a?(Array) && list.length > 0
+		start = [start.to_i, 1].max
+		level = [level.to_i, 1].max
+
+		space = " " * ((level - 1) * 3)
 
 		list = list.each_with_index{|li, i|
 			if li.is_a? Array
-				list[index] = markdown_list(li, type, 1, level + 1)
-			elsif li.is_a? String
+				list[i] = md_list(li, type, 1, level + 1)
+			else
+				#li = li.to_s
 				if type == 'ol'
-					list[index] = space + (i + bump).to_s + '. ' + li
+					list[i] = space + (start + i).to_s + '. ' + li
 				else
-					list[index] = space + '*  ' + li
+					list[i] = space + '*  ' + li
 				end
 			end
 		}
@@ -206,9 +212,9 @@ end
 
 
 def md_ul(list)
-	return markdown_list(list, 'ul')
+	return md_list(list, 'ul')
 end
 
 def md_ol(list, start = 1)
-	return markdown_list(list, 'ol', start)
+	return md_list(list, 'ol', start)
 end

@@ -5,7 +5,7 @@ slug: tomatoes
 published: true
 date: '2018-05-02 12:18:51 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 data:
    image: '280685'

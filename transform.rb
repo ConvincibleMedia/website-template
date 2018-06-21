@@ -26,9 +26,17 @@ module Spark
 			@site = {}
 			@models = {}
 			@items = {}
+			@blocks = {}
 			@files = {}
 			@locales = []
 
+			get_site()
+
+			get_models()
+
+		end
+
+		def get_site()
 			site = @API.site.find
 			@locales = site['locales']
 			I18n.default_locale = @locales[0]
@@ -54,32 +62,85 @@ module Spark
 				@site[:seo][:image][locale] = expect_key(site, ['global_seo', locale, 'fallback_seo', 'image']) || expect_key(site, ['global_seo', @locales[0], 'fallback_seo', 'image']) || ''
 				@site[:seo][:suffix][locale] = expect_key(site, ['global_seo', locale, 'title_suffix']) || ''
 			}
+		end
 
+		def get_models()
 			@API.item_types.all.each {|model|
 				if !model['modular_block']
-					model_name = model['api_key']
-					@models[model_name] = {
-						id: model['id'].to_i,
-						type: '',
-						fields: {},
-						versioning: model['draft_mode_active']
-					}
-					if model[:singleton]
-						@models[model_name][:type] = 'single'
-					elsif model[:tree]
-						@models[model_name][:type] = 'tree'
-					else
-						@models[model_name][:type] = 'multiple'
-					end
-					@API.fields.all(model['id']).each { |field|
-						@models[model_name][:fields][field['api_key']] = {
-							type: field['field_type'],
-							localized: field['localized']
-						}
-					}
+					section = :pages
+				else
+					section = :blocks
 				end
-			}
+				@models[section] ||= {}
 
+				model_name = model['api_key']
+				@models[section][model_name] = {
+					id: model['id'].to_i,
+					type: '',
+					fields: {},
+					versioning: model['draft_mode_active']
+				}
+				if model[:singleton]
+					@models[section][model_name][:type] = 'single'
+				elsif model[:tree]
+					@models[section][model_name][:type] = 'tree'
+				else
+					@models[section][model_name][:type] = 'multiple'
+				end
+				@API.fields.all(model['id']).each { |field|
+					field_type_map = {
+						'string' => {type: 'text', subtype: 'line', multiple: false},
+						'text' => {type: 'text', subtype: 'multiline', multiple: false},
+						'slug' => {type: 'text', subtype: 'line', multiple: false},
+						'boolean' => {type: 'boolean', subtype: nil, multiple: false},
+						'integer' => {type: 'number', subtype: 'integer', multiple: false},
+						'float' => {type: 'number', subtype: 'decimal', multiple: false},
+						'date_time' => {type: 'time', subtype: 'datetime', multiple: false},
+						'date' => {type: 'time', subtype: 'date', multiple: false},
+						'json' => {type: 'raw', subtype: 'integer', multiple: false},
+
+						'link' => 'id/page',
+						'links' => 'multi/id/page',
+						'file' => 'id/asset',
+						'gallery' => 'multi/id/asset',
+
+						'seo' => 'struct/seo',
+						'video' => 'struct/video',
+						'lat_lon' => 'struct/gps',
+						'color' => 'struct/color',
+
+						'rich_text' => 'multi/id/page/inlinify'
+					}
+					type = field['field_type']
+
+					@models[section][model_name][:fields][field['api_key']] = {
+						type: type,
+						localized: field['localized']
+					}
+
+
+				}
+			}
+		end
+
+
+		def get_blocks(model_name)
+			unless @blocks.key?(model_name)
+				@API.items.all({
+					'filter[type]' => @models[:blocks][model_name][:id],
+					#'version' => 'published',
+					#'orderBy' => 'position'
+				}).each { |item|
+					@blocks[item['id'].to_i] = {
+						model_name => {}
+					}
+					#ap @items[model_name]
+
+					@models[:blocks][model_name][:fields].each { |field_name, field_info|
+						@blocks[item['id'].to_i][model_name][field_name] = item[field_name]
+					}
+				}
+			end
 		end
 
 		def get_items(model_name)
@@ -88,26 +149,37 @@ module Spark
 			unless @items.key?(model_name)
 				@items[model_name] = {}
 				@API.items.all({
-					'filter[type]' => @models[model_name][:id],
-					'version' => 'published'
+					'filter[type]' => @models[:pages][model_name][:id],
+					'version' => 'published',
+					#'orderBy' => 'position'
 				}).each { |item|
 					@items[model_name][item['id'].to_i] = {
 						meta: {
 							created: Time.parse(item['created_at']).strftime(TIME_FORMAT),
 							modified: Time.parse(item['published_at'] || item['updated_at'] || item['created_at']).strftime(TIME_FORMAT),
-							parent: item['parent'],
+							parent: item['parent_id'],
+							order: item['position'],
 							model: model_name
 						},
 						data: {}
 					}
 					#ap @items[model_name]
 
-					@models[model_name][:fields].each { |field_name, field_info|
+					@models[:pages][model_name][:fields].each { |field_name, field_info|
 						@locales.each { |lang|
 							if field_info[:localized]
 								this_field = item[field_name][lang]
 							else
 								this_field = item[field_name]
+							end
+							case field_info[:type]
+							when 'rich_text'
+									this_field = [this_field] if !this_field.is_a? Array
+									#if field_info[:inlinify]
+										this_field = this_field.map{ |id|
+											@blocks[id.to_i]
+										}
+									#end
 							end
 							@items[model_name][item['id'].to_i][:data][lang] = {} unless @items[model_name][item['id'].to_i][:data].key?(lang)
 							@items[model_name][item['id'].to_i][:data][lang][field_name] = this_field
@@ -159,7 +231,10 @@ end
 CMS = Spark::CMS.new
 
 
-CMS.models.each { |model_name, model_info|
+CMS.models[:blocks].each { |model_name, model_info|
+	CMS.get_blocks(model_name)
+}
+CMS.models[:pages].each { |model_name, model_info|
 	CMS.get_items(model_name)
 }
 CMS.get_files
@@ -170,7 +245,7 @@ require './utils/markdown_builder.rb'
 TRANSFORM = {}
 
 def get_data(item, field, lang)
-	if CMS.models[item[:meta][:model]][:fields][field][:localised]
+	if CMS.models[:pages][item[:meta][:model]][:fields][field][:localised]
 		return item[:data][:field][lang] # Localised
 	else
 		return item[:data][:field] # Not localised
@@ -200,13 +275,23 @@ KEY_ID = 'id'
 KEY_TITLE = 'title'
 KEY_SLUG = 'slug'
 
+def get_parents(id)
+	parents = []
+	if this_parent = CMS.items[id][:meta][:parent]
+		parents << this_parent
+		parents << get_parents(this_parent)
+	end
+	return parents
+end
+
 # Defaults
 TRANSFORM_BASE = lambda do |id, meta, data|
 	{
 		meta: {
-			id: id,
-			parents: meta[:parents],
-			path: path([t(:slug, [:models, meta[:model]], 2)])
+			KEY_ID => id,
+			parent: meta[:parent],
+			path: path([t(:slug, [:models, meta[:model]], 2)]),
+			model: meta[:model]
 		},
 		frontmatter: {
 			KEY_ID => id,
@@ -216,7 +301,7 @@ TRANSFORM_BASE = lambda do |id, meta, data|
 			'date' => meta[:modified] || meta[:created],
 			# Metadata about this piece of content
 			'meta' => {
-				'parents' => meta[:parents],
+				'parent' => meta[:parent],
 				'hidden' => meta[:hidden]
 			},
 		}
@@ -250,14 +335,14 @@ TRANSFORM['home'] = lambda do |id, meta, data|
 				'image' => expect_key(data, ['seo','image'])
 			}
 		},
-		content: [
+		content: md_p([
 			data['intro'],
 			liquid_tag(
 				'video',
 				[expect_key(data,['video','provider']), expect_key(data,['video','provider_uid'])],
 				md_link(md_img(expect_key(data,['video','title']), expect_key(data,['video','thumbnail_url'])), expect_key(data,['video','url']))
 			)
-		].flatten.join("\n\n")
+		])
 	}
 end
 
@@ -290,6 +375,85 @@ TRANSFORM['product'] = lambda do |id, meta, data|
 	}
 end
 
+def blocks(block_array, filter = nil)
+	if !block_array.is_a? Array
+		block_array = []
+	end
+
+	if filter == nil
+		filter = []
+		# Get all expected types
+	end
+
+	if filter.is_a? String
+		filter = [filter]
+	elsif filter.is_a? Array
+		filter.flatten!
+	else
+		raise "Invalid filter '#{filter.to_s}' to get blocks."
+	end
+
+	if filter.length == 1
+		return block_array.select{|f| f.keys.any?{|k| filter.include?(k) } }.map{|i|
+			i[filter[0]]
+		}
+	else
+		return block_array.select{|f| f.keys.any?{|k| filter.include?(k) } }
+	end
+end
+
+TRANSFORM['article'] = lambda do |id, meta, data|
+	data['sources'] = blocks(data['sources'], 'source')
+	{
+		frontmatter: {
+			'data' => {
+				'image' => data['image'],
+				'quoted' => data['sources'].map{ |source|
+					source['author']
+				}
+			}
+		},
+		content: md_p([
+			md_html(data['body']),
+			expect(data['sources']) { |sources|
+				liquid_tag('contentfor', 'hero',
+					md_h('Sources', 2),
+					md_ol(data['sources'].map{ |source|
+						md_link(
+							"<cite>" + source['title'] + "</cite>" +
+							(source['author'].present? ? ", " + source['author'] : ''),
+							source['url'])
+					})
+				)
+			}
+		])
+	}
+end
+
+TRANSFORM['page'] = lambda do |id, meta, data|
+	frontmatter = {}
+	expect(data['publish_date']) { |e| frontmatter['date'] = e }
+	{
+		frontmatter: frontmatter,
+		content: md_p(data['text'])
+	}
+end
+
+=begin
+TRANSFORM_PARTIAL['source'] = lambda do |data|
+	{
+		frontmatter: {
+			'quoted' => [data['author']] # Array should be appended during deep_merge
+		},
+		content: md_link("<cite>" + data['title'] + "</cite>," + data['author'], data['url'])
+	}
+end
+=end
+
+def transform_partial(id)
+
+end
+
 def transform(model, id)
 	id = id.to_i
 	item = CMS.items[model][id]
@@ -310,6 +474,10 @@ def transform(model, id)
 		else
 			content[lang].deep_merge!(TRANSFORM_UNDEFINED.call(id, meta, data))
 		end
+
+		# Language
+		content[lang][:frontmatter]['meta']['lang'] = lang
+		content[lang][:frontmatter]['meta']['dir'] = 'ltr'
 
 		# Universal tidying
 		content[lang][:frontmatter][KEY_TITLE] = id.to_s if content[lang][:frontmatter][KEY_TITLE].blank?
@@ -332,7 +500,7 @@ CMS.locales.each { |lang|
 	$sitemap[lang] = {}
 }
 
-CMS.models.each { |model_name, model_info|
+CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
 	CMS.get_items(model_name).each { |id, item|
 		#puts "Working on item id #{id}..."
@@ -396,5 +564,7 @@ def create_files_md(files, root)
 		}
 	}
 end
+
+#pp $content
 
 create_files_md($filepaths, './source/_pages/')

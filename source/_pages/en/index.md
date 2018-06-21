@@ -5,7 +5,7 @@ slug: index
 published: true
 date: '2018-06-20 14:44:07 +0000'
 meta:
-   parents: 
+   parent: 
    hidden: 
 seo:
    title: Exemplary Groceries Home Page
