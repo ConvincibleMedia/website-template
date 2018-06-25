@@ -42,6 +42,7 @@ module Spark
 		def get_site()
 			site = @API.site.find
 			@locales = site['locales']
+			puts @locales.inspect
 			I18n.default_locale = @locales[0]
 
 			@site = {
@@ -151,6 +152,13 @@ module Spark
 			#puts "Model ID is '#{@models[model][:id]}'..."
 			unless @items.key?(model_name)
 				@items[model_name] = {}
+
+				# Does this model have ANY localized fields?
+				localized_fields = @models[:pages][model_name][:fields].select { |field_name, field_info|
+					field_info[:localized]
+				}
+				puts "IN MODEL #{model_name} there are #{localized_fields.size.to_s} localized fields: " + localized_fields.map{|name,_| name}.join(', ')
+
 				@API.items.all({
 					'filter[type]' => @models[:pages][model_name][:id],
 					'version' => 'published',
@@ -160,7 +168,7 @@ module Spark
 					created = item['created_at'] || Time.now.to_s
 					@items[model_name][id] = {
 						meta: {
-							KEY_ID => id,
+							KEY_ID.to_sym => id,
 							created: Time.parse(created).strftime(TIME_FORMAT),
 							modified: Time.parse(item['published_at'] || item['updated_at'] || created).strftime(TIME_FORMAT),
 							parent: item['parent_id'],
@@ -171,13 +179,42 @@ module Spark
 					}
 					#ap @items[model_name]
 
-					@models[:pages][model_name][:fields].each { |field_name, field_info|
+					localized = []
+					if localized_fields.size > 0
+						# Has ANY localised content in fact been defined for ANY of those fields?
+						#check = @locales.deep_dup
+						#check.each { |lang|
 						@locales.each { |lang|
+							localized_fields.each { |field_name, field_info|
+								if item[field_name][lang].present?
+									localized << lang
+									#check.delete(lang)
+									puts "For item #{id} in #{model_name}, language #{lang} is present in field #{field_name} with value: " + item[field_name][lang].to_s
+									break
+								end
+							}
+							#if localized.size == @locales.size then break end
+						}
+						puts "For item #{id}, no localized data could be found." if localized.size == 0
+					end
+					if localized.size == 0
+						# Always at least the default lang, even if this is empty
+						localized = [@locales[0]]
+					end
+
+					@items[model_name][item['id'].to_i][:meta][:langs] = localized
+					puts "Item #{id} of #{model_name} is in langs: " + localized.join(', ')
+
+					@models[:pages][model_name][:fields].each { |field_name, field_info|
+
+						localized.each { |lang|
 							if field_info[:localized]
 								this_field = item[field_name][lang]
 							else
 								this_field = item[field_name]
 							end
+
+
 							case field_info[:type]
 							when 'rich_text'
 									this_field = [this_field] if !this_field.is_a? Array
@@ -193,6 +230,7 @@ module Spark
 					}
 				}
 			end
+			#pp @items[model_name]
 			return @items[model_name]
 		end
 
@@ -468,7 +506,7 @@ def transform(model, id)
 	model_name = meta[:model]
 
 	content = {}
-	CMS.locales.each { |lang|
+	meta[:langs].each { |lang|
 		data = item[:data][lang]
 		I18n.locale = lang
 
@@ -533,13 +571,13 @@ $partialpaths = {}
 # TRANSFORM CONTENT
 CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
-	CMS.get_items(model_name).each { |id, _|
+	CMS.get_items(model_name).each { |id, item|
 		#puts "Working on item id #{id}..."
 		id = id.to_i
 		transformed = transform(model_name, id)
 		#transformed = [lang] = data structure
 
-		CMS.locales.each { |lang|
+		item[:meta][:langs].each { |lang|
 			#puts "...in language: #{lang}"
 
 			item = transformed[lang]
@@ -596,28 +634,39 @@ CMS.models[:pages].each { |model_name, model_info|
 
 # PARENTS
 $content.each { |id, langs|
-	langs.each{ |lang, item|
+	#puts "Reading parents of content id: #{id}, '#{langs['en'][:frontmatter]['slug']}', which has #{langs.size.to_s} langs."
+	langs.each_with_index{ |(lang, item), index|
+		#puts "...Lang \##{index + 1}: #{lang}"
 
 		meta = item[:meta]
 		front = item[:frontmatter] # If defined?
 
 		# Get parents array
 		parents = []
-		parent = meta[:parent]
-		while parent
-			parent = parent.to_i
+		parent = meta[:parent].to_i
+		while parent && $content[parent] && $content[parent][lang]
+			#puts "Parent \##{(parents.size + 1).to_s} = #{parent.to_s}"
 			parents << {
 				id: parent,
 				slug: $content[parent][lang][:frontmatter][KEY_SLUG]
 			}
-			parent = $content[parent][lang][:meta][:parent]
+			if $content[parent][lang]
+				parent = $content[parent][lang][:meta][:parent]
+				parent = parent.to_i unless parent == nil
+			else
+				# Parent not available in this language = no parent
+				parent = nil
+			end
+			#puts "Next parent up is: #{parent.inspect}"
 		end
+		#puts "#{parents.size.to_s} parents identified for id #{id} in lang: #{lang}"
+
 		$content[id][lang][:frontmatter]['meta'] ||= {}
-		$content[id][lang][:meta]['parents'] = parents
-		$content[id][lang][:frontmatter]['meta']['parents'] = parents
+		$content[id][lang][:meta][:parents] = parents
+		$content[id][lang][:frontmatter]['meta']['parents'] = parents.map{|i| i.stringify_keys }
 
 		# Reconstruct this item's path with base that's already set
-		$content[id][lang][:meta][:path] += parents.map{ |branch| branch[:slug] }.reverse.join('/')
+		$content[id][lang][:meta][:path] = path($content[id][lang][:meta][:path], parents.map{ |branch| branch[:slug] }.reverse.join('/'))
 		$content[id][lang][:meta][:link] = path($content[id][lang][:meta][:path], $content[id][lang][:meta][:slug])
 	}
 }

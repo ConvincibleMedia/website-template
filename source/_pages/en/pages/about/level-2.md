@@ -10,7 +10,7 @@ meta:
    lang: en
    dir: ltr
    parents:
-   -  :id: 86956
-      :slug: about
+   -  id: 86956
+      slug: about
 ---
 

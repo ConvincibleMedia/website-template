@@ -8,32 +8,42 @@
       lastmod: '2018-06-21 21:46:14 +0000'
       type: home
       hidden: 
+313873:
+   en:
+      title: Background
+      path: pages/about/
+      slug: background
+      link: pages/about/background/
+      loc: "//localhost:4000/pages/about/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
+      hidden: 
    fr:
-      title: Home
-      path: "/"
-      slug: index
-      link: index/
-      loc: "//localhost:4000/index/"
-      lastmod: '2018-06-21 21:46:14 +0000'
-      type: home
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
       hidden: 
    zh:
-      title: Home
-      path: "/"
-      slug: index
-      link: index/
-      loc: "//localhost:4000/index/"
-      lastmod: '2018-06-21 21:46:14 +0000'
-      type: home
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
       hidden: 
    ar:
-      title: Home
-      path: "/"
-      slug: index
-      link: index/
-      loc: "//localhost:4000/index/"
-      lastmod: '2018-06-21 21:46:14 +0000'
-      type: home
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
       hidden: 
 318492:
    en:
@@ -45,141 +55,33 @@
       lastmod: '2018-06-20 21:51:16 +0000'
       type: page
       hidden: 
-   fr:
-      title: Level 1
-      path: paiges/
-      slug: level-1
-      link: paiges/level-1/
-      loc: "//localhost:4000/paiges/level-1/"
-      lastmod: '2018-06-20 21:51:16 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: Level 1
-      path: paiges/
-      slug: level-1
-      link: paiges/level-1/
-      loc: "//localhost:4000/paiges/level-1/"
-      lastmod: '2018-06-20 21:51:16 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: Level 1
-      path: paiges/
-      slug: level-1
-      link: paiges/level-1/
-      loc: "//localhost:4000/paiges/level-1/"
-      lastmod: '2018-06-20 21:51:16 +0000'
-      type: page
-      hidden: 
 318491:
    en:
       title: Level 2
-      path: pages/about
+      path: pages/about/
       slug: level-2
       link: pages/about/level-2/
       loc: "//localhost:4000/pages/about/level-2/"
       lastmod: '2018-06-20 21:51:09 +0000'
       type: page
       hidden: 
-   fr:
-      title: Level 2
-      path: paiges/about
-      slug: level-2
-      link: paiges/about/level-2/
-      loc: "//localhost:4000/paiges/about/level-2/"
-      lastmod: '2018-06-20 21:51:09 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: Level 2
-      path: paiges/about
-      slug: level-2
-      link: paiges/about/level-2/
-      loc: "//localhost:4000/paiges/about/level-2/"
-      lastmod: '2018-06-20 21:51:09 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: Level 2
-      path: paiges/about
-      slug: level-2
-      link: paiges/about/level-2/
-      loc: "//localhost:4000/paiges/about/level-2/"
-      lastmod: '2018-06-20 21:51:09 +0000'
-      type: page
-      hidden: 
 318490:
    en:
       title: Level 4
-      path: pages/about/background/level-3
+      path: pages/about/background/level-3/
       slug: level-4
       link: pages/about/background/level-3/level-4/
       loc: "//localhost:4000/pages/about/background/level-3/level-4/"
       lastmod: '2018-06-20 21:50:50 +0000'
       type: page
       hidden: 
-   fr:
-      title: Level 4
-      path: paiges/about/background/level-3
-      slug: level-4
-      link: paiges/about/background/level-3/level-4/
-      loc: "//localhost:4000/paiges/about/background/level-3/level-4/"
-      lastmod: '2018-06-20 21:50:50 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: Level 4
-      path: paiges/about/background/level-3
-      slug: level-4
-      link: paiges/about/background/level-3/level-4/
-      loc: "//localhost:4000/paiges/about/background/level-3/level-4/"
-      lastmod: '2018-06-20 21:50:50 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: Level 4
-      path: paiges/about/background/level-3
-      slug: level-4
-      link: paiges/about/background/level-3/level-4/
-      loc: "//localhost:4000/paiges/about/background/level-3/level-4/"
-      lastmod: '2018-06-20 21:50:50 +0000'
-      type: page
-      hidden: 
 318489:
    en:
       title: Level 3
-      path: pages/about/background
+      path: pages/about/background/
       slug: level-3
       link: pages/about/background/level-3/
       loc: "//localhost:4000/pages/about/background/level-3/"
-      lastmod: '2018-06-20 21:50:39 +0000'
-      type: page
-      hidden: 
-   fr:
-      title: Level 3
-      path: paiges/about/background
-      slug: level-3
-      link: paiges/about/background/level-3/
-      loc: "//localhost:4000/paiges/about/background/level-3/"
-      lastmod: '2018-06-20 21:50:39 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: Level 3
-      path: paiges/about/background
-      slug: level-3
-      link: paiges/about/background/level-3/
-      loc: "//localhost:4000/paiges/about/background/level-3/"
-      lastmod: '2018-06-20 21:50:39 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: Level 3
-      path: paiges/about/background
-      slug: level-3
-      link: paiges/about/background/level-3/
-      loc: "//localhost:4000/paiges/about/background/level-3/"
       lastmod: '2018-06-20 21:50:39 +0000'
       type: page
       hidden: 
@@ -193,70 +95,6 @@
       lastmod: '2018-06-20 20:49:05 +0000'
       type: page
       hidden: 
-   fr:
-      title: About
-      path: paiges/
-      slug: about
-      link: paiges/about/
-      loc: "//localhost:4000/paiges/about/"
-      lastmod: '2018-06-20 20:49:05 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: About
-      path: paiges/
-      slug: about
-      link: paiges/about/
-      loc: "//localhost:4000/paiges/about/"
-      lastmod: '2018-06-20 20:49:05 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: About
-      path: paiges/
-      slug: about
-      link: paiges/about/
-      loc: "//localhost:4000/paiges/about/"
-      lastmod: '2018-06-20 20:49:05 +0000'
-      type: page
-      hidden: 
-313873:
-   en:
-      title: Background
-      path: pages/about
-      slug: background
-      link: pages/about/background/
-      loc: "//localhost:4000/pages/about/background/"
-      lastmod: '2018-06-20 20:46:52 +0000'
-      type: page
-      hidden: 
-   fr:
-      title: Background
-      path: paiges/about
-      slug: background
-      link: paiges/about/background/
-      loc: "//localhost:4000/paiges/about/background/"
-      lastmod: '2018-06-20 20:46:52 +0000'
-      type: page
-      hidden: 
-   zh:
-      title: Background
-      path: paiges/about
-      slug: background
-      link: paiges/about/background/
-      loc: "//localhost:4000/paiges/about/background/"
-      lastmod: '2018-06-20 20:46:52 +0000'
-      type: page
-      hidden: 
-   ar:
-      title: Background
-      path: paiges/about
-      slug: background
-      link: paiges/about/background/
-      loc: "//localhost:4000/paiges/about/background/"
-      lastmod: '2018-06-20 20:46:52 +0000'
-      type: page
-      hidden: 
 86971:
    en:
       title: Oranges
@@ -264,33 +102,6 @@
       slug: oranges
       link: products/oranges/
       loc: "//localhost:4000/products/oranges/"
-      lastmod: '2018-06-14 14:47:22 +0000'
-      type: product
-      hidden: 
-   fr:
-      title: Oranges
-      path: produits/
-      slug: oranges
-      link: produits/oranges/
-      loc: "//localhost:4000/produits/oranges/"
-      lastmod: '2018-06-14 14:47:22 +0000'
-      type: product
-      hidden: 
-   zh:
-      title: Oranges
-      path: produits/
-      slug: oranges
-      link: produits/oranges/
-      loc: "//localhost:4000/produits/oranges/"
-      lastmod: '2018-06-14 14:47:22 +0000'
-      type: product
-      hidden: 
-   ar:
-      title: Oranges
-      path: produits/
-      slug: oranges
-      link: produits/oranges/
-      loc: "//localhost:4000/produits/oranges/"
       lastmod: '2018-06-14 14:47:22 +0000'
       type: product
       hidden: 
@@ -304,33 +115,6 @@
       lastmod: '2018-06-18 16:50:49 +0000'
       type: product
       hidden: 
-   fr:
-      title: Apricots
-      path: produits/
-      slug: apricots
-      link: produits/apricots/
-      loc: "//localhost:4000/produits/apricots/"
-      lastmod: '2018-06-18 16:50:49 +0000'
-      type: product
-      hidden: 
-   zh:
-      title: Apricots
-      path: produits/
-      slug: apricots
-      link: produits/apricots/
-      loc: "//localhost:4000/produits/apricots/"
-      lastmod: '2018-06-18 16:50:49 +0000'
-      type: product
-      hidden: 
-   ar:
-      title: Apricots
-      path: produits/
-      slug: apricots
-      link: produits/apricots/
-      loc: "//localhost:4000/produits/apricots/"
-      lastmod: '2018-06-18 16:50:49 +0000'
-      type: product
-      hidden: 
 86973:
    en:
       title: Peaches
@@ -338,33 +122,6 @@
       slug: peaches
       link: products/peaches/
       loc: "//localhost:4000/products/peaches/"
-      lastmod: '2018-06-20 14:46:08 +0000'
-      type: product
-      hidden: 
-   fr:
-      title: Peaches
-      path: produits/
-      slug: peaches
-      link: produits/peaches/
-      loc: "//localhost:4000/produits/peaches/"
-      lastmod: '2018-06-20 14:46:08 +0000'
-      type: product
-      hidden: 
-   zh:
-      title: Peaches
-      path: produits/
-      slug: peaches
-      link: produits/peaches/
-      loc: "//localhost:4000/produits/peaches/"
-      lastmod: '2018-06-20 14:46:08 +0000'
-      type: product
-      hidden: 
-   ar:
-      title: Peaches
-      path: produits/
-      slug: peaches
-      link: produits/peaches/
-      loc: "//localhost:4000/produits/peaches/"
       lastmod: '2018-06-20 14:46:08 +0000'
       type: product
       hidden: 
@@ -378,33 +135,6 @@
       lastmod: '2018-06-20 12:00:30 +0000'
       type: product
       hidden: 
-   fr:
-      title: Raspberries
-      path: produits/
-      slug: raspberries
-      link: produits/raspberries/
-      loc: "//localhost:4000/produits/raspberries/"
-      lastmod: '2018-06-20 12:00:30 +0000'
-      type: product
-      hidden: 
-   zh:
-      title: Raspberries
-      path: produits/
-      slug: raspberries
-      link: produits/raspberries/
-      loc: "//localhost:4000/produits/raspberries/"
-      lastmod: '2018-06-20 12:00:30 +0000'
-      type: product
-      hidden: 
-   ar:
-      title: Raspberries
-      path: produits/
-      slug: raspberries
-      link: produits/raspberries/
-      loc: "//localhost:4000/produits/raspberries/"
-      lastmod: '2018-06-20 12:00:30 +0000'
-      type: product
-      hidden: 
 86961:
    en:
       title: Tomatoes
@@ -412,33 +142,6 @@
       slug: tomatoes
       link: products/tomatoes/
       loc: "//localhost:4000/products/tomatoes/"
-      lastmod: '2018-05-02 12:18:51 +0000'
-      type: product
-      hidden: 
-   fr:
-      title: Tomatoes
-      path: produits/
-      slug: tomatoes
-      link: produits/tomatoes/
-      loc: "//localhost:4000/produits/tomatoes/"
-      lastmod: '2018-05-02 12:18:51 +0000'
-      type: product
-      hidden: 
-   zh:
-      title: Tomatoes
-      path: produits/
-      slug: tomatoes
-      link: produits/tomatoes/
-      loc: "//localhost:4000/produits/tomatoes/"
-      lastmod: '2018-05-02 12:18:51 +0000'
-      type: product
-      hidden: 
-   ar:
-      title: Tomatoes
-      path: produits/
-      slug: tomatoes
-      link: produits/tomatoes/
-      loc: "//localhost:4000/produits/tomatoes/"
       lastmod: '2018-05-02 12:18:51 +0000'
       type: product
       hidden: 
@@ -470,15 +173,6 @@
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
       hidden: 
-   ar:
-      title: '275949'
-      path: artoicles/
-      slug: '275949'
-      link: artoicles/275949/
-      loc: "//localhost:4000/artoicles/275949/"
-      lastmod: '2018-06-19 17:12:14 +0000'
-      type: article
-      hidden: 
 275598:
    en:
       title: All about the humble Tomato
@@ -486,15 +180,6 @@
       slug: all-about-the-humble-tomato
       link: articles/all-about-the-humble-tomato/
       loc: "//localhost:4000/articles/all-about-the-humble-tomato/"
-      lastmod: '2018-06-19 17:12:04 +0000'
-      type: article
-      hidden: 
-   fr:
-      title: '275598'
-      path: artoicles/
-      slug: '275598'
-      link: artoicles/275598/
-      loc: "//localhost:4000/artoicles/275598/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
       hidden: 

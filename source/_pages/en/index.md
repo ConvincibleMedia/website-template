@@ -9,6 +9,8 @@ seo:
    title: Exemplary Groceries Home Page
    description: Exemplary Groceries delivers the finest local produce to individuals and businesses in the area.
    image: '289892'
+features:
+- form
 meta:
    lang: en
    dir: ltr

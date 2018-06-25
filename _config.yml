@@ -9,6 +9,10 @@ url:                           "http://localhost:4000"
 #   format:                     "markdown" # or HTML if WYSIWYG -- metadata is always YAML
 
 
+I18n:
+   force_locales: false # If true, all languages are built, repeating all content, and varying only localised fields. If false, the default language is built, and per page, additional languages are built only if a localised field has nonempty content.
+
+
 # Site settings
 uid:
    gtm:                        ""
