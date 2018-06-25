@@ -4,15 +4,16 @@ title: كل شيء عن الطماطم المتواضعة
 slug: amahu-alahu-kalahu
 published: true
 date: '2018-06-19 17:12:04 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: ar
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: 
    quoted:
    - ''
+meta:
+   lang: ar
+   dir: ltr
+   parents: []
 ---
 
 الطماطم هي الصالحة للأكل ، وغالبا ما تكون حمراء ، والفاكهة / التوت من نبات Solanum lycopersicum ، المعروف باسم نبات الطماطم. المصنع ينتمي إلى عائلة الباذنجان ، Solanaceae. الأنواع نشأت في غرب أمريكا الجنوبية. نمت كلمة الطماطم الناواتل (لغة الأزتك) إلى الكلمة الإسبانية \"تومات\" ، التي اشتقت منها الكلمة الإنجليزية الطماطم.

@@ -4,11 +4,12 @@ title: About
 slug: about
 published: true
 date: '2018-06-01T16:05:00+01:00'
+seo:
+   hidden: false
 meta:
-   parent: 
-   hidden: 
    lang: en
    dir: ltr
+   parents: []
 ---
 
 {"paragraph"=>{"text"=>"Discover the wonders of this place."}}

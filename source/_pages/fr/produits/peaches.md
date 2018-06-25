@@ -4,16 +4,17 @@ title: Peaches
 slug: peaches
 published: true
 date: '2018-06-20 14:46:08 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: fr
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: '280675'
    colour: 
    available: 
-   price:
+   price: 
+meta:
+   lang: fr
+   dir: ltr
+   parents: []
 ---
 
 The peach ([Prunus persica](1)) is a deciduous tree native to the region of [Northwest China](@1) between the Tarim Basin and the north slopes of the [Kunlun Mountains](websites), where it was first domesticated and cultivated. It bears an [edible juicy fruit](/websites) called a peach or a [nectarine](./websites).

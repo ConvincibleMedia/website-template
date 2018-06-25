@@ -4,16 +4,17 @@ title: Raspberries
 slug: raspberries
 published: true
 date: '2018-06-20 12:00:30 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: zh
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: '280680'
    colour: 
    available: 
-   price:
+   price: 
+meta:
+   lang: zh
+   dir: ltr
+   parents: []
 ---
 
 The raspberry is the edible fruit of a multitude of plant species in the genus Rubus of the rose family, most of which are in the subgenus Idaeobatus; the name also applies to these plants themselves. Raspberries are perennial with woody stems.

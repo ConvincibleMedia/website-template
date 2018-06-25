@@ -152,7 +152,8 @@ end
 =end
 
 def liquid_tag(tag, args = [], *contents)
-	args = args.join(' ') unless args.is_a? String
+	args = args.join(' ') if args.is_a? Array
+	args = args.to_s
 	if args.length > 0 then args = ' ' + args end
 	if contents.blank?
 		return "{% #{tag}#{args} %}"
@@ -160,6 +161,10 @@ def liquid_tag(tag, args = [], *contents)
 		contents = contents.join("\n\n")
 		return "<!--{% #{tag}#{args} %}-->\n#{contents}\n<!--{% end#{tag} %}-->"
 	end
+end
+
+def md_partial(partial, slug = '{{ page.slug }}')
+	return liquid_tag('include_relative', partial_slug(partial, slug))
 end
 
 def md_link(text = '', href = '') # ADD TITLE

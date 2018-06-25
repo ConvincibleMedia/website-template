@@ -4,16 +4,17 @@ title: All about the humble Orange
 slug: orange-article
 published: true
 date: '2018-06-19 17:12:14 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: en
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: '280668'
    quoted:
    - Mr Oranges
    - Mrs Orange
+meta:
+   lang: en
+   dir: ltr
+   parents: []
 ---
 
 The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.

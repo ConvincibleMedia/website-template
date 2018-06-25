@@ -274,6 +274,7 @@ def path_clean(path)
 end
 
 
+#UNUSED
 def get_parents(id)
 	parents = []
 	if this_parent = CMS.items[id][:meta][:parent]
@@ -281,6 +282,10 @@ def get_parents(id)
 		parents << get_parents(this_parent)
 	end
 	return parents
+end
+
+def partial_slug(partial, slug)
+	return slug + '_' + partial.sub('.', '.partial.')
 end
 
 # Defaults
@@ -296,9 +301,8 @@ TRANSFORM_BASE = lambda do |id, meta, data|
 			'published' => true,
 			'date' => meta[:modified],
 			# Metadata about this piece of content
-			'meta' => {
-				'parent' => meta[:parent],
-				'hidden' => meta[:hidden]
+			'seo' => {
+				'hidden' => meta[:hidden] == true
 			},
 		}
 	}
@@ -329,7 +333,8 @@ TRANSFORM['home'] = lambda do |id, meta, data|
 				'title' => expect_key(data, ['seo','title']),
 				'description' => expect_key(data, ['seo','description']),
 				'image' => expect_key(data, ['seo','image'])
-			}
+			},
+			'features' => ['form']
 		},
 		content: md_p([
 			data['intro'],
@@ -337,8 +342,12 @@ TRANSFORM['home'] = lambda do |id, meta, data|
 				'video',
 				[expect_key(data,['video','provider']), expect_key(data,['video','provider_uid'])],
 				md_link(md_img(expect_key(data,['video','title']), expect_key(data,['video','thumbnail_url'])), expect_key(data,['video','url']))
-			)
-		])
+			),
+			md_partial('form.html')
+		]),
+		partials: {
+			'form.html' => data['form']
+		}
 	}
 end
 
@@ -445,26 +454,12 @@ TRANSFORM['social'] = lambda do |id, meta, data|
 			'profile' => data['profile'],
 			'url' => data['url']
 		},
-		partials: { # No path! - so goes to _includes?
+		partials: { # No path! - so goes to _includes
 			'config.json' => data['config'] # partial filename : partial's content
 		}
 	}
 end
 
-=begin
-TRANSFORM_PARTIAL['source'] = lambda do |data|
-	{
-		frontmatter: {
-			'quoted' => [data['author']] # Array should be appended during deep_merge
-		},
-		content: md_link("<cite>" + data['title'] + "</cite>," + data['author'], data['url'])
-	}
-end
-=end
-
-def transform_partial(id)
-
-end
 
 def transform(model, id)
 	id = id.to_i
@@ -489,6 +484,7 @@ def transform(model, id)
 
 		if content[lang][:frontmatter]
 			# Language
+			content[lang][:frontmatter]['meta'] ||= {}
 			content[lang][:frontmatter]['meta']['lang'] = lang
 			content[lang][:frontmatter]['meta']['dir'] = 'ltr'
 
@@ -498,12 +494,14 @@ def transform(model, id)
 			content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_SLUG].parameterize
 			content[lang][:frontmatter][KEY_SLUG] = id.to_s if content[lang][:frontmatter][KEY_SLUG].blank?
 			content[lang][:meta][:slug] = content[lang][:frontmatter][KEY_SLUG]
-			content[lang][:meta][:link] = content[lang][:meta][:path] + content[lang][:meta][:slug]
 		end
 	}
 
 	return content
 end
+
+
+
 
 
 $datapaths = {}
@@ -532,13 +530,14 @@ CMS.locales.each { |lang|
 $partials = {}
 $partialpaths = {}
 
+# TRANSFORM CONTENT
 CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
 	CMS.get_items(model_name).each { |id, _|
 		#puts "Working on item id #{id}..."
 		id = id.to_i
 		transformed = transform(model_name, id)
-		#$content[id] = [lang] = data structure
+		#transformed = [lang] = data structure
 
 		CMS.locales.each { |lang|
 			#puts "...in language: #{lang}"
@@ -552,39 +551,6 @@ CMS.models[:pages].each { |model_name, model_info|
 
 				$content[id] ||= {}
 				$content[id][lang] = item
-
-				if item[:partials] && item[:partials].length > 0
-					# Relative partial
-
-					item[:partials].each { |p_name, p_content|
-						$partials[id.to_s + p_name] ||= {}
-						$partials[id.to_s + p_name][lang] = {
-							filename: front['slug'] + '_' + p_name.sub('.', '.partial.'),
-							content: p_content
-						}
-						$partialpaths[lang] ||= {}
-						$partialpaths[lang][meta[:path]] ||= []
-						$partialpaths[lang][meta[:path]] << id.to_s + p_name
-					}
-
-				end
-
-				# Setup other references to this content item
-
-				$filepaths[lang][meta[:path]] ||= []
-				$filepaths[lang][meta[:path]] << id
-				$sitemap[id] ||= {}
-				$sitemap[id][lang] = {
-					'title' => front['title'],
-					'path' => meta[:path],
-			      'slug' => front['slug'],
-			      'link' => meta[:link],
-			      'loc' => URLs.join(CONFIG['url'], meta[:link]).omit(:scheme).to_s,
-			      'lastmod' => meta[:modified],
-			      'type' => model_name,
-			      #'order': '3'
-			      'hidden' => meta[:hidden]
-				}
 
 			end
 			if item[:data]
@@ -602,30 +568,111 @@ CMS.models[:pages].each { |model_name, model_info|
 				$datapaths['/'] ||= []
 				$datapaths['/'] << meta[:model] unless $datapaths['/'].include?(meta[:model])
 
-				if item[:partials] && !item[:content] && !item[:frontmatter]
-					# Partial defined without content = not relative
+			end
+			if item[:partials] && !item[:content] && !item[:frontmatter]
+				# Partial defined without content = not relative
 
-					item[:partials].each { |p_name, p_content|
-						$partials[p_name] ||= {}
-						$partials[p_name][lang] ||= {}
-						if $partials[p_name][lang][:content]
-							p_content = $partials[p_name][lang][:content] + "\n" + p_content.to_s
-						end
-						$partials[p_name][lang] = {
-							filename: meta[:model] + '_' + p_name.sub('.', '.partial.'),
-							content: p_content
-						}
-						$partialpaths[lang] ||= {}
-						$partialpaths[lang][0] ||= []
-						$partialpaths[lang][0] << p_name unless $partialpaths[lang][0].include?(p_name)
+				item[:partials].each { |p_name, p_content|
+					$partials[p_name] ||= {}
+					$partials[p_name][lang] ||= {}
+					if $partials[p_name][lang][:content]
+						p_content = $partials[p_name][lang][:content] + "\n" + p_content.to_s
+					end
+					$partials[p_name][lang] = {
+						filename: meta[:model] + '_' + p_name.sub('.', '.partial.'),
+						content: p_content
 					}
+					$partialpaths[lang] ||= {}
+					$partialpaths[lang][0] ||= []
+					$partialpaths[lang][0] << p_name unless $partialpaths[lang][0].include?(p_name)
+				}
 
-				end
 			end
 
 		}
 	}
 }
+
+
+# PARENTS
+$content.each { |id, langs|
+	langs.each{ |lang, item|
+
+		meta = item[:meta]
+		front = item[:frontmatter] # If defined?
+
+		# Get parents array
+		parents = []
+		parent = meta[:parent]
+		while parent
+			parent = parent.to_i
+			parents << {
+				id: parent,
+				slug: $content[parent][lang][:frontmatter][KEY_SLUG]
+			}
+			parent = $content[parent][lang][:meta][:parent]
+		end
+		$content[id][lang][:frontmatter]['meta'] ||= {}
+		$content[id][lang][:meta]['parents'] = parents
+		$content[id][lang][:frontmatter]['meta']['parents'] = parents
+
+		# Reconstruct this item's path with base that's already set
+		$content[id][lang][:meta][:path] += parents.map{ |branch| branch[:slug] }.reverse.join('/')
+		$content[id][lang][:meta][:link] = path($content[id][lang][:meta][:path], $content[id][lang][:meta][:slug])
+	}
+}
+
+#PARTIALS
+$content.each { |id, langs|
+	langs.each{ |lang, item|
+
+		meta = item[:meta]
+		front = item[:frontmatter] # If defined?
+
+		if item[:partials] && item[:partials].length > 0
+			# Relative partial
+
+			item[:partials].each { |p_name, p_content|
+				$partials[id.to_s + p_name] ||= {}
+				$partials[id.to_s + p_name][lang] = {
+					filename: partial_slug(p_name, front['slug']),
+					content: p_content
+				}
+				$partialpaths[lang] ||= {}
+				$partialpaths[lang][meta[:path]] ||= []
+				$partialpaths[lang][meta[:path]] << id.to_s + p_name
+			}
+
+		end
+	}
+}
+
+#SETUP VARS
+$content.each { |id, langs|
+	langs.each{ |lang, item|
+
+		meta = item[:meta]
+		front = item[:frontmatter] # If defined?
+
+		# Setup other references to this content item
+		$filepaths[lang][meta[:path]] ||= []
+		$filepaths[lang][meta[:path]] << id
+		$sitemap[id] ||= {}
+		$sitemap[id][lang] = {
+			'title' => front['title'],
+			'path' => meta[:path],
+	      'slug' => front['slug'],
+	      'link' => meta[:link],
+	      'loc' => URLs.join(CONFIG['url'], meta[:link]).omit(:scheme).to_s,
+	      'lastmod' => meta[:modified],
+	      'type' => meta[:model],
+	      #'order': '3'
+	      'hidden' => meta[:hidden]
+		}
+
+	}
+}
+
 
 def create_file(path, file, contents)
 	puts "Writing #{path}#{file}..."
@@ -689,7 +736,7 @@ def create_partials(files, root)
 	}
 	#puts 'Will now try to create files.'
 	files.each { |lang, paths|
-		paths = paths.sort.to_h
+		paths = paths.sort_by{|k,v| k.to_s}.to_h
 		#puts "For language '#{lang}', will create:\n" + paths.keys.join("\n")
 		paths.each { |path, id_list|
 			if path == 0 #special
@@ -720,9 +767,9 @@ new_data('siteinfo', CMS.site.deep_stringify_keys)
 new_data('sitemap', $sitemap)
 new_data('images', $images)
 
-#pp $data['social']
+#pp $content
 #pp $partials
-#pp $partialpaths
+#$partialpaths
 
 create_files_yml($datapaths, DIR_DATA)
 create_files_md($filepaths, DIR_PAGES)

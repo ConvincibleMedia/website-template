@@ -4,15 +4,16 @@ title: 所有关于谦逊的番茄
 slug: wing-wang-wong
 published: true
 date: '2018-06-19 17:12:04 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: zh
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: 
    quoted:
    - ''
+meta:
+   lang: zh
+   dir: ltr
+   parents: []
 ---
 
 番茄是通常称为番茄植物的茄属植物番茄（Solanum lycopersicum）的可食用的，通常是红色的果实/浆果。该植物属于茄科Solanaceae。该物种起源于南美洲西部。 Nahuatl（阿兹台克语）词tomatl引起了西班牙语单词"tomate"，从中衍生出英文单词番茄。

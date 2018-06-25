@@ -4,16 +4,17 @@ title: Oranges
 slug: oranges
 published: true
 date: '2018-06-14 14:47:22 +0000'
-meta:
-   parent: 
-   hidden: 
-   lang: zh
-   dir: ltr
+seo:
+   hidden: false
 data:
    image: '280667'
    colour: rgba(140, 65, 65, 255)
    available: 25
    price: 13.99
+meta:
+   lang: zh
+   dir: ltr
+   parents: []
 ---
 
 The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.
