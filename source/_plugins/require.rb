@@ -20,7 +20,7 @@ module Jekyll
 		def set_context()
 			@site = @context.registers[:site]
 			@config = @site.config
-			@data = @site.data
+			@data = @site.data #Data files
 			@markdown = @context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
 		end
 

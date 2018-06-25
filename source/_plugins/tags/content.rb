@@ -3,8 +3,10 @@ module Jekyll
 	module ContentPlugin
 
 		def content_for_block(context)
+			page = context.environments.first['page']['path']
 			context.environments.first['contentblocks'] ||= {}
-			context.environments.first['contentblocks'][@input] ||= []
+			context.environments.first['contentblocks'][page] ||= {}
+			context.environments.first['contentblocks'][page][@input] ||= []
 		end
 
 	end
