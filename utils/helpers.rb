@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'addressable/uri'
+require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/string/inflections'
 require 'active_support/core_ext/hash/deep_merge'
 require 'active_support/core_ext/hash/keys'
@@ -8,7 +9,7 @@ require 'kramdown'
 require 'fileutils'
 
 # Debug
-#require 'ap'
+require 'awesome_print'
 
 # UNIVERSAL FUNCTIONS
 
@@ -82,8 +83,8 @@ end
 
 def matches(needle, haystack)
 	 start_at = 0
-	 matches  = []
-	 while(m = haystack.match(needle, start_at))
+	 matches = []
+	 while (m = haystack.match(needle, start_at))
 		  matches.push(m)
 		  start_at = m.end(0)
 	 end
@@ -140,6 +141,38 @@ module HTML
 
 end
 
+
+
+# CORE EXTENSION
+
+class String
+	def strip_of(chars, num = 0)
+		if self.length > 0
+			if chars.is_a? Array then chars = chars.flatten end
+			chars = chars.to_s
+			if space = chars =~ /[\s\n\r]/
+				chars = chars.gsub(/[\s\n\r]/, '')
+			end
+			chars = chars.split(//).uniq.join
+
+			if (chars.length > 0 || space)
+
+				char_class = '[' + Regexp.escape(chars) + (space ? '\s' : '') + ']'
+
+				num = [num.to_i, 0].max
+				if num == 0 then num = '' else num = num.to_s end
+				r = char_class + "{1,#{num}}"
+
+				sub!(Regexp.new('^' + r), '')
+				sub!(Regexp.new(r + '$'), '')
+
+			end
+		end
+		return self
+	end
+end
+
+
 =begin
 # SPECIALISED HELPERS
 
@@ -152,28 +185,5 @@ module StringHelpers
 
 	end
 
-end
-
-
-
-# CORE EXTENSION
-
-class String
-	def truncate(truncate_at, options = {})
-		return dup unless length > truncate_at
-
-		omission = options[:omission] || "..."
-		length_with_room_for_omission = truncate_at - omission.length
-		separator = options[:separator] || " "
-
-		stop = \
-			if separator.length > 0
-				rindex(separator, length_with_room_for_omission) || length_with_room_for_omission
-			else
-				length_with_room_for_omission
-			end
-
-		"#{self[0, stop]}#{omission}"
-	end
 end
 =end

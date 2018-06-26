@@ -1,9 +1,17 @@
 ---
-id: 275949
 title: Tout sur l'humble Orange
 slug: oranges-en-france
 published: true
 date: '2018-06-19 17:12:14 +0000'
+meta:
+   id: 275949
+   lang: fr
+   langs:
+   - en
+   - fr
+   - zh
+   dir: ltr
+   parents: []
 seo:
    hidden: false
 data:
@@ -11,10 +19,6 @@ data:
    quoted:
    - Mr Oranges
    - Mrs Orange
-meta:
-   lang: fr
-   dir: ltr
-   parents: []
 ---
 
 L\'orange est le fruit de l\'agrume Citrus &times; sinensis de la famille des Rutac&eacute;es. Il est &eacute;galement appel&eacute; orange douce, pour le distinguer du Citrus &times; aurantium, appel&eacute; orange am&egrave;re. L\'orange douce se reproduit asexuellement (apomixie &agrave; travers l\'embryon nucellaire); vari&eacute;t&eacute;s de l\'orange douce surgissent par des mutations.
@@ -25,9 +29,7 @@ Les oranges douces ont &eacute;t&eacute; mentionn&eacute;es dans la litt&eacute;
 
 En 2014, 70,9 millions de tonnes d\'oranges ont &eacute;t&eacute; cultiv&eacute;es dans le monde, le Br&eacute;sil repr&eacute;sentant 24% du total mondial, suivi de la Chine et de l\'Inde.
 
-<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
 2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
-<!--{% endcontentfor %}-->

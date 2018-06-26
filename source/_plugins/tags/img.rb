@@ -7,9 +7,9 @@ module Jekyll
 			img = HTML::element('img')
 			img['alt'] = ''
 
-			if @input['image']
+			if @args['image']
 				images = @data['images']
-				id = @input['image']
+				id = @args['image']
 				if expect(expect_key(images, [id, 'src']), String) { |e| img['src'] = e }
 					# While we're here...
 					img['alt'] = expect(expect_key(images, [id, 'alt']), String, '')
@@ -19,15 +19,15 @@ module Jekyll
 				else
 					raise "Image with id '#{id}' was not found in site.data.images."
 				end
-			elsif @input['src']
-				img['src'] = @input['src']
+			elsif @args['src']
+				img['src'] = @args['src']
 			end
 			if img['src'] == ''
 				raise 'Cannot create image tag without an image id or src.'
 			end
 
-			if @input['format']
-				fmt = @input['format']
+			if @args['format']
+				fmt = @args['format']
 				if formats = expect_key(@config, ['images'])
 					if fmt = expect_key(formats, fmt)
 
@@ -46,11 +46,11 @@ module Jekyll
 				end
 			end
 
-			img['alt'] = @input['alt'].to_s if @input['alt']
-			img['width'] = @input['w'].to_s if expect(@input['w'], Integer)
-			img['height'] = @input['h'].to_s if expect(@input['h'], Integer)
+			img['alt'] = @args['alt'].to_s if @args['alt']
+			img['width'] = @args['w'].to_s if expect(@args['w'], Integer)
+			img['height'] = @args['h'].to_s if expect(@args['h'], Integer)
 
-			@input.each{ |k, v|
+			@args.each{ |k, v|
 				unless ['src', 'image', 'format', 'alt', 'w', 'h', 'url'].include?(k)
 					img[k] = v
 				end
@@ -61,7 +61,7 @@ module Jekyll
 			img['hspace'] = 0
 			img['border'] = 0
 
-			if !@input['url']
+			if !@args['url']
 				return img.to_html
 			else
 				return img['src']

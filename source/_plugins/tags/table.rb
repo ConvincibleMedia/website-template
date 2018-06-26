@@ -3,7 +3,7 @@ module Jekyll
 		def output
 
 			table = HTML::element('div')
-			table['class'] = (@input ? 'table-' + @input : 'table')
+			table['class'] = (@args ? 'table-' + @args : 'table')
 			table.inner_html = @markdown.convert(@block)
 
 			return table.to_html

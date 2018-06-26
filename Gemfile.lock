@@ -8,8 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    ap (0.1.1)
-      httparty (>= 0.7.7)
+    awesome_print (1.8.0)
     cacert (0.5.0)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
@@ -48,8 +47,6 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
-    httparty (0.16.2)
-      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     imgix (1.1.0)
@@ -83,7 +80,6 @@ GEM
     mime-types (2.99.3)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
-    multi_xml (0.6.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
     nokogiri (1.8.3)
@@ -126,7 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  ap
+  awesome_print
   dato
   i18n
   jekyll

@@ -49,7 +49,7 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 				expect(expect_key(site.data, ['siteinfo', 'seo', 'description']), String) { |e| page_meta_description += (page_meta_description.length == 0 ? "" : " ") + e }
 
 				# SET PAGE DATA
-				page.data['meta'] = { # Meta tags
+				page.data['html_meta'] = { # Meta tags
 					'title' => page_meta_title,
 					'description' => page_meta_description
 				}

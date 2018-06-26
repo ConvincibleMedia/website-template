@@ -1,19 +1,23 @@
 ---
-id: 275598
 title: 所有关于谦逊的番茄
 slug: wing-wang-wong
 published: true
 date: '2018-06-19 17:12:04 +0000'
+meta:
+   id: 275598
+   lang: zh
+   langs:
+   - en
+   - zh
+   - ar
+   dir: ltr
+   parents: []
 seo:
    hidden: false
 data:
-   image: 
+   image:
    quoted:
    - ''
-meta:
-   lang: zh
-   dir: ltr
-   parents: []
 ---
 
 番茄是通常称为番茄植物的茄属植物番茄（Solanum lycopersicum）的可食用的，通常是红色的果实/浆果。该植物属于茄科Solanaceae。该物种起源于南美洲西部。 Nahuatl（阿兹台克语）词tomatl引起了西班牙语单词"tomate"，从中衍生出英文单词番茄。
@@ -24,8 +28,6 @@ meta:
 
 这些植物通常长到1-3米（3-10英尺）高，并且具有较弱的茎蔓延。它是一个多年生的原生栖息地，每年培育一次。果实大小根据品种而不同，宽度范围为0.5-4英寸（1.3-10.2厘米）。
 
-<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
-<!--{% endcontentfor %}-->

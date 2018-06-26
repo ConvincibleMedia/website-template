@@ -4,16 +4,27 @@ layout: html/blueprint/base
 
 <div class="container">
 
-	<h2>Menu</h2>
+	{% if page.meta.parents.size > 0 %}
+	<h2>Parents</h2>
 	<nav>
 		<ul>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
-			<li>a</li>
+			{% for parent in page.meta.parents %}
+			<li>{% link @{{ parent.id }} %}{{ parent.slug }}{% endlink %}</li>
+			{% endfor %}
 		</ul>
 	</nav>
+	{% endif %}
+
+	{% if page.meta.langs.size > 1 %}
+	<h2>Languages</h2>
+	<nav>
+		<ul>
+			{% for lang in page.meta.langs %}
+			<li>{% link @{{ page.meta.id }} lang={{ lang }} %}{{ lang }}{% endlink %}</li>
+			{% endfor %}
+		</ul>
+	</nav>
+	{% endif %}
 
 	{{ content }}
 

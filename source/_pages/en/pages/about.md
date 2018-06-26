@@ -1,15 +1,17 @@
 ---
-id: 86956
 title: About
 slug: about
 published: true
 date: '2018-06-01T16:05:00+01:00'
-seo:
-   hidden: false
 meta:
+   id: 86956
    lang: en
+   langs:
+   - en
    dir: ltr
    parents: []
+seo:
+   hidden: false
 ---
 
 {"paragraph"=>{"text"=>"Discover the wonders of this place."}}

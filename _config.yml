@@ -11,6 +11,7 @@ url:                           "http://localhost:4000"
 
 I18n:
    force_locales: false # If true, all languages are built, repeating all content, and varying only localised fields. If false, the default language is built, and per page, additional languages are built only if a localised field has nonempty content.
+   holding_pages: false # If true, all languages are built, but if content is not defined for a language, this page shows holding text only, with links to other languages.
 
 
 # Site settings

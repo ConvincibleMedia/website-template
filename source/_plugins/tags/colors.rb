@@ -4,7 +4,7 @@ module Jekyll
 		def initialize(tag_name, input, options)
 			super
 			@tag_name = tag_name
-			@input = input
+			@args = input
 			@options = options
 		end
 

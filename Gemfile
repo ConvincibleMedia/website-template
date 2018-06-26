@@ -6,4 +6,4 @@ gem 'dato'
 #gem 'liquid/tag/parser'
 gem 'i18n'
 # Debug
-gem 'ap'
+gem 'awesome_print'

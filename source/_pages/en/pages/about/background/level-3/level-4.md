@@ -1,13 +1,13 @@
 ---
-id: 318490
 title: Level 4
 slug: level-4
 published: true
 date: '2018-06-20 21:50:50 +0000'
-seo:
-   hidden: false
 meta:
+   id: 318490
    lang: en
+   langs:
+   - en
    dir: ltr
    parents:
    -  id: 318489
@@ -16,5 +16,7 @@ meta:
       slug: background
    -  id: 86956
       slug: about
+seo:
+   hidden: false
 ---
 

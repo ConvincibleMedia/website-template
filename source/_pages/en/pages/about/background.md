@@ -1,17 +1,22 @@
 ---
-id: 313873
 title: Background
 slug: background
 published: true
 date: '2018-06-25 16:12:19 +0000'
-seo:
-   hidden: false
 meta:
+   id: 313873
    lang: en
+   langs:
+   - en
+   - fr
+   - zh
+   - ar
    dir: ltr
    parents:
    -  id: 86956
       slug: about
+seo:
+   hidden: false
 ---
 
 {"blockquote"=>{"author"=>"Julius Caesar", "quote"=>"Veni, vidi, vici!"}}

@@ -42,7 +42,6 @@ module Spark
 		def get_site()
 			site = @API.site.find
 			@locales = site['locales']
-			puts @locales.inspect
 			I18n.default_locale = @locales[0]
 
 			@site = {
@@ -157,7 +156,7 @@ module Spark
 				localized_fields = @models[:pages][model_name][:fields].select { |field_name, field_info|
 					field_info[:localized]
 				}
-				puts "IN MODEL #{model_name} there are #{localized_fields.size.to_s} localized fields: " + localized_fields.map{|name,_| name}.join(', ')
+				#puts "In model #{model_name} there are #{localized_fields.size.to_s} localized fields: " + localized_fields.map{|name,_| name}.join(', ')
 
 				@API.items.all({
 					'filter[type]' => @models[:pages][model_name][:id],
@@ -189,13 +188,13 @@ module Spark
 								if item[field_name][lang].present?
 									localized << lang
 									#check.delete(lang)
-									puts "For item #{id} in #{model_name}, language #{lang} is present in field #{field_name} with value: " + item[field_name][lang].to_s
+									#puts "For item #{id} in #{model_name}, language #{lang} is present in field #{field_name} with value: " + item[field_name][lang].to_s
 									break
 								end
 							}
 							#if localized.size == @locales.size then break end
 						}
-						puts "For item #{id}, no localized data could be found." if localized.size == 0
+						#puts "For item #{id}, no localized data could be found." if localized.size == 0
 					end
 					if localized.size == 0
 						# Always at least the default lang, even if this is empty
@@ -203,7 +202,7 @@ module Spark
 					end
 
 					@items[model_name][item['id'].to_i][:meta][:langs] = localized
-					puts "Item #{id} of #{model_name} is in langs: " + localized.join(', ')
+					puts "Received item #{id} (#{model_name}) in languages: " + localized.join(', ')
 
 					@models[:pages][model_name][:fields].each { |field_name, field_info|
 
@@ -333,12 +332,14 @@ TRANSFORM_BASE = lambda do |id, meta, data|
 			path: path([t(:slug, [:models, meta[:model]], 2)])
 		}),
 		frontmatter: {
-			KEY_ID => id,
 			KEY_TITLE => data[KEY_TITLE],
 			KEY_SLUG => data[KEY_SLUG],
 			'published' => true,
 			'date' => meta[:modified],
 			# Metadata about this piece of content
+			'meta' => {
+				KEY_ID => id
+			},
 			'seo' => {
 				'hidden' => meta[:hidden] == true
 			},
@@ -524,6 +525,7 @@ def transform(model, id)
 			# Language
 			content[lang][:frontmatter]['meta'] ||= {}
 			content[lang][:frontmatter]['meta']['lang'] = lang
+			content[lang][:frontmatter]['meta']['langs'] = meta[:langs]
 			content[lang][:frontmatter]['meta']['dir'] = 'ltr'
 
 			# Universal tidying

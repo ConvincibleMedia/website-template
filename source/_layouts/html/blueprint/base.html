@@ -8,8 +8,8 @@
 		<!-- GTM must be high as possible in <head> -->
 
 		<!-- SEO -->
-		<title>{{ page.meta.title | escape }}</title>
-		<meta name="description" content="{{ page.meta.description | escape }}" />
+		<title>{{ page.html_meta.title | escape }}</title>
+		<meta name="description" content="{{ page.html_meta.description | escape }}" />
 
 		<!-- STYLES -->
 		{% include snippets/styles.html %}

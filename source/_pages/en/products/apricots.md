@@ -1,20 +1,22 @@
 ---
-id: 86963
 title: Apricots
 slug: apricots
 published: true
 date: '2018-06-18 16:50:49 +0000'
+meta:
+   id: 86963
+   lang: en
+   langs:
+   - en
+   dir: ltr
+   parents: []
 seo:
    hidden: false
 data:
    image: '280671'
-   colour: 
-   available: 
-   price: 
-meta:
-   lang: en
-   dir: ltr
-   parents: []
+   colour:
+   available:
+   price:
 ---
 
 An apricot is a fruit, or the **tree** that bears the fruit, of several *species* in the genus Prunus ([stone fruits](https://en.wikipedia.org/wiki/Apricot)).
@@ -40,7 +42,5 @@ Apricot derives from praecocia (praecoquus) as \"cooked or ripened beforehand\" 
 
 The English name first appeared in the 16th century as abrecock from the Middle French aubercot or later abricot, from Catalan a(l)bercoc.
 
-<!--{% gallery %}-->
 ![](/3015/1525263146-apricot-1.jpg)
 ![](/3015/1525263148-apricot-2.jpg)
-<!--{% endgallery %}-->

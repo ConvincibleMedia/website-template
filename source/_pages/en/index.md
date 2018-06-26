@@ -1,9 +1,15 @@
 ---
-id: 86955
 title: Home
 slug: index
 published: true
 date: '2018-06-21 21:46:14 +0000'
+meta:
+   id: 86955
+   lang: en
+   langs:
+   - en
+   dir: ltr
+   parents: []
 seo:
    hidden: false
    title: Exemplary Groceries Home Page
@@ -11,10 +17,6 @@ seo:
    image: '289892'
 features:
 - form
-meta:
-   lang: en
-   dir: ltr
-   parents: []
 ---
 
 Exemplary Groceries delivers the finest local produce to individuals and businesses in the area.
