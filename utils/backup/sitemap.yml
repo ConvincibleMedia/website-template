@@ -1,0 +1,17 @@
+# Rename file to "pages"?
+pages:
+   1234:
+      title: 'Websites'
+      slug: 'websites'
+      link: '/services/websites'
+      path: '/services/'
+      file: 'websites.html'
+      loc: 'http://localhost:4000/services/websites'
+      lastmod: '2018-01-01'
+      type: 'service'
+      order: '3'
+      hidden: false
+tree:
+   services:
+      websites:
+         id: 1234

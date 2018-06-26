@@ -189,7 +189,7 @@ module Spark
 									localized << lang
 									#check.delete(lang)
 									#puts "For item #{id} in #{model_name}, language #{lang} is present in field #{field_name} with value: " + item[field_name][lang].to_s
-									break
+									break # Stop looking through fields, go to next lang
 								end
 							}
 							#if localized.size == @locales.size then break end
@@ -298,18 +298,6 @@ end
 def t(key, scope, count = 1)
 	return I18n.t(key, :scope => scope.join('.'), :count => count)
 end
-
-PATH_UNSAFE = Regexp.new('[' + Regexp.escape('<>:"/\|?*') + ']')
-PATH_SEP = '/'
-
-def path(*paths)
-	paths = paths.flatten.map{ |i| path_clean(i) }.reject(&:blank?).join(PATH_SEP)
-	return paths + PATH_SEP
-end
-def path_clean(path)
-	return path.to_s.split(PATH_SEP).map{ |i| i.gsub(PATH_UNSAFE, '').strip }.reject(&:blank?).join(PATH_SEP)
-end
-
 
 #UNUSED
 def get_parents(id)

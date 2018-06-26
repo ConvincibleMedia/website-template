@@ -9,9 +9,17 @@ require 'kramdown'
 require 'fileutils'
 
 # Debug
-require 'awesome_print'
+DEBUG = false
+require 'awesome_print' if DEBUG
 
 # UNIVERSAL FUNCTIONS
+
+=begin
+def debug(msg, variable = (no_var = true; nil))
+	puts msg
+	ap variable unless no_var
+end
+=end
 
 def expect(var, var_class = NilClass, var_def = nil)
 	if var_class == NilClass
@@ -91,6 +99,16 @@ def matches(needle, haystack)
 	 return matches
 end
 
+PATH_UNSAFE = Regexp.new('[' + Regexp.escape('<>:"/\|?*') + ']')
+PATH_SEP = '/'
+def path(*paths)
+	paths = paths.flatten.map{ |i| path_clean(i) }.reject(&:blank?).join(PATH_SEP)
+	return paths + PATH_SEP
+end
+def path_clean(path)
+	return path.to_s.split(PATH_SEP).map{ |i| i.gsub(PATH_UNSAFE, '').strip }.reject(&:blank?).join(PATH_SEP)
+end
+
 module URLs
 	extend self
 
@@ -144,6 +162,10 @@ end
 
 
 # CORE EXTENSION
+
+module Boolean; end
+class TrueClass; include Boolean; end
+class FalseClass; include Boolean; end
 
 class String
 	def strip_of(chars, num = 0)

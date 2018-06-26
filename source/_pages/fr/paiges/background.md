@@ -1,5 +1,5 @@
 ---
-title: Background
+title: Backgroundiere
 slug: background
 published: true
 date: '2018-06-25 16:12:19 +0000'

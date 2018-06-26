@@ -20,7 +20,9 @@ layout: html/blueprint/base
 	<nav>
 		<ul>
 			{% for lang in page.meta.langs %}
-			<li>{% link @{{ page.meta.id }} lang={{ lang }} %}{{ lang }}{% endlink %}</li>
+			<li>
+				{% link @{{ page.meta.id }} lang={{ lang }} %}{{ lang }}{% endlink %}
+			</li>
 			{% endfor %}
 		</ul>
 	</nav>

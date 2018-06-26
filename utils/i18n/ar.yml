@@ -1,4 +1,5 @@
 ar:
+   name: Arabahu
    models:
       home:
          title: "Page d'Accueil"

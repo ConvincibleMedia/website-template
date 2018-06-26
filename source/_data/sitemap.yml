@@ -1,17 +1,203 @@
-# Rename file to "pages"?
-pages:
-   1234:
-      title: 'Websites'
-      slug: 'websites'
-      link: '/services/websites'
-      path: '/services/'
-      file: 'websites.html'
-      loc: 'http://localhost:4000/services/websites'
-      lastmod: '2018-01-01'
-      type: 'service'
-      order: '3'
-      hidden: false
-tree:
-   services:
-      websites:
-         id: 1234
+86955:
+   en:
+      title: Home
+      path: "/"
+      slug: index
+      link: index/
+      loc: "//localhost:4000/index/"
+      lastmod: '2018-06-21 21:46:14 +0000'
+      type: home
+      hidden: 
+313873:
+   en:
+      title: Background
+      path: pages/about/
+      slug: background
+      link: pages/about/background/
+      loc: "//localhost:4000/pages/about/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
+      hidden: 
+   fr:
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
+      hidden: 
+   zh:
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
+      hidden: 
+   ar:
+      title: Background
+      path: paiges/
+      slug: background
+      link: paiges/background/
+      loc: "//localhost:4000/paiges/background/"
+      lastmod: '2018-06-25 16:12:19 +0000'
+      type: page
+      hidden: 
+318492:
+   en:
+      title: Level 1
+      path: pages/
+      slug: level-1
+      link: pages/level-1/
+      loc: "//localhost:4000/pages/level-1/"
+      lastmod: '2018-06-20 21:51:16 +0000'
+      type: page
+      hidden: 
+318491:
+   en:
+      title: Level 2
+      path: pages/about/
+      slug: level-2
+      link: pages/about/level-2/
+      loc: "//localhost:4000/pages/about/level-2/"
+      lastmod: '2018-06-20 21:51:09 +0000'
+      type: page
+      hidden: 
+318490:
+   en:
+      title: Level 4
+      path: pages/about/background/level-3/
+      slug: level-4
+      link: pages/about/background/level-3/level-4/
+      loc: "//localhost:4000/pages/about/background/level-3/level-4/"
+      lastmod: '2018-06-20 21:50:50 +0000'
+      type: page
+      hidden: 
+318489:
+   en:
+      title: Level 3
+      path: pages/about/background/
+      slug: level-3
+      link: pages/about/background/level-3/
+      loc: "//localhost:4000/pages/about/background/level-3/"
+      lastmod: '2018-06-20 21:50:39 +0000'
+      type: page
+      hidden: 
+86956:
+   en:
+      title: About
+      path: pages/
+      slug: about
+      link: pages/about/
+      loc: "//localhost:4000/pages/about/"
+      lastmod: '2018-06-20 20:49:05 +0000'
+      type: page
+      hidden: 
+86971:
+   en:
+      title: Oranges
+      path: products/
+      slug: oranges
+      link: products/oranges/
+      loc: "//localhost:4000/products/oranges/"
+      lastmod: '2018-06-14 14:47:22 +0000'
+      type: product
+      hidden: 
+86963:
+   en:
+      title: Apricots
+      path: products/
+      slug: apricots
+      link: products/apricots/
+      loc: "//localhost:4000/products/apricots/"
+      lastmod: '2018-06-18 16:50:49 +0000'
+      type: product
+      hidden: 
+86973:
+   en:
+      title: Peaches
+      path: products/
+      slug: peaches
+      link: products/peaches/
+      loc: "//localhost:4000/products/peaches/"
+      lastmod: '2018-06-20 14:46:08 +0000'
+      type: product
+      hidden: 
+86965:
+   en:
+      title: Raspberries
+      path: products/
+      slug: raspberries
+      link: products/raspberries/
+      loc: "//localhost:4000/products/raspberries/"
+      lastmod: '2018-06-20 12:00:30 +0000'
+      type: product
+      hidden: 
+86961:
+   en:
+      title: Tomatoes
+      path: products/
+      slug: tomatoes
+      link: products/tomatoes/
+      loc: "//localhost:4000/products/tomatoes/"
+      lastmod: '2018-05-02 12:18:51 +0000'
+      type: product
+      hidden: 
+275949:
+   en:
+      title: All about the humble Orange
+      path: articles/
+      slug: orange-article
+      link: articles/orange-article/
+      loc: "//localhost:4000/articles/orange-article/"
+      lastmod: '2018-06-19 17:12:14 +0000'
+      type: article
+      hidden: 
+   fr:
+      title: Tout sur l'humble Orange
+      path: artoicles/
+      slug: oranges-en-france
+      link: artoicles/oranges-en-france/
+      loc: "//localhost:4000/artoicles/oranges-en-france/"
+      lastmod: '2018-06-19 17:12:14 +0000'
+      type: article
+      hidden: 
+   zh:
+      title: 所有关于
+      path: artoicles/
+      slug: '275949'
+      link: artoicles/275949/
+      loc: "//localhost:4000/artoicles/275949/"
+      lastmod: '2018-06-19 17:12:14 +0000'
+      type: article
+      hidden: 
+275598:
+   en:
+      title: All about the humble Tomato
+      path: articles/
+      slug: all-about-the-humble-tomato
+      link: articles/all-about-the-humble-tomato/
+      loc: "//localhost:4000/articles/all-about-the-humble-tomato/"
+      lastmod: '2018-06-19 17:12:04 +0000'
+      type: article
+      hidden: 
+   zh:
+      title: 所有关于谦逊的番茄
+      path: artoicles/
+      slug: wing-wang-wong
+      link: artoicles/wing-wang-wong/
+      loc: "//localhost:4000/artoicles/wing-wang-wong/"
+      lastmod: '2018-06-19 17:12:04 +0000'
+      type: article
+      hidden: 
+   ar:
+      title: كل شيء عن الطماطم المتواضعة
+      path: artoicles/
+      slug: amahu-alahu-kalahu
+      link: artoicles/amahu-alahu-kalahu/
+      loc: "//localhost:4000/artoicles/amahu-alahu-kalahu/"
+      lastmod: '2018-06-19 17:12:04 +0000'
+      type: article
+      hidden: 

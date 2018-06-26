@@ -1,22 +1,23 @@
 module Jekyll
 	class LinkBlock < CustomBlock
-=begin
+
 		def input
-			parse_input({
+			{
 				required: {
-					0 => String
+					1 => String
 				},
 				optional: {
 					'lang' => String
 				}
-			})
+			}
 		end
-=end
-		def output
+
+		def output(args, block)
 
 			a = HTML::element('a')
-			a.inner_html = @block
-			url = @args[0]
+			a.inner_html = block
+			url = args[1]
+			lang = args['lang'] if args['lang']
 
 			type = ''
 
@@ -26,12 +27,12 @@ module Jekyll
 				input_id, input_frag = url.split(/[@#]/).reject(&:empty?)
 				input_id = input_id.to_i
 
-				if expect_key(@data, ['sitemap', 'pages', input_id, 'link'])
+				if id = expect_key(@data, ['sitemap', input_id])
 
-					if expect_key(@data, ['sitemap', 'pages', input_id, 'title'])
-						a['title'] = @data['sitemap']['pages'][input_id]['title']
-					end
-					url = @data['sitemap']['pages'][input_id]['link'] + (input_frag ? '#' + input_frag.to_s : '')
+					item = id[lang] || id[id.keys[0]]
+
+					a['title'] = expect_key(item, 'title')
+					url = '/' + path(lang || @page['lang'], expect_key(item, 'link')) + (input_frag ? '#' + input_frag.to_s : '')
 
 				else
 					#raise "Link specified as #{url} but no such id found."
@@ -39,10 +40,10 @@ module Jekyll
 
 			else
 
-				if url[0] == '.'
+				site_uri = Addressable::URI::parse(@config['url'])
+				input_uri = Addressable::URI::parse(url)
 
-					site_uri = Addressable::URI::parse(@config['url'])
-					input_uri = Addressable::URI::parse(url)
+				if url[0] == '.'
 
 					# Relative path
 					page_uri = @context['page']['url'].chomp('index')
@@ -81,6 +82,11 @@ module Jekyll
 			#puts input_uri.to_s + ' is ' + type + ' = ' + url
 
 			a['href'] = url
+			if lang
+				a['lang'] = lang
+				a['rel'] = 'alternate'
+				a['hreflang'] = lang
+			end
 
 			# Debug
 			#a.inner_html = type + ': ' + url
