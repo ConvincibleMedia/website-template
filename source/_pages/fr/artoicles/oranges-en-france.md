@@ -29,7 +29,9 @@ Les oranges douces ont &eacute;t&eacute; mentionn&eacute;es dans la litt&eacute;
 
 En 2014, 70,9 millions de tonnes d\'oranges ont &eacute;t&eacute; cultiv&eacute;es dans le monde, le Br&eacute;sil repr&eacute;sentant 24% du total mondial, suivi de la Chine et de l\'Inde.
 
+<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
 2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+<!--{% endcontentfor %}-->

@@ -15,7 +15,7 @@ meta:
 seo:
    hidden: false
 data:
-   image:
+   image: 
    quoted:
    - ''
 ---
@@ -28,6 +28,8 @@ data:
 
 تنمو النباتات بشكل نموذجي إلى 1 - 3 أمتار (3 - 10 قدم) في الارتفاع ولها جذع ضعيف يمتد. هو دائم في موطنه الأصلي ، وتزرع سنويا. يختلف حجم الثمار باختلاف الصنف ، مع نطاق عرض يتراوح بين 0.5 و 4 بوصات (1.3-10.2 سم).
 
+<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+<!--{% endcontentfor %}-->

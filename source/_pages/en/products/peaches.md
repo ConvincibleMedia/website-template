@@ -14,8 +14,8 @@ seo:
    hidden: false
 data:
    image: '280675'
-   colour:
-   available:
+   colour: 
+   available: 
    price:
 ---
 
@@ -54,5 +54,7 @@ There was \"disregard for human life\" in prescribing drugs at the Gosport hospi
     29 minutes ago The scandals that haunt the NHS
     29mThe scandals that haunt the NHS
 
+<!--{% gallery %}-->
 ![](/3015/1525263196-peach-1.jpg)
 ![](/3015/1525263198-peach-2.jpg)
+<!--{% endgallery %}-->

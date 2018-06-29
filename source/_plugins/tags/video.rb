@@ -1,6 +1,6 @@
 module Jekyll
 	class VideoBlock < CustomBlock
-		def output
+		def output(_args, _block)
 
 			return @block
 

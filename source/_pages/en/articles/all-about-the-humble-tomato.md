@@ -28,6 +28,8 @@ Tomato is consumed in diverse ways, including raw, as an ingredient in many dish
 
 The plants typically grow to 1--3 meters (3--10 ft) in height and have a weak stem that sprawls. It is a perennial in its native habitat, and cultivated as an annual. Fruit size varies according to cultivar, with a width range of 0.5--4 inches (1.3--10.2 cm).
 
+<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+<!--{% endcontentfor %}-->

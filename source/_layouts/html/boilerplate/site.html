@@ -9,9 +9,11 @@ layout: html/blueprint/base
 	<nav>
 		<ul>
 			{% for parent in page.meta.parents %}
-			<li>{% link %}
-				[Mom/Pop \[parent\] Link](@{{ parent.id }})
-			{% endlink %}</li>
+			<li>
+				{% link %}
+					[Back to {{ parent.slug }}](@{{ parent.id }})
+				{% endlink %}
+			</li>
 			{% endfor %}
 		</ul>
 	</nav>
@@ -24,7 +26,7 @@ layout: html/blueprint/base
 			{% for lang in page.meta.langs %}
 			<li>
 				{% link lang={{ lang }} -%}
-					[{{ lang }}](@{{ page.meta.id }})
+					[This page in: {{ lang }}](@{{ page.meta.id }})
 				{%- endlink %}
 			</li>
 			{% endfor %}

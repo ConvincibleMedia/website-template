@@ -14,8 +14,8 @@ seo:
    hidden: false
 data:
    image: '280680'
-   colour:
-   available:
+   colour: 
+   available: 
    price:
 ---
 
@@ -29,5 +29,7 @@ placekitten.com/50/50 ![test](//www.datocms-assets.com/placekitten.com/50/50)
 
 https://placekitten.com/50/50 ![test](//placekitten.com/50/50)
 
+<!--{% gallery %}-->
 ![](/3015/1525263234-raspberry-1.jpg)
 ![](/3015/1525263236-raspberry-2.jpg)
+<!--{% endgallery %}-->

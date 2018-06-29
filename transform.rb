@@ -461,12 +461,13 @@ end
 
 #PARENTAGE['page'] = 'home'
 TRANSFORM['page'] = lambda do |id, meta, data|
+	frontmatter = {}
 	expect(data['publish_date']) { |e| frontmatter['date'] = e }
 	{
 		file: {
 			path: '/'
 		},
-		frontmatter: nil,
+		frontmatter: frontmatter,
 		content: md_p(data['text'])
 	}
 end
@@ -511,7 +512,7 @@ def transform(model, _id)
 			content[lang][:frontmatter]['meta'] ||= {}
 			content[lang][:frontmatter]['meta']['lang'] = lang
 			content[lang][:frontmatter]['meta']['langs'] = meta[:langs]
-			content[lang][:frontmatter]['meta']['dir'] = 'ltr'
+			content[lang][:frontmatter]['meta']['dir'] = 'ltr' #PLACEHOLDER
 
 			# Universal tidying
 			content[lang][:frontmatter][KEY_TITLE] = id.to_s if content[lang][:frontmatter][KEY_TITLE].blank?
@@ -563,8 +564,6 @@ CMS.models[:pages].each { |model_name, model_info|
 		id = _id.to_i
 		meta = item[:meta]
 
-		$content[id] ||= {}
-		$content[id][:meta] = meta
 		transformed = transform(model_name, id)
 		#transformed = [lang] = data structure
 
@@ -576,6 +575,9 @@ CMS.models[:pages].each { |model_name, model_info|
 
 			if item_in_lang[:content] || item_in_lang[:frontmatter]
 				# Page to be created from this item
+
+				$content[id] ||= {}
+				$content[id][:meta] ||= meta
 
 				$content[id][:data] ||= {}
 				$content[id][:data][lang] = item_in_lang
@@ -628,6 +630,8 @@ $content.each { |id, meta_data|
 	meta = meta_data[:meta]
 	data = meta_data[:data]
 
+	#puts meta_data
+
 	data.each_with_index{ |(lang, item), index|
 		#puts "...Lang \##{index + 1}: #{lang}"
 
@@ -640,7 +644,7 @@ $content.each { |id, meta_data|
 		while parent && $content[parent]
 			#puts "Parent \##{(parents.size + 1).to_s} = #{parent.to_s}"
 			parent_info = {id: parent}
-			if slug = expect($content[parent][:data][lang][:frontmatter][KEY_SLUG])
+			if slug = expect_key($content[parent], [:data,lang,:frontmatter,KEY_SLUG])
 				# The identified parent exists in the same language
 				parent_info[:slug] = slug
 			else

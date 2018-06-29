@@ -1,6 +1,6 @@
 module Jekyll
 	class TableBlock < CustomBlock
-		def output
+		def output(_args, _block)
 
 			table = HTML::element('div')
 			table['class'] = (@args ? 'table-' + @args : 'table')

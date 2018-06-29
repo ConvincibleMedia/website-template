@@ -21,6 +21,8 @@ features:
 
 Exemplary Groceries delivers the finest local produce to individuals and businesses in the area.
 
+<!--{% video youtube wSf1BDTCorU %}-->
 [![Early Morning Vegetables Market \| Amazing Fresh Vegetables Available Bengali Market](https://i.ytimg.com/vi/wSf1BDTCorU/hqdefault.jpg)](https://www.youtube.com/watch?v=wSf1BDTCorU)
+<!--{% endvideo %}-->
 
 {% include_relative {{ page.slug }}_form.partial.html %}

@@ -21,7 +21,11 @@ data:
 
 The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.
 
+<!--{% gallery %}-->
 ![Orange](/3015/1525263107-orange-1.jpg)
 ![](/3015/1525263109-orange-2.jpg)
+<!--{% endgallery %}-->
 
+<!--{% map %}-->
 [Map Link](geo:40.7449698,-73.99525519999997)
+<!--{% endmap %}-->

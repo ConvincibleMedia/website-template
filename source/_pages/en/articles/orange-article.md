@@ -29,7 +29,9 @@ Sweet oranges were mentioned in Chinese literature in 314 BC. As of 1987, orange
 
 In 2014, 70.9 million tonnes of oranges were grown worldwide, with Brazil producing 24% of the world total followed by China and India.
 
+<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
 2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+<!--{% endcontentfor %}-->

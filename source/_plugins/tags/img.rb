@@ -1,7 +1,7 @@
 module Jekyll
 	class ImgTag < CustomTag
 
-		def output
+		def output(_args)
 			parse_input
 
 			img = HTML::element('img')

@@ -1,100 +1,3 @@
-86955:
-   en:
-      title: Home
-      path: "/"
-      slug: index
-      link: index/
-      loc: "//localhost:4000/index/"
-      lastmod: '2018-06-21 21:46:14 +0000'
-      type: home
-      hidden:
-313873:
-   en:
-      title: Background
-      path: pages/about/
-      slug: background
-      link: pages/about/background/
-      loc: "//localhost:4000/pages/about/background/"
-      lastmod: '2018-06-25 16:12:19 +0000'
-      type: page
-      hidden:
-   fr:
-      title: Backgroundiere
-      path: paiges/
-      slug: background
-      link: paiges/background/
-      loc: "//localhost:4000/paiges/background/"
-      lastmod: '2018-06-25 16:12:19 +0000'
-      type: page
-      hidden:
-   zh:
-      title: Background-la
-      path: paiges/
-      slug: background
-      link: paiges/background/
-      loc: "//localhost:4000/paiges/background/"
-      lastmod: '2018-06-25 16:12:19 +0000'
-      type: page
-      hidden:
-   ar:
-      title: Backgroundahalu
-      path: paiges/
-      slug: background
-      link: paiges/background/
-      loc: "//localhost:4000/paiges/background/"
-      lastmod: '2018-06-25 16:12:19 +0000'
-      type: page
-      hidden:
-318492:
-   en:
-      title: Level 1
-      path: pages/
-      slug: level-1
-      link: pages/level-1/
-      loc: "//localhost:4000/pages/level-1/"
-      lastmod: '2018-06-20 21:51:16 +0000'
-      type: page
-      hidden:
-318491:
-   en:
-      title: Level 2
-      path: pages/about/
-      slug: level-2
-      link: pages/about/level-2/
-      loc: "//localhost:4000/pages/about/level-2/"
-      lastmod: '2018-06-20 21:51:09 +0000'
-      type: page
-      hidden:
-318490:
-   en:
-      title: Level 4
-      path: pages/about/background/level-3/
-      slug: level-4
-      link: pages/about/background/level-3/level-4/
-      loc: "//localhost:4000/pages/about/background/level-3/level-4/"
-      lastmod: '2018-06-20 21:50:50 +0000'
-      type: page
-      hidden:
-318489:
-   en:
-      title: Level 3
-      path: pages/about/background/
-      slug: level-3
-      link: pages/about/background/level-3/
-      loc: "//localhost:4000/pages/about/background/level-3/"
-      lastmod: '2018-06-20 21:50:39 +0000'
-      type: page
-      hidden:
-86956:
-   en:
-      title: About
-      path: pages/
-      slug: about
-      link: pages/about/
-      loc: "//localhost:4000/pages/about/"
-      lastmod: '2018-06-20 20:49:05 +0000'
-      type: page
-      hidden:
 86971:
    en:
       title: Oranges
@@ -104,7 +7,7 @@
       loc: "//localhost:4000/products/oranges/"
       lastmod: '2018-06-14 14:47:22 +0000'
       type: product
-      hidden:
+      hidden: 
 86963:
    en:
       title: Apricots
@@ -114,7 +17,7 @@
       loc: "//localhost:4000/products/apricots/"
       lastmod: '2018-06-18 16:50:49 +0000'
       type: product
-      hidden:
+      hidden: 
 86973:
    en:
       title: Peaches
@@ -124,7 +27,7 @@
       loc: "//localhost:4000/products/peaches/"
       lastmod: '2018-06-20 14:46:08 +0000'
       type: product
-      hidden:
+      hidden: 
 86965:
    en:
       title: Raspberries
@@ -134,7 +37,7 @@
       loc: "//localhost:4000/products/raspberries/"
       lastmod: '2018-06-20 12:00:30 +0000'
       type: product
-      hidden:
+      hidden: 
 86961:
    en:
       title: Tomatoes
@@ -144,7 +47,37 @@
       loc: "//localhost:4000/products/tomatoes/"
       lastmod: '2018-05-02 12:18:51 +0000'
       type: product
-      hidden:
+      hidden: 
+323917:
+   en:
+      title: fgf
+      path: articles/
+      slug: fgf
+      link: articles/fgf/
+      loc: "//localhost:4000/articles/fgf/"
+      lastmod: '2018-06-27 20:16:28 +0000'
+      type: article
+      hidden: 
+323916:
+   en:
+      title: dfvfv
+      path: articles/
+      slug: dfvfv
+      link: articles/dfvfv/
+      loc: "//localhost:4000/articles/dfvfv/"
+      lastmod: '2018-06-27 20:16:22 +0000'
+      type: article
+      hidden: 
+323915:
+   en:
+      title: fgff
+      path: articles/
+      slug: fgff
+      link: articles/fgff/
+      loc: "//localhost:4000/articles/fgff/"
+      lastmod: '2018-06-27 20:15:36 +0000'
+      type: article
+      hidden: 
 275949:
    en:
       title: All about the humble Orange
@@ -154,7 +87,7 @@
       loc: "//localhost:4000/articles/orange-article/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden:
+      hidden: 
    fr:
       title: Tout sur l'humble Orange
       path: artoicles/
@@ -163,7 +96,7 @@
       loc: "//localhost:4000/artoicles/oranges-en-france/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden:
+      hidden: 
    zh:
       title: 所有关于
       path: artoicles/
@@ -172,7 +105,7 @@
       loc: "//localhost:4000/artoicles/275949/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden:
+      hidden: 
 275598:
    en:
       title: All about the humble Tomato
@@ -182,7 +115,7 @@
       loc: "//localhost:4000/articles/all-about-the-humble-tomato/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden:
+      hidden: 
    zh:
       title: 所有关于谦逊的番茄
       path: artoicles/
@@ -191,7 +124,7 @@
       loc: "//localhost:4000/artoicles/wing-wang-wong/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden:
+      hidden: 
    ar:
       title: كل شيء عن الطماطم المتواضعة
       path: artoicles/
@@ -200,4 +133,119 @@
       loc: "//localhost:4000/artoicles/amahu-alahu-kalahu/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden:
+      hidden: 
+318492:
+   en:
+      title: Contact
+      path: "/"
+      slug: contact
+      link: contact/
+      loc: "//localhost:4000/contact/"
+      lastmod: '2018-06-29 17:33:53 +0000'
+      type: page
+      hidden: 
+318491:
+   en:
+      title: Level 2
+      path: about/
+      slug: level-2
+      link: about/level-2/
+      loc: "//localhost:4000/about/level-2/"
+      lastmod: '2018-06-29 17:33:40 +0000'
+      type: page
+      hidden: 
+318489:
+   en:
+      title: Level 3
+      path: about/background/
+      slug: level-3
+      link: about/background/level-3/
+      loc: "//localhost:4000/about/background/level-3/"
+      lastmod: '2018-06-29 17:33:26 +0000'
+      type: page
+      hidden: 
+318490:
+   en:
+      title: Level 4
+      path: about/background/level-3/
+      slug: level-4
+      link: about/background/level-3/level-4/
+      loc: "//localhost:4000/about/background/level-3/level-4/"
+      lastmod: '2018-06-29 17:33:12 +0000'
+      type: page
+      hidden: 
+   fr:
+      title: Levelé le Quatre
+      path: about/backgroundiere/level-3/
+      slug: levele-le-quatre
+      link: about/backgroundiere/level-3/levele-le-quatre/
+      loc: "//localhost:4000/about/backgroundiere/level-3/levele-le-quatre/"
+      lastmod: '2018-06-29 17:33:12 +0000'
+      type: page
+      hidden: 
+   zh:
+      title: Level 4 LA!
+      path: about/background-la/level-3/
+      slug: level-4-la
+      link: about/background-la/level-3/level-4-la/
+      loc: "//localhost:4000/about/background-la/level-3/level-4-la/"
+      lastmod: '2018-06-29 17:33:12 +0000'
+      type: page
+      hidden: 
+86956:
+   en:
+      title: About
+      path: "/"
+      slug: about
+      link: about/
+      loc: "//localhost:4000/about/"
+      lastmod: '2018-06-29 17:32:43 +0000'
+      type: page
+      hidden: 
+313873:
+   en:
+      title: Background
+      path: about/
+      slug: background
+      link: about/background/
+      loc: "//localhost:4000/about/background/"
+      lastmod: '2018-06-29 17:31:58 +0000'
+      type: page
+      hidden: 
+   fr:
+      title: Backgroundiere
+      path: about/
+      slug: backgroundiere
+      link: about/backgroundiere/
+      loc: "//localhost:4000/about/backgroundiere/"
+      lastmod: '2018-06-29 17:31:58 +0000'
+      type: page
+      hidden: 
+   zh:
+      title: Background-la!
+      path: about/
+      slug: background-la
+      link: about/background-la/
+      loc: "//localhost:4000/about/background-la/"
+      lastmod: '2018-06-29 17:31:58 +0000'
+      type: page
+      hidden: 
+   ar:
+      title: Backgroundalahu
+      path: about/
+      slug: backgroundalahu
+      link: about/backgroundalahu/
+      loc: "//localhost:4000/about/backgroundalahu/"
+      lastmod: '2018-06-29 17:31:58 +0000'
+      type: page
+      hidden: 
+86955:
+   en:
+      title: Home
+      path: "/"
+      slug: index
+      link: index/
+      loc: "//localhost:4000/index/"
+      lastmod: '2018-06-21 21:46:14 +0000'
+      type: home
+      hidden: 

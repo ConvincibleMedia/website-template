@@ -15,8 +15,8 @@ module Jekyll
 		class ContentForBlock < CustomBlock
 			include Jekyll::ContentPlugin
 
-			def output
-				content_for_block(@context) << @block
+			def output(_args, _block)
+				content_for_block(@context) << _block.dup
 				return ''
 			end
 
@@ -26,7 +26,7 @@ module Jekyll
 		class ContentTag < CustomTag
 			include Jekyll::ContentPlugin
 
-			def output
+			def output(_args)
 				content = []
 				content << @markdown.convert(content_for_block(@context).join("\n"))
 				content.push('<!--' + @liquid[1] + '-->')

@@ -15,7 +15,7 @@ meta:
 seo:
    hidden: false
 data:
-   image:
+   image: 
    quoted:
    - ''
 ---
@@ -28,6 +28,8 @@ data:
 
 这些植物通常长到1-3米（3-10英尺）高，并且具有较弱的茎蔓延。它是一个多年生的原生栖息地，每年培育一次。果实大小根据品种而不同，宽度范围为0.5-4英寸（1.3-10.2厘米）。
 
+<!--{% contentfor hero %}-->
 ### Sources
 
 1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+<!--{% endcontentfor %}-->
