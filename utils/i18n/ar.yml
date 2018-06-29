@@ -1,5 +1,5 @@
 ar:
-   name: Arabahu
+   name: Arabicahim
    models:
       home:
          title: "Page d'Accueil"
@@ -39,3 +39,7 @@ ar:
       map:
          one: "map"
          other: "maps"
+      sorry: "Apologies"
+      404: "We can't find the page at this address."
+      I18n:
+         missing: "This page is only available in the following languages"

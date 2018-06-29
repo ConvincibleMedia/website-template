@@ -7,7 +7,7 @@
       loc: "//localhost:4000/index/"
       lastmod: '2018-06-21 21:46:14 +0000'
       type: home
-      hidden: 
+      hidden:
 313873:
    en:
       title: Background
@@ -17,34 +17,34 @@
       loc: "//localhost:4000/pages/about/background/"
       lastmod: '2018-06-25 16:12:19 +0000'
       type: page
-      hidden: 
+      hidden:
    fr:
-      title: Background
+      title: Backgroundiere
       path: paiges/
       slug: background
       link: paiges/background/
       loc: "//localhost:4000/paiges/background/"
       lastmod: '2018-06-25 16:12:19 +0000'
       type: page
-      hidden: 
+      hidden:
    zh:
-      title: Background
+      title: Background-la
       path: paiges/
       slug: background
       link: paiges/background/
       loc: "//localhost:4000/paiges/background/"
       lastmod: '2018-06-25 16:12:19 +0000'
       type: page
-      hidden: 
+      hidden:
    ar:
-      title: Background
+      title: Backgroundahalu
       path: paiges/
       slug: background
       link: paiges/background/
       loc: "//localhost:4000/paiges/background/"
       lastmod: '2018-06-25 16:12:19 +0000'
       type: page
-      hidden: 
+      hidden:
 318492:
    en:
       title: Level 1
@@ -54,7 +54,7 @@
       loc: "//localhost:4000/pages/level-1/"
       lastmod: '2018-06-20 21:51:16 +0000'
       type: page
-      hidden: 
+      hidden:
 318491:
    en:
       title: Level 2
@@ -64,7 +64,7 @@
       loc: "//localhost:4000/pages/about/level-2/"
       lastmod: '2018-06-20 21:51:09 +0000'
       type: page
-      hidden: 
+      hidden:
 318490:
    en:
       title: Level 4
@@ -74,7 +74,7 @@
       loc: "//localhost:4000/pages/about/background/level-3/level-4/"
       lastmod: '2018-06-20 21:50:50 +0000'
       type: page
-      hidden: 
+      hidden:
 318489:
    en:
       title: Level 3
@@ -84,7 +84,7 @@
       loc: "//localhost:4000/pages/about/background/level-3/"
       lastmod: '2018-06-20 21:50:39 +0000'
       type: page
-      hidden: 
+      hidden:
 86956:
    en:
       title: About
@@ -94,7 +94,7 @@
       loc: "//localhost:4000/pages/about/"
       lastmod: '2018-06-20 20:49:05 +0000'
       type: page
-      hidden: 
+      hidden:
 86971:
    en:
       title: Oranges
@@ -104,7 +104,7 @@
       loc: "//localhost:4000/products/oranges/"
       lastmod: '2018-06-14 14:47:22 +0000'
       type: product
-      hidden: 
+      hidden:
 86963:
    en:
       title: Apricots
@@ -114,7 +114,7 @@
       loc: "//localhost:4000/products/apricots/"
       lastmod: '2018-06-18 16:50:49 +0000'
       type: product
-      hidden: 
+      hidden:
 86973:
    en:
       title: Peaches
@@ -124,7 +124,7 @@
       loc: "//localhost:4000/products/peaches/"
       lastmod: '2018-06-20 14:46:08 +0000'
       type: product
-      hidden: 
+      hidden:
 86965:
    en:
       title: Raspberries
@@ -134,7 +134,7 @@
       loc: "//localhost:4000/products/raspberries/"
       lastmod: '2018-06-20 12:00:30 +0000'
       type: product
-      hidden: 
+      hidden:
 86961:
    en:
       title: Tomatoes
@@ -144,7 +144,7 @@
       loc: "//localhost:4000/products/tomatoes/"
       lastmod: '2018-05-02 12:18:51 +0000'
       type: product
-      hidden: 
+      hidden:
 275949:
    en:
       title: All about the humble Orange
@@ -154,7 +154,7 @@
       loc: "//localhost:4000/articles/orange-article/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden: 
+      hidden:
    fr:
       title: Tout sur l'humble Orange
       path: artoicles/
@@ -163,7 +163,7 @@
       loc: "//localhost:4000/artoicles/oranges-en-france/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden: 
+      hidden:
    zh:
       title: 所有关于
       path: artoicles/
@@ -172,7 +172,7 @@
       loc: "//localhost:4000/artoicles/275949/"
       lastmod: '2018-06-19 17:12:14 +0000'
       type: article
-      hidden: 
+      hidden:
 275598:
    en:
       title: All about the humble Tomato
@@ -182,7 +182,7 @@
       loc: "//localhost:4000/articles/all-about-the-humble-tomato/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden: 
+      hidden:
    zh:
       title: 所有关于谦逊的番茄
       path: artoicles/
@@ -191,7 +191,7 @@
       loc: "//localhost:4000/artoicles/wing-wang-wong/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden: 
+      hidden:
    ar:
       title: كل شيء عن الطماطم المتواضعة
       path: artoicles/
@@ -200,4 +200,4 @@
       loc: "//localhost:4000/artoicles/amahu-alahu-kalahu/"
       lastmod: '2018-06-19 17:12:04 +0000'
       type: article
-      hidden: 
+      hidden:

@@ -29,9 +29,9 @@
 	<div>
 		<label for="select-choice">Select Dropdown Choice:</label>
 		<select name="select-choice" id="select-choice">
-      <option value="Choice 1">Choice 1</option>
-      <option value="Choice 2">Choice 2</option>
-      <option value="Choice 3">Choice 3</option>
+		{% for i in (1..5) %}
+      	<option value="Choice {{i}}">Choice {{i}}</option>
+      {% endfor %}
     </select>
 	</div>
 
@@ -51,7 +51,7 @@
 	</div>
 
 	<div>
-		<input type="submit" value="Submit">
+		<input type="submit" value="{{ page.slug }}">
 	</div>
 
 </form>

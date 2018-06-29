@@ -295,10 +295,6 @@ def get_data(item, field, lang)
 	end
 end
 
-def t(key, scope, count = 1)
-	return I18n.t(key, :scope => scope.join('.'), :count => count)
-end
-
 #UNUSED
 def get_parents(id)
 	parents = []
@@ -316,9 +312,9 @@ end
 # Defaults
 TRANSFORM_BASE = lambda do |id, meta, data|
 	{
-		meta: meta.deep_merge({
+		file: {
 			path: path([t(:slug, [:models, meta[:model]], 2)])
-		}),
+		},
 		frontmatter: {
 			KEY_TITLE => data[KEY_TITLE],
 			KEY_SLUG => data[KEY_SLUG],
@@ -350,7 +346,7 @@ end
 
 TRANSFORM['home'] = lambda do |id, meta, data|
 	{
-		meta: {
+		file: {
 			path: '/'
 		},
 		frontmatter: {
@@ -434,6 +430,7 @@ def blocks(block_array, filter = nil)
 	end
 end
 
+#PARENTAGE['article'] = 'home'
 TRANSFORM['article'] = lambda do |id, meta, data|
 	data['sources'] = blocks(data['sources'], 'source')
 	{
@@ -462,20 +459,20 @@ TRANSFORM['article'] = lambda do |id, meta, data|
 	}
 end
 
+#PARENTAGE['page'] = 'home'
 TRANSFORM['page'] = lambda do |id, meta, data|
-	frontmatter = {}
 	expect(data['publish_date']) { |e| frontmatter['date'] = e }
 	{
-		frontmatter: frontmatter,
+		file: {
+			path: '/'
+		},
+		frontmatter: nil,
 		content: md_p(data['text'])
 	}
 end
 
 TRANSFORM['social'] = lambda do |id, meta, data|
 	{
-		meta: {
-			KEY_TITLE => data['profile'],
-		},
 		frontmatter: nil,
 		data: {
 			'profile' => data['profile'],
@@ -488,8 +485,8 @@ TRANSFORM['social'] = lambda do |id, meta, data|
 end
 
 
-def transform(model, id)
-	id = id.to_i
+def transform(model, _id)
+	id = _id.to_i
 	item = CMS.items[model][id]
 	meta = item[:meta]
 	model_name = meta[:model]
@@ -521,7 +518,7 @@ def transform(model, id)
 			content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_TITLE] if content[lang][:frontmatter][KEY_SLUG].blank?
 			content[lang][:frontmatter][KEY_SLUG] = content[lang][:frontmatter][KEY_SLUG].parameterize
 			content[lang][:frontmatter][KEY_SLUG] = id.to_s if content[lang][:frontmatter][KEY_SLUG].blank?
-			content[lang][:meta][:slug] = content[lang][:frontmatter][KEY_SLUG]
+			content[lang][:file][:slug] = content[lang][:frontmatter][KEY_SLUG]
 		end
 	}
 
@@ -561,27 +558,30 @@ $partialpaths = {}
 # TRANSFORM CONTENT
 CMS.models[:pages].each { |model_name, model_info|
 	#puts "Constructing content and paths for model #{model_name}..."
-	CMS.get_items(model_name).each { |id, item|
+	CMS.get_items(model_name).each { |_id, item|
 		#puts "Working on item id #{id}..."
-		id = id.to_i
+		id = _id.to_i
+		meta = item[:meta]
+
+		$content[id] ||= {}
+		$content[id][:meta] = meta
 		transformed = transform(model_name, id)
 		#transformed = [lang] = data structure
 
-		item[:meta][:langs].each { |lang|
+		meta[:langs].each { |lang|
 			#puts "...in language: #{lang}"
 
-			item = transformed[lang]
-			meta = item[:meta]
-			front = item[:frontmatter] # If defined?
+			item_in_lang = transformed[lang]
+			front = item_in_lang[:frontmatter] # If defined?
 
-			if item[:content] || item[:frontmatter]
+			if item_in_lang[:content] || item_in_lang[:frontmatter]
 				# Page to be created from this item
 
-				$content[id] ||= {}
-				$content[id][lang] = item
+				$content[id][:data] ||= {}
+				$content[id][:data][lang] = item_in_lang
 
 			end
-			if item[:data]
+			if item_in_lang[:data]
 				# Data file to be added to from this item
 
 				$data[meta[:model]] ||= {
@@ -592,15 +592,15 @@ CMS.models[:pages].each { |model_name, model_info|
 						data:	{}
 					}
 				$data[meta[:model]][:data][lang] ||= []
-				$data[meta[:model]][:data][lang] << item[:data]
+				$data[meta[:model]][:data][lang] << item_in_lang[:data]
 				$datapaths['/'] ||= []
 				$datapaths['/'] << meta[:model] unless $datapaths['/'].include?(meta[:model])
 
 			end
-			if item[:partials] && !item[:content] && !item[:frontmatter]
+			if item_in_lang[:partials] && !item_in_lang[:content] && !item_in_lang[:frontmatter]
 				# Partial defined without content = not relative
 
-				item[:partials].each { |p_name, p_content|
+				item_in_lang[:partials].each { |p_name, p_content|
 					$partials[p_name] ||= {}
 					$partials[p_name][lang] ||= {}
 					if $partials[p_name][lang][:content]
@@ -623,49 +623,80 @@ CMS.models[:pages].each { |model_name, model_info|
 
 
 # PARENTS
-$content.each { |id, langs|
+$content.each { |id, meta_data|
 	#puts "Reading parents of content id: #{id}, '#{langs['en'][:frontmatter]['slug']}', which has #{langs.size.to_s} langs."
-	langs.each_with_index{ |(lang, item), index|
+	meta = meta_data[:meta]
+	data = meta_data[:data]
+
+	data.each_with_index{ |(lang, item), index|
 		#puts "...Lang \##{index + 1}: #{lang}"
 
-		meta = item[:meta]
 		front = item[:frontmatter] # If defined?
 
-		# Get parents array
+		# Create an array of parents for each piece of content
 		parents = []
-		parent = meta[:parent].to_i
-		while parent && $content[parent] && $content[parent][lang]
+		parent = meta[:parent].to_i if meta[:parent]
+
+		while parent && $content[parent]
 			#puts "Parent \##{(parents.size + 1).to_s} = #{parent.to_s}"
-			parents << {
-				id: parent,
-				slug: $content[parent][lang][:frontmatter][KEY_SLUG]
-			}
-			if $content[parent][lang]
-				parent = $content[parent][lang][:meta][:parent]
-				parent = parent.to_i unless parent == nil
+			parent_info = {id: parent}
+			if slug = expect($content[parent][:data][lang][:frontmatter][KEY_SLUG])
+				# The identified parent exists in the same language
+				parent_info[:slug] = slug
 			else
-				# Parent not available in this language = no parent
+				# The identified parent does not exist in the same language
+				if CONFIG['I18n']['missing']['parents']
+					# Jump to next available language
+					first_lang = $content[parent][:data].keys[0]
+					slug = $content[parent][:data][first_lang][:frontmatter][KEY_SLUG]
+					parent_info[:slug] = slug
+					parent_info[:lang] = first_lang
+				else
+					# Skip this parent in the item's parent tree
+					parent_info = nil
+				end
+			end
+			parents << parent_info if parent_info
+
+			# Look for grandparent
+			if parent = $content[parent][:meta][:parent]
+				parent = parent.to_i
+			else # No grandparents
 				parent = nil
 			end
+
 			#puts "Next parent up is: #{parent.inspect}"
 		end
 		#puts "#{parents.size.to_s} parents identified for id #{id} in lang: #{lang}"
 
-		$content[id][lang][:frontmatter]['meta'] ||= {}
-		$content[id][lang][:meta][:parents] = parents
-		$content[id][lang][:frontmatter]['meta']['parents'] = parents.map{|i| i.stringify_keys }
+		$content[id][:data][lang][:frontmatter]['meta'] ||= {}
+		$content[id][:data][lang][:frontmatter]['meta']['parents'] = parents.map{|i| i.stringify_keys }
+		$content[id][:meta][:parents] = parents
 
 		# Reconstruct this item's path with base that's already set
-		$content[id][lang][:meta][:path] = path($content[id][lang][:meta][:path], parents.map{ |branch| branch[:slug] }.reverse.join('/'))
-		$content[id][lang][:meta][:link] = path($content[id][lang][:meta][:path], $content[id][lang][:meta][:slug])
+		$content[id][:data][lang][:file][:path] = path(
+			$content[id][:data][lang][:file][:path],
+			parents.map{ |branch|
+				branch[:slug]
+			}.reverse.join('/')
+		)
+
+		# Reconstruct this item's link based on new path
+		$content[id][:data][lang][:file][:link] = path(
+			$content[id][:data][lang][:file][:path],
+			$content[id][:data][lang][:file][:slug]
+		)
 	}
 }
 
 #PARTIALS
-$content.each { |id, langs|
-	langs.each{ |lang, item|
+$content.each { |id, meta_data|
 
-		meta = item[:meta]
+	meta = meta_data[:meta]
+	data = meta_data[:data]
+
+	data.each{ |lang, item|
+
 		front = item[:frontmatter] # If defined?
 
 		if item[:partials] && item[:partials].length > 0
@@ -678,8 +709,8 @@ $content.each { |id, langs|
 					content: p_content
 				}
 				$partialpaths[lang] ||= {}
-				$partialpaths[lang][meta[:path]] ||= []
-				$partialpaths[lang][meta[:path]] << id.to_s + p_name
+				$partialpaths[lang][item[:file][:path]] ||= []
+				$partialpaths[lang][item[:file][:path]] << id.to_s + p_name
 			}
 
 		end
@@ -687,22 +718,25 @@ $content.each { |id, langs|
 }
 
 #SETUP VARS
-$content.each { |id, langs|
-	langs.each{ |lang, item|
+$content.each { |id, meta_data|
 
-		meta = item[:meta]
+	meta = meta_data[:meta]
+	data = meta_data[:data]
+
+	data.each{ |lang, item|
+
 		front = item[:frontmatter] # If defined?
 
 		# Setup other references to this content item
-		$filepaths[lang][meta[:path]] ||= []
-		$filepaths[lang][meta[:path]] << id
+		$filepaths[lang][item[:file][:path]] ||= []
+		$filepaths[lang][item[:file][:path]] << id
 		$sitemap[id] ||= {}
 		$sitemap[id][lang] = {
 			'title' => front['title'],
-			'path' => meta[:path],
+			'path' => item[:file][:path],
 	      'slug' => front['slug'],
-	      'link' => meta[:link],
-	      'loc' => URLs.join(CONFIG['url'], meta[:link]).omit(:scheme).to_s,
+	      'link' => item[:file][:link],
+	      'loc' => URLs.join(CONFIG['url'], item[:file][:link]).omit(:scheme).to_s,
 	      'lastmod' => meta[:modified],
 	      'type' => meta[:model],
 	      #'order': '3'
@@ -735,9 +769,9 @@ def create_files_md(files, root)
 		paths.each { |path, id_list|
 			path = path([root, lang, path])
 			id_list.each { |id|
-				item = $content[id.to_i][lang]
+				item = $content[id.to_i][:data][lang]
 				# Create this item at this location
-				create_file(path, item[:meta][:slug] + '.md',
+				create_file(path, item[:file][:slug] + '.md',
 					[
 						Psych.dump(item[:frontmatter], {line_width: -1, indentation: 3}).strip,
 						'---','',
@@ -805,6 +839,7 @@ $other_files = CMS.files.reject{|k,v| v[:type] == 'image'}.map {|id, data|
 new_data('siteinfo', CMS.site.deep_stringify_keys)
 new_data('sitemap', $sitemap)
 new_data('images', $images)
+new_data('files', $other_files)
 
 #pp $content
 #pp $partials

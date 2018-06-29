@@ -7,6 +7,9 @@ require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/object/deep_dup'
 require 'kramdown'
 require 'fileutils'
+require 'i18n'
+
+I18n.load_path << Dir['./utils/i18n/*.yml']
 
 # Debug
 DEBUG = false
@@ -83,6 +86,10 @@ def expect_key(hash, hash_keys, hash_def = nil)
 	end
 end
 
+def t(key, scope, count = 1)
+	return I18n.t(key, :scope => scope.join('.'), :count => count)
+end
+
 def between(num, bottom, top)
 	if num > top then return top end
 	if num < bottom then return bottom end
@@ -97,6 +104,10 @@ def matches(needle, haystack)
 		  start_at = m.end(0)
 	 end
 	 return matches
+end
+
+def inlinify(str)
+	return str.to_s.gsub(/\s*[\r\n]\s*+/, ' ').strip
 end
 
 PATH_UNSAFE = Regexp.new('[' + Regexp.escape('<>:"/\|?*') + ']')

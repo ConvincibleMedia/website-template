@@ -38,3 +38,4 @@ en:
       map:
          one: "map"
          other: "maps"
+      broken_link: 'Help!'

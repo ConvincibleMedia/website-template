@@ -4,15 +4,31 @@
 
 # Basic settings
 title:                         "Website by Convincible" # Don't need to change this - will be overridden
-url:                           "http://localhost:4000"
+url:                           "//localhost:4000"
 #content:
 #   format:                     "markdown" # or HTML if WYSIWYG -- metadata is always YAML
 
 
-I18n:
-   force_locales: false # If true, all languages are built, repeating all content, and varying only localised fields. If false, the default language is built, and per page, additional languages are built only if a localised field has nonempty content.
-   holding_pages: false # If true, all languages are built, but if content is not defined for a language, this page shows holding text only, with links to other languages.
-
+I18n: # Internationalisation settings
+   missing: # What happens when a page is defined in some languages but not others?
+      force: false
+      # false = do not create a page if language missing
+      # true = create all pages in all languages, using slugs from first available language
+      repeat: false
+      # if force = true
+      # false = missing language pages simply offer links to other languages
+      # true = missing language pages duplicate content from first available language
+      links: true
+      # if force = false
+      # false = links to unavailable languages show as text only
+      # true = links to unavailable languages go directly to first available language
+      parents: true
+      # if force = false
+      # false = parents unavailable in the same language are collapsed
+      # true = empty folders for missing parents using first available language for slugs
+   dir: # Manually define the direction to be used in given languages if not ltr
+      ar: rtl
+      zh: auto
 
 # Site settings
 uid:
@@ -25,10 +41,10 @@ uid:
 # Theme
 brand:
    colors:                     # Array of colors
-      -  color:                "ff6633" # Primary color
+      -  color:                "ff6633" # Primary color defined first
       #  text:                 # Each color may define a complementary text color
-      #  dark:                 # Plus a subcolor called light or dark
-      #  light:                # which in turn must be a color array
+      #  dark:                 # Plus subcolors called light or dark
+      #  light:                # which in turn must be a color array increasing in light/dark-ness
       #  -  color:
       #     text:              # ...which in turn may define a text color
       -  color:                "b1c2d3"
@@ -79,7 +95,7 @@ images:
       fit:                     "clip"
       auto:                    "compress"
       fm:                      "png"
-video:
+video: # For embeds
    youtube:
       plain:
          modestbranding:          1
