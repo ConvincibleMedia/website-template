@@ -1,4 +1,6 @@
-module Spark
+require 'dato'
+
+module Transformer
 
 	class DatoCMS
 
@@ -9,7 +11,10 @@ module Spark
 		attr_reader :locales
 
 		def initialize
-			@API = Dato::Site::Client.new('38589353b1f7d1b630f77739b333224f581e432e87ca62aa2f')
+
+			# READ ENVIRONMENT VARIABLE
+			@API = Dato::Site::Client.new($DATO_API_TOKEN)
+
 			@site = {}
 			@models = {}
 			@items = {}
@@ -18,8 +23,18 @@ module Spark
 			@locales = []
 
 			get_site()
-
 			get_models()
+
+			#For each block model, get the blocks
+			@models[:blocks].each { |model_name, model_info|
+				get_blocks(model_name)
+			}
+			#For each page model, get the pages
+			@models[:pages].each { |model_name, model_info|
+				get_items(model_name)
+			}
+			#Get all files
+			get_files()
 
 		end
 
@@ -75,29 +90,7 @@ module Spark
 					@models[section][model_name][:type] = 'multiple'
 				end
 				@API.fields.all(model['id']).each { |field|
-					field_type_map = {
-						'string' => {type: 'text', subtype: 'line', multiple: false},
-						'text' => {type: 'text', subtype: 'multiline', multiple: false},
-						'slug' => {type: 'text', subtype: 'line', multiple: false},
-						'boolean' => {type: 'boolean', subtype: nil, multiple: false},
-						'integer' => {type: 'number', subtype: 'integer', multiple: false},
-						'float' => {type: 'number', subtype: 'decimal', multiple: false},
-						'date_time' => {type: 'time', subtype: 'datetime', multiple: false},
-						'date' => {type: 'time', subtype: 'date', multiple: false},
-						'json' => {type: 'raw', subtype: 'integer', multiple: false},
 
-						'link' => 'id/page',
-						'links' => 'multi/id/page',
-						'file' => 'id/asset',
-						'gallery' => 'multi/id/asset',
-
-						'seo' => 'struct/seo',
-						'video' => 'struct/video',
-						'lat_lon' => 'struct/gps',
-						'color' => 'struct/color',
-
-						'rich_text' => 'multi/id/page/inlinify'
-					}
 					type = field['field_type']
 
 					@models[section][model_name][:fields][field['api_key']] = {

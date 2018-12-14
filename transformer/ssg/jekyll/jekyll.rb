@@ -5,7 +5,9 @@ def create_file(path, file, contents)
 	File.write(path + file, contents)
 	#f.close
 end
-
+def partial_slug(partial, slug)
+	return slug + '_' + partial.sub('.', '.partial.')
+end
 
 DIR_PAGES = './source/_pages/'
 def create_files_md(files, root)
@@ -77,3 +79,80 @@ def create_partials(files, root)
 		}
 	}
 end
+
+
+$content.each { |id, meta_data|
+
+	meta = meta_data[:meta]
+	data = meta_data[:data]
+
+	data.each{ |lang, item|
+
+		front = item[:frontmatter] # If defined?
+
+		if item[:partials] && item[:partials].length > 0
+			# Relative partial
+
+			item[:partials].each { |p_name, p_content|
+				$partials[id.to_s + p_name] ||= {}
+				$partials[id.to_s + p_name][lang] = {
+					filename: partial_slug(p_name, front['slug']),
+					content: p_content
+				}
+				$partialpaths[lang] ||= {}
+				$partialpaths[lang][item[:file][:path]] ||= []
+				$partialpaths[lang][item[:file][:path]] << id.to_s + p_name
+			}
+
+		end
+	}
+}
+
+
+
+
+
+
+
+
+#SITE DATA ITEMS
+
+$content.each { |id, meta_data|
+
+	meta = meta_data[:meta]
+	data = meta_data[:data]
+
+	data.each{ |lang, item|
+
+		front = item[:frontmatter] # If defined?
+
+		# Setup other references to this content item
+		$filepaths[lang][item[:file][:path]] ||= []
+		$filepaths[lang][item[:file][:path]] << id
+		$sitemap[id] ||= {}
+		$sitemap[id][lang] = {
+			'title' => front['title'],
+			'path' => item[:file][:path],
+	      'slug' => front['slug'],
+	      'link' => item[:file][:link],
+	      'loc' => URLs.join(CONFIG['url'], item[:file][:link]).omit(:scheme).to_s,
+	      'lastmod' => meta[:modified],
+	      'type' => meta[:model],
+	      #'order': '3'
+	      'hidden' => meta[:hidden]
+		}
+
+	}
+}
+
+$images = CMS.files.reject{|k,v| v[:type] != 'image'}.map {|id, data|
+	[id.to_i, data.stringify_keys]
+}.to_h
+$other_files = CMS.files.reject{|k,v| v[:type] == 'image'}.map {|id, data|
+	[id.to_i, data.stringify_keys]
+}.to_h
+
+new_data('siteinfo', CMS.site.deep_stringify_keys)
+new_data('sitemap', $sitemap)
+new_data('images', $images)
+new_data('files', $other_files)

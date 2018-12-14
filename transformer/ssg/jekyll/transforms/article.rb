@@ -1,6 +1,6 @@
 #PARENTAGE['article'] = 'home'
 TRANSFORM['article'] = lambda do |id, meta, data|
-	data['sources'] = blocks(data['sources'], 'source')
+	#data['sources'] = blocks(data['sources'], 'source')
 	{
 		frontmatter: {
 			'data' => {

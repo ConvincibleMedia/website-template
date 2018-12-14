@@ -1,0 +1,23 @@
+ssg: jekyll #Will look for this.rb
+cms: dato
+paths:
+    root: '../' # All file paths from here on are relative to root
+    source: 'source'
+url:                           "//localhost:4000"
+I18n: # Internationalisation settings
+   missing: # What happens when a page is defined in some languages but not others?
+      force: false
+      # false = do not create a page if language missing
+      # true = create all pages in all languages, using slugs from first available language
+      repeat: false
+      # if force = true
+      # false = missing language pages simply offer links to other languages
+      # true = missing language pages duplicate content from first available language
+      links: true
+      # if force = false
+      # false = links to unavailable languages show as text only
+      # true = links to unavailable languages go directly to first available language
+      parents: true
+      # if force = false
+      # false = parents unavailable in the same language are collapsed
+      # true = empty folders for missing parents using first available language for slugs
