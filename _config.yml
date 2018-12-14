@@ -146,7 +146,7 @@ collections:
    root:
       output:                  true
       permalink:               "/:name" # flatten any folders here
-   pages:
+   pages:                      # This collection is used for basically every page on the site
       output:                  true
       permalink:               "/:path" # respect folder structure here
 
@@ -154,7 +154,7 @@ collections:
 # Defaults
 defaults:
    -  scope:
-         path:                 "_pages"
+         path:                 "_pages" # All pages on the site stored here
       values:
          layout:               "html/article"
 
