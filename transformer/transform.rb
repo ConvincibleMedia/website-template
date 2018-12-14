@@ -1,4 +1,4 @@
-require './utils/helpers.rb'
+require '../utils/helpers.rb'
 require 'dato'
 
 CONFIG = YAML.load_file('./_config.yml')
@@ -14,7 +14,7 @@ require 'i18n'
 I18n.load_path << Dir['./utils/i18n/*.yml']
 I18n.default_locale = :en
 
-require './transformer/cms/dato.rb'
+require './cms/dato.rb'
 
 module Spark
 
@@ -39,7 +39,7 @@ CMS.models[:pages].each { |model_name, model_info|
 CMS.get_files
 
 
-require './utils/markdown_builder.rb'
+require '../utils/markdown_builder.rb'
 
 TRANSFORM = {}
 
@@ -99,11 +99,11 @@ TRANSFORM_UNDEFINED = lambda do |id, meta, data|
 	return dump
 end
 
-require './transformer/transforms/home.rb'
-require './transformer/transforms/product.rb'
-require './transformer/transforms/article.rb'
-require './transformer/transforms/page.rb'
-require './transformer/transforms/social.rb'
+require './transforms/home.rb'
+require './transforms/product.rb'
+require './transforms/article.rb'
+require './transforms/page.rb'
+require './transforms/social.rb'
 
 def blocks(block_array, filter = nil)
 	if !block_array.is_a? Array
