@@ -343,65 +343,11 @@ TRANSFORM_UNDEFINED = lambda do |id, meta, data|
 	return dump
 end
 
-
-TRANSFORM['home'] = lambda do |id, meta, data|
-	{
-		file: {
-			path: '/'
-		},
-		frontmatter: {
-			KEY_TITLE => 'Home',
-			KEY_SLUG => 'index',
-			'seo' => {
-				'title' => expect_key(data, ['seo','title']),
-				'description' => expect_key(data, ['seo','description']),
-				'image' => expect_key(data, ['seo','image'])
-			},
-			'features' => ['form']
-		},
-		content: md_p([
-			data['intro'],
-			liquid_tag(
-				'video',
-				[expect_key(data,['video','provider']), expect_key(data,['video','provider_uid'])],
-				md_link(md_img(expect_key(data,['video','title']), expect_key(data,['video','thumbnail_url'])), expect_key(data,['video','url']))
-			),
-			md_partial('form.html')
-		]),
-		partials: {
-			'form.html' => data['form']
-		}
-	}
-end
-
-TRANSFORM['product'] = lambda do |id, meta, data|
-	{
-		frontmatter: {
-			'data' => {
-				'image' => data['image'],
-				'colour' => Spark::DatoCMS::rgba(data['colour_scheme']),
-				'available' => data['available'],
-				'price' => data['price']
-			}
-		},
-		content: md_p([
-			md_html(data['description']),
-			data['gallery'] ? liquid_tag(
-				'gallery', '',
-				data['gallery'].map { |id|
-					md_img(CMS.files[id.to_i][:alt], CMS.files[id.to_i][:url])
-				}.join("\n"),
-			) : nil,
-			data['origin'] ? liquid_tag(
-				'map', '',
-				md_link('Map Link',
-					'geo:' +
-					data['origin']['latitude'].to_s + ',' +
-					data['origin']['longitude'].to_s)
-			) : nil,
-		])
-	}
-end
+require './transformer/transforms/home.rb'
+require './transformer/transforms/product.rb'
+require './transformer/transforms/article.rb'
+require './transformer/transforms/page.rb'
+require './transformer/transforms/social.rb'
 
 def blocks(block_array, filter = nil)
 	if !block_array.is_a? Array
@@ -430,60 +376,8 @@ def blocks(block_array, filter = nil)
 	end
 end
 
-#PARENTAGE['article'] = 'home'
-TRANSFORM['article'] = lambda do |id, meta, data|
-	data['sources'] = blocks(data['sources'], 'source')
-	{
-		frontmatter: {
-			'data' => {
-				'image' => data['image'],
-				'quoted' => data['sources'].map{ |source|
-					source['author']
-				}
-			}
-		},
-		content: md_p([
-			md_html(data['body']),
-			expect(data['sources']) { |sources|
-				liquid_tag('contentfor', 'hero',
-					md_h('Sources', 2),
-					md_ol(data['sources'].map{ |source|
-						md_link(
-							"<cite>" + source['title'] + "</cite>" +
-							(source['author'].present? ? ", " + source['author'] : ''),
-							source['url'])
-					})
-				)
-			}
-		])
-	}
-end
 
-#PARENTAGE['page'] = 'home'
-TRANSFORM['page'] = lambda do |id, meta, data|
-	frontmatter = {}
-	expect(data['publish_date']) { |e| frontmatter['date'] = e }
-	{
-		file: {
-			path: '/'
-		},
-		frontmatter: frontmatter,
-		content: md_p(data['text'])
-	}
-end
 
-TRANSFORM['social'] = lambda do |id, meta, data|
-	{
-		frontmatter: nil,
-		data: {
-			'profile' => data['profile'],
-			'url' => data['url']
-		},
-		partials: { # No path! - so goes to _includes
-			'config.json' => data['config'] # partial filename : partial's content
-		}
-	}
-end
 
 
 def transform(model, _id)
