@@ -90,12 +90,6 @@ def t(key, scope, count = 1)
 	return I18n.t(key, :scope => scope.join('.'), :count => count)
 end
 
-def between(num, bottom, top)
-	if num > top then return top end
-	if num < bottom then return bottom end
-	return num
-end
-
 def matches(needle, haystack)
 	 start_at = 0
 	 matches = []
