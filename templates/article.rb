@@ -12,7 +12,7 @@ module Transformer
 
 			def file(id, meta, data, locale)
 				{
-					path: '_pages/',
+					path: "_pages/#{locale}/articles/",
 					name: slug(data['slug']), #+ '.md' - not required as Jekyll handler will ensure
 					type: :markdown
 				}
@@ -32,21 +32,23 @@ module Transformer
 			end
 
 			def content(id, meta, data, locale)
-				data['body']
-				#md_p([
-				#	md_html(data['body']),
-				#	expect(data['sources']) { |sources|
-				#		liquid_tag('contentfor', 'hero',
-				#			md_h('Sources', 2),
-				#			md_ol(data['sources'].map{ |source|
-				#				md_link(
-				#					"<cite>" + source['title'] + "</cite>" +
-				#					(source['author'].present? ? ", " + source['author'] : ''),
-				#					source['url'])
-				#			})
-				#		)
-				#	}
-				#])
+				#@write.with(Writers::Markdown)
+				[
+					Writers::Markdown.p(data['body']),
+					data.dial['sources'].call { |sources|
+						Writers::Liquid.tag('contentfor', 'hero',
+							Writers::Markdown.h('Sources', 2),
+							Writers::Markdown.ol(data['sources'].map { |source|
+								#source = source['source']
+								Writers::Markdown.link(
+									"<cite>" + source['source']['title'] + "</cite>" +
+									(source['source']['author'].present? ? ", " + source['source']['author'] : ''),
+									source['source']['url']
+								)
+							})
+						)
+					}
+				]
 			end
 
 			def partials(id, meta, data, locale)
