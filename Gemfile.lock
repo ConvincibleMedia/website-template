@@ -1,18 +1,37 @@
+PATH
+  remote: ../Ruby Gems/key_dial
+  specs:
+    key_dial (1.1.0)
+
+PATH
+  remote: ../transformer
+  specs:
+    transformer (0.1.0)
+      activesupport (~> 5.2.2)
+      demand (>= 1.1.0)
+      dotenv (~> 2.6.0)
+      ice_nine (~> 0.11.2)
+      key_dial (>= 1.0.0)
+      rainbow
+      safe_yaml (~> 1.0.4)
+      thor (~> 0.20.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.1)
+    activesupport (5.2.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    awesome_print (1.8.0)
+    boolean (1.0.1)
     cacert (0.5.0)
+    coderay (1.1.2)
     colorator (1.1.0)
-    concurrent-ruby (1.0.5)
-    dato (0.6.8)
+    concurrent-ruby (1.1.4)
+    dato (0.6.18)
       activesupport (>= 4.2.7)
       addressable
       cacert
@@ -27,9 +46,12 @@ GEM
       pusher-client
       thor
       toml
+    demand (1.1.0)
+      activesupport (~> 5.2.2)
+      boolean (~> 1.0.1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.5.0)
+    dotenv (2.6.0)
     downloadr (0.0.41)
       addressable (~> 2.3)
       rest-client (~> 1.7)
@@ -37,21 +59,22 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    faraday (0.15.2)
+    faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.12.2)
+    faraday_middleware (0.13.0)
       faraday (>= 0.7.4, < 1.0)
-    fastimage (2.1.4)
-    ffi (1.9.25)
+    fastimage (2.1.5)
+    ffi (1.10.0)
     forwardable-extended (2.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    imgix (1.1.0)
+    ice_nine (0.11.2)
+    imgix (1.2.2)
       addressable
-    jekyll (3.8.3)
+    jekyll (3.8.5)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -66,47 +89,52 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
-    jekyll-watch (2.0.0)
+    jekyll-watch (2.1.2)
       listen (~> 3.0)
     json (2.1.0)
-    json_schema (0.19.1)
+    json_schema (0.20.1)
     kramdown (1.17.0)
-    liquid (4.0.0)
+    liquid (4.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
+    method_source (0.9.2)
     mime-types (2.99.3)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nokogiri (1.8.4)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.1)
+      mini_portile2 (~> 2.4.0)
     parslet (1.8.2)
-    pathutil (0.16.1)
+    pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.3)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
+    rainbow (3.0.0)
     rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rouge (3.2.1)
+    rouge (3.3.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.5.7)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    thor (0.20.0)
+    thor (0.20.3)
     thread_safe (0.3.6)
     toml (0.2.0)
       parslet (~> 1.8.0)
@@ -122,11 +150,13 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  awesome_print
   dato
   i18n
   jekyll
+  key_dial!
   nokogiri
+  pry
+  transformer!
 
 BUNDLED WITH
-   1.16.4
+   1.17.2

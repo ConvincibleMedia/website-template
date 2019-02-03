@@ -2,9 +2,10 @@ ssg: jekyll #Will look for this.rb
 cms: dato
 paths:
     root: '../' # All file paths from here on are relative to root
-    source: 'source'
-url:                           "//localhost:4000"
-I18n: # Internationalisation settings
+    source: 'source     '
+url: "//localhost:4000"
+i18n: # Internationalisation settings
+   locales: [dsf, en, es, sdf]
    missing: # What happens when a page is defined in some languages but not others?
       force: false
       # false = do not create a page if language missing

@@ -100,9 +100,7 @@ def matches(needle, haystack)
 	 return matches
 end
 
-def inlinify(str)
-	return str.to_s.gsub(/\s*[\r\n]\s*+/, ' ').strip
-end
+require 'facets/string/squish'
 
 PATH_UNSAFE = Regexp.new('[' + Regexp.escape('<>:"/\|?*') + ']')
 PATH_SEP = '/'
@@ -167,10 +165,7 @@ end
 
 
 # CORE EXTENSION
-
-module Boolean; end
-class TrueClass; include Boolean; end
-class FalseClass; include Boolean; end
+require 'boolean'
 
 class String
 	def strip_of(chars, num = 0)

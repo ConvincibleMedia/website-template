@@ -1,4 +1,4 @@
-TRANSFORM['social'] = lambda do |id, meta, data|
+@templates['social'] = lambda do |id, meta, data|
 	{
 		frontmatter: nil,
 		data: {

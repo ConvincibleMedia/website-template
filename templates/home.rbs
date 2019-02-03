@@ -1,4 +1,4 @@
-TRANSFORM['home'] = lambda do |id, meta, data|
+@templates['home'] = lambda do |id, meta, data|
 	{
 		file: {
 			path: '/'

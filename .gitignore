@@ -1,12 +1,30 @@
+# Essential
 .git
 .env
+
+# Windows
 *.lnk
 *.db
 *.ini
+
+# Temp/cache/logs
 *.log
 *.map
 .jekyll-metadata
-node_modules
-node_modules/
 .sass-cache/
 .jekyll-cache/
+/tmp/
+.rspec_status
+*/cache/
+
+# Working files/dirs
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+
+# Public output
+/public/

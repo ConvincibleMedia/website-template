@@ -1,4 +1,4 @@
-TRANSFORM['product'] = lambda do |id, meta, data|
+@templates['product'] = lambda do |id, meta, data|
 	{
 		frontmatter: {
 			'data' => {

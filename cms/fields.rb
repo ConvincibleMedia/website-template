@@ -1,0 +1,5 @@
+{
+	'article' => {
+		'text' => :'text/html'
+	}
+}

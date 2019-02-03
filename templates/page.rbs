@@ -1,5 +1,5 @@
 #PARENTAGE['page'] = 'home'
-TRANSFORM['page'] = lambda do |id, meta, data|
+@templates['page'] = lambda do |id, meta, data|
 	frontmatter = {}
 	expect(data['publish_date']) { |e| frontmatter['date'] = e }
 	{
