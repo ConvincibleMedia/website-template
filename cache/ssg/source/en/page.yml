@@ -1,0 +1,85 @@
+---
+'318492':
+  Page:
+    :slug: contact
+    :file:
+      :path: _pages/en/
+      :name: contactmd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: Text = You can contact us... if you like.
+'318491':
+  Page:
+    :slug: level-2
+    :file:
+      :path: _pages/en/about
+      :name: level-2md
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: "{}"
+'318489':
+  Page:
+    :slug: level-3
+    :file:
+      :path: _pages/en/about/background
+      :name: level-3md
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: |-
+      We are opening on :.
+
+      It's gonna be huge!
+
+      Check out our gallery:
+
+      ["280676"]
+'318490':
+  Page:
+    :slug: level-4
+    :file:
+      :path: _pages/en/about/background/level-3
+      :name: level-4md
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: "{}"
+'86956':
+  Page:
+    :slug: about
+    :file:
+      :path: _pages/en/
+      :name: aboutmd
+      :type: :markdown
+    :metadata:
+      :published: '2018-06-01T16:05:00+01:00'
+    :content: |-
+      Text = Discover the wonders of this place.
+
+      We are opening on :2018-06-20.
+
+      It's gonna be huge!
+
+      Check out our gallery:
+
+      ["280685", "280681"]
+
+      Article: 275598
+
+      Location:
+'313873':
+  Page:
+    :slug: background
+    :file:
+      :path: _pages/en/about
+      :name: backgroundmd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: |-
+      > Veni, vidi, vici!
+      > <cite>Julius Caesar</cite>
+
+      Text = So began a great story!

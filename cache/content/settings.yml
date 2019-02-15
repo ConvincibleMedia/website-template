@@ -1,0 +1,27 @@
+---
+:title: &1
+  en: Exemplary Groceries
+  fr: Exemplé de Grociers
+:url:
+  :site: "//exemplary.netlify.com/"
+  :assets: "//www.datocms-assets.com/"
+:locales:
+- en
+- es
+- ar
+- bn
+- fr
+- hi
+- pt
+- ru
+- zh
+:seo:
+  :title: *1
+  :description:
+    en: This is an example website from convincible.media
+    fr: C'est un webpage de example.
+  :image: {}
+  :suffix:
+    en: " - (Example Website)"
+    fr: " - (Websité Exemple)"
+  :hidden: true

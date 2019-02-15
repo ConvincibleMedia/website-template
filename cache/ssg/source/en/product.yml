@@ -1,0 +1,105 @@
+---
+'86973':
+  Product:
+    :slug: peaches
+    :file:
+      :path: _pages/en/products/
+      :name: peachesmd
+      :type: :markdown
+    :metadata:
+      data:
+        image: '280675'
+        colour: 
+        available: 
+        price: 
+    :content: |-
+      <p>The peach (<a href="1">Prunus persica</a>) i...
+
+      <!--{% gallery %}-->
+      ![image](280676)
+      ![image](280677)
+      <!--{% endgallery %}-->
+'86965':
+  Product:
+    :slug: raspberries
+    :file:
+      :path: _pages/en/products/
+      :name: raspberriesmd
+      :type: :markdown
+    :metadata:
+      data:
+        image: '280680'
+        colour: 
+        available: 
+        price: 
+    :content: |-
+      <p>The raspberry is the edible fruit of a multi...
+
+      <!--{% gallery %}-->
+      ![image](280681)
+      ![image](280682)
+      <!--{% endgallery %}-->
+'86963':
+  Product:
+    :slug: apricots
+    :file:
+      :path: _pages/en/products/
+      :name: apricotsmd
+      :type: :markdown
+    :metadata:
+      data:
+        image: '280671'
+        colour: 
+        available: 
+        price: 
+    :content: |-
+      <p>An apricot is a fruit, or the <strong>tree</...
+
+      <!--{% gallery %}-->
+      ![image](280672)
+      ![image](280673)
+      <!--{% endgallery %}-->
+'86971':
+  Product:
+    :slug: oranges
+    :file:
+      :path: _pages/en/products/
+      :name: orangesmd
+      :type: :markdown
+    :metadata:
+      data:
+        image: '280667'
+        colour: "#8c4141"
+        available: 25
+        price: 13.99
+    :content: |-
+      <p>The orange is the fruit of the citrus specie...
+
+      <!--{% gallery %}-->
+      ![image](280668)
+      ![image](280669)
+      <!--{% endgallery %}-->
+
+      <!--{% map %}-->
+      [Map Link](geo:40.7449698,-73.99525519999997)
+      <!--{% endmap %}-->
+'86961':
+  Product:
+    :slug: tomatoes
+    :file:
+      :path: _pages/en/products/
+      :name: tomatoesmd
+      :type: :markdown
+    :metadata:
+      data:
+        image: '280685'
+        colour: 
+        available: 
+        price: 
+    :content: |-
+      <p>The tomato is the edible, often red, fruit/b...
+
+      <!--{% gallery %}-->
+      ![image](280686)
+      ![image](280687)
+      <!--{% endgallery %}-->

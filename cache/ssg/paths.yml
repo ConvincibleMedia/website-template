@@ -1,0 +1,52 @@
+---
+_data:
+  categoriesyml: _data/categoriesyml
+  socialyml: _data/socialyml
+_pages:
+  en:
+    contactmd: _pages/en/contactmd
+    about:
+      level-2md: _pages/en/about/level-2md
+      background:
+        level-3md: _pages/en/about/background/level-3md
+        level-3:
+          level-4md: _pages/en/about/background/level-3/level-4md
+      backgroundmd: _pages/en/about/backgroundmd
+    aboutmd: _pages/en/aboutmd
+    articles:
+      fgffmd: _pages/en/articles/fgffmd
+      newmd: _pages/en/articles/newmd
+      fgfmd: _pages/en/articles/fgfmd
+      dfvfvmd: _pages/en/articles/dfvfvmd
+      orange-articlemd: _pages/en/articles/orange-articlemd
+      275598md: _pages/en/articles/275598md
+    indexmd: _pages/en/indexmd
+    products:
+      peachesmd: _pages/en/products/peachesmd
+      raspberriesmd: _pages/en/products/raspberriesmd
+      apricotsmd: _pages/en/products/apricotsmd
+      orangesmd: _pages/en/products/orangesmd
+      tomatoesmd: _pages/en/products/tomatoesmd
+  fr:
+    backgroundiere:
+      level-le-quatremd: _pages/fr/backgroundiere/level-le-quatremd
+    backgroundieremd: _pages/fr/backgroundieremd
+    articles:
+      oranges-en-francemd: _pages/fr/articles/oranges-en-francemd
+  zh:
+    background-la:
+      level-4-lamd: _pages/zh/background-la/level-4-lamd
+    background-lamd: _pages/zh/background-lamd
+    articles:
+      275949md: _pages/zh/articles/275949md
+      wing-wang-wongmd: _pages/zh/articles/wing-wang-wongmd
+  ar:
+    backgroundalahumd: _pages/ar/backgroundalahumd
+    articles:
+      arabicmd: _pages/ar/articles/arabicmd
+      amahu-alahu-kalahumd: _pages/ar/articles/amahu-alahu-kalahumd
+_includes:
+  social:
+    instagramjson: _includes/social/instagramjson
+    facebookjson: _includes/social/facebookjson
+    twitterjson: _includes/social/twitterjson

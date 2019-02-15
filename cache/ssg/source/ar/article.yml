@@ -1,0 +1,37 @@
+---
+'659912':
+  Article:
+    :slug: arabic
+    :file:
+      :path: _pages/ar/articles/
+      :name: arabicmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+
+      <!--{% endcontentfor %}-->
+'275598':
+  Article:
+    :slug: amahu-alahu-kalahu
+    :file:
+      :path: _pages/ar/articles/
+      :name: amahu-alahu-kalahumd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <p>الطماطم هي الصالحة للأكل ، وغالبا ما تكون حم...
+
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+      <!--{% endcontentfor %}-->

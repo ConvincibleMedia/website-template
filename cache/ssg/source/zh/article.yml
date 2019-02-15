@@ -1,0 +1,40 @@
+---
+'275949':
+  Article:
+    :slug: '275949'
+    :file:
+      :path: _pages/zh/articles/
+      :name: 275949md
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: '280667'
+        :quoted:
+        - Mr Oranges
+        - Mrs Orange
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+      2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+      <!--{% endcontentfor %}-->
+'275598':
+  Article:
+    :slug: wing-wang-wong
+    :file:
+      :path: _pages/zh/articles/
+      :name: wing-wang-wongmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <p>番茄是通常称为番茄植物的茄属植物番茄（Solanum lycopersicum）的可食用...
+
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+      <!--{% endcontentfor %}-->

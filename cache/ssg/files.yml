@@ -1,0 +1,198 @@
+---
+_data/categoriesyml: |-
+  {"Books"=>{"description"=>"Get reading today!", "parent"=>nil, "subcategories"=>nil}}
+
+  {"Clothes"=>{"description"=>"All the clothes you could ever want!", "parent"=>nil, "subcategories"=>nil}}
+
+  {"Cooking"=>{"description"=>"Yum yum!", "parent"=>"659995", "subcategories"=>nil}}
+
+  {"Crime"=>{"description"=>"Whodunnit?!", "parent"=>"659992", "subcategories"=>nil}}
+
+  {"Fiction"=>{"description"=>"Get lost in something made up and pointless.", "parent"=>"659990", "subcategories"=>nil}}
+
+  {"Mens"=>{"description"=>"Gruff and masculine.", "parent"=>"659987", "subcategories"=>nil}}
+
+  {"Mystery"=>{"description"=>"Ooooooh?", "parent"=>"659992", "subcategories"=>nil}}
+
+  {"Non-Fiction"=>{"description"=>"Here are the facts.", "parent"=>"659990", "subcategories"=>nil}}
+
+  {"Womens"=>{"description"=>"Delicate as dandelions.", "parent"=>"659987", "subcategories"=>nil}}
+_pages/en/contactmd: Text = You can contact us... if you like.
+_pages/en/about/level-2md: "{}"
+_pages/en/about/background/level-3md: |-
+  We are opening on :.
+
+  It's gonna be huge!
+
+  Check out our gallery:
+
+  ["280676"]
+_pages/en/about/background/level-3/level-4md: "{}"
+_pages/en/aboutmd: |-
+  Text = Discover the wonders of this place.
+
+  We are opening on :2018-06-20.
+
+  It's gonna be huge!
+
+  Check out our gallery:
+
+  ["280685", "280681"]
+
+  Article: 275598
+
+  Location:
+_pages/en/about/backgroundmd: |-
+  > Veni, vidi, vici!
+  > <cite>Julius Caesar</cite>
+
+  Text = So began a great story!
+_pages/en/articles/fgffmd: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+
+  <!--{% endcontentfor %}-->
+_pages/en/articles/newmd: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+
+  <!--{% endcontentfor %}-->
+_pages/en/articles/fgfmd: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+
+  <!--{% endcontentfor %}-->
+_pages/en/articles/dfvfvmd: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+
+  <!--{% endcontentfor %}-->
+_pages/en/articles/orange-articlemd: |-
+  <p>The orange is the fruit of the citrus specie...
+
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+  2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+  <!--{% endcontentfor %}-->
+_pages/en/articles/275598md: |-
+  <p>The tomato is the edible, often red, fruit/b...
+
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+  <!--{% endcontentfor %}-->
+_data/socialyml: |-
+  {"profile"=>"Facebook", "url"=>"https://www.facebook.com/xxx"}
+
+  {"profile"=>"Instagram", "url"=>"https://instagram.com/xxx/"}
+
+  {"profile"=>"Twitter", "url"=>"https://twitter.com/xxx"}
+_includes/social/instagramjson: "{\n\t\"a\": \"b\"\n}"
+_includes/social/facebookjson: "{\n\t\"id\": \"275949\",\n\t\"createdAt\": \"2018-06-14T14:51:54.757Z\",\n\t\"updatedAt\":
+  \"2018-06-14T14:51:54.903Z\",\n\t\"isValid\": true,\n\t\"title\": {\n\t\t\"en\":
+  \"All about the humble Orange\",\n\t\t\"fr\": \"Tout sur l'humble Orange\"\n\t}\n}"
+_includes/social/twitterjson: 
+_pages/en/indexmd: |-
+  <p><strong>Exemplary</strong> Groceries delivers the finest local produce to individuals and businesses in the area.</p>
+
+  <!--{% video youtube wSf1BDTCorU %}-->
+  [![Early Morning Vegetables Market \| Amazing Fresh Vegetables Available Bengali Market](https://i.ytimg.com/vi/wSf1BDTCorU/hqdefault.jpg)](https://www.youtube.com/watch?v=wSf1BDTCorU)
+  <!--{% endvideo %}-->
+
+  {% include_relative index_form.html %}
+_pages/en/products/peachesmd: |-
+  <p>The peach (<a href="1">Prunus persica</a>) i...
+
+  <!--{% gallery %}-->
+  ![image](280676)
+  ![image](280677)
+  <!--{% endgallery %}-->
+_pages/en/products/raspberriesmd: |-
+  <p>The raspberry is the edible fruit of a multi...
+
+  <!--{% gallery %}-->
+  ![image](280681)
+  ![image](280682)
+  <!--{% endgallery %}-->
+_pages/en/products/apricotsmd: |-
+  <p>An apricot is a fruit, or the <strong>tree</...
+
+  <!--{% gallery %}-->
+  ![image](280672)
+  ![image](280673)
+  <!--{% endgallery %}-->
+_pages/en/products/orangesmd: |-
+  <p>The orange is the fruit of the citrus specie...
+
+  <!--{% gallery %}-->
+  ![image](280668)
+  ![image](280669)
+  <!--{% endgallery %}-->
+
+  <!--{% map %}-->
+  [Map Link](geo:40.7449698,-73.99525519999997)
+  <!--{% endmap %}-->
+_pages/en/products/tomatoesmd: |-
+  <p>The tomato is the edible, often red, fruit/b...
+
+  <!--{% gallery %}-->
+  ![image](280686)
+  ![image](280687)
+  <!--{% endgallery %}-->
+_pages/fr/backgroundiere/level-le-quatremd: Text = Frnech level 4
+_pages/fr/backgroundieremd: Text = Je suis Francais! Et puis!
+_pages/fr/articles/oranges-en-francemd: |-
+  <p>L'orange est le fruit de l'agrume Citrus &ti...
+
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+  2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+  <!--{% endcontentfor %}-->
+_pages/zh/background-la/level-4-lamd: Text = This is Chinese LEvel 4.
+_pages/zh/background-lamd: |-
+  > Wise man is wise.
+  > <cite>Confucius</cite>
+_pages/zh/articles/275949md: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+  2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+  <!--{% endcontentfor %}-->
+_pages/zh/articles/wing-wang-wongmd: |-
+  <p>番茄是通常称为番茄植物的茄属植物番茄（Solanum lycopersicum）的可食用...
+
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+  <!--{% endcontentfor %}-->
+_pages/ar/backgroundalahumd: |-
+  We are opening on :2018-06-13.
+
+  Check out our gallery:
+
+  ["312131"]
+_pages/ar/articles/arabicmd: |-
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+
+  <!--{% endcontentfor %}-->
+_pages/ar/articles/amahu-alahu-kalahumd: |-
+  <p>الطماطم هي الصالحة للأكل ، وغالبا ما تكون حم...
+
+  <!--{% contentfor hero %}-->
+  ## Sources
+
+  1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+  <!--{% endcontentfor %}-->

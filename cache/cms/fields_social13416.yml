@@ -1,0 +1,84 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136148'
+  label: Configuration
+  field_type: json
+  api_key: config
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 3
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: json
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13416'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51596'
+  label: URL
+  field_type: string
+  api_key: url
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: single_line
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      heading: false
+    addons: []
+  default_value: 
+  item_type: '13416'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51595'
+  label: Profile
+  field_type: string
+  api_key: profile
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    unique: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    enum: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      values:
+      - Twitter
+      - Facebook
+      - Google Plus
+      - Instagram
+      - Email
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: single_line
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      heading: false
+    addons: []
+  default_value: 
+  item_type: '13416'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137709'
+  label: Markdown
+  field_type: text
+  api_key: markdown
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 4
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: markdown
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      toolbar:
+      - heading
+      - bold
+      - italic
+      - strikethrough
+      - unordered_list
+      - ordered_list
+      - quote
+      - link
+      - image
+    addons: []
+    type: markdown
+  default_value: 
+  item_type: '13416'

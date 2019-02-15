@@ -1,0 +1,26 @@
+---
+'86955':
+  Home:
+    :slug: index
+    :file:
+      :path: _pages/en/
+      :name: indexmd
+      :type: :markdown
+    :metadata:
+      title: Home
+      slug: index
+      seo:
+        title: Exemplary Groceries Home Page
+        description: Exemplary Groceries delivers the finest local produce to individuals
+          and businesses in the area.
+        image: '289892'
+      features:
+      - form
+    :content: |-
+      <p><strong>Exemplary</strong> Groceries delivers the finest local produce to individuals and businesses in the area.</p>
+
+      <!--{% video youtube wSf1BDTCorU %}-->
+      [![Early Morning Vegetables Market \| Amazing Fresh Vegetables Available Bengali Market](https://i.ytimg.com/vi/wSf1BDTCorU/hqdefault.jpg)](https://www.youtube.com/watch?v=wSf1BDTCorU)
+      <!--{% endvideo %}-->
+
+      {% include_relative index_form.html %}

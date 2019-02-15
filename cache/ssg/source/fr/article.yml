@@ -1,0 +1,23 @@
+---
+'275949':
+  Article:
+    :slug: oranges-en-france
+    :file:
+      :path: _pages/fr/articles/
+      :name: oranges-en-francemd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: '280667'
+        :quoted:
+        - Mr Oranges
+        - Mrs Orange
+    :content: |-
+      <p>L'orange est le fruit de l'agrume Citrus &ti...
+
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+      2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+      <!--{% endcontentfor %}-->

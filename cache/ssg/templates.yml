@@ -1,0 +1,59 @@
+---
+:main:
+  article:
+    Article:
+      :class: !ruby/class 'Transformer::Templates::Article'
+      :methods:
+      - :slug
+      - :file
+      - :metadata
+      - :content
+  category:
+    Category:
+      :class: !ruby/class 'Transformer::Templates::Category'
+      :methods:
+      - :slug
+      - :file
+      - :content
+  home:
+    Home:
+      :class: !ruby/class 'Transformer::Templates::Home'
+      :methods:
+      - :slug
+      - :file
+      - :metadata
+      - :content
+  page:
+    Page:
+      :class: !ruby/class 'Transformer::Templates::Page'
+      :methods:
+      - :slug
+      - :file
+      - :metadata
+      - :content
+  product:
+    Product:
+      :class: !ruby/class 'Transformer::Templates::Product'
+      :methods:
+      - :slug
+      - :file
+      - :metadata
+      - :content
+  social:
+    Social:
+      :class: !ruby/class 'Transformer::Templates::Social'
+      :methods:
+      - :slug
+      - :file
+      - :content
+    SocialConfig:
+      :class: !ruby/class 'Transformer::Templates::SocialConfig'
+      :methods:
+      - :slug
+      - :file
+      - :content
+:structs:
+  blockquote: !ruby/class 'Transformer::Templates::Blockquote'
+  paragraph: !ruby/class 'Transformer::Templates::Paragraph'
+  place: !ruby/class 'Transformer::Templates::Place'
+  related: !ruby/class 'Transformer::Templates::Related'

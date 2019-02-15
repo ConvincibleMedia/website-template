@@ -1,0 +1,46 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137757'
+  label: Gallery
+  field_type: gallery
+  api_key: gallery
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: gallery
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '36059'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137758'
+  label: Opening
+  field_type: date
+  api_key: opening
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: date_picker
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '36059'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137759'
+  label: Featured
+  field_type: boolean
+  api_key: featured
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 3
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: boolean
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '36059'

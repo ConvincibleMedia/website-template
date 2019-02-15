@@ -1,0 +1,226 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '61191'
+  name: Category
+  singleton: false
+  sortable: false
+  api_key: category
+  ordering_direction: 
+  tree: true
+  modular_block: false
+  draft_mode_active: false
+  all_locales_required: false
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '233693'
+  - '233695'
+  title_field: '233693'
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '35642'
+  name: Source
+  singleton: false
+  sortable: false
+  api_key: source
+  ordering_direction: 
+  tree: false
+  modular_block: true
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '136160'
+  - '136161'
+  - '136162'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '13415'
+  name: Page
+  singleton: false
+  sortable: false
+  api_key: page
+  ordering_direction: 
+  tree: true
+  modular_block: false
+  draft_mode_active: false
+  all_locales_required: false
+  collection_appeareance: compact
+  has_singleton_item: true
+  singleton_item: '86956'
+  fields:
+  - '51594'
+  - '137756'
+  - '136149'
+  title_field: '51594'
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '19057'
+  name: Article
+  singleton: false
+  sortable: false
+  api_key: article
+  ordering_direction: 
+  tree: true
+  modular_block: false
+  draft_mode_active: false
+  all_locales_required: false
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '72605'
+  - '136472'
+  - '122035'
+  - '72606'
+  - '136159'
+  title_field: '72605'
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '22475'
+  name: Related
+  singleton: false
+  sortable: false
+  api_key: related
+  ordering_direction: 
+  tree: false
+  modular_block: true
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '137760'
+  - '137761'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '19058'
+  name: Paragraph
+  singleton: false
+  sortable: false
+  api_key: paragraph
+  ordering_direction: 
+  tree: false
+  modular_block: true
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '137762'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '13416'
+  name: Social
+  singleton: false
+  sortable: true
+  api_key: social
+  ordering_direction: 
+  tree: false
+  modular_block: false
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '51595'
+  - '51596'
+  - '136148'
+  - '137709'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '36059'
+  name: Place
+  singleton: false
+  sortable: false
+  api_key: place
+  ordering_direction: 
+  tree: false
+  modular_block: true
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '137757'
+  - '137758'
+  - '137759'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '14343'
+  name: Blockquote
+  singleton: false
+  sortable: false
+  api_key: blockquote
+  ordering_direction: 
+  tree: false
+  modular_block: true
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '137763'
+  - '137764'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '13414'
+  name: Home
+  singleton: true
+  sortable: false
+  api_key: home
+  ordering_direction: 
+  tree: false
+  modular_block: false
+  draft_mode_active: false
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: true
+  singleton_item: '86955'
+  fields:
+  - '51590'
+  - '136086'
+  - '136157'
+  - '138504'
+  title_field: 
+  ordering_field: 
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '13417'
+  name: Product
+  singleton: false
+  sortable: true
+  api_key: product
+  ordering_direction: 
+  tree: false
+  modular_block: false
+  draft_mode_active: true
+  all_locales_required: true
+  collection_appeareance: compact
+  has_singleton_item: false
+  singleton_item: 
+  fields:
+  - '51602'
+  - '51601'
+  - '51598'
+  - '51599'
+  - '136153'
+  - '136152'
+  - '136154'
+  - '136151'
+  - '136158'
+  title_field: '51602'
+  ordering_field: 

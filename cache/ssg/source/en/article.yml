@@ -1,0 +1,110 @@
+---
+'323915':
+  Article:
+    :slug: fgff
+    :file:
+      :path: _pages/en/articles/
+      :name: fgffmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+
+      <!--{% endcontentfor %}-->
+'659912':
+  Article:
+    :slug: new
+    :file:
+      :path: _pages/en/articles/
+      :name: newmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+
+      <!--{% endcontentfor %}-->
+'323917':
+  Article:
+    :slug: fgf
+    :file:
+      :path: _pages/en/articles/
+      :name: fgfmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+
+      <!--{% endcontentfor %}-->
+'323916':
+  Article:
+    :slug: dfvfv
+    :file:
+      :path: _pages/en/articles/
+      :name: dfvfvmd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: 
+        :quoted: []
+    :content: |-
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+
+      <!--{% endcontentfor %}-->
+'275949':
+  Article:
+    :slug: orange-article
+    :file:
+      :path: _pages/en/articles/
+      :name: orange-articlemd
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: '280668'
+        :quoted:
+        - Mr Oranges
+        - Mrs Orange
+    :content: |-
+      <p>The orange is the fruit of the citrus specie...
+
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Orange Journal</cite>, Mr Oranges](http://www.oranges.com)
+      2. [<cite>Journal of Oranges</cite>, Mrs Orange](http://www.oranges.co.uk)
+      <!--{% endcontentfor %}-->
+'275598':
+  Article:
+    :slug: '275598'
+    :file:
+      :path: _pages/en/articles/
+      :name: 275598md
+      :type: :markdown
+    :metadata:
+      :reference:
+        :image: '280686'
+        :quoted: []
+    :content: |-
+      <p>The tomato is the edible, often red, fruit/b...
+
+      <!--{% contentfor hero %}-->
+      ## Sources
+
+      1. [<cite>Tomato Journal</cite>](http://www.tomato.com)
+      <!--{% endcontentfor %}-->

@@ -1,0 +1,165 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136158'
+  label: Address
+  field_type: slug
+  api_key: slug
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    unique: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    slug_title_field: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      title_field_id: '51602'
+  position: 10
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: slug
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      url_prefix: 
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136154'
+  label: Available
+  field_type: integer
+  api_key: available
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 8
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: integer
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136153'
+  label: Origin
+  field_type: lat_lon
+  api_key: origin
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 6
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: map
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136152'
+  label: Colour Scheme
+  field_type: color
+  api_key: colour_scheme
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 7
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: color_picker
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      enable_alpha: false
+      preset_colors:
+      - ''
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136151'
+  label: Price
+  field_type: float
+  api_key: price
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 9
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: float
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51599'
+  label: Gallery
+  field_type: gallery
+  api_key: gallery
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    extension: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      predefined_list: image
+  position: 5
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: gallery
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51601'
+  label: Image
+  field_type: file
+  api_key: image
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    extension: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      predefined_list: image
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: file
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51602'
+  label: Name
+  field_type: string
+  api_key: title
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: single_line
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      heading: true
+    addons: []
+    type: title
+  default_value: 
+  item_type: '13417'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51598'
+  label: Description
+  field_type: text
+  api_key: description
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 4
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: wysiwyg
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      toolbar:
+      - format
+      - bold
+      - italic
+      - strikethrough
+      - ordered_list
+      - unordered_list
+      - quote
+      - table
+      - link
+      - image
+      - show_source
+    addons: []
+    type: wysiwyg
+  default_value: 
+  item_type: '13417'

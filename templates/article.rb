@@ -2,39 +2,35 @@ module Transformer
 	module Templates
 		class Article < Template
 
-			def initialize
-				super
+			def slug(this, info, data, locale)
+				data['slug']
 			end
 
-			def slug(from)
-				@slug ||= from.to_s.strip
-			end
-
-			def file(id, meta, data, locale)
+			def file(this, info, data, locale)
 				{
 					path: "_pages/#{locale}/articles/",
-					name: slug(data['slug']), #+ '.md' - not required as Jekyll handler will ensure
+					name: this[:slug] + '.md',
 					type: :markdown
 				}
 			end
 
-			def frontmatter(id, meta, data, locale)
+			def metadata(this, info, data, locale)
 				{
-					data: {
+					reference: {
 						image: data['image'],
 						quoted: data.dial['sources'].call([]) { |sources|
 							sources.map { |source|
 								source.dial['source']['author'].call
-							}.reject(&:nil?) if sources.is_a?(Array)
+							}.reject(&:blank?) if sources.is_a?(Array)
 						}
 					}
 				}
 			end
 
-			def content(id, meta, data, locale)
+			def content(this, info, data, locale)
 				#@write.with(Writers::Markdown)
 				[
-					Writers::Markdown.p(data['body']),
+					Writers::Markdown.p(data['body'].to_s.truncate(50)),
 					data.dial['sources'].call { |sources|
 						Writers::Liquid.tag('contentfor', 'hero',
 							Writers::Markdown.h('Sources', 2),
@@ -48,11 +44,7 @@ module Transformer
 							})
 						)
 					}
-				]
-			end
-
-			def partials(id, meta, data, locale)
-				nil
+				].reject(&:blank?).join("\n\n")
 			end
 
 		end

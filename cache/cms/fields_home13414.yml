@@ -1,0 +1,68 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136086'
+  label: Video
+  field_type: video
+  api_key: video
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 3
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: video
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13414'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51590'
+  label: Intro
+  field_type: text
+  api_key: intro
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: wysiwyg
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      toolbar:
+      - bold
+      - italic
+      - strikethrough
+    addons: []
+    type: wysiwyg
+  default_value: 
+  item_type: '13414'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '138504'
+  label: Form Code
+  field_type: text
+  api_key: form
+  hint: Must be valid HTML
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 5
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: textarea
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+    type: textarea
+  default_value: 
+  item_type: '13414'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136157'
+  label: SEO
+  field_type: seo
+  api_key: seo
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 4
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: seo
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '13414'

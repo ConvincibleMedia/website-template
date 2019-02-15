@@ -2,24 +2,28 @@ module Transformer
 	module Templates
 		class Page < Template
 
-			def initialize
-				super
+			def slug(this, info, data, locale)
+				data['title']
 			end
 
-			def file(id, meta, data, locale)
+			def file(this, info, data, locale)
 				{
-					path: "_pages/#{locale}/",
-					name: slug(data['slug']), #+ '.md' - not required as Jekyll handler will ensure
+					path: "_pages/#{locale}/" + slugs(info[:parents]),
+					name: data['title'] + '.md',
 					type: :markdown
 				}
 			end
 
-			def frontmatter(id, meta, data, locale)
-				demand(data['publish_date']) { |e| frontmatter['date'] = e }
+			def metadata(this, info, data, locale)
+				{
+					published: data['publish_date']
+				}
 			end
 
-			def content(id, meta, data, locale)
-				md_p(data['text'])
+			def content(this, info, data, locale)
+				Writers::Markdown.p(
+					structs(data['text'])
+				)
 			end
 
 		end

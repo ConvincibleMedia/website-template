@@ -2,33 +2,23 @@ module Transformer
 	module Templates
 		class Social < Template
 
-			def initialize
-				super
+			def slug(this, info, data, locale)
+				data['profile'].downcase
 			end
 
-			def file(id, meta, data, locale)
-				[
-					{
-						path: '_data/',
-						name: 'social', # One filename = concatenate all transforms
-						type: :yaml
-					},
-					{
-						path: '_includes/',
-						name: data['profile'],
-						type: 'json'
-					}
-				]
+			def file(this, info, data, locale)
+				{
+					path: '_data/',
+					name: 'social' + '.yml',
+					type: :yaml
+				}
 			end
 
-			def content(id, meta, data, locale)
-				[
-					{
-						'profile' => data['profile'],
-						'url' => data['url']
-					},
-					config['json']
-				]
+			def content(this, info, data, locale)
+				{
+					'profile' => data['profile'],
+					'url' => data['url']
+				}
 			end
 
 		end

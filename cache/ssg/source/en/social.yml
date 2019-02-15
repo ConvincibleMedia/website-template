@@ -1,0 +1,48 @@
+---
+'86959':
+  Social:
+    :slug: instagram
+    :file:
+      :path: _data/
+      :name: socialyml
+      :type: :yaml
+    :content: '{"profile"=>"Instagram", "url"=>"https://instagram.com/xxx/"}'
+  SocialConfig:
+    :slug: instagram
+    :file:
+      :path: _includes/social
+      :name: instagramjson
+      :type: json
+    :content: "{\n\t\"a\": \"b\"\n}"
+'86957':
+  Social:
+    :slug: facebook
+    :file:
+      :path: _data/
+      :name: socialyml
+      :type: :yaml
+    :content: '{"profile"=>"Facebook", "url"=>"https://www.facebook.com/xxx"}'
+  SocialConfig:
+    :slug: facebook
+    :file:
+      :path: _includes/social
+      :name: facebookjson
+      :type: json
+    :content: "{\n\t\"id\": \"275949\",\n\t\"createdAt\": \"2018-06-14T14:51:54.757Z\",\n\t\"updatedAt\":
+      \"2018-06-14T14:51:54.903Z\",\n\t\"isValid\": true,\n\t\"title\": {\n\t\t\"en\":
+      \"All about the humble Orange\",\n\t\t\"fr\": \"Tout sur l'humble Orange\"\n\t}\n}"
+'86958':
+  Social:
+    :slug: twitter
+    :file:
+      :path: _data/
+      :name: socialyml
+      :type: :yaml
+    :content: '{"profile"=>"Twitter", "url"=>"https://twitter.com/xxx"}'
+  SocialConfig:
+    :slug: twitter
+    :file:
+      :path: _includes/social
+      :name: twitterjson
+      :type: json
+    :content: 

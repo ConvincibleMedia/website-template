@@ -1,0 +1,23 @@
+---
+'318490':
+  Page:
+    :slug: level-4-la
+    :file:
+      :path: _pages/zh/background-la
+      :name: level-4-lamd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: Text = This is Chinese LEvel 4.
+'313873':
+  Page:
+    :slug: background-la
+    :file:
+      :path: _pages/zh/
+      :name: background-lamd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: |-
+      > Wise man is wise.
+      > <cite>Confucius</cite>

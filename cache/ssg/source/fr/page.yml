@@ -1,0 +1,21 @@
+---
+'318490':
+  Page:
+    :slug: level-le-quatre
+    :file:
+      :path: _pages/fr/backgroundiere
+      :name: level-le-quatremd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: Text = Frnech level 4
+'313873':
+  Page:
+    :slug: backgroundiere
+    :file:
+      :path: _pages/fr/
+      :name: backgroundieremd
+      :type: :markdown
+    :metadata:
+      :published: 
+    :content: Text = Je suis Francais! Et puis!

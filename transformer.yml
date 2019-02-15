@@ -3,6 +3,12 @@ cms: dato
 paths:
     root: '../' # All file paths from here on are relative to root
     source: 'source     '
+    allowed:
+      - _data
+      - _includes/partials
+      - _pages
+      - _root/sitemap.xml
+      - assets/img
 url: "//localhost:4000"
 i18n: # Internationalisation settings
    locales: [dsf, en, es, sdf]

@@ -2,47 +2,50 @@ module Transformer
 	module Templates
 		class Home < Template
 
-			def initialize
-				super
+			def slug(this, info, data, locale)
+				'index'
 			end
 
-			def file(id, meta, data, locale)
+			def file(this, info, data, locale)
 				{
 					path: "_pages/#{locale}/",
-					name: 'index', #+ '.md' - not required as Jekyll handler will ensure
+					name: 'index' + '.md',
 					type: :markdown
 				}
 			end
 
-			def frontmatter(id, meta, data, locale)
+			def metadata(this, info, data, locale)
 				{
-					KEY_TITLE => 'Home',
-					KEY_SLUG => 'index',
+					'title' => 'Home',
+					'slug' => 'index',
 					'seo' => {
-						'title' => expect_key(data, ['seo','title']),
-						'description' => expect_key(data, ['seo','description']),
-						'image' => expect_key(data, ['seo','image'])
+						'title' => data.dial['seo']['title'].call,
+						'description' => data.dial['seo']['description'].call,
+						'image' => data.dial['seo']['image'].call
 					},
 					'features' => ['form']
 				}
 			end
 
-			def content(id, meta, data, locale)
-				md_p([
+			def content(this, info, data, locale)
+				Writers::Markdown.p([
 					data['intro'],
-					liquid_tag(
+					Writers::Liquid.tag(
 						'video',
-						[expect_key(data,['video','provider']), expect_key(data,['video','provider_uid'])],
-						md_link(md_img(expect_key(data,['video','title']), expect_key(data,['video','thumbnail_url'])), expect_key(data,['video','url']))
+						[
+							data.dial['video']['provider'].call,
+							data.dial['video']['provider_uid'].call
+						],
+						Writers::Markdown.link(
+							Writers::Markdown.img(
+								data.dial['video']['title'].call,
+								data.dial['video']['thumbnail_url'].call
+							),
+							data.dial['video']['url'].call
+						)
 					),
-					md_partial('form.html')
+					Writers::Liquid.partial(this[:slug] + '_form.html')
 				])
-			end
-
-			def partials(id, meta, data, locale)
-				{
-					'form.html' => data['form']
-				}
 			end
 
 		end

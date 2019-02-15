@@ -1,0 +1,34 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137760'
+  label: Article
+  field_type: link
+  api_key: article
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    item_item_type: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      item_types:
+      - '19057'
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: link_select
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '22475'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137761'
+  label: Location
+  field_type: lat_lon
+  api_key: location
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: map
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+    addons: []
+  default_value: 
+  item_type: '22475'

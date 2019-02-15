@@ -1,0 +1,44 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '233695'
+  label: Description
+  field_type: text
+  api_key: description
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 2
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: markdown
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      toolbar:
+      - heading
+      - bold
+      - italic
+      - strikethrough
+      - unordered_list
+      - ordered_list
+      - quote
+      - link
+      - image
+      - fullscreen
+    addons: []
+    type: markdown
+  default_value: 
+  item_type: '61191'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '233693'
+  label: Name
+  field_type: string
+  api_key: name
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: single_line
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      heading: false
+    addons: []
+  default_value: 
+  item_type: '61191'

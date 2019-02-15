@@ -1,0 +1,58 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137756'
+  label: Text
+  field_type: rich_text
+  api_key: text
+  hint: 
+  localized: true
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    rich_text_blocks: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      item_types:
+      - '36059'
+      - '22475'
+      - '19058'
+      - '14343'
+  position: 4
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: rich_text
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      start_collapsed: false
+    addons: []
+  default_value: 
+  item_type: '13415'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '136149'
+  label: Publish Date
+  field_type: date_time
+  api_key: publish_date
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 6
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: date_time_picker
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      time_interval: 5
+      twentyfour_hour_format: false
+    addons: []
+  default_value: 
+  item_type: '13415'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '51594'
+  label: Title
+  field_type: string
+  api_key: title
+  hint: 
+  localized: true
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    required: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: single_line
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      heading: true
+    addons: []
+    type: title
+  default_value: 
+  item_type: '13415'

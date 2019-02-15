@@ -1,0 +1,215 @@
+---
+category:
+  :name: category
+  :section: :content
+  :size: :multiple
+  :parents: true
+  :fields:
+    description:
+      :id: '233695'
+      :localized: false
+      :type: :text/block
+      :size: :single
+    name:
+      :id: '233693'
+      :localized: false
+      :type: :text/line
+      :size: :single
+  :localized: []
+page:
+  :name: page
+  :section: :content
+  :size: :multiple
+  :parents: true
+  :fields:
+    text:
+      :id: '137756'
+      :localized: true
+      :type: :mixed
+      :size: :multiple
+      :mix:
+      - :embed
+      :embed:
+      - '36059'
+      - '22475'
+      - '19058'
+      - '14343'
+    publish_date:
+      :id: '136149'
+      :localized: false
+      :type: :date
+      :size: :single
+    title:
+      :id: '51594'
+      :localized: true
+      :type: :text/line
+      :size: :single
+  :localized:
+  - text
+  - title
+article:
+  :name: article
+  :section: :content
+  :size: :multiple
+  :parents: true
+  :fields:
+    sources:
+      :id: '136159'
+      :localized: false
+      :type: :mixed
+      :size: :multiple
+      :mix:
+      - :embed
+      :embed:
+      - '35642'
+    slug:
+      :id: '136472'
+      :localized: true
+      :type: :text/line
+      :size: :single
+    image:
+      :id: '122035'
+      :localized: true
+      :type: :resource
+      :size: :single
+    body:
+      :id: '72606'
+      :localized: true
+      :type: :text/block
+      :size: :single
+    title:
+      :id: '72605'
+      :localized: true
+      :type: :text/line
+      :size: :single
+  :localized:
+  - slug
+  - image
+  - body
+  - title
+social:
+  :name: social
+  :section: :content
+  :size: :multiple
+  :parents: false
+  :fields:
+    config:
+      :id: '136148'
+      :localized: false
+      :type: :raw
+      :size: :single
+    url:
+      :id: '51596'
+      :localized: false
+      :type: :text/line
+      :size: :single
+    profile:
+      :id: '51595'
+      :localized: false
+      :type: :text/line
+      :size: :single
+    markdown:
+      :id: '137709'
+      :localized: false
+      :type: :text/block
+      :size: :single
+  :localized: []
+home:
+  :name: home
+  :section: :content
+  :size: :single
+  :fields:
+    video:
+      :id: '136086'
+      :localized: false
+      :type: :struct
+      :size: :single
+      :struct:
+        url: :text/line
+        title: :text/line
+        width: :number/integer
+        height: :number/integer
+        provider: :text/line
+        provider_uid: :text/line
+        thumbnail_url: :text/line
+    intro:
+      :id: '51590'
+      :localized: false
+      :type: :text/block
+      :size: :single
+    form:
+      :id: '138504'
+      :localized: false
+      :type: :text/block
+      :size: :single
+    seo:
+      :id: '136157'
+      :localized: false
+      :type: :struct
+      :size: :single
+      :struct:
+        title: :text/line
+        image: :resource
+        description: :text/line
+        twitter_card: :text/line
+  :localized: []
+product:
+  :name: product
+  :section: :content
+  :size: :multiple
+  :parents: false
+  :fields:
+    slug:
+      :id: '136158'
+      :localized: false
+      :type: :text/line
+      :size: :single
+    available:
+      :id: '136154'
+      :localized: false
+      :type: :number/integer
+      :size: :single
+    origin:
+      :id: '136153'
+      :localized: false
+      :type: :struct
+      :size: :single
+      :struct:
+        latitude: :number/decimal
+        longitude: :number/decimal
+    colour_scheme:
+      :id: '136152'
+      :localized: false
+      :type: :struct
+      :size: :single
+      :struct:
+        red: :number/integer
+        green: :number/integer
+        blue: :number/integer
+        alpha: :number/integer
+    price:
+      :id: '136151'
+      :localized: false
+      :type: :number/decimal
+      :size: :single
+    gallery:
+      :id: '51599'
+      :localized: false
+      :type: :resource
+      :size: :multiple
+    image:
+      :id: '51601'
+      :localized: false
+      :type: :resource
+      :size: :single
+    title:
+      :id: '51602'
+      :localized: false
+      :type: :text/line
+      :size: :single
+    description:
+      :id: '51598'
+      :localized: false
+      :type: :text/block
+      :size: :single
+  :localized: []

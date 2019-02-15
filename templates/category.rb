@@ -2,32 +2,30 @@ module Transformer
 	module Templates
 		class Category < Template
 
-			def initialize
-				super
+			def slug(this, info, data, locale)
+				data['name']
 			end
 
-			def file(id, meta, data, locale)
+			def file(this, info, data, locale)
 				{
 					path: '_data/',
-					name: 'categories',
+					name: 'categories' + '.yml',
 					type: 'json',
 					nesting: {
-						parent: meta[:parent],
+						parent: info[:parent],
 						join_at: 'subcategories'
 					}
 				}
 			end
 
-			def content(id, meta, data, locale)
-				[
-					{
-						data['name'] => {
-							'description' => data['description'],
-							'parent' => meta[:parent],
-							'subcategories' => nil
-						}
+			def content(this, info, data, locale)
+				{
+					data['name'] => {
+						'description' => data['description'],
+						'parent' => info[:parent],
+						'subcategories' => nil
 					}
-				] # Returning an array and then concatenating files will join the arrays
+				}
 			end
 
 		end

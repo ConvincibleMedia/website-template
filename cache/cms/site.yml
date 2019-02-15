@@ -1,0 +1,100 @@
+--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+id: '3015'
+name: Exemplary Groceries
+locales:
+- en
+- fr
+- zh
+- ar
+- es
+- hi
+- ru
+- pt
+- bn
+theme: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  logo: 
+  dark_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 65
+    blue: 1
+    alpha: 255
+    green: 33
+  light_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 255
+    blue: 238
+    alpha: 255
+    green: 247
+  accent_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 226
+    blue: 20
+    alpha: 255
+    green: 162
+  primary_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 235
+    blue: 26
+    alpha: 255
+    green: 175
+domain: 
+internal_domain: exemplary.admin.datocms.com
+global_seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  en: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    site_name: Exemplary Groceries
+    fallback_seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      image: 
+      title: Groceries Page
+      description: This is an example website from convincible.media
+      twitter_card: summary
+    title_suffix: " - (Example Website)"
+    twitter_account: "@Exemplary"
+    facebook_page_url: https://www.facebook.com/ExemplaryGroceries
+  fr: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    site_name: Exemplé de Grociers
+    fallback_seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      image: 
+      title: Grocieres Page
+      description: C'est un webpage de example.
+      twitter_card: summary
+    title_suffix: " - (Websité Exemple)"
+    twitter_account: 
+    facebook_page_url: 
+  zh: 
+  ar: 
+  es: 
+  hi: 
+  ru: 
+  pt: 
+  bn: 
+favicon: '289892'
+no_index: true
+ssg: jekyll
+frontend_url: http://exemplary.netlify.com
+imgix_host: www.datocms-assets.com
+last_data_change_at: '2019-02-12T15:31:37.803Z'
+last_dump_at: '2018-05-10T13:36:22.913Z'
+items_count: 46
+account: '2327'
+deployment_environments:
+- '752'
+active_plan: '1'
+menu_items:
+- '51898'
+- '13929'
+- '13931'
+- '13930'
+- '19235'
+- '13928'
+users: []
+item_types:
+- '61191'
+- '35642'
+- '13415'
+- '19057'
+- '22475'
+- '19058'
+- '13416'
+- '36059'
+- '14343'
+- '13414'
+- '13417'
+roles:
+- '4714'
+- '4715'

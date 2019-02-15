@@ -1,0 +1,78 @@
+---
+'659996':
+  Category:
+    :slug: cooking
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Cooking"=>{"description"=>"Yum yum!", "parent"=>"659995", "subcategories"=>nil}}'
+'659995':
+  Category:
+    :slug: non-fiction
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Non-Fiction"=>{"description"=>"Here are the facts.", "parent"=>"659990",
+      "subcategories"=>nil}}'
+'659994':
+  Category:
+    :slug: crime
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Crime"=>{"description"=>"Whodunnit?!", "parent"=>"659992", "subcategories"=>nil}}'
+'659991':
+  Category:
+    :slug: mystery
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Mystery"=>{"description"=>"Ooooooh?", "parent"=>"659992", "subcategories"=>nil}}'
+'659992':
+  Category:
+    :slug: fiction
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Fiction"=>{"description"=>"Get lost in something made up and pointless.",
+      "parent"=>"659990", "subcategories"=>nil}}'
+'659990':
+  Category:
+    :slug: books
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Books"=>{"description"=>"Get reading today!", "parent"=>nil, "subcategories"=>nil}}'
+'659989':
+  Category:
+    :slug: womens
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Womens"=>{"description"=>"Delicate as dandelions.", "parent"=>"659987",
+      "subcategories"=>nil}}'
+'659988':
+  Category:
+    :slug: mens
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Mens"=>{"description"=>"Gruff and masculine.", "parent"=>"659987",
+      "subcategories"=>nil}}'
+'659987':
+  Category:
+    :slug: clothes
+    :file:
+      :path: _data/
+      :name: categoriesyml
+      :type: json
+    :content: '{"Clothes"=>{"description"=>"All the clothes you could ever want!",
+      "parent"=>nil, "subcategories"=>nil}}'

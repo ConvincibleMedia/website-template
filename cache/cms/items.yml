@@ -1,0 +1,1120 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86955'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.420+01:00'
+    updated_at: '2019-02-12T15:31:37.761+00:00'
+    published_at: '2019-02-12T15:31:37.785+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  intro: "<p><strong>Exemplary</strong> Groceries delivers the finest local produce
+    to individuals and businesses in the area.</p>"
+  video: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    url: https://www.youtube.com/watch?v=wSf1BDTCorU
+    title: Early Morning Vegetables Market | Amazing Fresh Vegetables Available Bengali
+      Market
+    width: 480
+    height: 270
+    provider: youtube
+    provider_uid: wSf1BDTCorU
+    thumbnail_url: https://i.ytimg.com/vi/wSf1BDTCorU/hqdefault.jpg
+  seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    image: '289892'
+    title: Exemplary Groceries Home Page
+    description: Exemplary Groceries delivers the finest local produce to individuals
+      and businesses in the area.
+    twitter_card: summary
+  form: "<form id=\"myForm\" action=\"#\" method=\"post\">\n\n\t<div>\n\t\t<label
+    for=\"name\">Text Input:</label>\n\t\t<input type=\"text\" name=\"name\" id=\"name\"
+    value=\"\" tabindex=\"1\" placeholder=\"Email\">\n\t</div>\n\n\t<div>\n\t\t<h4>Radio
+    Button Choice</h4>\n\n\t\t<fieldset>\n\n\t\t\t<div class=\"field\">\n\t\t\t\t<input
+    type=\"radio\" name=\"radio-choice\" id=\"radio-choice-1\" tabindex=\"2\" value=\"choice-1\">\n\t\t\t\t<label
+    for=\"radio-choice-1\">Choice 1</label>\n\t\t\t</div>\n\t\t\t<div class=\"field\">\n\t\t\t\t<input
+    type=\"radio\" name=\"radio-choice\" id=\"radio-choice-1a\" tabindex=\"2\" value=\"choice-1a\">\n\t\t\t\t<label
+    for=\"radio-choice-1a\">Choice 1a</label>\n\t\t\t</div>\n\t\t\t<div class=\"field\">\n\t\t\t\t<input
+    type=\"radio\" name=\"radio-choice\" id=\"radio-choice-2\" tabindex=\"3\" value=\"choice-2\"
+    disabled>\n\t\t\t\t<label for=\"radio-choice-2\" disabled=\"disabled\">Choice
+    2 is a complex and confusing option that frankly shouldn't really be included
+    because it will only confuse the poor users.</label>\n\t\t\t</div>\n\t\t</fieldset>\n\n\t</div>\n\n\t<div>\n\t\t<label
+    for=\"select-choice\">Select Dropdown Choice:</label>\n\t\t<select name=\"select-choice\"
+    id=\"select-choice\">\n      <option value=\"Choice 1\">Choice 1</option>\n      <option
+    value=\"Choice 2\">Choice 2</option>\n      <option value=\"Choice 3\">Choice
+    3</option>\n    </select>\n\t</div>\n\n\t<div>\n\t\t<label for=\"textarea\">Textarea:</label>\n\t\t<textarea
+    cols=\"40\" rows=\"8\" name=\"textarea\" id=\"textarea\" disabled></textarea>\n\t</div>\n\n\t<div>\n\t\t<fieldset>\n\t\t\t<legend>Consent</legend>\n\t\t\t<div
+    class=\"field\">\n\t\t\t\t<input type=\"checkbox\" name=\"checkbox\" id=\"checkbox\">\n\t\t\t\t<label
+    for=\"checkbox\">Checkbox</label>\n\t\t\t</div>\n\t\t</fieldset>\n\t</div>\n\n\t<div>\n\t\t<input
+    type=\"submit\" value=\"Submit\">\n\t</div>\n\n</form>"
+  updated_at: '2019-02-12T15:31:37.761+00:00'
+  created_at: '2017-08-16T17:20:02.420+01:00'
+  item_type: '13414'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659996'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:55:05.288+00:00'
+    updated_at: '2019-02-03T14:57:11.153+00:00'
+    published_at: '2019-02-03T14:57:11.194+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Cooking
+  description: Yum yum!
+  updated_at: '2019-02-03T14:57:11.153+00:00'
+  created_at: '2019-02-03T14:55:05.288+00:00'
+  position: 0
+  parent_id: '659995'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659995'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:59.643+00:00'
+    updated_at: '2019-02-03T14:57:04.059+00:00'
+    published_at: '2019-02-03T14:57:04.129+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Non-Fiction
+  description: Here are the facts.
+  updated_at: '2019-02-03T14:57:04.059+00:00'
+  created_at: '2019-02-03T14:54:59.643+00:00'
+  position: 1
+  parent_id: '659990'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659994'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:52.757+00:00'
+    updated_at: '2019-02-03T14:56:51.260+00:00'
+    published_at: '2019-02-03T14:56:51.324+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Crime
+  description: Whodunnit?!
+  updated_at: '2019-02-03T14:56:51.260+00:00'
+  created_at: '2019-02-03T14:54:52.757+00:00'
+  position: 1
+  parent_id: '659992'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659991'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:41.205+00:00'
+    updated_at: '2019-02-03T14:56:45.208+00:00'
+    published_at: '2019-02-03T14:56:45.243+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Mystery
+  description: Ooooooh?
+  updated_at: '2019-02-03T14:56:45.208+00:00'
+  created_at: '2019-02-03T14:54:41.205+00:00'
+  position: 0
+  parent_id: '659992'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659992'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:46.440+00:00'
+    updated_at: '2019-02-03T14:56:36.896+00:00'
+    published_at: '2019-02-03T14:56:36.950+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Fiction
+  description: Get lost in something made up and pointless.
+  updated_at: '2019-02-03T14:56:36.896+00:00'
+  created_at: '2019-02-03T14:54:46.440+00:00'
+  position: 0
+  parent_id: '659990'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659990'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:36.072+00:00'
+    updated_at: '2019-02-03T14:56:25.216+00:00'
+    published_at: '2019-02-03T14:56:25.267+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Books
+  description: Get reading today!
+  updated_at: '2019-02-03T14:56:25.216+00:00'
+  created_at: '2019-02-03T14:54:36.072+00:00'
+  position: 2
+  parent_id: 
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659989'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:31.708+00:00'
+    updated_at: '2019-02-03T14:56:17.441+00:00'
+    published_at: '2019-02-03T14:56:17.505+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Womens
+  description: Delicate as dandelions.
+  updated_at: '2019-02-03T14:56:17.441+00:00'
+  created_at: '2019-02-03T14:54:31.708+00:00'
+  position: 1
+  parent_id: '659987'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659988'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:22.474+00:00'
+    updated_at: '2019-02-03T14:56:07.554+00:00'
+    published_at: '2019-02-03T14:56:07.603+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Mens
+  description: Gruff and masculine.
+  updated_at: '2019-02-03T14:56:07.554+00:00'
+  created_at: '2019-02-03T14:54:22.474+00:00'
+  position: 0
+  parent_id: '659987'
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659987'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T14:54:16.750+00:00'
+    updated_at: '2019-02-03T14:55:59.890+00:00'
+    published_at: '2019-02-03T14:55:59.924+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  name: Clothes
+  description: All the clothes you could ever want!
+  updated_at: '2019-02-03T14:55:59.890+00:00'
+  created_at: '2019-02-03T14:54:16.750+00:00'
+  position: 1
+  parent_id: 
+  item_type: '61191'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '323915'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-27T21:15:33.451+01:00'
+    updated_at: '2019-02-03T11:56:24.742+00:00'
+    published_at: '2019-02-03T11:56:24.794+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: fgff
+    fr: ''
+    zh: ''
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: fgff
+    fr: 
+    zh: 
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: 
+    fr: 
+    zh: 
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: ''
+    fr: ''
+    zh: ''
+  sources: []
+  updated_at: '2019-02-03T11:56:24.742+00:00'
+  created_at: '2018-06-27T21:15:33.451+01:00'
+  position: 3
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '659912'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2019-02-03T11:25:29.193+00:00'
+    updated_at: '2019-02-03T11:25:41.826+00:00'
+    published_at: '2019-02-03T11:25:41.863+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: arabic
+    en: new
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: arabic
+    en: new
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: 
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: ''
+  sources: []
+  updated_at: '2019-02-03T11:25:41.826+00:00'
+  created_at: '2019-02-03T11:25:29.193+00:00'
+  position: 6
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '323917'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-27T21:16:28.825+01:00'
+    updated_at: '2018-12-13T14:29:28.053+00:00'
+    published_at: '2018-12-13T14:29:28.092+00:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: fgf
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: fgf
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: 
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: ''
+  sources: []
+  updated_at: '2018-12-13T14:29:28.053+00:00'
+  created_at: '2018-06-27T21:16:28.825+01:00'
+  position: 1
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318492'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T22:51:16.563+01:00'
+    updated_at: '2018-06-29T18:33:53.504+01:00'
+    published_at: '2018-06-29T18:33:53.513+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: Contact
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en:
+    - '325660'
+  publish_date: 
+  updated_at: '2018-06-29T18:33:53.504+01:00'
+  created_at: '2018-06-20T22:51:16.563+01:00'
+  position: 2
+  parent_id: 
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '325660'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-29T15:16:02.706+01:00'
+    updated_at: '2018-06-29T18:33:52.885+01:00'
+    published_at: '2018-06-29T18:33:52.892+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: You can contact us... if you like.
+  updated_at: '2018-06-29T18:33:52.885+01:00'
+  created_at: '2018-06-29T15:16:02.706+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318491'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T22:51:01.672+01:00'
+    updated_at: '2018-06-29T18:33:40.052+01:00'
+    published_at: '2018-06-29T18:33:40.093+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: Level 2
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: []
+  publish_date: 
+  updated_at: '2018-06-29T18:33:40.052+01:00'
+  created_at: '2018-06-20T22:51:01.672+01:00'
+  position: 1
+  parent_id: '86956'
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318489'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T22:50:37.742+01:00'
+    updated_at: '2018-06-29T18:33:26.797+01:00'
+    published_at: '2018-06-29T18:33:26.851+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: Level 3
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en:
+    - '325793'
+  publish_date: 
+  updated_at: '2018-06-29T18:33:26.797+01:00'
+  created_at: '2018-06-20T22:50:37.742+01:00'
+  position: 0
+  parent_id: '313873'
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '325793'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-29T18:06:24.910+01:00'
+    updated_at: '2018-06-29T18:33:25.604+01:00'
+    published_at: '2018-06-29T18:33:25.639+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  gallery:
+  - '280676'
+  opening: 
+  featured: true
+  updated_at: '2018-06-29T18:33:25.604+01:00'
+  created_at: '2018-06-29T18:06:24.910+01:00'
+  item_type: '36059'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318490'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T22:50:47.379+01:00'
+    updated_at: '2018-06-29T18:33:11.961+01:00'
+    published_at: '2018-06-29T18:33:12.000+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: Level 4
+    fr: Levelé le Quatre
+    zh: Level 4 LA!
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: []
+    fr:
+    - '325794'
+    zh:
+    - '325711'
+  publish_date: 
+  updated_at: '2018-06-29T18:33:11.961+01:00'
+  created_at: '2018-06-20T22:50:47.379+01:00'
+  position: 0
+  parent_id: '318489'
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '325711'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-29T16:52:16.960+01:00'
+    updated_at: '2018-06-29T18:33:11.058+01:00'
+    published_at: '2018-06-29T18:33:11.082+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: This is Chinese LEvel 4.
+  updated_at: '2018-06-29T18:33:11.058+01:00'
+  created_at: '2018-06-29T16:52:16.960+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '325794'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-29T18:06:42.672+01:00'
+    updated_at: '2018-06-29T18:33:10.834+01:00'
+    published_at: '2018-06-29T18:33:10.843+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: Frnech level 4
+  updated_at: '2018-06-29T18:33:10.834+01:00'
+  created_at: '2018-06-29T18:06:42.672+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86956'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.579+01:00'
+    updated_at: '2018-06-29T18:32:43.285+01:00'
+    published_at: '2018-06-29T18:32:43.298+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en: About
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    en:
+    - '318476'
+    - '318477'
+    - '318478'
+  publish_date: '2018-06-01T16:05:00+01:00'
+  updated_at: '2018-06-29T18:32:43.285+01:00'
+  created_at: '2017-08-16T17:20:02.579+01:00'
+  position: 1
+  parent_id: 
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318478'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:44:12.127+01:00'
+    updated_at: '2018-06-29T18:32:42.650+01:00'
+    published_at: '2018-06-29T18:32:42.668+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  article: '275598'
+  location: 
+  updated_at: '2018-06-29T18:32:42.650+01:00'
+  created_at: '2018-06-20T21:44:12.127+01:00'
+  item_type: '22475'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318477'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:44:12.045+01:00'
+    updated_at: '2018-06-29T18:32:42.405+01:00'
+    published_at: '2018-06-29T18:32:42.468+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  gallery:
+  - '280685'
+  - '280681'
+  opening: '2018-06-20'
+  featured: true
+  updated_at: '2018-06-29T18:32:42.405+01:00'
+  created_at: '2018-06-20T21:44:12.045+01:00'
+  item_type: '36059'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318476'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:44:12.024+01:00'
+    updated_at: '2018-06-29T18:32:42.370+01:00'
+    published_at: '2018-06-29T18:32:42.376+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: Discover the wonders of this place.
+  updated_at: '2018-06-29T18:32:42.370+01:00'
+  created_at: '2018-06-20T21:44:12.024+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '313873'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-14T15:48:21.715+01:00'
+    updated_at: '2018-06-29T18:31:58.050+01:00'
+    published_at: '2018-06-29T18:31:58.078+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: Backgroundalahu
+    en: Background
+    fr: Backgroundiere
+    zh: Background-la!
+  text: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar:
+    - '318483'
+    en:
+    - '318479'
+    - '318480'
+    fr:
+    - '318481'
+    zh:
+    - '318482'
+  publish_date: 
+  updated_at: '2018-06-29T18:31:58.050+01:00'
+  created_at: '2018-06-14T15:48:21.715+01:00'
+  position: 0
+  parent_id: '86956'
+  item_type: '13415'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318483'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:46:51.877+01:00'
+    updated_at: '2018-06-29T18:31:57.416+01:00'
+    published_at: '2018-06-29T18:31:57.456+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  gallery:
+  - '312131'
+  opening: '2018-06-13'
+  featured: false
+  updated_at: '2018-06-29T18:31:57.416+01:00'
+  created_at: '2018-06-20T21:46:51.877+01:00'
+  item_type: '36059'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318482'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:46:35.950+01:00'
+    updated_at: '2018-06-29T18:31:57.229+01:00'
+    published_at: '2018-06-29T18:31:57.242+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  quote: Wise man is wise.
+  author: Confucius
+  updated_at: '2018-06-29T18:31:57.229+01:00'
+  created_at: '2018-06-20T21:46:35.950+01:00'
+  item_type: '14343'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318481'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:46:35.869+01:00'
+    updated_at: '2018-06-29T18:31:57.225+01:00'
+    published_at: '2018-06-29T18:31:57.234+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: Je suis Francais! Et puis!
+  updated_at: '2018-06-29T18:31:57.225+01:00'
+  created_at: '2018-06-20T21:46:35.869+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318480'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:45:38.613+01:00'
+    updated_at: '2018-06-29T18:31:57.127+01:00'
+    published_at: '2018-06-29T18:31:57.134+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  text: So began a great story!
+  updated_at: '2018-06-29T18:31:57.127+01:00'
+  created_at: '2018-06-20T21:45:38.613+01:00'
+  item_type: '19058'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '318479'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-20T21:45:38.524+01:00'
+    updated_at: '2018-06-29T18:31:57.114+01:00'
+    published_at: '2018-06-29T18:31:57.123+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  quote: Veni, vidi, vici!
+  author: Julius Caesar
+  updated_at: '2018-06-29T18:31:57.114+01:00'
+  created_at: '2018-06-20T21:45:38.524+01:00'
+  item_type: '14343'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '323916'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-27T21:16:22.118+01:00'
+    updated_at: '2018-06-27T21:16:22.128+01:00'
+    published_at: '2018-06-27T21:16:22.128+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: dfvfv
+    fr: ''
+    zh: ''
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: dfvfv
+    fr: 
+    zh: 
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: 
+    fr: 
+    zh: 
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: ''
+    fr: ''
+    zh: ''
+  sources: []
+  updated_at: '2018-06-27T21:16:22.128+01:00'
+  created_at: '2018-06-27T21:16:22.118+01:00'
+  position: 2
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86973'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:03.033+01:00'
+    updated_at: '2018-06-20T15:46:08.292+01:00'
+    published_at: '2018-06-20T15:46:08.337+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Peaches
+  image: '280675'
+  description: |-
+    <p>The peach (<a href="1">Prunus persica</a>) is a deciduous tree native to the region of <a href="@1">Northwest China</a> between the Tarim Basin and the north slopes of the <a href="websites">Kunlun Mountains</a>, where it was first domesticated and cultivated. It bears an <a href="/websites">edible juicy fruit</a> called a peach or a <a href="./websites">nectarine</a>.</p>
+    <h1>Paste!</h1>
+    <div class="gel-layout__item nw-c-top-stories__primary-item gel-3/4@l gel-3/4@xxl nw-o-keyline nw-o-no-keyline@m">
+    <div class="nw-c-top-stories-primary__story gel-layout gs-u-pb gs-u-pb0@m">
+    <div class="gs-c-promo nw-c-promo gs-o-faux-block-link gs-u-pb gs-u-pb+@m nw-p-default gs-u-display-inline-block gs-u-clearfix gs-u-float-right@m gs-u-ml0 gs-c-promo--flex" data-entityid="container-top-stories#1">
+    <div class="gs-c-promo-body gs-u-display-inline-block gs-u-mt@xs gs-u-mt0@m gel-1/3@m">
+    <div>
+    <h3 class="gs-c-promo-heading__title gel-paragon-bold nw-o-link-split__text">Hospital drugs left 456 patients dead</h3>
+    <p class="gs-c-promo-summary gel-long-primer gs-u-mt nw-c-promo-summary">There was "disregard for human life" in prescribing drugs at the Gosport hospital, a report finds.</p>
+    </div>
+    <ul class="gs-o-list-inline gs-o-list-inline--divided gel-brevier gs-u-mt-">
+    <li class="nw-c-promo-meta"><span class="gs-c-timestamp gs-o-bullet gs-o-bullet- nw-c-timestamp"><time class="gs-o-bullet__text date qa-status-date" datetime="2018-06-20T14:30:45.000Z" data-seconds="1529505045" data-datetime="13m"><span class="qa-status-date-output" aria-hidden="true">13m</span><span class="gs-u-vh">14 minutes ago</span></time></span></li>
+    <li class="nw-c-promo-meta"><a class="gs-c-section-link gs-c-section-link--truncate nw-c-section-link nw-o-link nw-o-link--no-visited-state" href="https://www.bbc.co.uk/news/england" target="_self" aria-label="From England" data-ss1529505909="1"><span aria-hidden="true">England</span></a></li>
+    </ul>
+    </div>
+    <div class="gel-layout__item gs-u-mt-alt gel-1/3@l">
+    <div class="nw-o-keyline0@m nw-o-no-keyline@l">
+    <div class="nw-c-top-stories-primary__related-content gs-u-pb-alt@m gs-u-pb0@l">
+    <h4 class="gs-u-vh">Related content</h4>
+    <ul class="gel-layout">
+    <li class="nw-c-related-story nw-c-related-story--1 gel-1/1@xs gel-1/3@m gel-1/1@l"><span class="nw-o-bullet+ gel-brevier-bold"><a class="gel-layout__item nw-o-link-split__anchor gs-u-pt- gs-u-pb- gs-u-display-block" href="https://www.bbc.co.uk/news/uk-england-hampshire-44547471" target="_self" data-ss1529505909="1"><span class="nw-o-bullet__text"><span class="nw-o-link-split__text gs-u-align-bottom">Jane Barton, the doctor who shortened lives</span></span></a></span></li>
+    <li class="nw-c-related-story nw-c-related-story--2 gel-1/1@xs gel-1/3@m gel-1/1@l"><span class="nw-o-bullet+ gel-brevier-bold"><a class="gel-layout__item nw-o-link-split__anchor gs-u-pt- gs-u-pb- gs-u-display-block" href="https://www.bbc.co.uk/news/health-44550913" target="_self" data-ss1529505909="1"><span class="nw-o-bullet__text"><span class="nw-o-link-split__text gs-u-align-bottom">The scandals that haunt the NHS</span></span></a></span></li>
+    <li class="nw-c-related-story nw-c-related-story--3 gel-1/1@xs gel-1/3@m gel-1/1@l"><span class="nw-o-bullet+ gel-brevier-bold"><a class="gel-layout__item nw-o-link-split__anchor gs-u-pt- gs-u-pb- gs-u-display-block" href="https://www.bbc.co.uk/news/uk-politics-44542622" target="_self" data-ss1529505909="1"><span class="nw-o-bullet__text"><span class="nw-o-link-split__text gs-u-align-bottom">NHS 'closed ranks' over deaths</span></span></a></span></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="gel-layout__item nw-c-top-stories__secondary-item nw-c-top-stories__secondary-item--1 gel-1/3@m gel-1/4@l nw-o-keyline nw-o-no-keyline@m">
+    <div class="gs-c-promo lx-c-dynamic-promo lx-c-dynamic-promo--secondary gs-o-faux-block-link gs-u-align-left gs-u-ml0 gs-t-news lx-c-dynamic-promo--has-commentary nw-p-oat gs-u-mb gs-u-mb+@m gs-u-pt-alt gs-u-pb- gs-u-ph-alt gs-c-promo--flex lx-c-dynamic-promo--hover" data-mode="secondary">
+    <div class="gs-c-promo-body lx-c-dynamic-promo__body gs-u-p0">
+    <div class="lx-c-timeline gel-pica-bold">
+    <div class="gs-u-pb+ lx-c-timeline__item lx-c-timeline__item--first">
+    <div><a class="gel-pica-bold nw-o-link-split__anchor lx-c-dynamic-promo__link gs-u-display-block qa-promo-title" href="https://www.bbc.co.uk/news/live/uk-england-hampshire-44546520" target="_self" data-ss1529505909="1"><span class="gs-c-live-pulse gs-o-bullet gs-o-bullet- gs-c-live-pulse--news lx-c-dynamic-promo__pulse gs-u-mr gel-1/1"><span class="gs-o-bullet__text qa-live-pulse-text">LIVE</span></span></a>
+    <h3 class="gel-pica-bold nw-o-link-split__text lx-c-dynamic-promo__title">Reaction to hospital deaths report</h3>
+    <a class="gel-pica-bold nw-o-link-split__anchor lx-c-dynamic-promo__link gs-u-display-block qa-promo-title" href="https://www.bbc.co.uk/news/live/uk-england-hampshire-44546520" target="_self" data-ss1529505909="1"><span class="gs-u-vh">Last updated 5 minutes ago</span></a></div>
+    </div>
+    <h4 class="gs-u-vh qa-timeline-hidden-heading">Most recent posts</h4>
+    <ol class="lx-c-timeline__list">
+    <li id="lx-c-timeline__item--0" class="lx-c-timeline__item qa-timeline-item gs-o-media gs-u-pb gs-u-pb-alt@l">
+    <div class="gs-u-mr- gs-o-media__img lx-c-timeline__keypoint">
+    <div class="lx-c-timeline__keypoint-icon">&nbsp;</div>
+    </div>
+    <div class="gs-o-media__body gel-long-primer lx-c-timeline__body"><span class="gs-u-vh qa-promo-item-heading">5 minutes ago Campaigner says the 15 strongest cases will have to be taken to court</span><time class="lx-c-timeline__heading-timestamp gs-u-mr" aria-hidden="true">5m</time><span class="lx-c-timeline__heading-text qa-item-heading-text" aria-hidden="true">Campaigner says the 15 strongest cases will have to be taken to court</span></div>
+    </li>
+    <li id="lx-c-timeline__item--1" class="lx-c-timeline__item qa-timeline-item gs-o-media gs-u-pb gs-u-pb-alt@l">
+    <div class="gs-u-mr- gs-o-media__img lx-c-timeline__keypoint">
+    <div class="lx-c-timeline__keypoint-icon">&nbsp;</div>
+    </div>
+    <div class="gs-o-media__body gel-long-primer lx-c-timeline__body"><span class="gs-u-vh qa-promo-item-heading">20 minutes ago Son of hospital victim says 'something has to come of this'</span><time class="lx-c-timeline__heading-timestamp gs-u-mr" aria-hidden="true">20m</time><span class="lx-c-timeline__heading-text qa-item-heading-text" aria-hidden="true">Son of hospital victim says 'something has to come of this'</span></div>
+    </li>
+    <li id="lx-c-timeline__item--2" class="lx-c-timeline__item qa-timeline-item gs-o-media gs-u-pb gs-u-pb-alt@l">
+    <div class="gs-u-mr- gs-o-media__img lx-c-timeline__keypoint">
+    <div class="lx-c-timeline__keypoint-icon">&nbsp;</div>
+    </div>
+    <div class="gs-o-media__body gel-long-primer lx-c-timeline__body"><span class="gs-u-vh qa-promo-item-heading">29 minutes ago The scandals that haunt the NHS</span><time class="lx-c-timeline__heading-timestamp gs-u-mr" aria-hidden="true">29m</time><span class="lx-c-timeline__heading-text qa-item-heading-text" aria-hidden="true">The scandals that haunt the NHS</span></div>
+    </li>
+    </ol>
+    </div>
+    </div>
+    </div>
+    </div>
+  gallery:
+  - '280676'
+  - '280677'
+  origin: 
+  colour_scheme: 
+  available: 
+  price: 
+  slug: 
+  updated_at: '2018-06-20T15:46:08.292+01:00'
+  created_at: '2017-08-16T17:20:03.033+01:00'
+  position: 3
+  item_type: '13417'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86965'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.824+01:00'
+    updated_at: '2018-06-20T13:00:30.182+01:00'
+    published_at: '2018-06-20T13:00:30.222+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Raspberries
+  image: '280680'
+  description: |-
+    <p>The raspberry is the edible fruit of a multitude of plant species in the genus Rubus of the rose family, most of which are in the subgenus Idaeobatus; the name also applies to these plants themselves. Raspberries are perennial with woody stems.</p>
+    <p>(1) =&nbsp;<img src="(1)" /></p>
+    <p>30... (rel) =&nbsp;<img src="3015/1525263169-peach.jpg" /></p>
+    <p>placekitten.com/50/50&nbsp;<img src="placekitten.com/50/50" /></p>
+    <p>https://placekitten.com/50/50&nbsp;<img src="https://placekitten.com/50/50" /></p>
+  gallery:
+  - '280681'
+  - '280682'
+  origin: 
+  colour_scheme: 
+  available: 
+  price: 
+  slug: 
+  updated_at: '2018-06-20T13:00:30.182+01:00'
+  created_at: '2017-08-16T17:20:02.824+01:00'
+  position: 4
+  item_type: '13417'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '275949'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-05-02T13:17:18.785+01:00'
+    updated_at: '2018-06-19T18:12:14.150+01:00'
+    published_at: '2018-06-19T18:12:14.218+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: All about the humble Orange
+    fr: Tout sur l'humble Orange
+    zh: 所有关于
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: orange-article
+    fr: oranges-en-france
+    zh: 
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: '280668'
+    fr: '280667'
+    zh: '280667'
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: ''
+    en: |-
+      <p>The orange is the fruit of the citrus species Citrus &times; sinensis in the family Rutaceae. It is also called sweet orange, to distinguish it from the related Citrus &times; aurantium, referred to as bitter orange. The sweet orange reproduces asexually (apomixis through nucellar embryony); varieties of sweet orange arise through mutations.</p>
+      <p>The orange is a hybrid between pomelo (Citrus maxima) and mandarin (Citrus reticulata). The chloroplast genome, and therefore the maternal line, is that of pomelo. The sweet orange has had its full genome sequenced.</p>
+      <p>Sweet oranges were mentioned in Chinese literature in 314 BC. As of 1987, orange trees were found to be the most cultivated fruit tree in the world. Orange trees are widely grown in tropical and subtropical climates for their sweet fruit. The fruit of the orange tree can be eaten fresh, or processed for its juice or fragrant peel. As of 2012, sweet oranges accounted for approximately 70% of citrus production.</p>
+      <p>In 2014, 70.9 million tonnes of oranges were grown worldwide, with Brazil producing 24% of the world total followed by China and India.</p>
+    fr: |-
+      <p>L'orange est le fruit de l'agrume Citrus &times; sinensis de la famille des Rutac&eacute;es. Il est &eacute;galement appel&eacute; orange douce, pour le distinguer du Citrus &times; aurantium, appel&eacute; orange am&egrave;re. L'orange douce se reproduit asexuellement (apomixie &agrave; travers l'embryon nucellaire); vari&eacute;t&eacute;s de l'orange douce surgissent par des mutations.</p>
+      <p>L'orange est un hybride entre le pomelo (Citrus maxima) et la mandarine (Citrus reticulata). Le g&eacute;nome chloroplastique, et donc la lign&eacute;e maternelle, est celui du pomelo. L'orange douce a eu son g&eacute;nome complet s&eacute;quenc&eacute;.</p>
+      <p>Les oranges douces ont &eacute;t&eacute; mentionn&eacute;es dans la litt&eacute;rature chinoise en 314 av. En 1987, les orangers &eacute;taient l'arbre fruitier le plus cultiv&eacute; au monde. Les orangers sont largement cultiv&eacute;s dans les climats tropicaux et subtropicaux pour leurs fruits doux. Le fruit de l'oranger peut &ecirc;tre consomm&eacute; frais, ou transform&eacute; pour son jus ou sa pelure parfum&eacute;e. En 2012, les oranges douces repr&eacute;sentaient environ 70% de la production d'agrumes.</p>
+      <p>En 2014, 70,9 millions de tonnes d'oranges ont &eacute;t&eacute; cultiv&eacute;es dans le monde, le Br&eacute;sil repr&eacute;sentant 24% du total mondial, suivi de la Chine et de l'Inde.</p>
+    zh: ''
+  sources:
+  - '313875'
+  - '313876'
+  updated_at: '2018-06-19T18:12:14.150+01:00'
+  created_at: '2018-05-02T13:17:18.785+01:00'
+  position: 4
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '313876'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-14T15:49:12.409+01:00'
+    updated_at: '2018-06-19T18:12:13.644+01:00'
+    published_at: '2018-06-19T18:12:13.651+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Journal of Oranges
+  author: Mrs Orange
+  url: http://www.oranges.co.uk
+  updated_at: '2018-06-19T18:12:13.644+01:00'
+  created_at: '2018-06-14T15:49:12.409+01:00'
+  item_type: '35642'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '313875'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-14T15:49:12.339+01:00'
+    updated_at: '2018-06-19T18:12:13.638+01:00'
+    published_at: '2018-06-19T18:12:13.645+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Orange Journal
+  author: Mr Oranges
+  url: http://www.oranges.com
+  updated_at: '2018-06-19T18:12:13.638+01:00'
+  created_at: '2018-06-14T15:49:12.339+01:00'
+  item_type: '35642'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '275598'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-05-02T00:02:26.392+01:00'
+    updated_at: '2018-06-19T18:12:03.978+01:00'
+    published_at: '2018-06-19T18:12:04.037+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: كل شيء عن الطماطم المتواضعة
+    en: All about the humble Tomato
+    fr: ''
+    zh: 所有关于谦逊的番茄
+  slug: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: amahu-alahu-kalahu
+    en: 
+    fr: 
+    zh: wing-wang-wong
+  image: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: 
+    en: '280686'
+    fr: 
+    zh: 
+  body: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    ar: |-
+      <p>الطماطم هي الصالحة للأكل ، وغالبا ما تكون حمراء ، والفاكهة / التوت من نبات Solanum lycopersicum ، المعروف باسم نبات الطماطم. المصنع ينتمي إلى عائلة الباذنجان ، Solanaceae. الأنواع نشأت في غرب أمريكا الجنوبية. نمت كلمة الطماطم الناواتل (لغة الأزتك) إلى الكلمة الإسبانية "تومات" ، التي اشتقت منها الكلمة الإنجليزية الطماطم.</p>
+      <p>قد يكون استخدامه كغذاء مزروع قد نشأ مع الشعوب الأصلية في المكسيك. اكتشف الأسبان الطماطم من اتصالهم مع شعوب الأزتك خلال الاستعمار الأسباني للأمريكتين ، ثم جلبوها إلى أوروبا ، ومن هناك إلى أجزاء أخرى من العالم الأوروبي المستعمر خلال القرن السادس عشر.</p>
+      <p>يتم استهلاك الطماطم بطرق متنوعة ، بما في ذلك الخام ، كمكون في العديد من الأطباق والصلصات والسلطات والمشروبات. في حين أن الطماطم (البندورة) هي ثمار من نوع bryanically berry ، فإنها تعتبر خضراوات طهي كعنصر مكون أو جانبي للوجبات اللذيذة. تزرع على نطاق واسع أنواع عديدة من الطماطم في المناخات المعتدلة في جميع أنحاء العالم ، مع البيوت المحمية السماح لها على مدار السنة.</p>
+      <p>تنمو النباتات بشكل نموذجي إلى 1 - 3 أمتار (3 - 10 قدم) في الارتفاع ولها جذع ضعيف يمتد. هو دائم في موطنه الأصلي ، وتزرع سنويا. يختلف حجم الثمار باختلاف الصنف ، مع نطاق عرض يتراوح بين 0.5 و 4 بوصات (1.3-10.2 سم).</p>
+    en: |-
+      <p>The tomato is the edible, often red, fruit/berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The plant belongs to the nightshade family, Solanaceae. The species originated in western South America. The Nahuatl (Aztec language) word tomatl gave rise to the Spanish word "tomate", from which the English word tomato derived.</p>
+      <p>Its use as a cultivated food may have originated with the indigenous peoples of M&eacute;xico. The Spanish discovered the tomato from their contact with the Aztec peoples during the Spanish colonization of the Americas, then brought it to Europe, and, from there, to other parts of the European colonized world during the 16th century.</p>
+      <p>Tomato is consumed in diverse ways, including raw, as an ingredient in many dishes, sauces, salads, and drinks. While tomatoes are botanically berry-type fruits, they are considered culinary vegetables as an ingredient or side dish for savory meals. Numerous varieties of tomato are widely grown in temperate climates across the world, with greenhouses allowing its production throughout the year.</p>
+      <p>The plants typically grow to 1&ndash;3 meters (3&ndash;10 ft) in height and have a weak stem that sprawls. It is a perennial in its native habitat, and cultivated as an annual. Fruit size varies according to cultivar, with a width range of 0.5&ndash;4 inches (1.3&ndash;10.2 cm).</p>
+    fr: ''
+    zh: |-
+      <p>番茄是通常称为番茄植物的茄属植物番茄（Solanum lycopersicum）的可食用的，通常是红色的果实/浆果。该植物属于茄科Solanaceae。该物种起源于南美洲西部。 Nahuatl（阿兹台克语）词tomatl引起了西班牙语单词&ldquo;tomate&rdquo;，从中衍生出英文单词番茄。</p>
+      <p>它作为栽培食品的用途可能源于墨西哥的土着人民。在西班牙殖民时期，西班牙人在西班牙殖民时期发现了番茄与阿兹特克人的接触，然后将其带到欧洲，并在16世纪将其带到欧洲殖民世界的其他地区。</p>
+      <p>番茄以不同的方式食用，包括生食，作为许多菜肴，酱料，沙拉和饮料的一种成分。虽然西红柿是植物浆果类水果，但它们被认为是烹饪蔬菜作为配料或配菜的美味佳肴。番茄种类繁多，遍布全球温带气候，温室全年生产。</p>
+      <p>这些植物通常长到1-3米（3-10英尺）高，并且具有较弱的茎蔓延。它是一个多年生的原生栖息地，每年培育一次。果实大小根据品种而不同，宽度范围为0.5-4英寸（1.3-10.2厘米）。</p>
+  sources:
+  - '313951'
+  updated_at: '2018-06-19T18:12:03.978+01:00'
+  created_at: '2018-05-02T00:02:26.392+01:00'
+  position: 5
+  parent_id: 
+  item_type: '19057'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '313951'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2018-06-14T16:26:53.224+01:00'
+    updated_at: '2018-06-19T18:12:03.365+01:00'
+    published_at: '2018-06-19T18:12:03.372+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Tomato Journal
+  author: ''
+  url: http://www.tomato.com
+  updated_at: '2018-06-19T18:12:03.365+01:00'
+  created_at: '2018-06-14T16:26:53.224+01:00'
+  item_type: '35642'
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86963'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.789+01:00'
+    updated_at: '2018-06-18T17:50:49.196+01:00'
+    published_at: '2018-06-18T17:50:49.300+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  title: Apricots
+  image: '280671'
+  description: |-
+    <p>An apricot is a fruit, or the <strong>tree</strong> that bears the fruit, of several <em>species</em> in the <span style="text-decoration: line-through;">genus</span> Prunus (<a href="https://en.wikipedia.org/wiki/Apricot">stone fruits</a>).</p>
+    <h2>Did you know?</h2>
+    <p>Usually, an apricot tree is from the species P. armeniaca, but the species:</p>
+    <ul>
+    <li>P. brigantina</li>
+    <li>P. mandshurica</li>
+    <li>P. mume</li>
+    <li>P. sibirica</li>
+    </ul>
+    <p>are closely related, have similar fruit, and are also called apricots.</p>
+    <blockquote>
+    <p>The scientific name armeniaca was first used by Gaspard Bauhin in his Pinax Theatri Botanici (1623), referring to the species as Mala armeniaca "Armenian apple".</p>
+    </blockquote>
+    <p>Linnaeus took up Bauhin's epithet in the first edition of his Species Plantarum in 1753, Prunus armeniaca.</p>
+    <p><img src="https://www.datocms-assets.com/3015/1525263196-peach-1.jpg" width="212" height="212" /></p>
+    <p>Apricot derives from praecocia (praecoquus) as "cooked or ripened beforehand" [in this case meaning early ripening], and from Greek &pi;&rho;&alpha;&iota;&kappa;ό&kappa;&iota;&omicron;&nu; (praik&oacute;kion) as "apricot".</p>
+    <p>The English name first appeared in the 16th century as abrecock from the Middle French aubercot or later abricot, from Catalan a(l)bercoc.</p>
+  gallery:
+  - '280672'
+  - '280673'
+  origin: 
+  colour_scheme: 
+  available: 
+  price: 
+  slug: 
+  updated_at: '2018-06-18T17:50:49.196+01:00'
+  created_at: '2017-08-16T17:20:02.789+01:00'
+  position: 2
+  item_type: '13417'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86959'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.676+01:00'
+    updated_at: '2018-06-14T16:24:43.563+01:00'
+    published_at: '2018-06-14T16:24:43.572+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  profile: Instagram
+  url: https://instagram.com/xxx/
+  config: "{\n\t\"a\": \"b\"\n}"
+  markdown: ''
+  updated_at: '2018-06-14T16:24:43.563+01:00'
+  created_at: '2017-08-16T17:20:02.676+01:00'
+  position: 2
+  item_type: '13416'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86957'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.644+01:00'
+    updated_at: '2018-06-14T16:23:40.450+01:00'
+    published_at: '2018-06-14T16:23:40.457+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  profile: Facebook
+  url: https://www.facebook.com/xxx
+  config: "{\n\t\"id\": \"275949\",\n\t\"createdAt\": \"2018-06-14T14:51:54.757Z\",\n\t\"updatedAt\":
+    \"2018-06-14T14:51:54.903Z\",\n\t\"isValid\": true,\n\t\"title\": {\n\t\t\"en\":
+    \"All about the humble Orange\",\n\t\t\"fr\": \"Tout sur l'humble Orange\"\n\t}\n}"
+  markdown: ''
+  updated_at: '2018-06-14T16:23:40.450+01:00'
+  created_at: '2017-08-16T17:20:02.644+01:00'
+  position: 1
+  item_type: '13416'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86971'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.985+01:00'
+    updated_at: '2018-06-14T15:47:21.954+01:00'
+    published_at: '2018-06-14T15:47:22.087+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: updated
+  title: Oranges
+  image: '280667'
+  description: "<p>The orange is the fruit of the citrus species Citrus &times; sinensis
+    in the family Rutaceae. It is also called sweet orange, to distinguish it from
+    the related Citrus &times; aurantium, referred to as bitter orange. The sweet
+    orange reproduces asexually (apomixis through nucellar embryony); varieties of
+    sweet orange arise through mutations.</p>"
+  gallery:
+  - '280668'
+  - '280669'
+  origin: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    latitude: 40.7449698
+    longitude: -73.99525519999997
+  colour_scheme: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 140
+    blue: 65
+    alpha: 255
+    green: 65
+  available: 25
+  price: 13.99
+  slug: oranges
+  updated_at: '2018-06-14T15:47:21.954+01:00'
+  created_at: '2017-08-16T17:20:02.985+01:00'
+  position: 1
+  item_type: '13417'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86961'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.755+01:00'
+    updated_at: '2018-05-02T13:18:51.171+01:00'
+    published_at: '2018-05-02T13:18:51.250+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: updated
+  title: Tomatoes
+  image: '280685'
+  description: <p>The tomato is the edible, often red, fruit/berry of the plant Solanum
+    lycopersicum, commonly known as a tomato plant. The plant belongs to the nightshade
+    family, Solanaceae. The species originated in western South America. The Nahuatl
+    (Aztec language) word tomatl gave rise to the Spanish word "tomate", from which
+    the English word tomato derived.</p>
+  gallery:
+  - '280686'
+  - '280687'
+  origin: 
+  colour_scheme: 
+  available: 
+  price: 
+  slug: 
+  updated_at: '2018-05-02T13:18:51.171+01:00'
+  created_at: '2017-08-16T17:20:02.755+01:00'
+  position: 5
+  item_type: '13417'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '86958'
+  meta: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    created_at: '2017-08-16T17:20:02.655+01:00'
+    updated_at: '2017-08-16T17:20:02.655+01:00'
+    published_at: '2017-08-16T17:20:03.370+01:00'
+    publication_scheduled_at: 
+    is_valid: true
+    status: published
+  profile: Twitter
+  url: https://twitter.com/xxx
+  config: 
+  markdown: ''
+  updated_at: '2017-08-16T17:20:02.655+01:00'
+  created_at: '2017-08-16T17:20:02.655+01:00'
+  position: 3
+  item_type: '13416'
+  creator: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account

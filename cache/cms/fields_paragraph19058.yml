@@ -1,0 +1,27 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  id: '137762'
+  label: Text
+  field_type: text
+  api_key: text
+  hint: 
+  localized: false
+  validators: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
+  position: 1
+  appeareance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    editor: markdown
+    parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      toolbar:
+      - heading
+      - bold
+      - italic
+      - strikethrough
+      - unordered_list
+      - ordered_list
+      - quote
+      - link
+      - image
+    addons: []
+    type: markdown
+  default_value: 
+  item_type: '19058'
